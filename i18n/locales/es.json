@@ -1,0 +1,21 @@
+{
+    "pages": {
+        "index": {
+            "hero": {
+                "tag": "ONG en Senegal",
+                "title": "Agua, escuelas y sanidad{br}para el Senegal rural",
+                "subtitle": "Trabajamos sobre todo con comunidades en Kédougou, Tambacounda y Louga para construir pozos, apoyar escuelas y gestionar centros de salud."
+            }
+        }
+    },
+    "components": {
+        "layouts": {
+            "AppFooterLayout": {
+                "brand": "ONG Senegal",
+                "brandDescription": "ONG que trabaja en Senegal desde 2018. Agua potable, escuelas y programas de salud.",
+                "contact": "Contacto",
+                "copyright": "© {year} ONG Senegal. Todos los derechos reservados."
+            }
+        }
+    }
+}

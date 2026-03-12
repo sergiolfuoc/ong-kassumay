@@ -1,0 +1,21 @@
+{
+    "pages": {
+        "index": {
+            "hero": {
+                "tag": "NGO in Senegal",
+                "title": "Water, schools and healthcare{br}for rural Senegal",
+                "subtitle": "We work with communities in Kédougou, Tambacounda and Louga to build wells, support schools and run health clinics."
+            }
+        }
+    },
+    "components": {
+        "layouts": {
+            "AppFooterLayout": {
+                "brand": "ONG Senegal",
+                "brandDescription": "NGO working in Senegal since 2018. Clean water, schools and health programs.",
+                "contact": "Contact",
+                "copyright": "© {year} ONG Senegal. All rights reserved."
+            }
+        }
+    }
+}

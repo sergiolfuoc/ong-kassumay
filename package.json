@@ -1,17 +1,28 @@
 {
-  "name": "ong-kassumay",
-  "type": "module",
-  "private": true,
-  "scripts": {
-    "build": "nuxt build",
-    "dev": "nuxt dev",
-    "generate": "nuxt generate",
-    "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
-  },
-  "dependencies": {
-    "nuxt": "^4.4.2",
-    "vue": "^3.5.31",
-    "vue-router": "^5.0.4"
-  }
+    "name": "ong-platform",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "build": "nuxt build",
+        "dev": "nuxt dev",
+        "generate": "nuxt generate",
+        "preview": "nuxt preview",
+        "postinstall": "nuxt prepare",
+        "lint:check": "prettier --check .",
+        "lint:fix": "prettier --write .",
+        "typecheck": "nuxt typecheck"
+    },
+    "dependencies": {
+        "@nuxtjs/i18n": "^10.2.3",
+        "nuxt": "^3.15.0",
+        "vue": "^3.5.0",
+        "vue-router": "^4.5.0"
+    },
+    "devDependencies": {
+        "@nuxt/devtools": "^3.2.3",
+        "@nuxtjs/tailwindcss": "^6.12.0",
+        "prettier": "^3.4.0",
+        "typescript": "^5.7.0",
+        "vue-tsc": "^3.2.6"
+    }
 }

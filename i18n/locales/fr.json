@@ -1,0 +1,21 @@
+{
+    "pages": {
+        "index": {
+            "hero": {
+                "tag": "ONG au Sénégal",
+                "title": "Eau, écoles et santé{br}pour le Sénégal rural",
+                "subtitle": "Nous travaillons avec des communautés à Kédougou, Tambacounda et Louga pour construire des puits, soutenir des écoles et gérer des centres de santé."
+            }
+        }
+    },
+    "components": {
+        "layouts": {
+            "AppFooterLayout": {
+                "brand": "ONG Sénégal",
+                "brandDescription": "ONG active au Sénégal depuis 2018. Eau potable, écoles et programmes de santé.",
+                "contact": "Contact",
+                "copyright": "© {year} ONG Sénégal. Tous droits réservés."
+            }
+        }
+    }
+}
