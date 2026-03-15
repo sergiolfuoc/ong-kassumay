@@ -1,4 +1,13 @@
 {
+    "composables": {
+        "useNavigation": {
+            "home": "Inici",
+            "signIn": "Iniciar sessió",
+            "signUp": "Registrar-se",
+            "signOut": "Tancar sessió",
+            "brand": "ONG Senegal"
+        }
+    },
     "pages": {
         "index": {
             "hero": {
@@ -6,16 +15,74 @@
                 "title": "Aigua, escoles i sanitat{br}per al Senegal rural",
                 "subtitle": "Treballem amb comunitats a Kédougou, Tambacounda i Louga per construir pous, donar suport a escoles i gestionar centres de salut."
             }
+        },
+        "login": {
+            "brand": "ONG Senegal",
+            "title": "Benvingut de nou",
+            "subtitle": "Inicia sessió al teu compte",
+            "email": "Correu electrònic",
+            "emailPlaceholder": "el_teu{'@'}email.com",
+            "password": "Contrasenya",
+            "passwordPlaceholder": "••••••••",
+            "error": "Correu o contrasenya incorrectes",
+            "loading": "Iniciant sessió...",
+            "submit": "Iniciar sessió",
+            "noAccount": "No tens compte?"
+        },
+        "register": {
+            "brand": "ONG Senegal",
+            "title": "Crear compte",
+            "subtitle": "Crea un compte per fer seguiment de les teves donacions",
+            "fullName": "Nom complet",
+            "fullNamePlaceholder": "El teu nom",
+            "email": "Correu electrònic",
+            "emailPlaceholder": "el_teu{'@'}email.com",
+            "password": "Contrasenya",
+            "passwordPlaceholder": "Mínim 6 caràcters",
+            "success": "Compte creat! Revisa el teu correu per confirmar.",
+            "loading": "Creant compte...",
+            "submit": "Registrar-se",
+            "hasAccount": "Ja tens compte?"
+        },
+        "confirm": {
+            "title": "Confirmant el teu compte...",
+            "subtitle": "Seràs redirigit en uns segons."
         }
+    },
+    "validations": {
+        "required": "Aquest camp és obligatori",
+        "email": "Introdueix un email vàlid",
+        "numeric": "Ha de ser un número",
+        "minLength": "Mínim {min} caràcters",
+        "maxLength": "Màxim {max} caràcters",
+        "minNumber": "Ha de ser almenys {min}",
+        "url": "Introdueix una URL vàlida"
     },
     "components": {
         "layouts": {
             "AppFooterLayout": {
+                "newsletterTitle": "Butlletí",
+                "newsletterSubtitle": "Novetats des del terreny, un parell de cops al mes.",
+                "emailPlaceholder": "El teu correu electrònic",
+                "subscribe": "Subscriure's",
                 "brand": "ONG Senegal",
                 "brandDescription": "ONG que treballa al Senegal des de 2018. Aigua potable, escoles i programes de salut.",
+                "navigation": "Navegació",
+                "howToHelp": "Com ajudar",
                 "contact": "Contacte",
                 "copyright": "© {year} ONG Senegal. Tots els drets reservats."
             }
-        }
+        },
+        "widgets": {},
+        "tables": {
+            "AppDataTable": {
+                "search": "Cercar...",
+                "actions": "Accions",
+                "noResults": "No s'han trobat resultats.",
+                "showing": "Mostrant",
+                "of": "de"
+            }
+        },
+        "forms": {}
     }
 }

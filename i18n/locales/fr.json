@@ -1,4 +1,13 @@
 {
+    "composables": {
+        "useNavigation": {
+            "home": "Accueil",
+            "signIn": "Connexion",
+            "signUp": "S'inscrire",
+            "signOut": "Déconnexion",
+            "brand": "ONG Sénégal"
+        }
+    },
     "pages": {
         "index": {
             "hero": {
@@ -6,16 +15,74 @@
                 "title": "Eau, écoles et santé{br}pour le Sénégal rural",
                 "subtitle": "Nous travaillons avec des communautés à Kédougou, Tambacounda et Louga pour construire des puits, soutenir des écoles et gérer des centres de santé."
             }
+        },
+        "login": {
+            "brand": "ONG Sénégal",
+            "title": "Bon retour",
+            "subtitle": "Connectez-vous à votre compte",
+            "email": "Adresse e-mail",
+            "emailPlaceholder": "votre{'@'}email.com",
+            "password": "Mot de passe",
+            "passwordPlaceholder": "••••••••",
+            "error": "E-mail ou mot de passe incorrect",
+            "loading": "Connexion en cours...",
+            "submit": "Se connecter",
+            "noAccount": "Pas de compte ?"
+        },
+        "register": {
+            "brand": "ONG Sénégal",
+            "title": "Créer un compte",
+            "subtitle": "Créez un compte pour suivre vos dons et gérer votre profil",
+            "fullName": "Nom complet",
+            "fullNamePlaceholder": "Votre nom",
+            "email": "Adresse e-mail",
+            "emailPlaceholder": "votre{'@'}email.com",
+            "password": "Mot de passe",
+            "passwordPlaceholder": "Minimum 6 caractères",
+            "success": "Compte créé ! Vérifiez votre e-mail pour confirmer.",
+            "loading": "Création du compte...",
+            "submit": "S'inscrire",
+            "hasAccount": "Déjà un compte ?"
+        },
+        "confirm": {
+            "title": "Confirmation de votre compte...",
+            "subtitle": "Vous serez redirigé dans quelques secondes."
         }
+    },
+    "validations": {
+        "required": "Ce champ est obligatoire",
+        "email": "Saisissez une adresse e-mail valide",
+        "numeric": "Doit être un nombre",
+        "minLength": "Minimum {min} caractères",
+        "maxLength": "Maximum {max} caractères",
+        "minNumber": "Doit être au moins {min}",
+        "url": "Saisissez une URL valide"
     },
     "components": {
         "layouts": {
             "AppFooterLayout": {
+                "newsletterTitle": "Newsletter",
+                "newsletterSubtitle": "Des nouvelles du terrain, quelques fois par mois. Pas de spam.",
+                "emailPlaceholder": "Votre adresse e-mail",
+                "subscribe": "S'abonner",
                 "brand": "ONG Sénégal",
                 "brandDescription": "ONG active au Sénégal depuis 2018. Eau potable, écoles et programmes de santé.",
+                "navigation": "Navigation",
+                "howToHelp": "Comment aider",
                 "contact": "Contact",
                 "copyright": "© {year} ONG Sénégal. Tous droits réservés."
             }
-        }
+        },
+        "widgets": {},
+        "tables": {
+            "AppDataTable": {
+                "search": "Rechercher...",
+                "actions": "Actions",
+                "noResults": "Aucun résultat trouvé.",
+                "showing": "Affichage",
+                "of": "de"
+            }
+        },
+        "forms": {}
     }
 }

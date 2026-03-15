@@ -10,19 +10,23 @@
         "postinstall": "nuxt prepare",
         "lint:check": "prettier --check .",
         "lint:fix": "prettier --write .",
-        "typecheck": "nuxt typecheck"
+        "typecheck": "nuxt typecheck",
+        "test": "vitest"
     },
     "dependencies": {
         "@nuxtjs/i18n": "^10.2.3",
+        "@nuxtjs/supabase": "^2.0.4",
         "nuxt": "^3.15.0",
-        "vue": "^3.5.0",
-        "vue-router": "^4.5.0"
+        "vue": "^3.5.0"
     },
     "devDependencies": {
         "@nuxt/devtools": "^3.2.3",
         "@nuxtjs/tailwindcss": "^6.12.0",
+        "@vue/test-utils": "^2.4.6",
+        "happy-dom": "^20.8.9",
         "prettier": "^3.4.0",
         "typescript": "^5.7.0",
+        "vitest": "^4.1.2",
         "vue-tsc": "^3.2.6"
     }
 }

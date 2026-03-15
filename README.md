@@ -1,5 +1,15 @@
 # Nuxt Minimal Starter
 
+## Supabase setup
+
+1. Copy `.env.example` to `.env`.
+2. Add your project values:
+	- `SUPABASE_URL`
+	- `SUPABASE_KEY` (anon public key)
+3. Run `npm run dev`.
+
+You should see a `Supabase: connected` badge in the home hero when credentials are valid.
+
 Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
 
 ## Setup

@@ -1,4 +1,13 @@
 {
+    "composables": {
+        "useNavigation": {
+            "home": "Inicio",
+            "signIn": "Iniciar sesión",
+            "signUp": "Registrarse",
+            "signOut": "Cerrar sesión",
+            "brand": "ONG Senegal"
+        }
+    },
     "pages": {
         "index": {
             "hero": {
@@ -6,16 +15,74 @@
                 "title": "Agua, escuelas y sanidad{br}para el Senegal rural",
                 "subtitle": "Trabajamos sobre todo con comunidades en Kédougou, Tambacounda y Louga para construir pozos, apoyar escuelas y gestionar centros de salud."
             }
+        },
+        "login": {
+            "brand": "ONG Senegal",
+            "title": "Bienvenido de nuevo",
+            "subtitle": "Inicia sesión en tu cuenta",
+            "email": "Correo electrónico",
+            "emailPlaceholder": "tu{'@'}email.com",
+            "password": "Contraseña",
+            "passwordPlaceholder": "••••••••",
+            "error": "Correo o contraseña incorrectos",
+            "loading": "Iniciando sesión...",
+            "submit": "Iniciar sesión",
+            "noAccount": "¿No tienes cuenta?"
+        },
+        "register": {
+            "brand": "ONG Senegal",
+            "title": "Crear cuenta",
+            "subtitle": "Crea una cuenta para seguir tus donaciones y gestionar tu perfil",
+            "fullName": "Nombre completo",
+            "fullNamePlaceholder": "Tu nombre",
+            "email": "Correo electrónico",
+            "emailPlaceholder": "tu{'@'}email.com",
+            "password": "Contraseña",
+            "passwordPlaceholder": "Mínimo 6 caracteres",
+            "success": "¡Cuenta creada! Revisa tu correo para confirmar.",
+            "loading": "Creando cuenta...",
+            "submit": "Registrarse",
+            "hasAccount": "¿Ya tienes cuenta?"
+        },
+        "confirm": {
+            "title": "Confirmando tu cuenta...",
+            "subtitle": "Serás redirigido en unos segundos."
         }
+    },
+    "validations": {
+        "required": "Este campo es obligatorio",
+        "email": "Introduce un email válido",
+        "numeric": "Debe ser un número",
+        "minLength": "Mínimo {min} caracteres",
+        "maxLength": "Máximo {max} caracteres",
+        "minNumber": "Debe ser al menos {min}",
+        "url": "Introduce una URL válida"
     },
     "components": {
         "layouts": {
             "AppFooterLayout": {
+                "newsletterTitle": "Newsletter",
+                "newsletterSubtitle": "Novedades desde el terreno, un par de veces al mes. Sin spam.",
+                "emailPlaceholder": "Tu correo electrónico",
+                "subscribe": "Suscribirse",
                 "brand": "ONG Senegal",
                 "brandDescription": "ONG que trabaja en Senegal desde 2018. Agua potable, escuelas y programas de salud.",
+                "navigation": "Navegación",
+                "howToHelp": "Cómo ayudar",
                 "contact": "Contacto",
                 "copyright": "© {year} ONG Senegal. Todos los derechos reservados."
             }
-        }
+        },
+        "widgets": {},
+        "tables": {
+            "AppDataTable": {
+                "search": "Buscar...",
+                "actions": "Acciones",
+                "noResults": "No se encontraron resultados.",
+                "showing": "Mostrando",
+                "of": "de"
+            }
+        },
+        "forms": {}
     }
 }
