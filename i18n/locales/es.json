@@ -1,14 +1,15 @@
 {
-    "composables": {
-        "useNavigation": {
-            "home": "Inicio",
-            "signIn": "Iniciar sesión",
-            "signUp": "Registrarse",
-            "signOut": "Cerrar sesión",
-            "brand": "ONG Senegal"
-        }
-    },
     "pages": {
+        "profile": {
+            "title": "Mi perfil",
+            "email": "Correo electrónico",
+            "fullName": "Nombre completo",
+            "avatarUrl": "URL del avatar",
+            "preview": "Vista previa",
+            "saved": "Perfil guardado correctamente",
+            "saving": "Guardando...",
+            "save": "Guardar cambios"
+        },
         "index": {
             "hero": {
                 "tag": "ONG en Senegal",
@@ -17,20 +18,20 @@
             }
         },
         "login": {
-            "brand": "ONG Senegal",
             "title": "Bienvenido de nuevo",
+            "brand": "Fundació Kassumay",
             "subtitle": "Inicia sesión en tu cuenta",
             "email": "Correo electrónico",
             "emailPlaceholder": "tu{'@'}email.com",
             "password": "Contraseña",
             "passwordPlaceholder": "••••••••",
-            "error": "Correo o contraseña incorrectos",
-            "loading": "Iniciando sesión...",
             "submit": "Iniciar sesión",
+            "loading": "Iniciando sesión...",
+            "error": "Correo o contraseña incorrectos",
             "noAccount": "¿No tienes cuenta?"
         },
         "register": {
-            "brand": "ONG Senegal",
+            "brand": "Fundació Kassumay",
             "title": "Crear cuenta",
             "subtitle": "Crea una cuenta para seguir tus donaciones y gestionar tu perfil",
             "fullName": "Nombre completo",
@@ -47,16 +48,69 @@
         "confirm": {
             "title": "Confirmando tu cuenta...",
             "subtitle": "Serás redirigido en unos segundos."
+        },
+        "privacy": {
+            "title": "Política de privacidad",
+            "intro": "Responsable del tratamiento: Asociación Fundació Kassumay, inscrita en el Registro Nacional de Asociaciones de España. Este aviso se ajusta al Reglamento (UE) 2016/679 (RGPD) y a la Ley Orgánica 3/2018 (LOPD-GDD).",
+            "infoCollect": "Datos que recogemos",
+            "infoCollectDescription": "Recogemos únicamente los datos necesarios para gestionar tu cuenta y tus donaciones:",
+            "personalData": "Datos identificativos",
+            "personalDataDescription": "nombre y correo electrónico que facilitas al registrarte o donar.",
+            "usageData": "Datos de navegación",
+            "usageDataDescription": "páginas visitadas, duración de sesión y tipo de dispositivo, recogidos mediante cookies técnicas.",
+            "donationData": "Datos de pago",
+            "donationDataDescription": "los datos de tarjeta o cuenta los gestiona Givebutter como encargado del tratamiento; no se almacenan en nuestros servidores.",
+            "howWeUse": "Finalidades del tratamiento",
+            "useReceipts": "Emitir certificados de donación con validez fiscal.",
+            "useCommunicate": "Informarte sobre el avance de los proyectos que has financiado.",
+            "useImprove": "Elaborar estadísticas anónimas de uso del sitio.",
+            "dataProtection": "Medidas de seguridad",
+            "dataProtectionDescription": "Las comunicaciones viajan cifradas con TLS. El acceso a la base de datos está restringido mediante Row Level Security de Supabase y roles internos de la aplicación.",
+            "yourRights": "Tus derechos (RGPD art. 15-22)",
+            "yourRightsDescription": "Puedes ejercer tus derechos de acceso, rectificación, supresión, portabilidad y oposición escribiendo a {email}. Si no quedas satisfecho, puedes reclamar ante la Agencia Española de Protección de Datos (aepd.es).",
+            "contact": "Delegado de protección de datos",
+            "contactDescription": "Para cualquier consulta sobre privacidad, escríbenos a {email}."
+        },
+        "legal": {
+            "title": "Aviso legal",
+            "organization": "Titular del sitio",
+            "organizationDescription": "Asociación Fundació Kassumay, inscrita en el Registro Nacional de Asociaciones del Ministerio del Interior de España (Sección 1.ª). Sede social en Barcelona. Operamos proyectos de cooperación en las regiones de Kédougou, Tambacounda y Louga (Senegal).",
+            "website": "Objeto del sitio",
+            "websiteDescription": "Este sitio web tiene carácter informativo y de captación de fondos. Los contenidos pueden actualizarse sin previo aviso.",
+            "copyrightNotice": "Propiedad intelectual",
+            "copyrightNoticeDescription": "Los textos, fotografías, logotipos y código fuente son propiedad de la asociación o se usan bajo licencia. Se permite la reproducción parcial con fines informativos citando la fuente.",
+            "copyrightImages": "Fotografías: archivo propio de la asociación o cedidas por organizaciones colaboradoras.",
+            "copyrightCode": "Código fuente: distribuido bajo licencia MIT cuando aplica.",
+            "externalLinks": "Enlaces a terceros",
+            "externalLinksDescription": "El sitio enlaza a Givebutter para la gestión de donaciones y a redes sociales. No nos responsabilizamos del contenido ni de la política de privacidad de esos servicios.",
+            "liability": "Limitación de responsabilidad",
+            "liabilityDescription": "Hacemos lo posible por mantener la información actualizada, pero no garantizamos que esté libre de errores. El uso del sitio es responsabilidad del usuario.",
+            "contact": "Contacto legal",
+            "contactDescription": "Para asuntos legales, escríbenos a {email}."
+        },
+        "transparency": {
+            "title": "Transparencia",
+            "intro": "Publicamos las cuentas de cada ejercicio para que puedas ver exactamente cómo se reparten los fondos entre proyectos sobre el terreno y gastos de funcionamiento.",
+            "fundsBreakdown": "Distribución de fondos",
+            "fundDirect": "Ejecución directa de proyectos (pozos, material escolar, suministros médicos)",
+            "fundOperations": "Logística y desplazamientos al terreno",
+            "fundAdmin": "Gastos de gestión y comunicación",
+            "financialReports": "Cuentas anuales",
+            "financialReportsDescription": "Las cuentas anuales se depositan en el registro de asociaciones conforme a la Ley Orgánica 1/2002. Puedes solicitarlas escribiendo a",
+            "payments": "Pasarela de donaciones",
+            "paymentsDescription": "Los pagos se procesan a través de Givebutter. El dinero va directamente a la cuenta de la asociación; Givebutter no retiene fondos. Consulta el estado de cada campaña en nuestra",
+            "questions": "¿Tienes dudas?",
+            "questionsDescription": "Respondemos a cualquier pregunta sobre el uso de fondos. Escríbenos a"
         }
     },
     "validations": {
-        "required": "Este campo es obligatorio",
         "email": "Introduce un email válido",
+        "required": "Este campo es obligatorio",
+        "url": "Introduce una URL válida",
         "numeric": "Debe ser un número",
         "minLength": "Mínimo {min} caracteres",
         "maxLength": "Máximo {max} caracteres",
-        "minNumber": "Debe ser al menos {min}",
-        "url": "Introduce una URL válida"
+        "minNumber": "Debe ser al menos {min}"
     },
     "components": {
         "layouts": {
@@ -65,12 +119,15 @@
                 "newsletterSubtitle": "Novedades desde el terreno, un par de veces al mes. Sin spam.",
                 "emailPlaceholder": "Tu correo electrónico",
                 "subscribe": "Suscribirse",
-                "brand": "ONG Senegal",
-                "brandDescription": "ONG que trabaja en Senegal desde 2018. Agua potable, escuelas y programas de salud.",
+                "brand": "Fundació Kassumay",
+                "brandDescription": "ONG que trabaja en Senegal desde 2005. Agua potable, escuelas y programas de salud.",
                 "navigation": "Navegación",
                 "howToHelp": "Cómo ayudar",
                 "contact": "Contacto",
-                "copyright": "© {year} ONG Senegal. Todos los derechos reservados."
+                "copyright": "© {year} Fundació Kassumay. Todos los derechos reservados.",
+                "privacy": "Política de privacidad",
+                "legal": "Aviso legal",
+                "transparency": "Transparencia"
             }
         },
         "widgets": {},
@@ -84,5 +141,15 @@
             }
         },
         "forms": {}
+    },
+    "composables": {
+        "useNavigation": {
+            "profile": "Perfil",
+            "home": "Inicio",
+            "signIn": "Iniciar sesión",
+            "signUp": "Registrarse",
+            "signOut": "Cerrar sesión",
+            "brand": "Fundació Kassumay"
+        }
     }
 }

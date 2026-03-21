@@ -1,3 +1,4 @@
+// TODO: mover a env las cosas sensibles
 export const siteConfig = {
     siteName: "Fundació Kassumay",
     contactEmail: "info@fundaciokassumay.org",

@@ -1,1 +1,5 @@
 export { ServicesPlugin } from "./ServicesPlugin"
+export { RoleServicePlugin } from "./roles"
+export { ProfileServicePlugin } from "./profiles"
+export type { IServiceResult } from "./common"
+export type { PermissionPath } from "./roles"

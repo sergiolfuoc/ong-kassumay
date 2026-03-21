@@ -5,6 +5,7 @@ export default <Config>{
     theme: {
         extend: {
             colors: {
+                // Green
                 primary: {
                     50: "#eefbf3",
                     300: "#7cd9a8",
@@ -12,7 +13,18 @@ export default <Config>{
                     500: "#1fad60",
                     600: "#138c4d",
                     700: "#0f7040",
+                    950: "#0a4f2b",
                 },
+                emerald: {
+                    950: "#022c22",
+                },
+                // Colores de kassumay
+                kassumay: {
+                    400: "#c2b84a",
+                    500: "#bdb449",
+                    950: "#6b5e1a",
+                },
+                // Blue
                 earth: {
                     50: "#f0f4f8",
                     100: "#dce4ed",
@@ -32,7 +44,7 @@ export default <Config>{
             },
             fontFamily: {
                 sans: ["Inter", "system-ui", "sans-serif"],
-                display: ["Georgia", "serif"],
+                display: ["Satoshi", "system-ui", "sans-serif"],
             },
             borderRadius: {
                 "4xl": "2rem",

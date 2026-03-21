@@ -1,2 +1,2 @@
-export type { INavRoute } from "./types"
-export { navRoutes } from "./routes"
+export * from "./types"
+export * from "./routes"

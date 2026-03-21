@@ -7,16 +7,21 @@
             <div class="relative max-w-7xl mx-auto px-6 py-20 w-full">
                 <div class="max-w-2xl">
                     <span
-                        class="inline-block bg-primary-400/20 text-primary-300 text-xs font-semibold px-4 py-1.5 rounded-full uppercase tracking-wider mb-6 backdrop-blur-sm border border-primary-400/20"
+                        class="inline-flex items-center gap-2 bg-primary-400/20 text-primary-300 text-xs font-semibold px-4 py-1.5 rounded-full uppercase tracking-wider mb-6 backdrop-blur-sm border border-primary-400/20"
                     >
-                        {{ $t("pages.index.hero.tag") }}
+                        <BrandHeartIcon :size="16" class="text-primary-300" />
+                        {{ t("pages.index.hero.tag") }}
                     </span>
-                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white leading-tight" v-html="$t('pages.index.hero.title', { br: '<br/>' })" />
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white leading-tight" v-html="t('pages.index.hero.title', { br: '<br/>' })" />
                     <p class="text-warm-200 text-lg md:text-xl mt-6 leading-relaxed max-w-lg">
-                        {{ $t("pages.index.hero.subtitle") }}
+                        {{ t("pages.index.hero.subtitle") }}
                     </p>
                 </div>
             </div>
         </section>
     </div>
 </template>
+
+<script setup lang="ts">
+const { t } = useI18n()
+</script>

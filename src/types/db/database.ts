@@ -1,7 +1,6 @@
 import type { IProfileModelTable } from "./models/IProfileModel"
 
-export type Json = string | number | boolean | null | { [key: string]: Json | undefined } | Json[]
-
+// TODO: faltan las tablas de news y donations
 export interface Database {
     public: {
         Tables: {

@@ -1,23 +1,107 @@
 {
-    "composables": {
-        "useNavigation": {
-            "home": "Accueil",
-            "signIn": "Connexion",
-            "signUp": "S'inscrire",
-            "signOut": "Déconnexion",
-            "brand": "ONG Sénégal"
-        }
-    },
-    "pages": {
-        "index": {
-            "hero": {
-                "tag": "ONG au Sénégal",
-                "title": "Eau, écoles et santé{br}pour le Sénégal rural",
-                "subtitle": "Nous travaillons avec des communautés à Kédougou, Tambacounda et Louga pour construire des puits, soutenir des écoles et gérer des centres de santé."
+    "components": {
+        "layouts": {
+            "AppFooterLayout": {
+                "navigation": "Navigation",
+                "howToHelp": "Comment aider",
+                "contact": "Contact",
+                "newsletterTitle": "Newsletter",
+                "newsletterSubtitle": "Des nouvelles du terrain, quelques fois par mois. Pas de spam.",
+                "emailPlaceholder": "Votre adresse e-mail",
+                "subscribe": "S'abonner",
+                "brand": "Fundació Kassumay",
+                "brandDescription": "ONG active au Sénégal depuis 2005. Eau potable, écoles et programmes de santé.",
+                "copyright": "© {year} ONG Sénégal. Tous droits réservés.",
+                "privacy": "Politique de confidentialité",
+                "legal": "Mentions légales",
+                "transparency": "Transparence"
             }
         },
+        "widgets": {},
+        "tables": {
+            "AppDataTable": {
+                "search": "Rechercher...",
+                "actions": "Actions",
+                "noResults": "Aucun résultat trouvé.",
+                "showing": "Affichage",
+                "of": "de"
+            }
+        },
+        "forms": {}
+    },
+    "pages": {
+        "privacy": {
+            "contact": "Délégué à la protection des données",
+            "contactDescription": "Pour toute question relative à la confidentialité, écrivez-nous à {email}.",
+            "yourRights": "Vos droits (RGPD art. 15-22)",
+            "yourRightsDescription": "Vous pouvez exercer vos droits d'accès, de rectification, d'effacement, de portabilité et d'opposition en écrivant à {email}. En cas de litige, vous pouvez introduire une réclamation auprès de l'Agence espagnole de protection des données (aepd.es).",
+            "title": "Politique de confidentialité",
+            "intro": "Responsable du traitement : Associació Fundació Kassumay, inscrite au Registre national des associations d'Espagne. Le présent avis est conforme au Règlement (UE) 2016/679 (RGPD) et à la Loi organique espagnole 3/2018 (LOPD-GDD).",
+            "infoCollect": "Données collectées",
+            "infoCollectDescription": "Nous ne collectons que les données nécessaires à la gestion de votre compte et de vos dons :",
+            "personalData": "Données d'identification",
+            "personalDataDescription": "nom et adresse e-mail que vous fournissez lors de votre inscription ou de votre don.",
+            "usageData": "Données de navigation",
+            "usageDataDescription": "pages consultées, durée de session et type d'appareil, recueillis au moyen de cookies techniques.",
+            "donationData": "Données de paiement",
+            "donationDataDescription": "les données bancaires ou de carte sont gérées par Givebutter en qualité de sous-traitant ; elles ne sont jamais stockées sur nos serveurs.",
+            "howWeUse": "Finalités du traitement",
+            "useReceipts": "Émettre des reçus fiscaux de don.",
+            "useCommunicate": "Vous informer de l'avancement des projets que vous avez financés.",
+            "useImprove": "Élaborer des statistiques anonymes d'utilisation du site.",
+            "dataProtection": "Mesures de sécurité",
+            "dataProtectionDescription": "Les communications sont chiffrées via TLS. L'accès à la base de données est restreint grâce au Row Level Security de Supabase et aux rôles internes de l'application."
+        },
+        "legal": {
+            "title": "Mentions légales",
+            "organization": "Titulaire du site",
+            "organizationDescription": "Associació Fundació Kassumay, inscrite au Registre national des associations du Ministère de l'Intérieur d'Espagne (Section 1). Siège social à Barcelone. Nous menons des projets de coopération dans les régions de Kédougou, Tambacounda et Louga (Sénégal).",
+            "website": "Objet du site",
+            "websiteDescription": "Ce site a un caractère informatif et de collecte de fonds. Les contenus peuvent être mis à jour sans préavis.",
+            "copyrightNotice": "Propriété intellectuelle",
+            "copyrightNoticeDescription": "Les textes, photographies, logos et code source sont la propriété de l'association ou utilisés sous licence. La reproduction partielle à des fins d'information est autorisée sous réserve de mention de la source.",
+            "copyrightImages": "Photographies : archives de l'association ou cédées par des organisations partenaires.",
+            "copyrightCode": "Code source : distribué sous licence MIT le cas échéant.",
+            "externalLinks": "Liens vers des tiers",
+            "externalLinksDescription": "Le site renvoie vers Givebutter pour la gestion des dons et vers les réseaux sociaux. Nous déclinons toute responsabilité quant au contenu et à la politique de confidentialité de ces services.",
+            "liability": "Limitation de responsabilité",
+            "liabilityDescription": "Nous mettons tout en œuvre pour maintenir les informations à jour, mais ne garantissons pas l'absence d'erreurs. L'utilisation du site relève de la responsabilité de l'utilisateur.",
+            "contact": "Contact juridique",
+            "contactDescription": "Pour toute question d'ordre juridique, écrivez-nous à {email}."
+        },
+        "transparency": {
+            "title": "Transparence",
+            "intro": "Nous publions les comptes de chaque exercice afin que vous puissiez voir exactement comment les fonds sont répartis entre les projets sur le terrain et les frais de fonctionnement.",
+            "fundsBreakdown": "Répartition des fonds",
+            "fundDirect": "Exécution directe des projets (puits, fournitures scolaires, matériel médical)",
+            "fundOperations": "Logistique et déplacements sur le terrain",
+            "fundAdmin": "Frais de gestion et de communication",
+            "financialReports": "Comptes annuels",
+            "financialReportsDescription": "Les comptes annuels sont déposés au registre des associations conformément à la Loi organique espagnole 1/2002. Vous pouvez les demander en écrivant à",
+            "payments": "Passerelle de dons",
+            "paymentsDescription": "Les paiements sont traités via Givebutter. Les fonds sont versés directement sur le compte de l'association ; Givebutter ne retient aucune somme. Consultez l'état de chaque campagne sur notre",
+            "questions": "Des questions ?",
+            "questionsDescription": "Nous répondons à toute question concernant l'utilisation des fonds. Écrivez-nous à"
+        },
+        "index": {
+            "hero": {
+                "subtitle": "Nous travaillons avec des communautés à Kédougou, Tambacounda et Louga pour construire des puits, soutenir des écoles et gérer des centres de santé.",
+                "title": "Eau, écoles et santé{br}pour le Sénégal rural",
+                "tag": "ONG au Sénégal"
+            }
+        },
+        "profile": {
+            "title": "Mon profil",
+            "email": "Adresse e-mail",
+            "fullName": "Nom complet",
+            "avatarUrl": "URL de l'avatar",
+            "preview": "Aperçu",
+            "saved": "Profil enregistré avec succès",
+            "saving": "Enregistrement...",
+            "save": "Enregistrer"
+        },
         "login": {
-            "brand": "ONG Sénégal",
+            "brand": "Fundació Kassumay",
             "title": "Bon retour",
             "subtitle": "Connectez-vous à votre compte",
             "email": "Adresse e-mail",
@@ -30,7 +114,7 @@
             "noAccount": "Pas de compte ?"
         },
         "register": {
-            "brand": "ONG Sénégal",
+            "brand": "Fundació Kassumay",
             "title": "Créer un compte",
             "subtitle": "Créez un compte pour suivre vos dons et gérer votre profil",
             "fullName": "Nom complet",
@@ -58,31 +142,14 @@
         "minNumber": "Doit être au moins {min}",
         "url": "Saisissez une URL valide"
     },
-    "components": {
-        "layouts": {
-            "AppFooterLayout": {
-                "newsletterTitle": "Newsletter",
-                "newsletterSubtitle": "Des nouvelles du terrain, quelques fois par mois. Pas de spam.",
-                "emailPlaceholder": "Votre adresse e-mail",
-                "subscribe": "S'abonner",
-                "brand": "ONG Sénégal",
-                "brandDescription": "ONG active au Sénégal depuis 2018. Eau potable, écoles et programmes de santé.",
-                "navigation": "Navigation",
-                "howToHelp": "Comment aider",
-                "contact": "Contact",
-                "copyright": "© {year} ONG Sénégal. Tous droits réservés."
-            }
-        },
-        "widgets": {},
-        "tables": {
-            "AppDataTable": {
-                "search": "Rechercher...",
-                "actions": "Actions",
-                "noResults": "Aucun résultat trouvé.",
-                "showing": "Affichage",
-                "of": "de"
-            }
-        },
-        "forms": {}
+    "composables": {
+        "useNavigation": {
+            "signOut": "Déconnexion",
+            "signIn": "Connexion",
+            "signUp": "S'inscrire",
+            "home": "Accueil",
+            "profile": "Profil",
+            "brand": "Fundació Kassumay"
+        }
     }
 }

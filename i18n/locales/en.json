@@ -1,23 +1,16 @@
 {
-    "composables": {
-        "useNavigation": {
-            "home": "Home",
-            "signIn": "Sign in",
-            "signUp": "Sign up",
-            "signOut": "Sign out",
-            "brand": "ONG Senegal"
-        }
+    "validations": {
+        "required": "This field is required",
+        "email": "Enter a valid email address",
+        "numeric": "Must be a number",
+        "minLength": "Minimum {min} characters",
+        "maxLength": "Maximum {max} characters",
+        "minNumber": "Must be at least {min}",
+        "url": "Enter a valid URL"
     },
     "pages": {
-        "index": {
-            "hero": {
-                "tag": "NGO in Senegal",
-                "title": "Water, schools and healthcare{br}for rural Senegal",
-                "subtitle": "We work with communities in Kédougou, Tambacounda and Louga to build wells, support schools and run health clinics."
-            }
-        },
         "login": {
-            "brand": "ONG Senegal",
+            "brand": "Fundació Kassumay",
             "title": "Welcome back",
             "subtitle": "Sign in to your account",
             "email": "Email",
@@ -30,7 +23,9 @@
             "noAccount": "Don't have an account?"
         },
         "register": {
-            "brand": "ONG Senegal",
+            "submit": "Sign up",
+            "hasAccount": "Already have an account?",
+            "brand": "Fundació Kassumay",
             "title": "Create account",
             "subtitle": "Create an account to track your donations and manage your profile",
             "fullName": "Full name",
@@ -39,41 +34,95 @@
             "emailPlaceholder": "your{'@'}email.com",
             "password": "Password",
             "passwordPlaceholder": "Minimum 6 characters",
-            "success": "Account created! Check your email to confirm.",
             "loading": "Creating account...",
-            "submit": "Sign up",
-            "hasAccount": "Already have an account?"
+            "success": "Account created! Check your email to confirm."
+        },
+        "index": {
+            "hero": {
+                "tag": "NGO in Senegal",
+                "title": "Water, schools and healthcare{br}for rural Senegal",
+                "subtitle": "We work with communities in Kédougou, Tambacounda and Louga to build wells, support schools and run health clinics."
+            }
         },
         "confirm": {
             "title": "Confirming your account...",
             "subtitle": "You will be redirected in a few seconds."
+        },
+        "profile": {
+            "title": "My profile",
+            "email": "Email",
+            "fullName": "Full name",
+            "avatarUrl": "Avatar URL",
+            "preview": "Preview",
+            "saved": "Profile saved successfully",
+            "saving": "Saving...",
+            "save": "Save changes"
+        },
+        "transparency": {
+            "questions": "Have questions?",
+            "questionsDescription": "We are happy to answer any question about how funds are used. Write to us at",
+            "payments": "Donation gateway",
+            "paymentsDescription": "Payments are processed through Givebutter. Funds go directly to the association's bank account; Givebutter does not hold any money. You can check the status of each campaign on our",
+            "title": "Transparency",
+            "intro": "We publish our accounts for every fiscal year so you can see exactly how funds are split between field projects and operating costs.",
+            "fundsBreakdown": "Fund allocation",
+            "fundDirect": "Direct project delivery (wells, school supplies, medical provisions)",
+            "fundOperations": "Field logistics and travel",
+            "fundAdmin": "Management and communications",
+            "financialReports": "Annual accounts",
+            "financialReportsDescription": "Our annual accounts are filed with the national registry of associations in accordance with Spanish Organic Law 1/2002. You can request a copy by writing to"
+        },
+        "legal": {
+            "title": "Legal notice",
+            "organization": "Site owner",
+            "organizationDescription": "Asociacion Fundació Kassumay, registered in Spain's National Registry of Associations under the Ministry of the Interior (Section 1). Registered office in Barcelona. We run development projects in the regions of Kedougou, Tambacounda, and Louga (Senegal).",
+            "website": "Purpose of the site",
+            "websiteDescription": "This website is for informational and fundraising purposes. Content may be updated without prior notice.",
+            "copyrightNotice": "Intellectual property",
+            "copyrightNoticeDescription": "All text, photographs, logos, and source code are the property of the association or are used under licence. Partial reproduction for informational purposes is permitted provided the source is credited.",
+            "copyrightImages": "Photographs: sourced from the association's archive or used with permission from partner organisations.",
+            "copyrightCode": "Source code: released under MIT licence where applicable.",
+            "externalLinks": "Third-party links",
+            "externalLinksDescription": "This site links to Givebutter for donation processing and to social media platforms. We are not responsible for the content or privacy policies of those services.",
+            "liability": "Limitation of liability",
+            "liabilityDescription": "We do our best to keep the information on this site up to date, but we do not guarantee that it is free from errors. Use of the site is at the user's own risk.",
+            "contact": "Legal contact",
+            "contactDescription": "For legal matters, write to us at {email}."
+        },
+        "privacy": {
+            "title": "Privacy policy",
+            "intro": "Data controller: Asociacion Fundació Kassumay, registered in Spain's National Registry of Associations. This notice complies with Regulation (EU) 2016/679 (GDPR).",
+            "infoCollect": "Data we collect",
+            "infoCollectDescription": "We collect only the data necessary to manage your account and your donations:",
+            "personalData": "Identity data",
+            "personalDataDescription": "name and email address you provide when registering or donating.",
+            "usageData": "Browsing data",
+            "usageDataDescription": "pages visited, session duration, and device type, collected through technical cookies.",
+            "donationData": "Payment data",
+            "donationDataDescription": "card or bank details are handled by Givebutter as a data processor; they are never stored on our servers.",
+            "howWeUse": "Purposes of processing",
+            "useReceipts": "To issue tax-valid donation certificates.",
+            "useCommunicate": "To keep you informed about the progress of the projects you have funded.",
+            "useImprove": "To compile anonymous usage statistics for the site.",
+            "dataProtection": "Security measures",
+            "dataProtectionDescription": "All communications are encrypted with TLS. Database access is restricted through Supabase Row Level Security and the application's internal role system.",
+            "yourRights": "Your rights (GDPR Art. 15-22)",
+            "yourRightsDescription": "You may exercise your rights of access, rectification, erasure, portability, and objection by writing to {email}. If you are not satisfied with our response, you may lodge a complaint with your local data protection authority.",
+            "contact": "Data protection officer",
+            "contactDescription": "For any privacy-related enquiry, write to us at {email}."
         }
     },
-    "validations": {
-        "required": "This field is required",
-        "email": "Enter a valid email address",
-        "numeric": "Must be a number",
-        "minLength": "Minimum {min} characters",
-        "maxLength": "Maximum {max} characters",
-        "minNumber": "Must be at least {min}",
-        "url": "Enter a valid URL"
+    "composables": {
+        "useNavigation": {
+            "home": "Home",
+            "signIn": "Sign in",
+            "signUp": "Sign up",
+            "signOut": "Sign out",
+            "brand": "Fundació Kassumay",
+            "profile": "Profile"
+        }
     },
     "components": {
-        "layouts": {
-            "AppFooterLayout": {
-                "newsletterTitle": "Newsletter",
-                "newsletterSubtitle": "Updates from the field, a few times a month. No spam.",
-                "emailPlaceholder": "Enter your email",
-                "subscribe": "Subscribe",
-                "brand": "ONG Senegal",
-                "brandDescription": "NGO working in Senegal since 2018. Clean water, schools and health programs.",
-                "navigation": "Navigation",
-                "howToHelp": "How to help",
-                "contact": "Contact",
-                "copyright": "© {year} ONG Senegal. All rights reserved."
-            }
-        },
-        "widgets": {},
         "tables": {
             "AppDataTable": {
                 "search": "Search...",
@@ -83,6 +132,24 @@
                 "of": "of"
             }
         },
+        "layouts": {
+            "AppFooterLayout": {
+                "copyright": "© {year} Fundació Kassumay. All rights reserved.",
+                "privacy": "Privacy policy",
+                "legal": "Legal notice",
+                "transparency": "Transparency",
+                "navigation": "Navigation",
+                "howToHelp": "How to help",
+                "contact": "Contact",
+                "newsletterTitle": "Newsletter",
+                "newsletterSubtitle": "Updates from the field, a few times a month. No spam.",
+                "emailPlaceholder": "Enter your email",
+                "subscribe": "Subscribe",
+                "brand": "Fundació Kassumay",
+                "brandDescription": "NGO working in Senegal since 2005. Clean water, schools and health programs."
+            }
+        },
+        "widgets": {},
         "forms": {}
     }
 }

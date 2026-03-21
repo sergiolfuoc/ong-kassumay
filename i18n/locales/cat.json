@@ -5,7 +5,8 @@
             "signIn": "Iniciar sessió",
             "signUp": "Registrar-se",
             "signOut": "Tancar sessió",
-            "brand": "ONG Senegal"
+            "brand": "Fundació Kassumay",
+            "profile": "Perfil"
         }
     },
     "pages": {
@@ -16,8 +17,12 @@
                 "subtitle": "Treballem amb comunitats a Kédougou, Tambacounda i Louga per construir pous, donar suport a escoles i gestionar centres de salut."
             }
         },
+        "confirm": {
+            "title": "Confirmant el teu compte...",
+            "subtitle": "Seràs redirigit en uns segons."
+        },
         "login": {
-            "brand": "ONG Senegal",
+            "brand": "Fundació Kassumay",
             "title": "Benvingut de nou",
             "subtitle": "Inicia sessió al teu compte",
             "email": "Correu electrònic",
@@ -30,7 +35,7 @@
             "noAccount": "No tens compte?"
         },
         "register": {
-            "brand": "ONG Senegal",
+            "brand": "Fundació Kassumay",
             "title": "Crear compte",
             "subtitle": "Crea un compte per fer seguiment de les teves donacions",
             "fullName": "Nom complet",
@@ -44,19 +49,69 @@
             "submit": "Registrar-se",
             "hasAccount": "Ja tens compte?"
         },
-        "confirm": {
-            "title": "Confirmant el teu compte...",
-            "subtitle": "Seràs redirigit en uns segons."
+        "profile": {
+            "save": "Desar canvis",
+            "saving": "Desant...",
+            "saved": "Perfil desat correctament",
+            "title": "El meu perfil",
+            "fullName": "Nom complet",
+            "email": "Correu electrònic",
+            "avatarUrl": "URL de l'avatar",
+            "preview": "Vista prèvia"
+        },
+        "privacy": {
+            "title": "Política de privacitat",
+            "intro": "Responsable del tractament: Associació Fundació Kassumay, inscrita al Registre Nacional d'Associacions d'Espanya. Aquest avís s'ajusta al Reglament (UE) 2016/679 (RGPD) i a la Llei Orgànica 3/2005 (LOPDGDD).",
+            "infoCollect": "Dades que recollim",
+            "infoCollectDescription": "Recollim únicament les dades necessàries per gestionar el teu compte i les teves donacions:",
+            "personalData": "Dades identificatives",
+            "personalDataDescription": "nom i correu electrònic que facilites en registrar-te o fer una donació.",
+            "usageData": "Dades de navegació",
+            "usageDataDescription": "pàgines visitades, durada de sessió i tipus de dispositiu, recollides mitjançant galetes tècniques.",
+            "donationData": "Dades de pagament",
+            "donationDataDescription": "les dades de targeta o compte les gestiona Givebutter com a encarregat del tractament; no s'emmagatzemen als nostres servidors.",
+            "howWeUse": "Finalitats del tractament",
+            "useReceipts": "Emetre certificats de donació amb validesa fiscal.",
+            "useCommunicate": "Informar-te sobre l'avenç dels projectes que has finançat.",
+            "useImprove": "Elaborar estadístiques anònimes d'ús del lloc.",
+            "dataProtection": "Mesures de seguretat",
+            "dataProtectionDescription": "Les comunicacions viatgen xifrades amb TLS. L'accés a la base de dades està restringit mitjançant Row Level Security de Supabase i rols interns de l'aplicació.",
+            "yourRights": "Els teus drets (RGPD art. 15-22)",
+            "yourRightsDescription": "Pots exercir els teus drets d'accés, rectificació, supressió, portabilitat i oposició escrivint a {email}. Si no quedessis satisfet, pots reclamar davant l'Agència Espanyola de Protecció de Dades (aepd.es).",
+            "contact": "Delegat de protecció de dades",
+            "contactDescription": "Per a qualsevol consulta sobre privacitat, escriu-nos a {email}."
+        },
+        "transparency": {
+            "title": "Transparència",
+            "intro": "Publiquem els comptes de cada exercici perquè puguis veure exactament com es reparteixen els fons entre projectes sobre el terreny i despeses de funcionament.",
+            "fundsBreakdown": "Distribució de fons",
+            "fundDirect": "Execució directa de projectes (pous, material escolar, subministraments mèdics)",
+            "fundOperations": "Logística i desplaçaments al terreny",
+            "fundAdmin": "Despeses de gestió i comunicació",
+            "financialReports": "Comptes anuals",
+            "financialReportsDescription": "Els comptes anuals es dipositen al registre d'associacions conforme a la Llei Orgànica 1/2002. Pots sol·licitar-los escrivint a",
+            "payments": "Passarel·la de donacions",
+            "paymentsDescription": "Els pagaments es processen a través de Givebutter. Els diners van directament al compte de l'associació; Givebutter no reté fons. Consulta l'estat de cada campanya a la nostra",
+            "questions": "Tens dubtes?",
+            "questionsDescription": "Responem a qualsevol pregunta sobre l'ús dels fons. Escriu-nos a"
+        },
+        "legal": {
+            "contact": "Contacte legal",
+            "contactDescription": "Per a assumptes legals, escriu-nos a {email}.",
+            "title": "Avís legal",
+            "organization": "Titular del lloc",
+            "organizationDescription": "Associació Fundació Kassumay, inscrita al Registre Nacional d'Associacions del Ministeri de l'Interior d'Espanya (Secció 1a). Seu social a Barcelona. Operem projectes de cooperació a les regions de Kédougou, Tambacounda i Louga (Senegal).",
+            "website": "Objecte del lloc",
+            "websiteDescription": "Aquest lloc web té caràcter informatiu i de captació de fons. Els continguts poden actualitzar-se sense avís previ.",
+            "copyrightNotice": "Propietat intel·lectual",
+            "copyrightNoticeDescription": "Els textos, fotografies, logotips i codi font són propietat de l'associació o s'utilitzen sota llicència. Es permet la reproducció parcial amb finalitats informatives citant-ne la font.",
+            "copyrightImages": "Fotografies: arxiu propi de l'associació o cedides per organitzacions col·laboradores.",
+            "copyrightCode": "Codi font: distribuït sota llicència MIT quan aplica.",
+            "externalLinks": "Enllaços a tercers",
+            "externalLinksDescription": "El lloc enllaça a Givebutter per a la gestió de donacions i a xarxes socials. No ens responsabilitzem del contingut ni de la política de privacitat d'aquests serveis.",
+            "liability": "Limitació de responsabilitat",
+            "liabilityDescription": "Fem tot el possible per mantenir la informació actualitzada, però no garantim que estigui lliure d'errors. L'ús del lloc és responsabilitat de l'usuari."
         }
-    },
-    "validations": {
-        "required": "Aquest camp és obligatori",
-        "email": "Introdueix un email vàlid",
-        "numeric": "Ha de ser un número",
-        "minLength": "Mínim {min} caràcters",
-        "maxLength": "Màxim {max} caràcters",
-        "minNumber": "Ha de ser almenys {min}",
-        "url": "Introdueix una URL vàlida"
     },
     "components": {
         "layouts": {
@@ -65,24 +120,36 @@
                 "newsletterSubtitle": "Novetats des del terreny, un parell de cops al mes.",
                 "emailPlaceholder": "El teu correu electrònic",
                 "subscribe": "Subscriure's",
-                "brand": "ONG Senegal",
-                "brandDescription": "ONG que treballa al Senegal des de 2018. Aigua potable, escoles i programes de salut.",
+                "brand": "Fundació Kassumay",
+                "brandDescription": "ONG que treballa al Senegal des de 2005. Aigua potable, escoles i programes de salut.",
                 "navigation": "Navegació",
                 "howToHelp": "Com ajudar",
                 "contact": "Contacte",
-                "copyright": "© {year} ONG Senegal. Tots els drets reservats."
+                "copyright": "© {year} Fundació Kassumay. Tots els drets reservats.",
+                "privacy": "Política de privacitat",
+                "legal": "Avís legal",
+                "transparency": "Transparència"
             }
         },
         "widgets": {},
         "tables": {
             "AppDataTable": {
+                "noResults": "No s'han trobat resultats.",
                 "search": "Cercar...",
                 "actions": "Accions",
-                "noResults": "No s'han trobat resultats.",
                 "showing": "Mostrant",
                 "of": "de"
             }
         },
         "forms": {}
+    },
+    "validations": {
+        "required": "Aquest camp és obligatori",
+        "email": "Introdueix un email vàlid",
+        "url": "Introdueix una URL vàlida",
+        "numeric": "Ha de ser un número",
+        "minLength": "Mínim {min} caràcters",
+        "maxLength": "Màxim {max} caràcters",
+        "minNumber": "Ha de ser almenys {min}"
     }
 }

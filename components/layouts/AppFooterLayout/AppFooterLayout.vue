@@ -3,13 +3,11 @@
         <div :class="design.footerGrid">
             <div>
                 <div :class="design.brandRow">
-                    <div :class="design.brandIconWrap">
-                        <BrandHeartIcon :size="16" class="text-white" />
-                    </div>
-                    <span :class="design.brandText">{{ $t("components.layouts.AppFooterLayout.brand") }}</span>
+                    <img src="/images/africafavicontransp.png" alt="Fundació Kassumay" class="w-9 h-9" />
+                    <span :class="design.brandText">{{ t("components.layouts.AppFooterLayout.brand") }}</span>
                 </div>
                 <p :class="design.brandDescription">
-                    {{ $t("components.layouts.AppFooterLayout.brandDescription") }}
+                    {{ t("components.layouts.AppFooterLayout.brandDescription") }}
                 </p>
                 <div v-if="socialLinks.length" :class="design.socialRow">
                     <a
@@ -27,36 +25,40 @@
             </div>
 
             <div>
-                <h4 :class="design.sectionTitle">{{ $t("components.layouts.AppFooterLayout.navigation") }}</h4>
+                <h4 :class="design.sectionTitle">{{ t("components.layouts.AppFooterLayout.navigation") }}</h4>
                 <ul :class="design.sectionList">
                     <li>
-                        <NuxtLink to="/" :class="design.footerLink">{{ $t("composables.useNavigation.home") }}</NuxtLink>
+                        <NuxtLink to="/" :class="design.footerLink">{{ t("composables.useNavigation.home") }}</NuxtLink>
                     </li>
                 </ul>
             </div>
 
             <div>
-                <h4 :class="design.sectionTitle">{{ $t("components.layouts.AppFooterLayout.howToHelp") }}</h4>
+                <h4 :class="design.sectionTitle">{{ t("components.layouts.AppFooterLayout.howToHelp") }}</h4>
                 <ul :class="design.sectionList">
                     <li>
-                        <NuxtLink to="/register" :class="design.footerLink">{{ $t("composables.useNavigation.signUp") }}</NuxtLink>
+                        <NuxtLink to="/register" :class="design.footerLink">{{ t("composables.useNavigation.signUp") }}</NuxtLink>
                     </li>
                     <li>
-                        <NuxtLink to="/login" :class="design.footerLink">{{ $t("composables.useNavigation.signIn") }}</NuxtLink>
+                        <NuxtLink to="/login" :class="design.footerLink">{{ t("composables.useNavigation.signIn") }}</NuxtLink>
                     </li>
                 </ul>
             </div>
 
             <div>
-                <h4 :class="design.sectionTitle">{{ $t("components.layouts.AppFooterLayout.contact") }}</h4>
+                <h4 :class="design.sectionTitle">{{ t("components.layouts.AppFooterLayout.contact") }}</h4>
                 <ul :class="design.sectionList">
                     <li :class="design.contactRow">
-                        <MapPinIcon icon-class="w-4 h-4 mt-0.5 shrink-0 text-primary-400" />
-                        <span>Dakar, Senegal</span>
+                        <MapPinIcon class="w-4 h-4 mt-0.5 shrink-0 text-primary-400" />
+                        <a :href="`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(siteConfig.address)}`" target="_blank" rel="noopener" :class="design.footerLink">{{ siteConfig.address }}</a>
                     </li>
-                    <li v-if="contactEmail" :class="design.contactRow">
-                        <EnvelopeIcon icon-class="w-4 h-4 mt-0.5 shrink-0 text-primary-400" />
-                        <a :href="`mailto:${contactEmail}`" :class="design.footerLink">{{ contactEmail }}</a>
+                    <li :class="design.contactRow">
+                        <EnvelopeIcon class="w-4 h-4 mt-0.5 shrink-0 text-primary-400" />
+                        <a :href="`mailto:${siteConfig.contactEmail}`" :class="design.footerLink">{{ siteConfig.contactEmail }}</a>
+                    </li>
+                    <li :class="design.contactRow">
+                        <PhoneIcon class="w-4 h-4 mt-0.5 shrink-0 text-primary-400" />
+                        <a :href="`tel:${siteConfig.contactPhone}`" :class="design.footerLink">{{ siteConfig.contactPhone }}</a>
                     </li>
                 </ul>
             </div>
@@ -64,16 +66,22 @@
 
         <div :class="design.bottomBar">
             <div :class="design.bottomBarInner">
-                <p>{{ $t("components.layouts.AppFooterLayout.copyright", { year: new Date().getFullYear() }) }}</p>
+                <p>{{ t("components.layouts.AppFooterLayout.copyright", { year: new Date().getFullYear() }) }}</p>
+                <div class="flex gap-4">
+                    <NuxtLink to="/privacy" :class="design.footerLink">{{ t("components.layouts.AppFooterLayout.privacy") }}</NuxtLink>
+                    <NuxtLink to="/legal" :class="design.footerLink">{{ t("components.layouts.AppFooterLayout.legal") }}</NuxtLink>
+                    <NuxtLink to="/transparency" :class="design.footerLink">{{ t("components.layouts.AppFooterLayout.transparency") }}</NuxtLink>
+                </div>
             </div>
         </div>
     </footer>
 </template>
 
 <script setup lang="ts">
+import { MapPinIcon, EnvelopeIcon, PhoneIcon } from "@heroicons/vue/24/outline"
 import { siteConfig } from "~/src/config/config"
 
-const contactEmail = computed(() => siteConfig.contactEmail || "contact@ong-senegal.org")
+const { t } = useI18n()
 
 const socialLinks = computed(() => {
     const links = [] as { label: string; url: string; icon: ReturnType<typeof resolveComponent> }[]

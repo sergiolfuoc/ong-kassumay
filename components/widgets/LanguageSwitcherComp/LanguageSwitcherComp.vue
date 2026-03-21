@@ -4,7 +4,7 @@
             :class="[design.toggleButton, dark ? design.toggleDark : design.toggleLight]"
             @click="(isOpen = !isOpen)"
         >
-            <GlobeIcon />
+            <GlobeAltIcon class="w-5 h-5" />
             {{ currentLabel }}
         </button>
         <Transition name="fade">
@@ -23,6 +23,8 @@
 </template>
 
 <script setup lang="ts">
+import { GlobeAltIcon } from "@heroicons/vue/24/outline"
+
 defineProps<{ dark?: boolean }>()
 
 const { locale, locales, setLocale } = useI18n()

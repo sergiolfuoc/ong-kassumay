@@ -2,29 +2,27 @@
     <header :class="design.header">
         <div :class="design.headerContainer">
             <NuxtLink to="/" :class="design.brandLink">
-                <div :class="design.brandIconWrap">
-                    <BrandHeartIcon :size="20" class="text-white" />
-                </div>
-                <span :class="design.brandText">ONG Senegal</span>
+                <img src="/images/logo-kassumay.png" alt="Fundació Kassumay" class="h-10" />
             </NuxtLink>
 
             <nav :class="design.desktopNav">
-                <NuxtLink v-for="r in headerRoutes" :key="r.to" :to="r.to" :class="design.navLink">{{ $t(r.label) }}</NuxtLink>
+                <NuxtLink v-for="headerRoute in headerRoutes" :key="headerRoute.to" :to="headerRoute.to" :class="design.navLink">{{ t(headerRoute.label) }}</NuxtLink>
 
                 <template v-if="user">
-                    <button :class="design.logoutButton" @click="handleLogout">{{ $t("composables.useNavigation.signOut") }}</button>
+                    <NuxtLink v-for="headerAuthRoute in headerAuthRoutes" :key="headerAuthRoute.to" :to="headerAuthRoute.to" :class="design.navLink">{{ t(headerAuthRoute.label) }}</NuxtLink>
+                    <button :class="design.logoutButton" @click="handleLogout">{{ t("composables.useNavigation.signOut") }}</button>
                 </template>
                 <template v-else>
                     <NuxtLink
-                        v-for="r in headerGuestRoutes"
-                        :key="r.to"
-                        :to="r.to"
+                        v-for="headerGuestRoute in headerGuestRoutes"
+                        :key="headerGuestRoute.to"
+                        :to="headerGuestRoute.to"
                         :class="
-                            r.variant === 'outline'
+                            headerGuestRoute.variant === 'outline'
                                 ? design.guestOutlineLink
                                 : design.navLink
                         "
-                        >{{ $t(r.label) }}</NuxtLink
+                        >{{ t(headerGuestRoute.label) }}</NuxtLink
                     >
                 </template>
 
@@ -34,29 +32,28 @@
             <div :class="design.mobileActions">
                 <LanguageSwitcherComp />
                 <button :class="design.menuToggle" @click="(isMobileMenuOpen = !isMobileMenuOpen)" aria-label="Toggle menu">
-                    <CloseIcon v-if="isMobileMenuOpen" />
-                    <MenuIcon v-else />
+                    <XMarkIcon v-if="isMobileMenuOpen" class="w-6 h-6" />
+                    <Bars3Icon v-else class="w-6 h-6" />
                 </button>
             </div>
         </div>
 
         <Transition name="slide">
             <nav v-if="isMobileMenuOpen" :class="design.mobileNav">
-                <NuxtLink v-for="r in headerRoutes" :key="r.to" :to="r.to" :class="design.mobileNavLink" @click="(isMobileMenuOpen = false)">{{
-                    $t(r.label)
-                }}</NuxtLink>
+                <NuxtLink v-for="headerRoute in headerRoutes" :key="headerRoute.to" :to="headerRoute.to" :class="design.mobileNavLink" @click="(isMobileMenuOpen = false)">{{ t(headerRoute.label) }}</NuxtLink>
 
                 <template v-if="user">
-                    <button :class="design.mobileLogoutButton" @click="handleLogout">{{ $t("composables.useNavigation.signOut") }}</button>
+                    <NuxtLink v-for="headerAuthRoute in headerAuthRoutes" :key="headerAuthRoute.to" :to="headerAuthRoute.to" :class="design.mobileNavLink" @click="(isMobileMenuOpen = false)">{{ t(headerAuthRoute.label) }}</NuxtLink>
+                    <button :class="design.mobileLogoutButton" @click="handleLogout">{{ t("composables.useNavigation.signOut") }}</button>
                 </template>
                 <template v-else>
                     <NuxtLink
-                        v-for="r in headerGuestRoutes"
-                        :key="r.to"
-                        :to="r.to"
+                        v-for="headerGuestRoute in headerGuestRoutes"
+                        :key="headerGuestRoute.to"
+                        :to="headerGuestRoute.to"
                         :class="design.mobileNavLink"
                         @click="(isMobileMenuOpen = false)"
-                        >{{ $t(r.label) }}</NuxtLink
+                        >{{ t(headerGuestRoute.label) }}</NuxtLink
                     >
                 </template>
             </nav>
@@ -65,12 +62,15 @@
 </template>
 
 <script setup lang="ts">
-const { user, headerRoutes, headerGuestRoutes } = useNavigation()
+import { Bars3Icon, XMarkIcon } from "@heroicons/vue/24/outline"
+
+const { t } = useI18n()
+const { user, headerRoutes, headerGuestRoutes, headerAuthRoutes } = useNavigation()
 const supabase = useSupabaseClient()
 const isMobileMenuOpen = ref(false)
 
 const design = {
-    header: "bg-white/95 backdrop-blur-md sticky top-0 z-50 border-b border-earth-100",
+    header: "bg-white sticky top-0 z-50 border-b border-earth-100",
     headerContainer: "max-w-7xl mx-auto px-6 py-3 flex justify-between items-center",
     brandLink: "flex items-center gap-2.5",
     brandIconWrap: "w-10 h-10 bg-primary-400 rounded-full flex items-center justify-center",
