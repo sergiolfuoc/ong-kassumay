@@ -50,14 +50,17 @@
             "hasAccount": "Ja tens compte?"
         },
         "profile": {
+            "errors": {
+                "fileTooLarge": "Fitxer massa gran (màx 2MB)",
+                "nameRequired": "El nom és obligatori"
+            },
+            "avatar": "Foto de perfil",
             "save": "Desar canvis",
             "saving": "Desant...",
             "saved": "Perfil desat correctament",
             "title": "El meu perfil",
             "fullName": "Nom complet",
-            "email": "Correu electrònic",
-            "avatarUrl": "URL de l'avatar",
-            "preview": "Vista prèvia"
+            "email": "Correu electrònic"
         },
         "privacy": {
             "title": "Política de privacitat",

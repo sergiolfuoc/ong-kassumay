@@ -49,14 +49,17 @@
             "subtitle": "You will be redirected in a few seconds."
         },
         "profile": {
-            "title": "My profile",
-            "email": "Email",
-            "fullName": "Full name",
-            "avatarUrl": "Avatar URL",
-            "preview": "Preview",
+            "avatar": "Profile photo",
             "saved": "Profile saved successfully",
             "saving": "Saving...",
-            "save": "Save changes"
+            "save": "Save changes",
+            "errors": {
+                "nameRequired": "Name is required",
+                "fileTooLarge": "File is too large (max 2MB)"
+            },
+            "title": "My profile",
+            "fullName": "Full name",
+            "email": "Email"
         },
         "transparency": {
             "questions": "Have questions?",

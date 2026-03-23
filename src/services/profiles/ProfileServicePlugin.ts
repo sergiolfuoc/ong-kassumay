@@ -12,12 +12,38 @@ export class ProfileServicePlugin extends PluginBase<ServicesPlugin> {
         super(parent)
     }
 
-    protected _setup(): void {}
+    protected _setup(): void { }
 
     async fetchById(userId: string): Promise<IProfileModel | null> {
         const { data, error } = await this.supabase.from("profiles").select("*").eq("id", userId).single()
         if (error) console.warn("[profiles] fetchById error:", error.message)
         return data as IProfileModel | null
+    }
+
+    async uploadAvatar(userId: string, file: File): Promise<IServiceResult<string>> {
+        try {
+            const extension = file.name.split(".").pop() ?? "png"
+            const path = `${userId}/avatar.${extension}`
+            const { error: uploadError } = await this.supabase.storage
+                .from("avatars")
+                .upload(path, file, { upsert: true })
+            if (uploadError) throw uploadError
+
+            const { data: urlData } = this.supabase.storage
+                .from("avatars")
+                .getPublicUrl(path)
+            const publicUrl = `${urlData.publicUrl}?t=${Date.now()}`
+            const { error: updateError } = await this.supabase
+                .from("profiles")
+                .update({ avatar_url: publicUrl, updated_at: new Date().toISOString() })
+                .eq("id", userId)
+            if (updateError) throw updateError
+
+            return { data: publicUrl, error: null }
+        } catch (e: any) {
+            this.error("uploadAvatar:", e.message || e)
+            return { data: undefined, error: e.message ?? "Avatar upload failed" }
+        }
     }
 
     async update(userId: string, payload: { full_name: string; avatar_url: string }): Promise<IServiceResult> {

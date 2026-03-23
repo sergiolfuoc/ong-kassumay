@@ -91,14 +91,17 @@
             }
         },
         "profile": {
-            "title": "Mon profil",
-            "email": "Adresse e-mail",
-            "fullName": "Nom complet",
-            "avatarUrl": "URL de l'avatar",
-            "preview": "Aperçu",
-            "saved": "Profil enregistré avec succès",
+            "save": "Enregistrer",
             "saving": "Enregistrement...",
-            "save": "Enregistrer"
+            "saved": "Profil enregistré avec succès",
+            "errors": {
+                "fileTooLarge": "Fichier trop volumineux (max 2 Mo)",
+                "nameRequired": "Le nom est obligatoire"
+            },
+            "avatar": "Photo de profil",
+            "title": "Mon profil",
+            "fullName": "Nom complet",
+            "email": "Adresse e-mail"
         },
         "login": {
             "brand": "Fundació Kassumay",

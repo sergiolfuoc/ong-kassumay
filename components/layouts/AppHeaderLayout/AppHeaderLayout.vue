@@ -9,7 +9,13 @@
                 <NuxtLink v-for="headerRoute in headerRoutes" :key="headerRoute.to" :to="headerRoute.to" :class="design.navLink">{{ t(headerRoute.label) }}</NuxtLink>
 
                 <template v-if="user">
-                    <NuxtLink v-for="headerAuthRoute in headerAuthRoutes" :key="headerAuthRoute.to" :to="headerAuthRoute.to" :class="design.navLink">{{ t(headerAuthRoute.label) }}</NuxtLink>
+                    <NuxtLink v-for="headerAuthRoute in headerAuthRoutes" :key="headerAuthRoute.to"
+                        :to="headerAuthRoute.to"
+                        class="flex items-center gap-2 text-earth-700 hover:text-primary-500 transition text-sm font-medium">
+                        <img :src="profile?.avatar_url || '/images/default-avatar.svg'"
+                            alt="" class="w-7 h-7 rounded-full object-cover" />
+                        {{ t(headerAuthRoute.label) }}
+                    </NuxtLink>
                     <button :class="design.logoutButton" @click="handleLogout">{{ t("composables.useNavigation.signOut") }}</button>
                 </template>
                 <template v-else>
@@ -43,7 +49,14 @@
                 <NuxtLink v-for="headerRoute in headerRoutes" :key="headerRoute.to" :to="headerRoute.to" :class="design.mobileNavLink" @click="(isMobileMenuOpen = false)">{{ t(headerRoute.label) }}</NuxtLink>
 
                 <template v-if="user">
-                    <NuxtLink v-for="headerAuthRoute in headerAuthRoutes" :key="headerAuthRoute.to" :to="headerAuthRoute.to" :class="design.mobileNavLink" @click="(isMobileMenuOpen = false)">{{ t(headerAuthRoute.label) }}</NuxtLink>
+                    <NuxtLink v-for="headerAuthRoute in headerAuthRoutes" :key="headerAuthRoute.to"
+                        :to="headerAuthRoute.to"
+                        class="flex items-center gap-2 text-earth-800 hover:text-primary-500 font-medium"
+                        @click="(isMobileMenuOpen = false)">
+                        <img :src="profile?.avatar_url || '/images/default-avatar.svg'"
+                            alt="" class="w-7 h-7 rounded-full object-cover" />
+                        {{ t(headerAuthRoute.label) }}
+                    </NuxtLink>
                     <button :class="design.mobileLogoutButton" @click="handleLogout">{{ t("composables.useNavigation.signOut") }}</button>
                 </template>
                 <template v-else>
@@ -59,13 +72,13 @@
             </nav>
         </Transition>
     </header>
-</template>
 
+</template>
 <script setup lang="ts">
 import { Bars3Icon, XMarkIcon } from "@heroicons/vue/24/outline"
 
 const { t } = useI18n()
-const { user, headerRoutes, headerGuestRoutes, headerAuthRoutes } = useNavigation()
+const { user, profile, headerRoutes, headerGuestRoutes, headerAuthRoutes } = useNavigation()
 const supabase = useSupabaseClient()
 const isMobileMenuOpen = ref(false)
 

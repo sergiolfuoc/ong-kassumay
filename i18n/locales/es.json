@@ -2,13 +2,16 @@
     "pages": {
         "profile": {
             "title": "Mi perfil",
-            "email": "Correo electrónico",
             "fullName": "Nombre completo",
-            "avatarUrl": "URL del avatar",
-            "preview": "Vista previa",
+            "email": "Correo electrónico",
+            "errors": {
+                "fileTooLarge": "Archivo demasiado grande (máx 2MB)",
+                "nameRequired": "El nombre es obligatorio"
+            },
             "saved": "Perfil guardado correctamente",
             "saving": "Guardando...",
-            "save": "Guardar cambios"
+            "save": "Guardar cambios",
+            "avatar": "Foto de perfil"
         },
         "index": {
             "hero": {
