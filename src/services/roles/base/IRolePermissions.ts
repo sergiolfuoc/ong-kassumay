@@ -6,10 +6,22 @@ export interface IRolePermissions<TData> {
         profile: {
             view: TData
         }
+        news: {
+            list: TData
+        }
+        admin: {
+            access: TData
+        }
     }
     actions: {
         profile: {
             update: TData
+        }
+        news: {
+            create: TData
+            update: TData
+            delete: TData
+            publish: TData
         }
     }
 }

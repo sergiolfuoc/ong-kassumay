@@ -7,7 +7,7 @@ export interface INavigationRoute {
     icon?: string
     requiredRole?: Role
     visibilityKey?: PermissionPath
-    section: "header" | "headerGuest" | "headerAuth"
+    section: "header" | "headerGuest" | "headerAuth" | "adminPanel"
     variant?: "default" | "outline" | "highlight"
     order?: number
 }

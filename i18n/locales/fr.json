@@ -2,15 +2,15 @@
     "components": {
         "layouts": {
             "AppFooterLayout": {
-                "navigation": "Navigation",
-                "howToHelp": "Comment aider",
-                "contact": "Contact",
                 "newsletterTitle": "Newsletter",
                 "newsletterSubtitle": "Des nouvelles du terrain, quelques fois par mois. Pas de spam.",
                 "emailPlaceholder": "Votre adresse e-mail",
                 "subscribe": "S'abonner",
                 "brand": "Fundació Kassumay",
                 "brandDescription": "ONG active au Sénégal depuis 2005. Eau potable, écoles et programmes de santé.",
+                "navigation": "Navigation",
+                "howToHelp": "Comment aider",
+                "contact": "Contact",
                 "copyright": "© {year} ONG Sénégal. Tous droits réservés.",
                 "privacy": "Politique de confidentialité",
                 "legal": "Mentions légales",
@@ -18,23 +18,24 @@
             }
         },
         "widgets": {},
+        "cards": {
+            "NewsCardComp": {
+                "readMore": "Lire la suite"
+            }
+        },
         "tables": {
             "AppDataTable": {
                 "search": "Rechercher...",
-                "actions": "Actions",
-                "noResults": "Aucun résultat trouvé.",
+                "of": "de",
                 "showing": "Affichage",
-                "of": "de"
+                "noResults": "Aucun résultat trouvé.",
+                "actions": "Actions"
             }
         },
         "forms": {}
     },
     "pages": {
         "privacy": {
-            "contact": "Délégué à la protection des données",
-            "contactDescription": "Pour toute question relative à la confidentialité, écrivez-nous à {email}.",
-            "yourRights": "Vos droits (RGPD art. 15-22)",
-            "yourRightsDescription": "Vous pouvez exercer vos droits d'accès, de rectification, d'effacement, de portabilité et d'opposition en écrivant à {email}. En cas de litige, vous pouvez introduire une réclamation auprès de l'Agence espagnole de protection des données (aepd.es).",
             "title": "Politique de confidentialité",
             "intro": "Responsable du traitement : Associació Fundació Kassumay, inscrite au Registre national des associations d'Espagne. Le présent avis est conforme au Règlement (UE) 2016/679 (RGPD) et à la Loi organique espagnole 3/2018 (LOPD-GDD).",
             "infoCollect": "Données collectées",
@@ -50,7 +51,11 @@
             "useCommunicate": "Vous informer de l'avancement des projets que vous avez financés.",
             "useImprove": "Élaborer des statistiques anonymes d'utilisation du site.",
             "dataProtection": "Mesures de sécurité",
-            "dataProtectionDescription": "Les communications sont chiffrées via TLS. L'accès à la base de données est restreint grâce au Row Level Security de Supabase et aux rôles internes de l'application."
+            "dataProtectionDescription": "Les communications sont chiffrées via TLS. L'accès à la base de données est restreint grâce au Row Level Security de Supabase et aux rôles internes de l'application.",
+            "yourRights": "Vos droits (RGPD art. 15-22)",
+            "yourRightsDescription": "Vous pouvez exercer vos droits d'accès, de rectification, d'effacement, de portabilité et d'opposition en écrivant à {email}. En cas de litige, vous pouvez introduire une réclamation auprès de l'Agence espagnole de protection des données (aepd.es).",
+            "contact": "Délégué à la protection des données",
+            "contactDescription": "Pour toute question relative à la confidentialité, écrivez-nous à {email}."
         },
         "legal": {
             "title": "Mentions légales",
@@ -85,9 +90,27 @@
         },
         "index": {
             "hero": {
-                "subtitle": "Nous travaillons avec des communautés à Kédougou, Tambacounda et Louga pour construire des puits, soutenir des écoles et gérer des centres de santé.",
+                "tag": "ONG au Sénégal",
                 "title": "Eau, écoles et santé{br}pour le Sénégal rural",
-                "tag": "ONG au Sénégal"
+                "subtitle": "Nous travaillons avec des communautés à Kédougou, Tambacounda et Louga pour construire des puits, soutenir des écoles et gérer des centres de santé."
+            },
+            "latestNews": {
+                "tagline": "Les dernières nouvelles de nos projets sur le terrain.",
+                "readAll": "Voir toutes les actualités",
+                "empty": "Aucune actualité publiée pour le moment.",
+                "title": "Dernières actualités"
+            }
+        },
+        "news": {
+            "slug": {
+                "back": "Retour aux actualités",
+                "notFound": "Article introuvable."
+            },
+            "index": {
+                "title": "Actualités",
+                "tag": "Actualités et mises à jour",
+                "empty": "Aucune actualité publiée pour le moment.",
+                "subtitle": "Histoires, avancées et nouvelles de nos projets au Sénégal."
             }
         },
         "profile": {
@@ -110,7 +133,7 @@
             "email": "Adresse e-mail",
             "emailPlaceholder": "votre{'@'}email.com",
             "password": "Mot de passe",
-            "passwordPlaceholder": "••••••••",
+            "passwordPlaceholder": "********",
             "error": "E-mail ou mot de passe incorrect",
             "loading": "Connexion en cours...",
             "submit": "Se connecter",
@@ -148,6 +171,8 @@
     "composables": {
         "useNavigation": {
             "signOut": "Déconnexion",
+            "adminNews": "Administration des actualités",
+            "news": "Actualités",
             "signIn": "Connexion",
             "signUp": "S'inscrire",
             "home": "Accueil",

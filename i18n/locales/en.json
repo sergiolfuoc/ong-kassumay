@@ -16,15 +16,13 @@
             "email": "Email",
             "emailPlaceholder": "your{'@'}email.com",
             "password": "Password",
-            "passwordPlaceholder": "••••••••",
+            "passwordPlaceholder": "********",
             "error": "Incorrect email or password",
             "loading": "Signing in...",
             "submit": "Sign in",
             "noAccount": "Don't have an account?"
         },
         "register": {
-            "submit": "Sign up",
-            "hasAccount": "Already have an account?",
             "brand": "Fundació Kassumay",
             "title": "Create account",
             "subtitle": "Create an account to track your donations and manage your profile",
@@ -34,14 +32,34 @@
             "emailPlaceholder": "your{'@'}email.com",
             "password": "Password",
             "passwordPlaceholder": "Minimum 6 characters",
+            "success": "Account created! Check your email to confirm.",
             "loading": "Creating account...",
-            "success": "Account created! Check your email to confirm."
+            "submit": "Sign up",
+            "hasAccount": "Already have an account?"
         },
         "index": {
             "hero": {
                 "tag": "NGO in Senegal",
                 "title": "Water, schools and healthcare{br}for rural Senegal",
                 "subtitle": "We work with communities in Kédougou, Tambacounda and Louga to build wells, support schools and run health clinics."
+            },
+            "latestNews": {
+                "empty": "No news published yet.",
+                "title": "Latest news",
+                "readAll": "See all news",
+                "tagline": "Stay up to date with our latest stories from the field."
+            }
+        },
+        "news": {
+            "index": {
+                "empty": "No news published yet.",
+                "subtitle": "Stories, updates and progress from our projects in Senegal.",
+                "title": "News",
+                "tag": "News & Updates"
+            },
+            "slug": {
+                "back": "Back to news",
+                "notFound": "Article not found."
             }
         },
         "confirm": {
@@ -62,10 +80,6 @@
             "email": "Email"
         },
         "transparency": {
-            "questions": "Have questions?",
-            "questionsDescription": "We are happy to answer any question about how funds are used. Write to us at",
-            "payments": "Donation gateway",
-            "paymentsDescription": "Payments are processed through Givebutter. Funds go directly to the association's bank account; Givebutter does not hold any money. You can check the status of each campaign on our",
             "title": "Transparency",
             "intro": "We publish our accounts for every fiscal year so you can see exactly how funds are split between field projects and operating costs.",
             "fundsBreakdown": "Fund allocation",
@@ -73,7 +87,11 @@
             "fundOperations": "Field logistics and travel",
             "fundAdmin": "Management and communications",
             "financialReports": "Annual accounts",
-            "financialReportsDescription": "Our annual accounts are filed with the national registry of associations in accordance with Spanish Organic Law 1/2002. You can request a copy by writing to"
+            "financialReportsDescription": "Our annual accounts are filed with the national registry of associations in accordance with Spanish Organic Law 1/2002. You can request a copy by writing to",
+            "payments": "Donation gateway",
+            "paymentsDescription": "Payments are processed through Givebutter. Funds go directly to the association's bank account; Givebutter does not hold any money. You can check the status of each campaign on our",
+            "questions": "Have questions?",
+            "questionsDescription": "We are happy to answer any question about how funds are used. Write to us at"
         },
         "legal": {
             "title": "Legal notice",
@@ -118,41 +136,48 @@
     "composables": {
         "useNavigation": {
             "home": "Home",
+            "news": "News",
+            "adminNews": "News administration",
             "signIn": "Sign in",
             "signUp": "Sign up",
             "signOut": "Sign out",
-            "brand": "Fundació Kassumay",
-            "profile": "Profile"
+            "profile": "Profile",
+            "brand": "Fundació Kassumay"
         }
     },
     "components": {
-        "tables": {
-            "AppDataTable": {
-                "search": "Search...",
-                "actions": "Actions",
-                "noResults": "No results found.",
-                "showing": "Showing",
-                "of": "of"
-            }
-        },
         "layouts": {
             "AppFooterLayout": {
-                "copyright": "© {year} Fundació Kassumay. All rights reserved.",
-                "privacy": "Privacy policy",
-                "legal": "Legal notice",
-                "transparency": "Transparency",
-                "navigation": "Navigation",
-                "howToHelp": "How to help",
-                "contact": "Contact",
                 "newsletterTitle": "Newsletter",
                 "newsletterSubtitle": "Updates from the field, a few times a month. No spam.",
                 "emailPlaceholder": "Enter your email",
                 "subscribe": "Subscribe",
                 "brand": "Fundació Kassumay",
-                "brandDescription": "NGO working in Senegal since 2005. Clean water, schools and health programs."
+                "brandDescription": "NGO working in Senegal since 2005. Clean water, schools and health programs.",
+                "navigation": "Navigation",
+                "howToHelp": "How to help",
+                "contact": "Contact",
+                "copyright": "© {year} Fundació Kassumay. All rights reserved.",
+                "privacy": "Privacy policy",
+                "legal": "Legal notice",
+                "transparency": "Transparency"
             }
         },
         "widgets": {},
+        "cards": {
+            "NewsCardComp": {
+                "readMore": "Read more"
+            }
+        },
+        "tables": {
+            "AppDataTable": {
+                "noResults": "No results found.",
+                "showing": "Showing",
+                "of": "of",
+                "search": "Search...",
+                "actions": "Actions"
+            }
+        },
         "forms": {}
     }
 }

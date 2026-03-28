@@ -18,19 +18,37 @@
                 "tag": "ONG en Senegal",
                 "title": "Agua, escuelas y sanidad{br}para el Senegal rural",
                 "subtitle": "Trabajamos sobre todo con comunidades en Kédougou, Tambacounda y Louga para construir pozos, apoyar escuelas y gestionar centros de salud."
+            },
+            "latestNews": {
+                "readAll": "Ver todas las noticias",
+                "empty": "Aún no hay noticias publicadas.",
+                "title": "Últimas noticias",
+                "tagline": "Las últimas novedades desde nuestros proyectos en el terreno."
+            }
+        },
+        "news": {
+            "index": {
+                "subtitle": "Historias, avances y novedades de nuestros proyectos en Senegal.",
+                "empty": "Aún no hay noticias publicadas.",
+                "tag": "Noticias y actualizaciones",
+                "title": "Noticias"
+            },
+            "slug": {
+                "notFound": "Artículo no encontrado.",
+                "back": "Volver a noticias"
             }
         },
         "login": {
-            "title": "Bienvenido de nuevo",
             "brand": "Fundació Kassumay",
+            "title": "Bienvenido de nuevo",
             "subtitle": "Inicia sesión en tu cuenta",
             "email": "Correo electrónico",
             "emailPlaceholder": "tu{'@'}email.com",
             "password": "Contraseña",
-            "passwordPlaceholder": "••••••••",
-            "submit": "Iniciar sesión",
-            "loading": "Iniciando sesión...",
+            "passwordPlaceholder": "********",
             "error": "Correo o contraseña incorrectos",
+            "loading": "Iniciando sesión...",
+            "submit": "Iniciar sesión",
             "noAccount": "¿No tienes cuenta?"
         },
         "register": {
@@ -51,6 +69,44 @@
         "confirm": {
             "title": "Confirmando tu cuenta...",
             "subtitle": "Serás redirigido en unos segundos."
+        },
+        "admin": {
+            "news": {
+                "form": {
+                    "cardSection": "Vista previa de tarjeta",
+                    "cardPreview": "Asi se vera en el listado:",
+                    "previewTitle": "Titulo del articulo",
+                    "articleSection": "Vista previa del articulo",
+                    "articlePreview": "Asi se vera el contenido:",
+                    "title": "Título",
+                    "slug": "Slug",
+                    "excerpt": "Extracto",
+                    "content": "Contenido",
+                    "imageUpload": "Subir imagen",
+                    "imagePasteUrl": "Pegar URL",
+                    "removeImage": "Quitar imagen",
+                    "published": "Publicado",
+                    "required": "Título, slug y contenido son obligatorios.",
+                    "save": "Guardar",
+                    "cancel": "Cancelar"
+                },
+                "confirmDelete": "¿Estás seguro de que quieres eliminar este artículo?",
+                "delete": "Eliminar",
+                "unpublish": "Despublicar",
+                "publish": "Publicar",
+                "edit": "Editar",
+                "columns": {
+                    "date": "Fecha",
+                    "status": "Estado",
+                    "title": "Título"
+                },
+                "draft": "Borrador",
+                "published": "Publicado",
+                "editTitle": "Editar artículo",
+                "createTitle": "Crear artículo",
+                "create": "Nuevo artículo",
+                "title": "Gestionar noticias"
+            }
         },
         "privacy": {
             "title": "Política de privacidad",
@@ -107,13 +163,13 @@
         }
     },
     "validations": {
-        "email": "Introduce un email válido",
         "required": "Este campo es obligatorio",
-        "url": "Introduce una URL válida",
+        "email": "Introduce un email válido",
         "numeric": "Debe ser un número",
         "minLength": "Mínimo {min} caracteres",
         "maxLength": "Máximo {max} caracteres",
-        "minNumber": "Debe ser al menos {min}"
+        "minNumber": "Debe ser al menos {min}",
+        "url": "Introduce una URL válida"
     },
     "components": {
         "layouts": {
@@ -134,13 +190,18 @@
             }
         },
         "widgets": {},
+        "cards": {
+            "NewsCardComp": {
+                "readMore": "Leer más"
+            }
+        },
         "tables": {
             "AppDataTable": {
-                "search": "Buscar...",
-                "actions": "Acciones",
-                "noResults": "No se encontraron resultados.",
                 "showing": "Mostrando",
-                "of": "de"
+                "search": "Buscar...",
+                "of": "de",
+                "actions": "Acciones",
+                "noResults": "No se encontraron resultados."
             }
         },
         "forms": {}
@@ -148,7 +209,9 @@
     "composables": {
         "useNavigation": {
             "profile": "Perfil",
+            "adminNews": "Administración de noticias",
             "home": "Inicio",
+            "news": "Noticias",
             "signIn": "Iniciar sesión",
             "signUp": "Registrarse",
             "signOut": "Cerrar sesión",

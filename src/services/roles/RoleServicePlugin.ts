@@ -73,12 +73,12 @@ export class RoleServicePlugin extends PluginBase {
         this._descriptors.set(permissions.name, permissions)
     }
 
-    private _resolvePath(obj: Record<string, any>, path: string): boolean {
+    private _resolvePath(obj: any, path: string): boolean {
         const parts = path.split(".")
-        let current: unknown = obj
+        let current = obj
         for (const part of parts) {
             if (current == null || typeof current !== "object") return false
-            current = (current as Record<string, unknown>)[part]
+            current = (current)[part]
         }
         return current === true
     }

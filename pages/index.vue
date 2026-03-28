@@ -19,9 +19,30 @@
                 </div>
             </div>
         </section>
-    </div>
-</template>
 
+        <!-- news -->
+        <section class="max-w-7xl mx-auto px-6 py-16">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-display font-bold text-earth-900">{{ t("pages.index.latestNews.title") }}</h2>
+                <p class="text-earth-500 mt-2">{{ t("pages.index.latestNews.tagline") }}</p>
+            </div>
+            <div v-if="latestNews?.length" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <NewsCardComp v-for="article in latestNews" :key="article.id" :article="article" />
+            </div>
+            <p v-else class="text-earth-400 text-center py-8">{{ t("pages.index.latestNews.empty") }}</p>
+            <div v-if="latestNews?.length" class="text-center mt-8">
+                <NuxtLink to="/news" class="inline-flex items-center gap-1 text-primary-500 hover:text-primary-600 font-semibold transition">
+                    {{ t("pages.index.latestNews.readAll") }}
+                    <ArrowRightIcon icon-class="w-4 h-4" />
+                </NuxtLink>
+            </div>
+        </section>
+    </div>
+
+</template>
 <script setup lang="ts">
+const { news: newsService } = useServices()
+const { data: latestNews } = await useAsyncData("home-news", () => newsService.fetchPublished(3))
+
 const { t } = useI18n()
 </script>

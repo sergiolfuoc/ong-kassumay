@@ -1,4 +1,4 @@
-export abstract class PluginBase<TParent extends PluginBase<any> = any> {
+export abstract class PluginBase<TParent = any> {
     abstract name: string
     protected abstract _setup(): void | Promise<void>
 
@@ -19,17 +19,17 @@ export abstract class PluginBase<TParent extends PluginBase<any> = any> {
     }
 
     debug = false
-    protected log(...params: unknown[]): void {
+    protected log(...params: any[]): void {
         if (this.debug) {
             console.info(`[plugin][${this.name}]`, ...params)
         }
     }
-    protected warn(...params: unknown[]): void {
+    protected warn(...params: any[]): void {
         if (this.debug) {
             console.warn(`[plugin][${this.name}]`, ...params)
         }
     }
-    protected error(...params: unknown[]): void {
+    protected error(...params: any[]): void {
         console.error(`[plugin][${this.name}]`, ...params);
     }
 }

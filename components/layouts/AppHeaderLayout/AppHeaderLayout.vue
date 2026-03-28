@@ -17,6 +17,11 @@
                         {{ t(headerAuthRoute.label) }}
                     </NuxtLink>
                     <button :class="design.logoutButton" @click="handleLogout">{{ t("composables.useNavigation.signOut") }}</button>
+                    <NuxtLink v-for="adminRoute in adminPanelRoutes" :key="adminRoute.to"
+                        :to="adminRoute.to"
+                        :class="design.navLink">
+                        {{ t(adminRoute.label) }}
+                    </NuxtLink>
                 </template>
                 <template v-else>
                     <NuxtLink
@@ -58,6 +63,12 @@
                         {{ t(headerAuthRoute.label) }}
                     </NuxtLink>
                     <button :class="design.mobileLogoutButton" @click="handleLogout">{{ t("composables.useNavigation.signOut") }}</button>
+                    <NuxtLink v-for="adminRoute in adminPanelRoutes" :key="adminRoute.to"
+                        :to="adminRoute.to"
+                        :class="design.mobileNavLink"
+                        @click="(isMobileMenuOpen = false)">
+                        {{ t(adminRoute.label) }}
+                    </NuxtLink>
                 </template>
                 <template v-else>
                     <NuxtLink
@@ -77,8 +88,8 @@
 <script setup lang="ts">
 import { Bars3Icon, XMarkIcon } from "@heroicons/vue/24/outline"
 
+const { user, profile, headerRoutes, headerGuestRoutes, headerAuthRoutes, adminPanelRoutes } = useNavigation()
 const { t } = useI18n()
-const { user, profile, headerRoutes, headerGuestRoutes, headerAuthRoutes } = useNavigation()
 const supabase = useSupabaseClient()
 const isMobileMenuOpen = ref(false)
 

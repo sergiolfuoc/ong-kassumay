@@ -5,4 +5,7 @@ import { falseRolePermissions } from "../templates/falseRolePermissions"
 export const guestRolePermissions = RolePermissionsBuilder.build(falseRolePermissions, {
     name: "GUEST",
     description: "Solo lectura publica",
+    visibility: {
+        news: { list: true },
+    },
 })

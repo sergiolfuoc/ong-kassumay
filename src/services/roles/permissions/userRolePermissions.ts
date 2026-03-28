@@ -7,6 +7,7 @@ export const userRolePermissions = RolePermissionsBuilder.build(falseRolePermiss
     description: "Lectura y gestion del propio perfil",
     visibility: {
         profile: { view: true },
+        news: { list: true },
     },
     actions: {
         profile: { update: true },

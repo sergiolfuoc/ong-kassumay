@@ -44,6 +44,7 @@ export function useNavigation() {
 	const headerRoutes = filterBySection("header")
 	const headerGuestRoutes = filterBySection("headerGuest")
 	const headerAuthRoutes = filterBySection("headerAuth")
+	const adminPanelRoutes = filterBySection("adminPanel")
 
 	return {
 		user,
@@ -53,5 +54,6 @@ export function useNavigation() {
 		headerRoutes,
 		headerGuestRoutes,
 		headerAuthRoutes,
+		adminPanelRoutes,
 	}
 }

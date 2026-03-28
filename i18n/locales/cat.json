@@ -1,10 +1,12 @@
 {
     "composables": {
         "useNavigation": {
+            "adminNews": "Administració de notícies",
             "home": "Inici",
             "signIn": "Iniciar sessió",
             "signUp": "Registrar-se",
             "signOut": "Tancar sessió",
+            "news": "Notícies",
             "brand": "Fundació Kassumay",
             "profile": "Perfil"
         }
@@ -15,6 +17,62 @@
                 "tag": "ONG al Senegal",
                 "title": "Aigua, escoles i sanitat{br}per al Senegal rural",
                 "subtitle": "Treballem amb comunitats a Kédougou, Tambacounda i Louga per construir pous, donar suport a escoles i gestionar centres de salut."
+            },
+            "latestNews": {
+                "empty": "Encara no hi ha notícies publicades.",
+                "readAll": "Veure totes les notícies",
+                "tagline": "Les últimes novetats des dels nostres projectes al terreny.",
+                "title": "Últimes notícies"
+            }
+        },
+        "news": {
+            "index": {
+                "title": "Notícies",
+                "empty": "Encara no hi ha notícies publicades.",
+                "tag": "Notícies i actualitzacions",
+                "subtitle": "Històries, avenços i novetats dels nostres projectes al Senegal."
+            },
+            "slug": {
+                "notFound": "Article no trobat.",
+                "back": "Tornar a notícies"
+            }
+        },
+        "admin": {
+            "news": {
+                "create": "Nou article",
+                "createTitle": "Crear article",
+                "title": "Gestionar notícies",
+                "columns": {
+                    "status": "Estat",
+                    "title": "Títol",
+                    "date": "Data"
+                },
+                "published": "Publicat",
+                "publish": "Publicar",
+                "unpublish": "Despublicar",
+                "edit": "Editar",
+                "editTitle": "Editar article",
+                "draft": "Esborrany",
+                "delete": "Eliminar",
+                "confirmDelete": "Estàs segur que vols eliminar aquest article?",
+                "form": {
+                    "required": "Títol, slug i contingut són obligatoris.",
+                    "save": "Desar",
+                    "cancel": "Cancel·lar",
+                    "imageUpload": "Pujar imatge",
+                    "imagePasteUrl": "Enganxar URL",
+                    "removeImage": "Treure imatge",
+                    "cardSection": "Vista previa de la targeta",
+                    "cardPreview": "Aixi es veura al llistat:",
+                    "previewTitle": "Titol de l'article",
+                    "articleSection": "Vista previa de l'article",
+                    "articlePreview": "Aixi es veura el contingut:",
+                    "title": "Títol",
+                    "slug": "Slug",
+                    "excerpt": "Extracte",
+                    "content": "Contingut",
+                    "published": "Publicat"
+                }
             }
         },
         "confirm": {
@@ -28,7 +86,7 @@
             "email": "Correu electrònic",
             "emailPlaceholder": "el_teu{'@'}email.com",
             "password": "Contrasenya",
-            "passwordPlaceholder": "••••••••",
+            "passwordPlaceholder": "********",
             "error": "Correu o contrasenya incorrectes",
             "loading": "Iniciant sessió...",
             "submit": "Iniciar sessió",
@@ -99,8 +157,6 @@
             "questionsDescription": "Responem a qualsevol pregunta sobre l'ús dels fons. Escriu-nos a"
         },
         "legal": {
-            "contact": "Contacte legal",
-            "contactDescription": "Per a assumptes legals, escriu-nos a {email}.",
             "title": "Avís legal",
             "organization": "Titular del lloc",
             "organizationDescription": "Associació Fundació Kassumay, inscrita al Registre Nacional d'Associacions del Ministeri de l'Interior d'Espanya (Secció 1a). Seu social a Barcelona. Operem projectes de cooperació a les regions de Kédougou, Tambacounda i Louga (Senegal).",
@@ -113,7 +169,9 @@
             "externalLinks": "Enllaços a tercers",
             "externalLinksDescription": "El lloc enllaça a Givebutter per a la gestió de donacions i a xarxes socials. No ens responsabilitzem del contingut ni de la política de privacitat d'aquests serveis.",
             "liability": "Limitació de responsabilitat",
-            "liabilityDescription": "Fem tot el possible per mantenir la informació actualitzada, però no garantim que estigui lliure d'errors. L'ús del lloc és responsabilitat de l'usuari."
+            "liabilityDescription": "Fem tot el possible per mantenir la informació actualitzada, però no garantim que estigui lliure d'errors. L'ús del lloc és responsabilitat de l'usuari.",
+            "contact": "Contacte legal",
+            "contactDescription": "Per a assumptes legals, escriu-nos a {email}."
         }
     },
     "components": {
@@ -135,13 +193,18 @@
             }
         },
         "widgets": {},
+        "cards": {
+            "NewsCardComp": {
+                "readMore": "Llegir més"
+            }
+        },
         "tables": {
             "AppDataTable": {
+                "actions": "Accions",
                 "noResults": "No s'han trobat resultats.",
                 "search": "Cercar...",
-                "actions": "Accions",
-                "showing": "Mostrant",
-                "of": "de"
+                "of": "de",
+                "showing": "Mostrant"
             }
         },
         "forms": {}
@@ -149,10 +212,10 @@
     "validations": {
         "required": "Aquest camp és obligatori",
         "email": "Introdueix un email vàlid",
-        "url": "Introdueix una URL vàlida",
         "numeric": "Ha de ser un número",
         "minLength": "Mínim {min} caràcters",
         "maxLength": "Màxim {max} caràcters",
-        "minNumber": "Ha de ser almenys {min}"
+        "minNumber": "Ha de ser almenys {min}",
+        "url": "Introdueix una URL vàlida"
     }
 }

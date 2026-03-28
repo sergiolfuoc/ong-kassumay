@@ -29,5 +29,5 @@ defineProps<{
     disabled?: boolean
 }>()
 
-defineEmits<{ cancel: [] }>()
+defineEmits(["cancel"])
 </script>

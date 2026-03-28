@@ -1,4 +1,4 @@
-import type { Simplify } from "./../../utils/utils"
+import type { Simplify } from "~/src/types/utils"
 
 // id viene de auth.users, trigger on signup crea la fila
 export interface IProfileModel {

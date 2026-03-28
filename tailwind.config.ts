@@ -22,6 +22,8 @@ export default <Config>{
                 kassumay: {
                     400: "#c2b84a",
                     500: "#bdb449",
+                    800: "#a6983f",
+                    900: "#7c6e2b",
                     950: "#6b5e1a",
                 },
                 // Blue
@@ -39,6 +41,7 @@ export default <Config>{
                     950: "#1a2332",
                 },
                 warm: {
+                    100: "#fef2e8",
                     200: "#cbddeb",
                 },
             },
