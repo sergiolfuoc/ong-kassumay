@@ -32,6 +32,37 @@
                 "actions": "Actions"
             }
         },
+        "editor": {
+            "TipTapEditorComp": {
+                "insertImage": "Inserer une image",
+                "promptImageUrl": "URL de l'image :",
+                "insertLink": "Inserer un lien",
+                "promptUrl": "URL :",
+                "highlight": "Surligner",
+                "color": "Couleur du texte",
+                "codeBlock": "Bloc de code",
+                "inlineCode": "Code en ligne",
+                "blockquote": "Citation",
+                "orderedList": "Liste numerotee",
+                "bulletList": "Liste a puces",
+                "horizontalRule": "Ligne horizontale",
+                "alignCenter": "Centrer",
+                "alignRight": "Aligner a droite",
+                "alignLeft": "Aligner a gauche",
+                "strike": "Barre",
+                "italic": "Italique",
+                "underline": "Souligne",
+                "bold": "Gras",
+                "heading": "Titre",
+                "placeholder": "Ecrivez quelque chose...",
+                "characters": "caracteres",
+                "preview": "Apercu",
+                "viewSource": "Voir le code source",
+                "clearFormat": "Effacer le formatage",
+                "redo": "Retablir",
+                "undo": "Annuler"
+            }
+        },
         "forms": {}
     },
     "pages": {

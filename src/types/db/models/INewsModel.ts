@@ -23,6 +23,7 @@ export type INewsModelTable = {
         image_url?: string | null
         published?: boolean
         author_id?: string | null
+        created_at?: string
     }
     Update: {
         title?: string
@@ -32,6 +33,7 @@ export type INewsModelTable = {
         image_url?: string | null
         published?: boolean
         author_id?: string | null
+        created_at?: string
         updated_at?: string
     }
     Relationships: []

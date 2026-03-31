@@ -1,14 +1,14 @@
 {
     "composables": {
         "useNavigation": {
-            "adminNews": "Administració de notícies",
             "home": "Inici",
             "signIn": "Iniciar sessió",
             "signUp": "Registrar-se",
             "signOut": "Tancar sessió",
-            "news": "Notícies",
             "brand": "Fundació Kassumay",
-            "profile": "Perfil"
+            "profile": "Perfil",
+            "news": "Notícies",
+            "adminNews": "Administració de notícies"
         }
     },
     "pages": {
@@ -19,40 +19,40 @@
                 "subtitle": "Treballem amb comunitats a Kédougou, Tambacounda i Louga per construir pous, donar suport a escoles i gestionar centres de salut."
             },
             "latestNews": {
-                "empty": "Encara no hi ha notícies publicades.",
-                "readAll": "Veure totes les notícies",
+                "title": "Últimes notícies",
                 "tagline": "Les últimes novetats des dels nostres projectes al terreny.",
-                "title": "Últimes notícies"
+                "empty": "Encara no hi ha notícies publicades.",
+                "readAll": "Veure totes les notícies"
             }
         },
         "news": {
             "index": {
-                "title": "Notícies",
-                "empty": "Encara no hi ha notícies publicades.",
                 "tag": "Notícies i actualitzacions",
-                "subtitle": "Històries, avenços i novetats dels nostres projectes al Senegal."
+                "title": "Notícies",
+                "subtitle": "Històries, avenços i novetats dels nostres projectes al Senegal.",
+                "empty": "Encara no hi ha notícies publicades."
             },
             "slug": {
-                "notFound": "Article no trobat.",
-                "back": "Tornar a notícies"
+                "back": "Tornar a notícies",
+                "notFound": "Article no trobat."
             }
         },
         "admin": {
             "news": {
+                "title": "Gestionar notícies",
                 "create": "Nou article",
                 "createTitle": "Crear article",
-                "title": "Gestionar notícies",
+                "editTitle": "Editar article",
                 "columns": {
-                    "status": "Estat",
                     "title": "Títol",
+                    "status": "Estat",
                     "date": "Data"
                 },
                 "published": "Publicat",
+                "draft": "Esborrany",
+                "edit": "Editar",
                 "publish": "Publicar",
                 "unpublish": "Despublicar",
-                "edit": "Editar",
-                "editTitle": "Editar article",
-                "draft": "Esborrany",
                 "delete": "Eliminar",
                 "confirmDelete": "Estàs segur que vols eliminar aquest article?",
                 "form": {
@@ -71,7 +71,13 @@
                     "slug": "Slug",
                     "excerpt": "Extracte",
                     "content": "Contingut",
+                    "publishDate": "Data de publicació",
                     "published": "Publicat"
+                },
+                "toast": {
+                    "deleted": "Noticia eliminada correctament",
+                    "created": "Noticia creada correctament",
+                    "updated": "Noticia actualitzada correctament"
                 }
             }
         },
@@ -108,17 +114,17 @@
             "hasAccount": "Ja tens compte?"
         },
         "profile": {
-            "errors": {
-                "fileTooLarge": "Fitxer massa gran (màx 2MB)",
-                "nameRequired": "El nom és obligatori"
-            },
-            "avatar": "Foto de perfil",
-            "save": "Desar canvis",
-            "saving": "Desant...",
-            "saved": "Perfil desat correctament",
             "title": "El meu perfil",
+            "email": "Correu electrònic",
             "fullName": "Nom complet",
-            "email": "Correu electrònic"
+            "avatar": "Foto de perfil",
+            "errors": {
+                "nameRequired": "El nom és obligatori",
+                "fileTooLarge": "Fitxer massa gran (màx 2MB)"
+            },
+            "saved": "Perfil desat correctament",
+            "saving": "Desant...",
+            "save": "Desar canvis"
         },
         "privacy": {
             "title": "Política de privacitat",
@@ -205,6 +211,37 @@
                 "search": "Cercar...",
                 "of": "de",
                 "showing": "Mostrant"
+            }
+        },
+        "editor": {
+            "TipTapEditorComp": {
+                "placeholder": "Escriu alguna cosa...",
+                "insertImage": "Inserir imatge",
+                "insertLink": "Inserir enllac",
+                "promptImageUrl": "URL de la imatge:",
+                "promptUrl": "URL:",
+                "preview": "Vista previa",
+                "viewSource": "Veure codi font",
+                "characters": "caracters",
+                "highlight": "Ressaltar",
+                "color": "Color del text",
+                "horizontalRule": "Linia horitzontal",
+                "clearFormat": "Netejar format",
+                "alignLeft": "Alinear esquerra",
+                "alignRight": "Alinear dreta",
+                "alignCenter": "Centrar",
+                "blockquote": "Citacio",
+                "codeBlock": "Bloc de codi",
+                "inlineCode": "Codi en linia",
+                "bulletList": "Llista amb vinyetes",
+                "orderedList": "Llista numerada",
+                "redo": "Refer",
+                "undo": "Desfer",
+                "heading": "Encapcalament",
+                "bold": "Negreta",
+                "italic": "Cursiva",
+                "underline": "Subratllat",
+                "strike": "Barrat"
             }
         },
         "forms": {}

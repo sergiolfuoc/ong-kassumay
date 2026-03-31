@@ -1,3 +1,5 @@
+import type { IServiceResult } from "../common"
+
 export abstract class PluginBase<TParent = any> {
     abstract name: string
     protected abstract _setup(): void | Promise<void>
@@ -31,5 +33,16 @@ export abstract class PluginBase<TParent = any> {
     }
     protected error(...params: any[]): void {
         console.error(`[plugin][${this.name}]`, ...params);
+    }
+
+    protected async safeCatch<T = void>(method: string, action: () => Promise<T>): Promise<IServiceResult<T>> {
+        try {
+            const data = await action()
+            return { data, error: null }
+        } catch (err) {
+            const message = err instanceof Error ? err.message : String(err)
+            this.error(`${method}:`, message)
+            return { data: undefined, error: message }
+        }
     }
 }

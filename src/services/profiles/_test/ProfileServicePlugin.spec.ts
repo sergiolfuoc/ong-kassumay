@@ -1,11 +1,10 @@
 import { describe, it, expect, beforeAll, afterAll } from "vitest"
 import { createClient } from "@supabase/supabase-js"
 import { readFileSync } from "fs"
-import { resolve } from "path"
 import { ProfileServicePlugin } from "~/src/services/profiles/ProfileServicePlugin"
 import type { Database } from "~/src/types/db/database"
 
-// claves por defecto del supabase local 
+// claves por defecto del supabase local
 const LOCAL_URL = "http://127.0.0.1:54321"
 const LOCAL_SERVICE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS1kZW1vIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImV4cCI6MTk4MzgxMjk5Nn0.EGIM96RAZx35lJzdJsyH-qQwv8Hdp7fsn3W0YpN81IU"
 
@@ -17,11 +16,17 @@ let service: ProfileServicePlugin
 
 beforeAll(async () => {
     service = new ProfileServicePlugin(supabase)
-    // Crypto es global de node
-    testUserId = crypto.randomUUID()
 
-    // por si ha quedado basura de otra ejecucion lo limpiamos antes de crear el perfil de tests
-    await supabase.from("profiles").delete().eq("email", testEmail)
+    // creamos un usuario en auth para que el FK de profiles funcione
+    const { data: authUser } = await supabase.auth.admin.createUser({
+        email: testEmail,
+        password: "test-password-123",
+        email_confirm: true,
+    })
+    testUserId = authUser.user!.id
+
+    // por si ha quedado basura de otra ejecucion
+    await supabase.from("profiles").delete().eq("id", testUserId)
 
     await supabase.from("profiles").insert({
         id: testUserId,
@@ -33,14 +38,16 @@ beforeAll(async () => {
 })
 
 afterAll(async () => {
-    // limpiamos la db
+    // limpiamos storage
     const { data: files } = await supabase.storage.from("avatars").list(testUserId)
     if (files?.length) {
         const paths = files.map(f => `${testUserId}/${f.name}`)
         await supabase.storage.from("avatars").remove(paths)
     }
 
+    // limpiamos la db y el usuario de auth
     await supabase.from("profiles").delete().eq("id", testUserId)
+    await supabase.auth.admin.deleteUser(testUserId)
 })
 
 describe("ProfileServicePlugin", () => {
@@ -76,8 +83,8 @@ describe("ProfileServicePlugin", () => {
     })
 
     describe("Call uploadAvatar", () => {
-        const logoBuffer = readFileSync(resolve(__dirname, "../../../../public/images/logo-kassumay.png"))
-        const logoFile = new File([logoBuffer], "logo-kassumay.png", { type: "image/png" })
+        const imageBuffer = readFileSync("public/images/logo-kassumay.png")
+        const logoFile = new File([imageBuffer], "logo-kassumay.png", { type: "image/png" })
 
         it("Success: sube archivo y devuelve la URL publica", async () => {
             const result = await service.uploadAvatar(testUserId, logoFile)
@@ -97,8 +104,8 @@ describe("ProfileServicePlugin", () => {
         })
 
         it("Fail: falla si el mime type no esta permitido", async () => {
-            const file = new File(["not an image"], "script.txt", { type: "text/plain" })
-            const result = await service.uploadAvatar(testUserId, file)
+            const badFile = new File(["not an image"], "script.txt", { type: "text/plain" })
+            const result = await service.uploadAvatar(testUserId, badFile)
 
             expect(result.error).not.toBeNull()
             expect(result.data).toBeUndefined()

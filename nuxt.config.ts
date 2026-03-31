@@ -46,7 +46,7 @@
     compatibilityDate: "2025-01-01",
     vite: {
         optimizeDeps: {
-            include: ["@heroicons/vue/24/outline"],
+            include: ["@heroicons/vue/24/outline", "vue-toastification"],
         },
     },
 })

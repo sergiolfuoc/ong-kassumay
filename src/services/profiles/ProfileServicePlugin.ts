@@ -21,9 +21,8 @@ export class ProfileServicePlugin extends PluginBase<ServicesPlugin> {
     }
 
     async uploadAvatar(userId: string, file: File): Promise<IServiceResult<string>> {
-        try {
-            const extension = file.name.split(".").pop() ?? "png"
-            const path = `${userId}/avatar.${extension}`
+        return this.safeCatch("uploadAvatar", async () => {
+            const path = `${userId}/avatar.png`
             const { error: uploadError } = await this.supabase.storage
                 .from("avatars")
                 .upload(path, file, { upsert: true })
@@ -33,21 +32,19 @@ export class ProfileServicePlugin extends PluginBase<ServicesPlugin> {
                 .from("avatars")
                 .getPublicUrl(path)
             const publicUrl = `${urlData.publicUrl}?t=${Date.now()}`
+
             const { error: updateError } = await this.supabase
                 .from("profiles")
                 .update({ avatar_url: publicUrl, updated_at: new Date().toISOString() })
                 .eq("id", userId)
             if (updateError) throw updateError
 
-            return { data: publicUrl, error: null }
-        } catch (e: any) {
-            this.error("uploadAvatar:", e.message || e)
-            return { data: undefined, error: e.message ?? "Avatar upload failed" }
-        }
+            return publicUrl
+        })
     }
 
     async update(userId: string, payload: { full_name: string; avatar_url: string }): Promise<IServiceResult> {
-        try {
+        return this.safeCatch("update", async () => {
             const { error } = await this.supabase
                 .from("profiles")
                 .update({
@@ -57,10 +54,6 @@ export class ProfileServicePlugin extends PluginBase<ServicesPlugin> {
                 })
                 .eq("id", userId)
             if (error) throw error
-            return { data: undefined, error: null }
-        } catch (e: any) {
-            this.error("update:", e.message || e)
-            return { data: undefined, error: e.message ?? "profile update failed" }
-        }
+        })
     }
 }

@@ -18,8 +18,10 @@
                                 v-model="props.form.title"
                                 type="text"
                                 class="w-full px-3 py-2 border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary-500"
+                                :class="props.errors.title ? 'border-red-400 ring-1 ring-red-400' : ''"
                                 @input="$emit('auto-slug')"
                             />
+                            <p v-if="props.errors.title" class="text-red-500 text-xs mt-1">{{ t(props.errors.title) }}</p>
                         </div>
                         <div>
                             <label class="block text-sm font-medium text-earth-700 mb-1">{{ t("pages.admin.news.form.slug") }}</label>
@@ -27,8 +29,21 @@
                                 v-model="props.form.slug"
                                 type="text"
                                 class="w-full px-3 py-2 border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary-500"
+                                :class="props.errors.slug ? 'border-red-400 ring-1 ring-red-400' : ''"
                             />
+                            <p v-if="props.errors.slug" class="text-red-500 text-xs mt-1">{{ t(props.errors.slug) }}</p>
                         </div>
+                    </div>
+
+                    <!-- Fecha de publicacion -->
+                    <div>
+                        <label class="block text-sm font-medium text-earth-700 mb-1">{{ t("pages.admin.news.form.publishDate") }}</label>
+                        <input
+                            v-model="props.form.created_at"
+                            type="date"
+                            :max="today"
+                            class="w-full px-3 py-2 border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary-500"
+                        />
                     </div>
 
                     <!-- Tarjeta (preview) -->
@@ -58,6 +73,7 @@
                                         type="text"
                                         placeholder="https://..."
                                         class="w-full px-3 py-2 border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary-500"
+                                        :class="props.imageError ? 'border-red-400 ring-1 ring-red-400' : ''"
                                     />
                                     <div v-else>
                                         <input
@@ -71,6 +87,7 @@
                                             {{ t("pages.admin.news.form.removeImage") }}
                                         </button>
                                     </div>
+                                    <p v-if="props.imageError" class="text-red-500 text-xs mt-1">{{ props.imageError }}</p>
                                 </div>
                                 <div>
                                     <label class="block text-sm font-medium text-earth-700 mb-1">{{ t("pages.admin.news.form.excerpt") }}</label>
@@ -89,13 +106,10 @@
                     </fieldset>
 
                     <!-- Contenido noticia -->
-                    <fieldset class="border border-earth-200 rounded-lg p-4 space-y-3">
+                    <fieldset class="border border-earth-200 rounded-lg p-4 space-y-3" :class="props.errors.content ? 'border-red-400' : ''">
                         <legend class="text-sm font-semibold text-earth-600 px-2">{{ t("pages.admin.news.form.articleSection") }}</legend>
-                        <textarea
-                            v-model="props.form.content"
-                            rows="10"
-                            class="w-full px-3 py-2 border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary-500"
-                        />
+                        <TipTapEditorComp v-model="props.form.content" />
+                        <p v-if="props.errors.content" class="text-red-500 text-xs mt-1">{{ t(props.errors.content, { min: 10 }) }}</p>
                     </fieldset>
 
                     <!-- Actions -->
@@ -103,7 +117,7 @@
                         <input id="published" v-model="props.form.published" type="checkbox" class="rounded" />
                         <label for="published" class="text-sm text-earth-700">{{ t("pages.admin.news.form.published") }}</label>
                     </div>
-                    <p v-if="props.error" class="text-red-600 text-sm">{{ props.error }}</p>
+                    <p v-if="props.serverError" class="text-red-600 text-sm">{{ props.serverError }}</p>
                     <div class="flex gap-3 justify-end">
                         <button
                             class="border border-gray-300 text-earth-700 px-4 py-2 rounded-lg text-sm hover:bg-gray-50 transition"
@@ -122,11 +136,12 @@
             </div>
         </div>
     </Teleport>
-</template>
 
+</template>
 <script setup lang="ts">
 import type { INewsModel } from "~/src/types"
 
+const today = new Date().toISOString().slice(0, 10)
 const { t } = useI18n()
 
 const props = defineProps<{
@@ -135,6 +150,7 @@ const props = defineProps<{
     form: {
         title: string
         slug: string
+        created_at: string
         content: string
         excerpt: string
         image_url: string
@@ -143,7 +159,9 @@ const props = defineProps<{
     imageMode: "upload" | "url"
     selectedFile: File | null
     previewArticle: INewsModel
-    error: string
+    errors: Record<string, string>
+    imageError: string
+    serverError: string
 }>()
 
 const emit = defineEmits(["close", "save", "auto-slug", "update:imageMode", "file-selected", "clear-file"])

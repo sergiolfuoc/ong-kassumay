@@ -4,9 +4,9 @@
             <span class="font-medium">{{ row.title }}</span>
         </template>
         <template #cell-published="{ row }">
-            <StatusBadgeWidget :variant="row.published ? 'published' : 'draft'">
+            <StatusBadgeComp :variant="row.published ? 'published' : 'draft'">
                 {{ row.published ? t("pages.admin.news.published") : t("pages.admin.news.draft") }}
-            </StatusBadgeWidget>
+            </StatusBadgeComp>
         </template>
         <template #cell-created_at="{ row }">
             <span class="text-gray-500">{{ formatDateShort(row.created_at) }}</span>
@@ -25,8 +25,8 @@
             </div>
         </template>
     </AppDataTable>
-</template>
 
+</template>
 <script setup lang="ts">
 import type { IDataTable } from "~/composables/useDataTable"
 import type { INewsModel } from "~/src/types"

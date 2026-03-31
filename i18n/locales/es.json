@@ -2,16 +2,16 @@
     "pages": {
         "profile": {
             "title": "Mi perfil",
-            "fullName": "Nombre completo",
             "email": "Correo electrónico",
+            "fullName": "Nombre completo",
+            "avatar": "Foto de perfil",
             "errors": {
-                "fileTooLarge": "Archivo demasiado grande (máx 2MB)",
-                "nameRequired": "El nombre es obligatorio"
+                "nameRequired": "El nombre es obligatorio",
+                "fileTooLarge": "Archivo demasiado grande (máx 2MB)"
             },
             "saved": "Perfil guardado correctamente",
             "saving": "Guardando...",
-            "save": "Guardar cambios",
-            "avatar": "Foto de perfil"
+            "save": "Guardar cambios"
         },
         "index": {
             "hero": {
@@ -20,22 +20,22 @@
                 "subtitle": "Trabajamos sobre todo con comunidades en Kédougou, Tambacounda y Louga para construir pozos, apoyar escuelas y gestionar centros de salud."
             },
             "latestNews": {
-                "readAll": "Ver todas las noticias",
-                "empty": "Aún no hay noticias publicadas.",
                 "title": "Últimas noticias",
-                "tagline": "Las últimas novedades desde nuestros proyectos en el terreno."
+                "tagline": "Las últimas novedades desde nuestros proyectos en el terreno.",
+                "empty": "Aún no hay noticias publicadas.",
+                "readAll": "Ver todas las noticias"
             }
         },
         "news": {
             "index": {
-                "subtitle": "Historias, avances y novedades de nuestros proyectos en Senegal.",
-                "empty": "Aún no hay noticias publicadas.",
                 "tag": "Noticias y actualizaciones",
-                "title": "Noticias"
+                "title": "Noticias",
+                "subtitle": "Historias, avances y novedades de nuestros proyectos en Senegal.",
+                "empty": "Aún no hay noticias publicadas."
             },
             "slug": {
-                "notFound": "Artículo no encontrado.",
-                "back": "Volver a noticias"
+                "back": "Volver a noticias",
+                "notFound": "Artículo no encontrado."
             }
         },
         "login": {
@@ -72,6 +72,22 @@
         },
         "admin": {
             "news": {
+                "title": "Gestionar noticias",
+                "create": "Nuevo artículo",
+                "createTitle": "Crear artículo",
+                "editTitle": "Editar artículo",
+                "columns": {
+                    "title": "Título",
+                    "status": "Estado",
+                    "date": "Fecha"
+                },
+                "published": "Publicado",
+                "draft": "Borrador",
+                "edit": "Editar",
+                "publish": "Publicar",
+                "unpublish": "Despublicar",
+                "delete": "Eliminar",
+                "confirmDelete": "¿Estás seguro de que quieres eliminar este artículo?",
                 "form": {
                     "cardSection": "Vista previa de tarjeta",
                     "cardPreview": "Asi se vera en el listado:",
@@ -85,27 +101,17 @@
                     "imageUpload": "Subir imagen",
                     "imagePasteUrl": "Pegar URL",
                     "removeImage": "Quitar imagen",
+                    "publishDate": "Fecha de publicación",
                     "published": "Publicado",
                     "required": "Título, slug y contenido son obligatorios.",
                     "save": "Guardar",
                     "cancel": "Cancelar"
                 },
-                "confirmDelete": "¿Estás seguro de que quieres eliminar este artículo?",
-                "delete": "Eliminar",
-                "unpublish": "Despublicar",
-                "publish": "Publicar",
-                "edit": "Editar",
-                "columns": {
-                    "date": "Fecha",
-                    "status": "Estado",
-                    "title": "Título"
-                },
-                "draft": "Borrador",
-                "published": "Publicado",
-                "editTitle": "Editar artículo",
-                "createTitle": "Crear artículo",
-                "create": "Nuevo artículo",
-                "title": "Gestionar noticias"
+                "toast": {
+                    "updated": "Noticia actualizada correctamente",
+                    "deleted": "Noticia eliminada correctamente",
+                    "created": "Noticia creada correctamente"
+                }
             }
         },
         "privacy": {
@@ -204,18 +210,49 @@
                 "noResults": "No se encontraron resultados."
             }
         },
+        "editor": {
+            "TipTapEditorComp": {
+                "redo": "Rehacer",
+                "undo": "Deshacer",
+                "viewSource": "Ver codigo fuente",
+                "preview": "Vista previa",
+                "characters": "caracteres",
+                "clearFormat": "Limpiar formato",
+                "horizontalRule": "Linea horizontal",
+                "alignRight": "Alinear derecha",
+                "alignCenter": "Centrar",
+                "alignLeft": "Alinear izquierda",
+                "insertImage": "Insertar imagen",
+                "insertLink": "Insertar enlace",
+                "promptImageUrl": "URL de la imagen:",
+                "promptUrl": "URL:",
+                "codeBlock": "Bloque de codigo",
+                "blockquote": "Cita",
+                "orderedList": "Lista numerada",
+                "bulletList": "Lista con vinetas",
+                "inlineCode": "Codigo en linea",
+                "highlight": "Resaltar",
+                "color": "Color de texto",
+                "strike": "Tachado",
+                "underline": "Subrayado",
+                "italic": "Cursiva",
+                "bold": "Negrita",
+                "heading": "Encabezado",
+                "placeholder": "Escribe algo..."
+            }
+        },
         "forms": {}
     },
     "composables": {
         "useNavigation": {
-            "profile": "Perfil",
-            "adminNews": "Administración de noticias",
             "home": "Inicio",
-            "news": "Noticias",
             "signIn": "Iniciar sesión",
             "signUp": "Registrarse",
             "signOut": "Cerrar sesión",
-            "brand": "Fundació Kassumay"
+            "brand": "Fundació Kassumay",
+            "profile": "Perfil",
+            "news": "Noticias",
+            "adminNews": "Administración de noticias"
         }
     }
 }

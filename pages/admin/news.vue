@@ -24,7 +24,9 @@
             :image-mode="imageMode"
             :selected-file="selectedFile"
             :preview-article="previewArticle"
-            :error="formError"
+            :errors="formErrors"
+            :image-error="imageError"
+            :server-error="serverError"
             @close="closeForm"
             @save="saveArticle"
             @auto-slug="autoSlug"
@@ -36,13 +38,17 @@
 </template>
 
 <script setup lang="ts">
-import type { INewsModel } from "~/src/types"
+import { required, minLength } from "~/src/validations"
+import { useToast } from "vue-toastification"
+
 import type { IDataTableColumn } from "~/composables/useDataTable"
+import type { INewsModel } from "~/src/types"
 
 definePageMeta({ middleware: "role-guard", requiredRole: "USER" })
 
 const { t } = useI18n()
 const { news: newsService } = useServices()
+const toast = useToast()
 const user = useSupabaseUser()
 const columns: IDataTableColumn[] = [
     { key: "title", label: t("pages.admin.news.columns.title"), sortable: true },
@@ -53,17 +59,24 @@ const columns: IDataTableColumn[] = [
 // Form state
 const showForm = ref(false)
 const editingId = ref<number | null>(null)
-const formError = ref("")
+const serverError = ref("")
+const imageError = ref("")
 const imageMode = ref<"upload" | "url">("upload")
 const selectedFile = ref<File | null>(null)
 const previewUrl = ref("")
 const form = reactive({
     title: "",
     slug: "",
+    created_at: "",
     content: "",
     excerpt: "",
     image_url: "",
     published: false,
+})
+const { errors: formErrors, validate } = useFormValidation(form, {
+    title: [required],
+    slug: [required],
+    content: [required, minLength(50)],
 })
 const previewArticle = computed<INewsModel>(() => ({
     id: 0,
@@ -74,7 +87,7 @@ const previewArticle = computed<INewsModel>(() => ({
     image_url: imageMode.value === "upload" ? previewUrl.value || null : form.image_url || null,
     published: form.published,
     author_id: null,
-    created_at: new Date().toISOString(),
+    created_at: form.created_at || new Date().toISOString(),
     updated_at: new Date().toISOString(),
 }))
 
@@ -117,11 +130,14 @@ function openForm() {
     editingId.value = null
     form.title = ""
     form.slug = ""
+    form.created_at = new Date().toISOString().slice(0, 10)
     form.content = ""
     form.excerpt = ""
     form.image_url = ""
     form.published = false
-    formError.value = ""
+    serverError.value = ""
+    imageError.value = ""
+    Object.keys(formErrors).forEach(k => formErrors[k] = "")
     imageMode.value = "upload"
     selectedFile.value = null
     previewUrl.value = ""
@@ -131,11 +147,14 @@ function editArticle(article: INewsModel) {
     editingId.value = article.id
     form.title = article.title
     form.slug = article.slug
+    form.created_at = article.created_at.slice(0, 10)
     form.content = article.content
     form.excerpt = article.excerpt || ""
     form.image_url = article.image_url || ""
     form.published = article.published
-    formError.value = ""
+    serverError.value = ""
+    imageError.value = ""
+    Object.keys(formErrors).forEach(k => formErrors[k] = "")
     imageMode.value = article.image_url ? "url" : "upload"
     selectedFile.value = null
     previewUrl.value = ""
@@ -144,25 +163,26 @@ function editArticle(article: INewsModel) {
 function closeForm() {
     showForm.value = false
     editingId.value = null
-    formError.value = ""
+    serverError.value = ""
+    imageError.value = ""
 }
 
 async function saveArticle() {
-    if (!form.title.trim() || !form.slug.trim() || !form.content.trim()) {
-        formError.value = t("pages.admin.news.form.required")
-        return
-    }
+    const fieldsOk = validate()
+    const hasImage = imageMode.value === "upload" ? !!selectedFile.value : !!form.image_url.trim()
+    imageError.value = hasImage ? "" : t("validations.required")
+    if (!fieldsOk || !hasImage) return
 
     let imageUrl: string | null = null
-    try {
-        if (imageMode.value === "upload" && selectedFile.value) {
-            imageUrl = await newsService.uploadImage(form.slug.trim(), selectedFile.value)
-        } else {
-            imageUrl = form.image_url.trim() || null
+    if (imageMode.value === "upload" && selectedFile.value) {
+        const { data, error } = await newsService.uploadImage(form.slug.trim(), selectedFile.value)
+        if (error) {
+            serverError.value = error
+            return
         }
-    } catch (err) {
-        formError.value = err instanceof Error ? err.message : String(err)
-        return
+        imageUrl = data ?? null
+    } else {
+        imageUrl = form.image_url.trim() || null
     }
 
     const params = {
@@ -173,28 +193,38 @@ async function saveArticle() {
         image_url: imageUrl,
         published: form.published,
         author_id: user.value?.id || null,
+        created_at: new Date(form.created_at).toISOString(),
     }
-    try {
-        if (editingId.value) {
-            await newsService.update(editingId.value, params)
-        } else {
-            await newsService.create(params)
-        }
-    } catch (err) {
-        formError.value = err instanceof Error ? err.message : String(err)
+
+    const result = editingId.value
+        ? await newsService.update(editingId.value, params)
+        : await newsService.create(params)
+
+    if (result.error) {
+        serverError.value = result.error
         return
     }
 
+    toast.success(t(editingId.value ? "pages.admin.news.toast.updated" : "pages.admin.news.toast.created"))
     closeForm()
     refresh()
 }
 async function togglePublish(id: number) {
-    await newsService.togglePublish(id)
+    const result = await newsService.togglePublish(id)
+    if (result.error) {
+        toast.error(result.error)
+        return
+    }
     refresh()
 }
 async function confirmDelete(id: number) {
     if (!confirm(t("pages.admin.news.confirmDelete"))) return
-    await newsService.remove(id)
+    const result = await newsService.remove(id)
+    if (result.error) {
+        toast.error(result.error)
+        return
+    }
+    toast.success(t("pages.admin.news.toast.deleted"))
     refresh()
 }
 </script>
