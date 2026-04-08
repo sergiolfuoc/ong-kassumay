@@ -6,10 +6,12 @@ export const trueRolePermissions: IRolePermissions<boolean> = {
     visibility: {
         profile: { view: true },
         news: { list: true },
+        campaigns: { list: true },
         admin: { access: true },
     },
     actions: {
         profile: { update: true },
         news: { create: true, update: true, delete: true, publish: true },
+        campaigns: { create: true, update: true, delete: true, activate: true },
     },
 }

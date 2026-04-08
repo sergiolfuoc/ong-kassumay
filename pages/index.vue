@@ -33,14 +33,16 @@
             <div v-if="latestNews?.length" class="text-center mt-8">
                 <NuxtLink to="/news" class="inline-flex items-center gap-1 text-primary-500 hover:text-primary-600 font-semibold transition">
                     {{ t("pages.index.latestNews.readAll") }}
-                    <ArrowRightIcon icon-class="w-4 h-4" />
+                    <ArrowRightIcon class="w-4 h-4" />
                 </NuxtLink>
             </div>
         </section>
+        
     </div>
 
 </template>
 <script setup lang="ts">
+import { ArrowRightIcon } from "@heroicons/vue/24/outline"
 const { news: newsService } = useServices()
 const { data: latestNews } = await useAsyncData("home-news", () => newsService.fetchPublished(3))
 

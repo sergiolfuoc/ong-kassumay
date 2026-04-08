@@ -1,14 +1,16 @@
 {
     "composables": {
         "useNavigation": {
+            "adminCampaigns": "Administracio de campanyes",
+            "adminNews": "Administració de notícies",
+            "campaigns": "Campanyes",
             "home": "Inici",
             "signIn": "Iniciar sessió",
             "signUp": "Registrar-se",
             "signOut": "Tancar sessió",
-            "brand": "Fundació Kassumay",
-            "profile": "Perfil",
             "news": "Notícies",
-            "adminNews": "Administració de notícies"
+            "brand": "Fundació Kassumay",
+            "profile": "Perfil"
         }
     },
     "pages": {
@@ -37,6 +39,25 @@
                 "notFound": "Article no trobat."
             }
         },
+        "campaigns": {
+            "index": {
+                "empty": "No hi ha campanyes actives ara mateix.",
+                "tag": "Campanyes actives",
+                "subtitle": "Tria una campanya i veuras exactament a on va el teu diner.",
+                "title": "Campanyes"
+            },
+            "status": {
+                "ended": "Finalitzada",
+                "active": "Activa",
+                "goalReached": "Meta assolida!",
+                "activeDays": "Queden {days}d",
+                "upcoming": "Properament"
+            },
+            "slug": {
+                "back": "Tornar a campanyes",
+                "notFound": "Campanya no trobada."
+            }
+        },
         "admin": {
             "news": {
                 "title": "Gestionar notícies",
@@ -54,31 +75,83 @@
                 "publish": "Publicar",
                 "unpublish": "Despublicar",
                 "delete": "Eliminar",
-                "confirmDelete": "Estàs segur que vols eliminar aquest article?",
                 "form": {
-                    "required": "Títol, slug i contingut són obligatoris.",
+                    "title": "Títol",
+                    "slug": "Slug",
+                    "publishDate": "Data de publicació",
+                    "excerpt": "Extracte",
+                    "imageUpload": "Pujar imatge",
+                    "imagePasteUrl": "Enganxar URL",
+                    "removeImage": "Treure imatge",
+                    "content": "Contingut",
+                    "published": "Publicat",
                     "save": "Desar",
                     "cancel": "Cancel·lar",
+                    "required": "Títol, slug i contingut són obligatoris.",
+                    "cardSection": "Vista previa de la targeta",
+                    "cardPreview": "Aixi es veura al llistat:",
+                    "previewTitle": "Titol de l'article",
+                    "articleSection": "Vista previa de l'article",
+                    "articlePreview": "Aixi es veura el contingut:"
+                },
+                "toast": {
+                    "created": "Noticia creada correctament",
+                    "updated": "Noticia actualitzada correctament",
+                    "deleted": "Noticia eliminada correctament",
+                    "deletedUndo": "\"{title}\" eliminada — clica per desfer",
+                    "restored": "Noticia restaurada"
+                },
+                "confirmDelete": "Estàs segur que vols eliminar aquest article?"
+            },
+            "campaigns": {
+                "form": {
                     "imageUpload": "Pujar imatge",
                     "imagePasteUrl": "Enganxar URL",
                     "removeImage": "Treure imatge",
                     "cardSection": "Vista previa de la targeta",
                     "cardPreview": "Aixi es veura al llistat:",
-                    "previewTitle": "Titol de l'article",
-                    "articleSection": "Vista previa de l'article",
-                    "articlePreview": "Aixi es veura el contingut:",
+                    "previewTitle": "Titol de la campanya",
+                    "descriptionSection": "Descripcio de la campanya",
+                    "startDate": "Data d'inici",
+                    "endDate": "Data de fi",
+                    "goalAmount": "Meta (€)",
+                    "raisedAmount": "Recaptat (€)",
                     "title": "Títol",
                     "slug": "Slug",
                     "excerpt": "Extracte",
-                    "content": "Contingut",
-                    "publishDate": "Data de publicació",
-                    "published": "Publicat"
+                    "active": "Activa",
+                    "save": "Desar",
+                    "cancel": "Cancel·lar"
                 },
                 "toast": {
-                    "deleted": "Noticia eliminada correctament",
-                    "created": "Noticia creada correctament",
-                    "updated": "Noticia actualitzada correctament"
-                }
+                    "deleted": "Campanya eliminada correctament",
+                    "created": "Campanya creada correctament",
+                    "updated": "Campanya actualitzada correctament"
+                },
+                "delete": "Eliminar",
+                "deactivate": "Desactivar",
+                "activate": "Activar",
+                "edit": "Editar",
+                "inactive": "Inactiva",
+                "active": "Activa",
+                "confirmDelete": "Segur que vols eliminar aquesta campanya?",
+                "columns": {
+                    "progress": "Recaptat",
+                    "date": "Data",
+                    "status": "Estat",
+                    "title": "Títol"
+                },
+                "tabs": {
+                    "inactive": "Inactives",
+                    "all": "Totes",
+                    "reached": "Meta assolida",
+                    "active": "Actives"
+                },
+                "summary": "{active} actives · {inactive} inactives · {reached} amb meta assolida",
+                "title": "Gestionar campanyes",
+                "create": "Nova campanya",
+                "createTitle": "Crear campanya",
+                "editTitle": "Editar campanya"
             }
         },
         "confirm": {
@@ -128,7 +201,7 @@
         },
         "privacy": {
             "title": "Política de privacitat",
-            "intro": "Responsable del tractament: Associació Fundació Kassumay, inscrita al Registre Nacional d'Associacions d'Espanya. Aquest avís s'ajusta al Reglament (UE) 2016/679 (RGPD) i a la Llei Orgànica 3/2005 (LOPDGDD).",
+            "intro": "Responsable del tractament: Associació Fundació Kassumay, inscrita al Registre Nacional d'Associacions d'Espanya. Aquest avís s'ajusta al Reglament (UE) 2016/679 (RGPD) i a la Llei Orgànica 3/2018 (LOPD-GDD).",
             "infoCollect": "Dades que recollim",
             "infoCollectDescription": "Recollim únicament les dades necessàries per gestionar el teu compte i les teves donacions:",
             "personalData": "Dades identificatives",
@@ -200,6 +273,9 @@
         },
         "widgets": {},
         "cards": {
+            "CampaignCardComp": {
+                "seeMore": "Veure campanya"
+            },
             "NewsCardComp": {
                 "readMore": "Llegir més"
             }
@@ -216,32 +292,32 @@
         "editor": {
             "TipTapEditorComp": {
                 "placeholder": "Escriu alguna cosa...",
-                "insertImage": "Inserir imatge",
-                "insertLink": "Inserir enllac",
-                "promptImageUrl": "URL de la imatge:",
-                "promptUrl": "URL:",
-                "preview": "Vista previa",
-                "viewSource": "Veure codi font",
-                "characters": "caracters",
-                "highlight": "Ressaltar",
-                "color": "Color del text",
-                "horizontalRule": "Linia horitzontal",
-                "clearFormat": "Netejar format",
-                "alignLeft": "Alinear esquerra",
-                "alignRight": "Alinear dreta",
-                "alignCenter": "Centrar",
-                "blockquote": "Citacio",
-                "codeBlock": "Bloc de codi",
-                "inlineCode": "Codi en linia",
-                "bulletList": "Llista amb vinyetes",
-                "orderedList": "Llista numerada",
-                "redo": "Refer",
-                "undo": "Desfer",
                 "heading": "Encapcalament",
                 "bold": "Negreta",
                 "italic": "Cursiva",
                 "underline": "Subratllat",
-                "strike": "Barrat"
+                "strike": "Barrat",
+                "inlineCode": "Codi en linia",
+                "bulletList": "Llista amb vinyetes",
+                "orderedList": "Llista numerada",
+                "blockquote": "Citacio",
+                "codeBlock": "Bloc de codi",
+                "horizontalRule": "Linia horitzontal",
+                "alignLeft": "Alinear esquerra",
+                "alignCenter": "Centrar",
+                "alignRight": "Alinear dreta",
+                "insertLink": "Inserir enllac",
+                "insertImage": "Inserir imatge",
+                "highlight": "Ressaltar",
+                "color": "Color del text",
+                "clearFormat": "Netejar format",
+                "undo": "Desfer",
+                "redo": "Refer",
+                "viewSource": "Veure codi font",
+                "preview": "Vista previa",
+                "characters": "caracters",
+                "promptUrl": "URL:",
+                "promptImageUrl": "URL de la imatge:"
             }
         },
         "forms": {}
@@ -249,10 +325,11 @@
     "validations": {
         "required": "Aquest camp és obligatori",
         "email": "Introdueix un email vàlid",
+        "url": "Introdueix una URL vàlida",
         "numeric": "Ha de ser un número",
         "minLength": "Mínim {min} caràcters",
         "maxLength": "Màxim {max} caràcters",
         "minNumber": "Ha de ser almenys {min}",
-        "url": "Introdueix una URL vàlida"
+        "dateRange": "La data no pot ser anterior a la d'inici"
     }
 }

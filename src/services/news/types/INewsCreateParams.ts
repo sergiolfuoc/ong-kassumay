@@ -5,5 +5,5 @@ export interface INewsCreateParams {
     excerpt?: string | null
     image_url?: string | null
     published: boolean
-    author_id?: string
+    author_id?: string | null
 }

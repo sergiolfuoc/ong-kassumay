@@ -19,6 +19,9 @@
         },
         "widgets": {},
         "cards": {
+            "CampaignCardComp": {
+                "seeMore": "Voir la campagne"
+            },
             "NewsCardComp": {
                 "readMore": "Lire la suite"
             }
@@ -34,33 +37,33 @@
         },
         "editor": {
             "TipTapEditorComp": {
-                "insertImage": "Inserer une image",
-                "promptImageUrl": "URL de l'image :",
-                "insertLink": "Inserer un lien",
-                "promptUrl": "URL :",
-                "highlight": "Surligner",
-                "color": "Couleur du texte",
-                "codeBlock": "Bloc de code",
-                "inlineCode": "Code en ligne",
-                "blockquote": "Citation",
-                "orderedList": "Liste numerotee",
-                "bulletList": "Liste a puces",
-                "horizontalRule": "Ligne horizontale",
-                "alignCenter": "Centrer",
-                "alignRight": "Aligner a droite",
-                "alignLeft": "Aligner a gauche",
-                "strike": "Barre",
+                "placeholder": "Ecrivez quelque chose...",
+                "heading": "Titre",
+                "bold": "Gras",
                 "italic": "Italique",
                 "underline": "Souligne",
-                "bold": "Gras",
-                "heading": "Titre",
-                "placeholder": "Ecrivez quelque chose...",
-                "characters": "caracteres",
-                "preview": "Apercu",
-                "viewSource": "Voir le code source",
+                "strike": "Barre",
+                "inlineCode": "Code en ligne",
+                "bulletList": "Liste a puces",
+                "orderedList": "Liste numerotee",
+                "blockquote": "Citation",
+                "codeBlock": "Bloc de code",
+                "horizontalRule": "Ligne horizontale",
+                "alignLeft": "Aligner a gauche",
+                "alignCenter": "Centrer",
+                "alignRight": "Aligner a droite",
+                "insertLink": "Inserer un lien",
+                "insertImage": "Inserer une image",
+                "highlight": "Surligner",
+                "color": "Couleur du texte",
                 "clearFormat": "Effacer le formatage",
+                "undo": "Annuler",
                 "redo": "Retablir",
-                "undo": "Annuler"
+                "viewSource": "Voir le code source",
+                "preview": "Apercu",
+                "characters": "caracteres",
+                "promptUrl": "URL :",
+                "promptImageUrl": "URL de l'image :"
             }
         },
         "forms": {}
@@ -126,36 +129,51 @@
                 "subtitle": "Nous travaillons avec des communautés à Kédougou, Tambacounda et Louga pour construire des puits, soutenir des écoles et gérer des centres de santé."
             },
             "latestNews": {
+                "title": "Dernières actualités",
                 "tagline": "Les dernières nouvelles de nos projets sur le terrain.",
-                "readAll": "Voir toutes les actualités",
                 "empty": "Aucune actualité publiée pour le moment.",
-                "title": "Dernières actualités"
+                "readAll": "Voir toutes les actualités"
             }
         },
         "news": {
+            "index": {
+                "tag": "Actualités et mises à jour",
+                "title": "Actualités",
+                "subtitle": "Histoires, avancées et nouvelles de nos projets au Sénégal.",
+                "empty": "Aucune actualité publiée pour le moment."
+            },
             "slug": {
                 "back": "Retour aux actualités",
                 "notFound": "Article introuvable."
+            }
+        },
+        "campaigns": {
+            "slug": {
+                "notFound": "Campagne introuvable.",
+                "back": "Retour aux campagnes"
             },
             "index": {
-                "title": "Actualités",
-                "tag": "Actualités et mises à jour",
-                "empty": "Aucune actualité publiée pour le moment.",
-                "subtitle": "Histoires, avancées et nouvelles de nos projets au Sénégal."
+                "title": "Campagnes",
+                "tag": "Campagnes actives",
+                "empty": "Aucune campagne active pour le moment.",
+                "subtitle": "Choisissez une campagne et voyez exactement ou va votre argent."
+            },
+            "progress": {
+                "raisedLabel": "Collecte : {amount}€"
             }
         },
         "profile": {
-            "save": "Enregistrer",
-            "saving": "Enregistrement...",
-            "saved": "Profil enregistré avec succès",
-            "errors": {
-                "fileTooLarge": "Fichier trop volumineux (max 2 Mo)",
-                "nameRequired": "Le nom est obligatoire"
-            },
-            "avatar": "Photo de profil",
             "title": "Mon profil",
+            "email": "Adresse e-mail",
             "fullName": "Nom complet",
-            "email": "Adresse e-mail"
+            "avatar": "Photo de profil",
+            "errors": {
+                "nameRequired": "Le nom est obligatoire",
+                "fileTooLarge": "Fichier trop volumineux (max 2 Mo)"
+            },
+            "saved": "Profil enregistré avec succès",
+            "saving": "Enregistrement...",
+            "save": "Enregistrer"
         },
         "login": {
             "brand": "Fundació Kassumay",
@@ -197,12 +215,15 @@
         "minLength": "Minimum {min} caractères",
         "maxLength": "Maximum {max} caractères",
         "minNumber": "Doit être au moins {min}",
-        "url": "Saisissez une URL valide"
+        "url": "Saisissez une URL valide",
+        "dateRange": "La date ne peut pas être antérieure à celle de début"
     },
     "composables": {
         "useNavigation": {
             "signOut": "Déconnexion",
+            "adminCampaigns": "Administration des campagnes",
             "adminNews": "Administration des actualités",
+            "campaigns": "Campagnes",
             "news": "Actualités",
             "signIn": "Connexion",
             "signUp": "S'inscrire",

@@ -9,6 +9,9 @@ export interface IRolePermissions<TData> {
         news: {
             list: TData
         }
+        campaigns: {
+            list: TData
+        }
         admin: {
             access: TData
         }
@@ -22,6 +25,12 @@ export interface IRolePermissions<TData> {
             update: TData
             delete: TData
             publish: TData
+        }
+        campaigns: {
+            create: TData
+            update: TData
+            delete: TData
+            activate: TData
         }
     }
 }

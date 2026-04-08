@@ -43,7 +43,7 @@ export class ProfileServicePlugin extends PluginBase<ServicesPlugin> {
         })
     }
 
-    async update(userId: string, payload: { full_name: string; avatar_url: string }): Promise<IServiceResult> {
+    async update(userId: string, payload: { full_name: string | null; avatar_url: string | null }): Promise<IServiceResult> {
         return this.safeCatch("update", async () => {
             const { error } = await this.supabase
                 .from("profiles")

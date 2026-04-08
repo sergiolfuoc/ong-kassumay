@@ -14,8 +14,8 @@
                             <span class="inline-flex items-center gap-1">
                                 {{ col.label }}
                                 <span v-if="col.sortable && props.table.sort.value?.key === col.key" class="text-primary-600">
-                                    <ArrowUpIcon v-if="props.table.sort.value.dir === 'asc'" icon-class="w-3 h-3" />
-                                    <ArrowDownIcon v-else icon-class="w-3 h-3" />
+                                    <ArrowUpIcon v-if="props.table.sort.value.dir === 'asc'" class="w-3 h-3" />
+                                    <ArrowDownIcon v-else class="w-3 h-3" />
                                 </span>
                             </span>
                         </th>
@@ -43,6 +43,7 @@
 
 </template>
 <script setup lang="ts">
+import { ArrowUpIcon, ArrowDownIcon } from "@heroicons/vue/24/outline"
 import type { IDataTableColumn, IDataTableSort } from "~/composables/useDataTable"
 
 const { t } = useI18n()

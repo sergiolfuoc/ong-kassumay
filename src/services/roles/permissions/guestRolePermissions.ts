@@ -7,5 +7,6 @@ export const guestRolePermissions = RolePermissionsBuilder.build(falseRolePermis
     description: "Solo lectura publica",
     visibility: {
         news: { list: true },
+        campaigns: { list: true },
     },
 })

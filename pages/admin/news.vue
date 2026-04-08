@@ -40,9 +40,11 @@
 <script setup lang="ts">
 import { required, minLength } from "~/src/validations"
 import { useToast } from "vue-toastification"
+import { resolveImageUrl, convertToSlug } from "./_utils"
 
 import type { IDataTableColumn } from "~/composables/useDataTable"
 import type { INewsModel } from "~/src/types"
+import type {INewsCreateParams} from "~/src/services/news"
 
 definePageMeta({ middleware: "role-guard", requiredRole: "USER" })
 
@@ -61,7 +63,7 @@ const showForm = ref(false)
 const editingId = ref<number | null>(null)
 const serverError = ref("")
 const imageError = ref("")
-const imageMode = ref<"upload" | "url">("upload")
+const imageMode = ref<"UPLOAD" | "URL">("UPLOAD")
 const selectedFile = ref<File | null>(null)
 const previewUrl = ref("")
 const form = reactive({
@@ -84,7 +86,7 @@ const previewArticle = computed<INewsModel>(() => ({
     slug: form.slug || "ejemplo",
     content: "",
     excerpt: form.excerpt || null,
-    image_url: imageMode.value === "upload" ? previewUrl.value || null : form.image_url || null,
+    image_url: imageMode.value === "UPLOAD" ? previewUrl.value || null : form.image_url || null,
     published: form.published,
     author_id: null,
     created_at: form.created_at || new Date().toISOString(),
@@ -96,20 +98,13 @@ const { data: articles, refresh } = await useAsyncData(
     "admin-news",
     () => newsService.fetchAll(),
 )
+// al final no hara falta paginar, son 20-30 noticias como mucho. Si crece ya veremos.
 const table = useDataTable<INewsModel>(articles, {
     columns,
     defaultSort: { key: "created_at", dir: "desc" },
 })
 
 // Helpers
-function convertToSlug(text: string): string {
-    return text
-        .toLowerCase()
-        .normalize("NFD")
-        .replace(/[\u0300-\u036f]/g, "")
-        .replace(/[^a-z0-9]+/g, "-")
-        .replace(/(^-|-$)/g, "")
-}
 function autoSlug() {
     if (!editingId.value) {
         form.slug = convertToSlug(form.title)
@@ -138,7 +133,7 @@ function openForm() {
     serverError.value = ""
     imageError.value = ""
     Object.keys(formErrors).forEach(k => formErrors[k] = "")
-    imageMode.value = "upload"
+    imageMode.value = "UPLOAD"
     selectedFile.value = null
     previewUrl.value = ""
     showForm.value = true
@@ -155,7 +150,7 @@ function editArticle(article: INewsModel) {
     serverError.value = ""
     imageError.value = ""
     Object.keys(formErrors).forEach(k => formErrors[k] = "")
-    imageMode.value = article.image_url ? "url" : "upload"
+    imageMode.value = article.image_url ? "URL" : "UPLOAD"
     selectedFile.value = null
     previewUrl.value = ""
     showForm.value = true
@@ -169,23 +164,19 @@ function closeForm() {
 
 async function saveArticle() {
     const fieldsOk = validate()
-    const hasImage = imageMode.value === "upload" ? !!selectedFile.value : !!form.image_url.trim()
+    const hasImage = imageMode.value === "UPLOAD" ? !!selectedFile.value : !!form.image_url.trim()
     imageError.value = hasImage ? "" : t("validations.required")
     if (!fieldsOk || !hasImage) return
 
-    let imageUrl: string | null = null
-    if (imageMode.value === "upload" && selectedFile.value) {
-        const { data, error } = await newsService.uploadImage(form.slug.trim(), selectedFile.value)
-        if (error) {
-            serverError.value = error
-            return
-        }
-        imageUrl = data ?? null
-    } else {
-        imageUrl = form.image_url.trim() || null
+    const { url: imageUrl, error: imgError } = await resolveImageUrl(
+        imageMode.value, selectedFile.value, form.image_url, newsService.uploadImage, form.slug.trim(),
+    )
+    if (imgError) {
+        serverError.value = imgError
+        return
     }
 
-    const params = {
+    const params:INewsCreateParams = {
         title: form.title.trim(),
         slug: form.slug.trim(),
         content: form.content.trim(),
@@ -193,7 +184,6 @@ async function saveArticle() {
         image_url: imageUrl,
         published: form.published,
         author_id: user.value?.id || null,
-        created_at: new Date(form.created_at).toISOString(),
     }
 
     const result = editingId.value
@@ -218,13 +208,38 @@ async function togglePublish(id: number) {
     refresh()
 }
 async function confirmDelete(id: number) {
-    if (!confirm(t("pages.admin.news.confirmDelete"))) return
+    const article = (articles.value ?? []).find(a => a.id === id)
+    if (!article) return
+
     const result = await newsService.remove(id)
     if (result.error) {
         toast.error(result.error)
         return
     }
-    toast.success(t("pages.admin.news.toast.deleted"))
+    refresh()
+
+    toast.info(t("pages.admin.news.toast.deletedUndo", { title: article.title }), {
+        timeout: 5000,
+        closeOnClick: true,
+        onClick: () => undoDelete(article),
+    })
+}
+async function undoDelete(article: INewsModel) {
+    const params: INewsCreateParams = {
+        title: article.title,
+        slug: article.slug,
+        content: article.content,
+        excerpt: article.excerpt,
+        image_url: article.image_url,
+        published: article.published,
+        author_id: article.author_id,
+    }
+    const result = await newsService.create(params)
+    if (result.error) {
+        toast.error(result.error)
+        return
+    }
+    toast.success(t("pages.admin.news.toast.restored"))
     refresh()
 }
 </script>

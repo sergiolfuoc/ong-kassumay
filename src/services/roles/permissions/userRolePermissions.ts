@@ -8,6 +8,7 @@ export const userRolePermissions = RolePermissionsBuilder.build(falseRolePermiss
     visibility: {
         profile: { view: true },
         news: { list: true },
+        campaigns: { list: true },
     },
     actions: {
         profile: { update: true },

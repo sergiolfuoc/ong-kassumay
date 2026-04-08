@@ -16,12 +16,13 @@
             </p>
             <span class="mt-3 text-primary-500 text-sm font-semibold group-hover:text-primary-600 transition-colors inline-flex items-center gap-1">
                 {{ t("components.cards.NewsCardComp.readMore") }}
-                <ArrowRightIcon />
+                <ArrowRightIcon class="w-5 h-5" />
             </span>
         </div>
     </BaseCardComp>
 </template>
 <script setup lang="ts">
+import { ArrowRightIcon } from "@heroicons/vue/24/outline"
 import type { INewsModel } from "~/src/types"
 import { formatDate } from "~/utils/formatDate"
 

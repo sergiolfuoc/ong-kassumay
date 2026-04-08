@@ -42,3 +42,11 @@ export const url: ValidatorFn = (value) => {
     try { new URL(value); return null }
     catch { return { key: 'validations.url' } }
 }
+
+// Make sure the field is not earlier than another (both in YYYY-MM-DD or ISO format)
+export const dateRange = (getStart: () => string | null | undefined): ValidatorFn => (value) => {
+    if (typeof value !== 'string' || !value) return null
+    const start = getStart()
+    if (!start) return null
+    return new Date(value) >= new Date(start) ? null : { key: 'validations.dateRange' }
+}

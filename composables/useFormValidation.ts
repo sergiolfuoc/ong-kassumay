@@ -30,5 +30,11 @@ export function useFormValidation(form: Record<string, any>, rules: Record<strin
         return allValid
     }
 
-    return { errors, isValid, validate }
+    function reset() {
+        for (const field of Object.keys(rules)) {
+            errors[field] = ""
+        }
+    }
+
+    return { errors, isValid, validate, reset }
 }

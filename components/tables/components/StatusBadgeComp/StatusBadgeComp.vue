@@ -5,7 +5,7 @@
 </template>
 
 <script setup lang="ts">
-type Variant = "published" | "draft"
+type Variant = "published" | "draft" | "active" | "inactive"
 
 const props = defineProps<{
     variant: Variant
@@ -13,8 +13,13 @@ const props = defineProps<{
 }>()
 
 const colorClasses = computed(() => {
-    return props.variant === "published"
-        ? "bg-green-100 text-green-800"
-        : "bg-yellow-100 text-yellow-800"
+    switch (props.variant) {
+        case "published":
+        case "active":
+            return "bg-green-100 text-green-800"
+        case "draft":
+        case "inactive":
+            return "bg-yellow-100 text-yellow-800"
+    }
 })
 </script>

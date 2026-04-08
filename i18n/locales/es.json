@@ -38,6 +38,28 @@
                 "notFound": "Artículo no encontrado."
             }
         },
+        "campaigns": {
+            "progress": {
+                "raisedLabel": "Recaudado: {amount}€"
+            },
+            "status": {
+                "ended": "Finalizada",
+                "upcoming": "Próximamente",
+                "goalReached": "¡Meta alcanzada!",
+                "activeDays": "Quedan {days}d",
+                "active": "Activa"
+            },
+            "slug": {
+                "notFound": "Campaña no encontrada.",
+                "back": "Volver a campañas"
+            },
+            "index": {
+                "subtitle": "Elige una campaña y ve exactamente a dónde va tu dinero.",
+                "empty": "No hay campañas activas ahora mismo.",
+                "tag": "Campañas activas",
+                "title": "Campañas"
+            }
+        },
         "login": {
             "brand": "Fundació Kassumay",
             "title": "Bienvenido de nuevo",
@@ -89,29 +111,87 @@
                 "delete": "Eliminar",
                 "confirmDelete": "¿Estás seguro de que quieres eliminar este artículo?",
                 "form": {
+                    "title": "Título",
+                    "slug": "Slug",
+                    "publishDate": "Fecha de publicación",
+                    "excerpt": "Extracto",
+                    "imageUpload": "Subir imagen",
+                    "imagePasteUrl": "Pegar URL",
+                    "removeImage": "Quitar imagen",
+                    "content": "Contenido",
+                    "published": "Publicado",
+                    "save": "Guardar",
+                    "cancel": "Cancelar",
+                    "required": "Título, slug y contenido son obligatorios.",
                     "cardSection": "Vista previa de tarjeta",
                     "cardPreview": "Asi se vera en el listado:",
                     "previewTitle": "Titulo del articulo",
                     "articleSection": "Vista previa del articulo",
-                    "articlePreview": "Asi se vera el contenido:",
-                    "title": "Título",
-                    "slug": "Slug",
-                    "excerpt": "Extracto",
-                    "content": "Contenido",
+                    "articlePreview": "Asi se vera el contenido:"
+                },
+                "toast": {
+                    "created": "Noticia creada correctamente",
+                    "updated": "Noticia actualizada correctamente",
+                    "deleted": "Noticia eliminada correctamente",
+                    "deletedUndo": "\"{title}\" eliminada — clic para deshacer",
+                    "restored": "Noticia restaurada"
+                }
+            },
+            "campaigns": {
+                "toast": {
+                    "updated": "Campaña actualizada correctamente",
+                    "deleted": "Campaña eliminada correctamente",
+                    "created": "Campaña creada correctamente"
+                },
+                "form": {
+                    "cardSection": "Vista previa de tarjeta",
+                    "cardPreview": "Asi se vera en el listado:",
+                    "previewTitle": "Titulo de la campaña",
+                    "descriptionSection": "Descripcion de la campaña",
+                    "goalAmount": "Meta (€)",
+                    "raisedAmount": "Recaudado (€)",
+                    "startDate": "Fecha de inicio",
+                    "endDate": "Fecha de fin",
                     "imageUpload": "Subir imagen",
                     "imagePasteUrl": "Pegar URL",
                     "removeImage": "Quitar imagen",
-                    "publishDate": "Fecha de publicación",
-                    "published": "Publicado",
-                    "required": "Título, slug y contenido son obligatorios.",
+                    "title": "Título",
+                    "slug": "Slug",
+                    "excerpt": "Extracto",
+                    "active": "Activa",
                     "save": "Guardar",
                     "cancel": "Cancelar"
                 },
-                "toast": {
-                    "updated": "Noticia actualizada correctamente",
-                    "deleted": "Noticia eliminada correctamente",
-                    "created": "Noticia creada correctamente"
-                }
+                "deleteDialog": {
+                    "body": "Escribe el titulo exacto '{title}' para confirmar el borrado.",
+                    "confirm": "Eliminar definitivamente",
+                    "title": "Eliminar campaña"
+                },
+                "confirmDeactivateReached": "Esta campaña ya ha alcanzado su meta. ¿Seguro que quieres desactivarla?",
+                "confirmDelete": "¿Seguro que quieres eliminar esta campaña?",
+                "delete": "Eliminar",
+                "deactivate": "Desactivar",
+                "activate": "Activar",
+                "edit": "Editar",
+                "inactive": "Inactiva",
+                "active": "Activa",
+                "columns": {
+                    "date": "Fecha",
+                    "progress": "Recaudado",
+                    "status": "Estado",
+                    "title": "Título"
+                },
+                "tabs": {
+                    "reached": "Meta alcanzada",
+                    "all": "Todas",
+                    "inactive": "Inactivas",
+                    "active": "Activas"
+                },
+                "summary": "{active} activas · {inactive} inactivas · {reached} con meta alcanzada",
+                "editTitle": "Editar campaña",
+                "createTitle": "Crear campaña",
+                "create": "Nueva campaña",
+                "title": "Gestionar campañas"
             }
         },
         "privacy": {
@@ -169,13 +249,14 @@
         }
     },
     "validations": {
-        "required": "Este campo es obligatorio",
         "email": "Introduce un email válido",
+        "required": "Este campo es obligatorio",
+        "url": "Introduce una URL válida",
         "numeric": "Debe ser un número",
         "minLength": "Mínimo {min} caracteres",
         "maxLength": "Máximo {max} caracteres",
         "minNumber": "Debe ser al menos {min}",
-        "url": "Introduce una URL válida"
+        "dateRange": "La fecha no puede ser anterior a la de inicio"
     },
     "components": {
         "layouts": {
@@ -197,6 +278,9 @@
         },
         "widgets": {},
         "cards": {
+            "CampaignCardComp": {
+                "seeMore": "Ver campaña"
+            },
             "NewsCardComp": {
                 "readMore": "Leer más"
             }
@@ -212,47 +296,49 @@
         },
         "editor": {
             "TipTapEditorComp": {
-                "redo": "Rehacer",
+                "placeholder": "Escribe algo...",
+                "heading": "Encabezado",
+                "bold": "Negrita",
+                "italic": "Cursiva",
+                "underline": "Subrayado",
+                "strike": "Tachado",
+                "inlineCode": "Codigo en linea",
+                "bulletList": "Lista con vinetas",
+                "orderedList": "Lista numerada",
+                "blockquote": "Cita",
+                "codeBlock": "Bloque de codigo",
+                "horizontalRule": "Linea horizontal",
+                "alignLeft": "Alinear izquierda",
+                "alignCenter": "Centrar",
+                "alignRight": "Alinear derecha",
+                "insertLink": "Insertar enlace",
+                "insertImage": "Insertar imagen",
+                "highlight": "Resaltar",
+                "color": "Color de texto",
+                "clearFormat": "Limpiar formato",
                 "undo": "Deshacer",
+                "redo": "Rehacer",
                 "viewSource": "Ver codigo fuente",
                 "preview": "Vista previa",
                 "characters": "caracteres",
-                "clearFormat": "Limpiar formato",
-                "horizontalRule": "Linea horizontal",
-                "alignRight": "Alinear derecha",
-                "alignCenter": "Centrar",
-                "alignLeft": "Alinear izquierda",
-                "insertImage": "Insertar imagen",
-                "insertLink": "Insertar enlace",
-                "promptImageUrl": "URL de la imagen:",
                 "promptUrl": "URL:",
-                "codeBlock": "Bloque de codigo",
-                "blockquote": "Cita",
-                "orderedList": "Lista numerada",
-                "bulletList": "Lista con vinetas",
-                "inlineCode": "Codigo en linea",
-                "highlight": "Resaltar",
-                "color": "Color de texto",
-                "strike": "Tachado",
-                "underline": "Subrayado",
-                "italic": "Cursiva",
-                "bold": "Negrita",
-                "heading": "Encabezado",
-                "placeholder": "Escribe algo..."
+                "promptImageUrl": "URL de la imagen:"
             }
         },
         "forms": {}
     },
     "composables": {
         "useNavigation": {
+            "profile": "Perfil",
+            "campaigns": "Campañas",
+            "adminNews": "Administración de noticias",
             "home": "Inicio",
+            "adminCampaigns": "Administración de campañas",
+            "news": "Noticias",
             "signIn": "Iniciar sesión",
             "signUp": "Registrarse",
             "signOut": "Cerrar sesión",
-            "brand": "Fundació Kassumay",
-            "profile": "Perfil",
-            "news": "Noticias",
-            "adminNews": "Administración de noticias"
+            "brand": "Fundació Kassumay"
         }
     }
 }

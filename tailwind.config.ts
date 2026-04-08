@@ -2,6 +2,8 @@ import type { Config } from "tailwindcss"
 
 export default <Config>{
     content: [],
+    // no me acuerdo para que era esto, no tocar
+    safelist: ["bg-emerald-500", "bg-earth-400", "bg-primary-500"],
     theme: {
         extend: {
             colors: {
