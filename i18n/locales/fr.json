@@ -19,11 +19,11 @@
         },
         "widgets": {},
         "cards": {
-            "CampaignCardComp": {
-                "seeMore": "Voir la campagne"
-            },
             "NewsCardComp": {
                 "readMore": "Lire la suite"
+            },
+            "CampaignCardComp": {
+                "seeMore": "Voir la campagne"
             }
         },
         "tables": {
@@ -123,16 +123,33 @@
             "questionsDescription": "Nous répondons à toute question concernant l'utilisation des fonds. Écrivez-nous à"
         },
         "index": {
-            "hero": {
-                "tag": "ONG au Sénégal",
-                "title": "Eau, écoles et santé{br}pour le Sénégal rural",
-                "subtitle": "Nous travaillons avec des communautés à Kédougou, Tambacounda et Louga pour construire des puits, soutenir des écoles et gérer des centres de santé."
+            "featuredCampaigns": {
+                "title": "Campagnes en cours",
+                "tag": "Campagnes actives",
+                "seeAll": "Voir toutes les campagnes",
+                "empty": "Aucune campagne active pour le moment.",
+                "subtitle": "Choisissez-en une et voyez exactement où va votre don."
             },
             "latestNews": {
                 "title": "Dernières actualités",
                 "tagline": "Les dernières nouvelles de nos projets sur le terrain.",
                 "empty": "Aucune actualité publiée pour le moment.",
                 "readAll": "Voir toutes les actualités"
+            },
+            "programs": {
+                "education": "Éducation",
+                "educationDescription": "Soutien aux écoles, aux enseignants et au matériel scolaire pour les enfants des zones défavorisées.",
+                "water": "Eau potable",
+                "waterDescription": "Construction de puits et de systèmes d'eau dans les communautés rurales sans accès à l'eau potable.",
+                "healthcare": "Santé",
+                "healthcareDescription": "Fourniture de matériel médical, bilans de santé et campagnes de sensibilisation.",
+                "title": "Nos programmes au Sénégal",
+                "description": "Nous nous concentrons sur les domaines où l'aide est la plus nécessaire."
+            },
+            "hero": {
+                "tag": "ONG au Sénégal",
+                "title": "Eau, écoles et santé{br}pour le Sénégal rural",
+                "subtitle": "Nous travaillons avec des communautés à Kédougou, Tambacounda et Louga pour construire des puits, soutenir des écoles et gérer des centres de santé."
             }
         },
         "news": {
@@ -148,15 +165,15 @@
             }
         },
         "campaigns": {
-            "slug": {
-                "notFound": "Campagne introuvable.",
-                "back": "Retour aux campagnes"
-            },
             "index": {
-                "title": "Campagnes",
                 "tag": "Campagnes actives",
-                "empty": "Aucune campagne active pour le moment.",
-                "subtitle": "Choisissez une campagne et voyez exactement ou va votre argent."
+                "title": "Campagnes",
+                "subtitle": "Choisissez une campagne et voyez exactement ou va votre argent.",
+                "empty": "Aucune campagne active pour le moment."
+            },
+            "slug": {
+                "back": "Retour aux campagnes",
+                "notFound": "Campagne introuvable."
             },
             "progress": {
                 "raisedLabel": "Collecte : {amount}€"
@@ -221,8 +238,9 @@
     "composables": {
         "useNavigation": {
             "signOut": "Déconnexion",
-            "adminCampaigns": "Administration des campagnes",
-            "adminNews": "Administration des actualités",
+            "adminCampaigns": "Campagnes",
+            "admin": "Administration",
+            "adminNews": "Actualités",
             "campaigns": "Campagnes",
             "news": "Actualités",
             "signIn": "Connexion",

@@ -39,10 +39,27 @@
             "hasAccount": "Already have an account?"
         },
         "index": {
+            "programs": {
+                "title": "Our programs in Senegal",
+                "water": "Clean water",
+                "waterDescription": "Building wells and water systems in rural communities without safe drinking water.",
+                "education": "Education",
+                "educationDescription": "Supporting schools, teachers, and learning materials for children in underserved areas.",
+                "healthcare": "Healthcare",
+                "healthcareDescription": "Providing medical supplies, health screenings, and awareness campaigns.",
+                "description": "We focus on the areas where help is needed most."
+            },
             "hero": {
                 "tag": "NGO in Senegal",
                 "title": "Water, schools and healthcare{br}for rural Senegal",
                 "subtitle": "We work with communities in Kédougou, Tambacounda and Louga to build wells, support schools and run health clinics."
+            },
+            "featuredCampaigns": {
+                "empty": "No active campaigns right now.",
+                "seeAll": "See all campaigns",
+                "title": "Ongoing campaigns",
+                "tag": "Active campaigns",
+                "subtitle": "Pick one and see exactly where your donation goes."
             },
             "latestNews": {
                 "title": "Latest news",
@@ -64,25 +81,25 @@
             }
         },
         "campaigns": {
-            "status": {
-                "active": "Active",
-                "ended": "Ended",
-                "activeDays": "{days}d left",
-                "goalReached": "Goal reached!",
-                "upcoming": "Upcoming"
-            },
             "index": {
-                "empty": "No active campaigns at the moment.",
-                "subtitle": "Pick a campaign and see exactly where your money goes.",
+                "tag": "Active campaigns",
                 "title": "Campaigns",
-                "tag": "Active campaigns"
-            },
-            "progress": {
-                "raisedLabel": "Raised: {amount}€"
+                "subtitle": "Pick a campaign and see exactly where your money goes.",
+                "empty": "No active campaigns at the moment."
             },
             "slug": {
                 "back": "Back to campaigns",
                 "notFound": "Campaign not found."
+            },
+            "status": {
+                "goalReached": "Goal reached!",
+                "active": "Active",
+                "activeDays": "{days}d left",
+                "upcoming": "Upcoming",
+                "ended": "Ended"
+            },
+            "progress": {
+                "raisedLabel": "Raised: {amount}€"
             }
         },
         "confirm": {
@@ -161,8 +178,9 @@
             "home": "Home",
             "campaigns": "Campaigns",
             "news": "News",
-            "adminCampaigns": "Campaigns administration",
-            "adminNews": "News administration",
+            "admin": "Admin",
+            "adminCampaigns": "Campaigns",
+            "adminNews": "News",
             "signIn": "Sign in",
             "signUp": "Sign up",
             "signOut": "Sign out",
@@ -190,11 +208,11 @@
         },
         "widgets": {},
         "cards": {
-            "CampaignCardComp": {
-                "seeMore": "See campaign"
-            },
             "NewsCardComp": {
                 "readMore": "Read more"
+            },
+            "CampaignCardComp": {
+                "seeMore": "See campaign"
             }
         },
         "tables": {

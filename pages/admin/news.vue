@@ -1,12 +1,31 @@
 <template>
     <div class="max-w-6xl mx-auto px-6 py-10">
-        <div class="flex items-center justify-between mb-8">
-            <h1 class="text-3xl font-display font-bold text-earth-900">{{ t("pages.admin.news.title") }}</h1>
+        <div class="flex items-center justify-between mb-6">
+            <div>
+                <h1 class="text-3xl font-display font-bold text-earth-900">{{ t("pages.admin.news.title") }}</h1>
+                <p class="text-sm text-earth-500 mt-1">
+                    {{ t("pages.admin.news.summary", { published: counters.published, draft: counters.draft }) }}
+                </p>
+            </div>
             <button
                 class="bg-primary-600 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-primary-700 transition"
                 @click="openForm()"
             >
                 {{ t("pages.admin.news.create") }}
+            </button>
+        </div>
+
+        <!-- Tabs -->
+        <div class="flex gap-1 border-b border-earth-200 mb-5">
+            <button
+                v-for="tab in tabs"
+                :key="tab.key"
+                class="px-4 py-2 text-sm font-medium transition border-b-2 -mb-px"
+                :class="activeTab === tab.key ? 'border-primary-600 text-primary-700' : 'border-transparent text-earth-500 hover:text-earth-800'"
+                @click="activeTab = tab.key"
+            >
+                {{ t(tab.labelKey) }}
+                <span class="ml-1 text-xs text-earth-400">({{ tab.count }})</span>
             </button>
         </div>
 
@@ -58,6 +77,9 @@ const columns: IDataTableColumn[] = [
     { key: "created_at", label: t("pages.admin.news.columns.date"), sortable: true, align: "right" },
 ]
 
+type TabKey = "PUBLISHED" | "DRAFT" | "ALL"
+const activeTab = ref<TabKey>("PUBLISHED")
+
 // Form state
 const showForm = ref(false)
 const editingId = ref<number | null>(null)
@@ -99,7 +121,26 @@ const { data: articles, refresh } = await useAsyncData(
     () => newsService.fetchAll(),
 )
 // al final no hara falta paginar, son 20-30 noticias como mucho. Si crece ya veremos.
-const table = useDataTable<INewsModel>(articles, {
+const filtered = computed<INewsModel[]>(() => {
+    const all = articles.value ?? []
+    if (activeTab.value === "ALL") return all
+    if (activeTab.value === "PUBLISHED") return all.filter(a => a.published)
+    return all.filter(a => !a.published)
+})
+
+const counters = computed(() => {
+    const all = articles.value ?? []
+    const published = all.filter(a => a.published).length
+    return { published, draft: all.length - published, total: all.length }
+})
+
+const tabs = computed(() => [
+    { key: "PUBLISHED" as TabKey, labelKey: "pages.admin.news.tabs.published", count: counters.value.published },
+    { key: "DRAFT"     as TabKey, labelKey: "pages.admin.news.tabs.draft",     count: counters.value.draft },
+    { key: "ALL"       as TabKey, labelKey: "pages.admin.news.tabs.all",       count: counters.value.total },
+])
+
+const table = useDataTable<INewsModel>(filtered, {
     columns,
     defaultSort: { key: "created_at", dir: "desc" },
 })
@@ -169,7 +210,7 @@ async function saveArticle() {
     if (!fieldsOk || !hasImage) return
 
     const { url: imageUrl, error: imgError } = await resolveImageUrl(
-        imageMode.value, selectedFile.value, form.image_url, newsService.uploadImage, form.slug.trim(),
+        imageMode.value, selectedFile.value, form.image_url, newsService.uploadImage.bind(newsService), form.slug.trim(),
     )
     if (imgError) {
         serverError.value = imgError

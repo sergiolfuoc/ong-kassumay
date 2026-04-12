@@ -17,11 +17,11 @@
                         {{ t(headerAuthRoute.label) }}
                     </NuxtLink>
                     <button :class="design.logoutButton" @click="handleLogout">{{ t("composables.useNavigation.signOut") }}</button>
-                    <NuxtLink v-for="adminRoute in adminPanelRoutes" :key="adminRoute.to"
-                        :to="adminRoute.to"
-                        :class="design.navLink">
-                        {{ t(adminRoute.label) }}
-                    </NuxtLink>
+                    <AdminMenuComp
+                        v-if="adminPanelRoutes.length"
+                        :routes="adminPanelRoutes"
+                        variant="desktop"
+                    />
                 </template>
                 <template v-else>
                     <NuxtLink
@@ -63,12 +63,12 @@
                         {{ t(headerAuthRoute.label) }}
                     </NuxtLink>
                     <button :class="design.mobileLogoutButton" @click="handleLogout">{{ t("composables.useNavigation.signOut") }}</button>
-                    <NuxtLink v-for="adminRoute in adminPanelRoutes" :key="adminRoute.to"
-                        :to="adminRoute.to"
-                        :class="design.mobileNavLink"
-                        @click="(isMobileMenuOpen = false)">
-                        {{ t(adminRoute.label) }}
-                    </NuxtLink>
+                    <AdminMenuComp
+                        v-if="adminPanelRoutes.length"
+                        :routes="adminPanelRoutes"
+                        variant="mobile"
+                        @navigate="(isMobileMenuOpen = false)"
+                    />
                 </template>
                 <template v-else>
                     <NuxtLink

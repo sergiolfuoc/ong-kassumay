@@ -46,7 +46,15 @@
     compatibilityDate: "2025-01-01",
     vite: {
         optimizeDeps: {
-            include: ["@heroicons/vue/24/outline", "vue-toastification"],
+            include: [
+                "@heroicons/vue/24/outline",
+                "vue-toastification",
+                "@tiptap/vue-3",
+                "@tiptap/starter-kit",
+                "@tiptap/extension-image",
+                "@tiptap/extension-link",
+                "@tiptap/extension-placeholder",
+            ],
         },
     },
 })

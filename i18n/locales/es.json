@@ -19,11 +19,28 @@
                 "title": "Agua, escuelas y sanidad{br}para el Senegal rural",
                 "subtitle": "Trabajamos sobre todo con comunidades en Kédougou, Tambacounda y Louga para construir pozos, apoyar escuelas y gestionar centros de salud."
             },
+            "featuredCampaigns": {
+                "seeAll": "Ver todas las campañas",
+                "empty": "No hay campañas activas ahora mismo.",
+                "subtitle": "Elige una y ve exactamente a donde va tu donación.",
+                "tag": "Campañas activas",
+                "title": "Campañas en marcha"
+            },
             "latestNews": {
                 "title": "Últimas noticias",
                 "tagline": "Las últimas novedades desde nuestros proyectos en el terreno.",
                 "empty": "Aún no hay noticias publicadas.",
                 "readAll": "Ver todas las noticias"
+            },
+            "programs": {
+                "healthcare": "Salud",
+                "healthcareDescription": "Proporcionando suministros médicos, revisiones sanitarias y campañas de concienciación.",
+                "water": "Agua potable",
+                "waterDescription": "Construyendo pozos y sistemas de agua en comunidades rurales sin acceso a agua segura.",
+                "education": "Educación",
+                "educationDescription": "Apoyando escuelas, profesores y materiales didácticos para niños en zonas desfavorecidas.",
+                "description": "Lo que más falta hace.",
+                "title": "Nuestros programas en Senegal"
             }
         },
         "news": {
@@ -39,25 +56,25 @@
             }
         },
         "campaigns": {
-            "progress": {
-                "raisedLabel": "Recaudado: {amount}€"
-            },
-            "status": {
-                "ended": "Finalizada",
-                "upcoming": "Próximamente",
-                "goalReached": "¡Meta alcanzada!",
-                "activeDays": "Quedan {days}d",
-                "active": "Activa"
+            "index": {
+                "tag": "Campañas activas",
+                "title": "Campañas",
+                "subtitle": "Elige una campaña y ve exactamente a dónde va tu dinero.",
+                "empty": "No hay campañas activas ahora mismo."
             },
             "slug": {
-                "notFound": "Campaña no encontrada.",
-                "back": "Volver a campañas"
+                "back": "Volver a campañas",
+                "notFound": "Campaña no encontrada."
             },
-            "index": {
-                "subtitle": "Elige una campaña y ve exactamente a dónde va tu dinero.",
-                "empty": "No hay campañas activas ahora mismo.",
-                "tag": "Campañas activas",
-                "title": "Campañas"
+            "status": {
+                "goalReached": "¡Meta alcanzada!",
+                "active": "Activa",
+                "activeDays": "Quedan {days}d",
+                "upcoming": "Próximamente",
+                "ended": "Finalizada"
+            },
+            "progress": {
+                "raisedLabel": "Recaudado: {amount}€"
             }
         },
         "login": {
@@ -98,6 +115,12 @@
                 "create": "Nuevo artículo",
                 "createTitle": "Crear artículo",
                 "editTitle": "Editar artículo",
+                "summary": "{published} publicadas · {draft} en borrador",
+                "tabs": {
+                    "all": "Todas",
+                    "draft": "Borrador",
+                    "published": "Publicadas"
+                },
                 "columns": {
                     "title": "Título",
                     "status": "Estado",
@@ -138,60 +161,60 @@
                 }
             },
             "campaigns": {
-                "toast": {
-                    "updated": "Campaña actualizada correctamente",
-                    "deleted": "Campaña eliminada correctamente",
-                    "created": "Campaña creada correctamente"
+                "title": "Gestionar campañas",
+                "create": "Nueva campaña",
+                "createTitle": "Crear campaña",
+                "editTitle": "Editar campaña",
+                "summary": "{active} activas · {inactive} inactivas · {reached} con meta alcanzada",
+                "tabs": {
+                    "active": "Activas",
+                    "inactive": "Inactivas",
+                    "reached": "Meta alcanzada",
+                    "all": "Todas"
+                },
+                "columns": {
+                    "title": "Título",
+                    "progress": "Recaudado",
+                    "status": "Estado",
+                    "date": "Fecha"
+                },
+                "active": "Activa",
+                "inactive": "Inactiva",
+                "edit": "Editar",
+                "activate": "Activar",
+                "deactivate": "Desactivar",
+                "delete": "Eliminar",
+                "confirmDelete": "¿Seguro que quieres eliminar esta campaña?",
+                "confirmDeactivateReached": "Esta campaña ya ha alcanzado su meta. ¿Seguro que quieres desactivarla?",
+                "deleteDialog": {
+                    "title": "Eliminar campaña",
+                    "body": "Escribe el titulo exacto '{title}' para confirmar el borrado.",
+                    "confirm": "Eliminar definitivamente"
                 },
                 "form": {
-                    "cardSection": "Vista previa de tarjeta",
-                    "cardPreview": "Asi se vera en el listado:",
-                    "previewTitle": "Titulo de la campaña",
-                    "descriptionSection": "Descripcion de la campaña",
+                    "title": "Título",
+                    "slug": "Slug",
                     "goalAmount": "Meta (€)",
                     "raisedAmount": "Recaudado (€)",
                     "startDate": "Fecha de inicio",
                     "endDate": "Fecha de fin",
+                    "excerpt": "Extracto",
                     "imageUpload": "Subir imagen",
                     "imagePasteUrl": "Pegar URL",
                     "removeImage": "Quitar imagen",
-                    "title": "Título",
-                    "slug": "Slug",
-                    "excerpt": "Extracto",
+                    "descriptionSection": "Descripcion de la campaña",
                     "active": "Activa",
                     "save": "Guardar",
-                    "cancel": "Cancelar"
+                    "cancel": "Cancelar",
+                    "cardSection": "Vista previa de tarjeta",
+                    "cardPreview": "Asi se vera en el listado:",
+                    "previewTitle": "Titulo de la campaña"
                 },
-                "deleteDialog": {
-                    "body": "Escribe el titulo exacto '{title}' para confirmar el borrado.",
-                    "confirm": "Eliminar definitivamente",
-                    "title": "Eliminar campaña"
-                },
-                "confirmDeactivateReached": "Esta campaña ya ha alcanzado su meta. ¿Seguro que quieres desactivarla?",
-                "confirmDelete": "¿Seguro que quieres eliminar esta campaña?",
-                "delete": "Eliminar",
-                "deactivate": "Desactivar",
-                "activate": "Activar",
-                "edit": "Editar",
-                "inactive": "Inactiva",
-                "active": "Activa",
-                "columns": {
-                    "date": "Fecha",
-                    "progress": "Recaudado",
-                    "status": "Estado",
-                    "title": "Título"
-                },
-                "tabs": {
-                    "reached": "Meta alcanzada",
-                    "all": "Todas",
-                    "inactive": "Inactivas",
-                    "active": "Activas"
-                },
-                "summary": "{active} activas · {inactive} inactivas · {reached} con meta alcanzada",
-                "editTitle": "Editar campaña",
-                "createTitle": "Crear campaña",
-                "create": "Nueva campaña",
-                "title": "Gestionar campañas"
+                "toast": {
+                    "created": "Campaña creada correctamente",
+                    "updated": "Campaña actualizada correctamente",
+                    "deleted": "Campaña eliminada correctamente"
+                }
             }
         },
         "privacy": {
@@ -249,13 +272,13 @@
         }
     },
     "validations": {
-        "email": "Introduce un email válido",
         "required": "Este campo es obligatorio",
-        "url": "Introduce una URL válida",
+        "email": "Introduce un email válido",
         "numeric": "Debe ser un número",
         "minLength": "Mínimo {min} caracteres",
         "maxLength": "Máximo {max} caracteres",
         "minNumber": "Debe ser al menos {min}",
+        "url": "Introduce una URL válida",
         "dateRange": "La fecha no puede ser anterior a la de inicio"
     },
     "components": {
@@ -278,11 +301,11 @@
         },
         "widgets": {},
         "cards": {
-            "CampaignCardComp": {
-                "seeMore": "Ver campaña"
-            },
             "NewsCardComp": {
                 "readMore": "Leer más"
+            },
+            "CampaignCardComp": {
+                "seeMore": "Ver campaña"
             }
         },
         "tables": {
@@ -331,9 +354,10 @@
         "useNavigation": {
             "profile": "Perfil",
             "campaigns": "Campañas",
-            "adminNews": "Administración de noticias",
+            "adminNews": "Noticias",
             "home": "Inicio",
-            "adminCampaigns": "Administración de campañas",
+            "admin": "Administración",
+            "adminCampaigns": "Campañas",
             "news": "Noticias",
             "signIn": "Iniciar sesión",
             "signUp": "Registrarse",

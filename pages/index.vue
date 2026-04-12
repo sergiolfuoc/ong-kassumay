@@ -20,6 +20,38 @@
             </div>
         </section>
 
+        <!-- programas -->
+        <section id="programs" class="bg-warm-50 py-16 md:py-20">
+            <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-10 gap-8 items-center">
+                <div class="md:col-span-4">
+                    <h2 class="text-4xl md:text-6xl font-display font-bold text-earth-900">{{ t("pages.index.programs.title") }}</h2>
+                    <p class="text-earth-500 text-lg mt-3">{{ t("pages.index.programs.description") }}</p>
+                </div>
+                <div class="md:col-span-6 grid grid-cols-2 gap-6">
+                    <div
+                        v-for="program in programs"
+                        :key="program.key"
+                        :class="[
+                            'bg-white rounded-2xl p-8 border border-earth-100 border-l-4 transition-transform duration-200 hover:scale-[1.03]',
+                            program.borderColor,
+                            program.span ? 'col-span-2' : '',
+                        ]"
+                    >
+                        <h3 class="text-lg font-semibold text-earth-900 mb-2">{{ t(`pages.index.programs.${program.key}`) }}</h3>
+                        <p class="text-earth-500 text-sm leading-relaxed">{{ t(`pages.index.programs.${program.key}Description`) }}</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- separador tipo ola (copiado de un codepen, ajustar altura si hace falta) -->
+        <div style="line-height:0">
+            <svg viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" width="100%" height="60" preserveAspectRatio="none">
+                <path d="M0 0 C 360 60 1080 60 1440 0 L 1440 60 L 0 60 Z" fill="#bdb449" fill-opacity="0.25"/>
+            </svg>
+        </div>
+        <div class="diagonal-sep"></div>
+        
         <!-- news -->
         <section class="max-w-7xl mx-auto px-6 py-16">
             <div class="text-center mb-10">
@@ -38,13 +70,50 @@
             </div>
         </section>
         
+        <!-- campaigns -->
+        <section class="max-w-7xl mx-auto px-6 py-16">
+            <div class="text-center mb-10">
+                <span class="inline-block bg-primary-400/10 text-primary-600 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider mb-3">
+                    {{ t("pages.index.featuredCampaigns.tag") }}
+                </span>
+                <h2 class="text-3xl font-display font-bold text-earth-900">{{ t("pages.index.featuredCampaigns.title") }}</h2>
+                <p class="text-earth-500 mt-2">{{ t("pages.index.featuredCampaigns.subtitle") }}</p>
+            </div>
+            <div v-if="featuredCampaigns?.length" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <CampaignCardComp v-for="c in featuredCampaigns" :key="c.id" :campaign="c" />
+            </div>
+            <p v-else class="text-earth-400 text-center py-8">{{ t("pages.index.featuredCampaigns.empty") }}</p>
+            <div v-if="featuredCampaigns?.length" class="text-center mt-8">
+                <NuxtLink to="/campaigns" class="inline-flex items-center gap-1 text-primary-500 hover:text-primary-600 font-semibold transition">
+                    {{ t("pages.index.featuredCampaigns.seeAll") }}
+                    <ArrowRightIcon class="w-4 h-4" />
+                </NuxtLink>
+            </div>
+        </section>
+        
     </div>
 
 </template>
 <script setup lang="ts">
 import { ArrowRightIcon } from "@heroicons/vue/24/outline"
-const { news: newsService } = useServices()
-const { data: latestNews } = await useAsyncData("home-news", () => newsService.fetchPublished(3))
-
 const { t } = useI18n()
+
+const { news: newsService, campaigns: campaignsService } = useServices()
+const { data: latestNews } = await useAsyncData("home-news", () => newsService.fetchPublished(3))
+const { data: featuredCampaigns } = await useAsyncData("home-campaigns", () => campaignsService.fetchActive(3))
+
+const programs = [
+    { key: "water", borderColor: "border-l-primary-400", span: true },
+    { key: "education", borderColor: "border-l-amber-400", span: false },
+    { key: "healthcare", borderColor: "border-l-rose-400", span: false },
+]
+
 </script>
+
+<style scoped>
+.diagonal-sep {
+    height: 64px;
+    background: rgba(189, 180, 73, 0.25);
+    clip-path: polygon(0 0, 100% 0, 100% 60%, 0 100%);
+}
+</style>

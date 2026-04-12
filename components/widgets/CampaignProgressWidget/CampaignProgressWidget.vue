@@ -15,7 +15,7 @@
                     <span class="ml-2 text-earth-500">({{ progress.percent }}%)</span>
                 </template>
                 <template v-else>
-                    <span class="font-semibold text-earth-800">{{ t("campaigns.progress.raisedLabel", { amount: formatNumbers(progress.raised) }) }}</span>
+                    <span class="font-semibold text-earth-800">{{ t("pages.campaigns.progress.raisedLabel", { amount: formatNumbers(progress.raised) }) }}</span>
                 </template>
             </p>
             <span v-if="showStatus && statusLabel" class="text-[10px] uppercase tracking-wide font-semibold" :class="statusClass">
@@ -50,12 +50,12 @@ const barColor = computed(() => {
 
 const statusLabel = computed(() => {
     switch (progress.value.status) {
-        case "GOAL_REACHED": return t("campaigns.status.goalReached")
+        case "GOAL_REACHED": return t("pages.campaigns.status.goalReached")
         case "ACTIVE":       return progress.value.daysRemaining != null
-            ? t("campaigns.status.activeDays", { days: progress.value.daysRemaining })
-            : t("campaigns.status.active")
-        case "UPCOMING":     return t("campaigns.status.upcoming")
-        case "ENDED":        return t("campaigns.status.ended")
+            ? t("pages.campaigns.status.activeDays", { days: progress.value.daysRemaining })
+            : t("pages.campaigns.status.active")
+        case "UPCOMING":     return t("pages.campaigns.status.upcoming")
+        case "ENDED":        return t("pages.campaigns.status.ended")
         default:             return ""
     }
 })

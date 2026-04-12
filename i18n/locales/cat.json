@@ -1,8 +1,9 @@
 {
     "composables": {
         "useNavigation": {
-            "adminCampaigns": "Administracio de campanyes",
-            "adminNews": "Administració de notícies",
+            "adminCampaigns": "Campanyes",
+            "adminNews": "Notícies",
+            "admin": "Administració",
             "campaigns": "Campanyes",
             "home": "Inici",
             "signIn": "Iniciar sessió",
@@ -15,16 +16,33 @@
     },
     "pages": {
         "index": {
-            "hero": {
-                "tag": "ONG al Senegal",
-                "title": "Aigua, escoles i sanitat{br}per al Senegal rural",
-                "subtitle": "Treballem amb comunitats a Kédougou, Tambacounda i Louga per construir pous, donar suport a escoles i gestionar centres de salut."
-            },
             "latestNews": {
                 "title": "Últimes notícies",
                 "tagline": "Les últimes novetats des dels nostres projectes al terreny.",
                 "empty": "Encara no hi ha notícies publicades.",
                 "readAll": "Veure totes les notícies"
+            },
+            "programs": {
+                "title": "Els nostres programes al Senegal",
+                "description": "Ens centrem en les àrees on l'ajuda és més necessària.",
+                "healthcare": "Salut",
+                "healthcareDescription": "Proporcionant subministraments mèdics, revisions sanitàries i campanyes de conscienciació.",
+                "education": "Educació",
+                "educationDescription": "Donant suport a escoles, mestres i materials didàctics per a infants en zones desfavorides.",
+                "water": "Aigua potable",
+                "waterDescription": "Construint pous i sistemes d'aigua a comunitats rurals sense accés a aigua segura."
+            },
+            "hero": {
+                "tag": "ONG al Senegal",
+                "title": "Aigua, escoles i sanitat{br}per al Senegal rural",
+                "subtitle": "Treballem amb comunitats a Kédougou, Tambacounda i Louga per construir pous, donar suport a escoles i gestionar centres de salut."
+            },
+            "featuredCampaigns": {
+                "subtitle": "Tria'n una i mira exactament on va la teva donació.",
+                "empty": "No hi ha campanyes actives ara mateix.",
+                "tag": "Campanyes actives",
+                "seeAll": "Veure totes les campanyes",
+                "title": "Campanyes en marxa"
             }
         },
         "news": {
@@ -41,21 +59,21 @@
         },
         "campaigns": {
             "index": {
-                "empty": "No hi ha campanyes actives ara mateix.",
                 "tag": "Campanyes actives",
+                "title": "Campanyes",
                 "subtitle": "Tria una campanya i veuras exactament a on va el teu diner.",
-                "title": "Campanyes"
-            },
-            "status": {
-                "ended": "Finalitzada",
-                "active": "Activa",
-                "goalReached": "Meta assolida!",
-                "activeDays": "Queden {days}d",
-                "upcoming": "Properament"
+                "empty": "No hi ha campanyes actives ara mateix."
             },
             "slug": {
                 "back": "Tornar a campanyes",
                 "notFound": "Campanya no trobada."
+            },
+            "status": {
+                "goalReached": "Meta assolida!",
+                "active": "Activa",
+                "activeDays": "Queden {days}d",
+                "upcoming": "Properament",
+                "ended": "Finalitzada"
             }
         },
         "admin": {
@@ -64,6 +82,12 @@
                 "create": "Nou article",
                 "createTitle": "Crear article",
                 "editTitle": "Editar article",
+                "summary": "{published} publicades · {draft} en esborrany",
+                "tabs": {
+                    "published": "Publicades",
+                    "all": "Totes",
+                    "draft": "Esborrany"
+                },
                 "columns": {
                     "title": "Títol",
                     "status": "Estat",
@@ -104,54 +128,54 @@
                 "confirmDelete": "Estàs segur que vols eliminar aquest article?"
             },
             "campaigns": {
-                "form": {
-                    "imageUpload": "Pujar imatge",
-                    "imagePasteUrl": "Enganxar URL",
-                    "removeImage": "Treure imatge",
-                    "cardSection": "Vista previa de la targeta",
-                    "cardPreview": "Aixi es veura al llistat:",
-                    "previewTitle": "Titol de la campanya",
-                    "descriptionSection": "Descripcio de la campanya",
-                    "startDate": "Data d'inici",
-                    "endDate": "Data de fi",
-                    "goalAmount": "Meta (€)",
-                    "raisedAmount": "Recaptat (€)",
-                    "title": "Títol",
-                    "slug": "Slug",
-                    "excerpt": "Extracte",
-                    "active": "Activa",
-                    "save": "Desar",
-                    "cancel": "Cancel·lar"
-                },
-                "toast": {
-                    "deleted": "Campanya eliminada correctament",
-                    "created": "Campanya creada correctament",
-                    "updated": "Campanya actualitzada correctament"
-                },
-                "delete": "Eliminar",
-                "deactivate": "Desactivar",
-                "activate": "Activar",
-                "edit": "Editar",
-                "inactive": "Inactiva",
-                "active": "Activa",
-                "confirmDelete": "Segur que vols eliminar aquesta campanya?",
-                "columns": {
-                    "progress": "Recaptat",
-                    "date": "Data",
-                    "status": "Estat",
-                    "title": "Títol"
-                },
-                "tabs": {
-                    "inactive": "Inactives",
-                    "all": "Totes",
-                    "reached": "Meta assolida",
-                    "active": "Actives"
-                },
-                "summary": "{active} actives · {inactive} inactives · {reached} amb meta assolida",
                 "title": "Gestionar campanyes",
                 "create": "Nova campanya",
                 "createTitle": "Crear campanya",
-                "editTitle": "Editar campanya"
+                "editTitle": "Editar campanya",
+                "summary": "{active} actives · {inactive} inactives · {reached} amb meta assolida",
+                "tabs": {
+                    "active": "Actives",
+                    "inactive": "Inactives",
+                    "reached": "Meta assolida",
+                    "all": "Totes"
+                },
+                "columns": {
+                    "title": "Títol",
+                    "progress": "Recaptat",
+                    "status": "Estat",
+                    "date": "Data"
+                },
+                "active": "Activa",
+                "inactive": "Inactiva",
+                "edit": "Editar",
+                "activate": "Activar",
+                "deactivate": "Desactivar",
+                "delete": "Eliminar",
+                "confirmDelete": "Segur que vols eliminar aquesta campanya?",
+                "form": {
+                    "title": "Títol",
+                    "slug": "Slug",
+                    "goalAmount": "Meta (€)",
+                    "raisedAmount": "Recaptat (€)",
+                    "startDate": "Data d'inici",
+                    "endDate": "Data de fi",
+                    "excerpt": "Extracte",
+                    "imageUpload": "Pujar imatge",
+                    "imagePasteUrl": "Enganxar URL",
+                    "removeImage": "Treure imatge",
+                    "descriptionSection": "Descripcio de la campanya",
+                    "active": "Activa",
+                    "save": "Desar",
+                    "cancel": "Cancel·lar",
+                    "cardSection": "Vista previa de la targeta",
+                    "cardPreview": "Aixi es veura al llistat:",
+                    "previewTitle": "Titol de la campanya"
+                },
+                "toast": {
+                    "created": "Campanya creada correctament",
+                    "updated": "Campanya actualitzada correctament",
+                    "deleted": "Campanya eliminada correctament"
+                }
             }
         },
         "confirm": {
@@ -273,11 +297,11 @@
         },
         "widgets": {},
         "cards": {
-            "CampaignCardComp": {
-                "seeMore": "Veure campanya"
-            },
             "NewsCardComp": {
                 "readMore": "Llegir més"
+            },
+            "CampaignCardComp": {
+                "seeMore": "Veure campanya"
             }
         },
         "tables": {
@@ -325,11 +349,11 @@
     "validations": {
         "required": "Aquest camp és obligatori",
         "email": "Introdueix un email vàlid",
-        "url": "Introdueix una URL vàlida",
         "numeric": "Ha de ser un número",
         "minLength": "Mínim {min} caràcters",
         "maxLength": "Màxim {max} caràcters",
         "minNumber": "Ha de ser almenys {min}",
+        "url": "Introdueix una URL vàlida",
         "dateRange": "La data no pot ser anterior a la d'inici"
     }
 }
