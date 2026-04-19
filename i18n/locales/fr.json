@@ -19,11 +19,11 @@
         },
         "widgets": {},
         "cards": {
-            "NewsCardComp": {
-                "readMore": "Lire la suite"
-            },
             "CampaignCardComp": {
                 "seeMore": "Voir la campagne"
+            },
+            "NewsCardComp": {
+                "readMore": "Lire la suite"
             }
         },
         "tables": {
@@ -60,16 +60,23 @@
                 "undo": "Annuler",
                 "redo": "Retablir",
                 "viewSource": "Voir le code source",
-                "preview": "Apercu",
-                "characters": "caracteres",
+                "preview": "Aperçu",
+                "characters": "caractères",
                 "promptUrl": "URL :",
                 "promptImageUrl": "URL de l'image :"
             }
         },
-        "forms": {}
+        "forms": {
+            "TagsFieldComp": {
+                "empty": "Aucune etiquette disponible"
+            }
+        }
     },
     "pages": {
         "privacy": {
+            "contact": "Délégué à la protection des données",
+            "contactDescription": "Pour toute question relative à la confidentialité, écrivez-nous à {email}.",
+            "yourRights": "Vos droits (RGPD art. 15-22)",
             "title": "Politique de confidentialité",
             "intro": "Responsable du traitement : Associació Fundació Kassumay, inscrite au Registre national des associations d'Espagne. Le présent avis est conforme au Règlement (UE) 2016/679 (RGPD) et à la Loi organique espagnole 3/2018 (LOPD-GDD).",
             "infoCollect": "Données collectées",
@@ -86,10 +93,7 @@
             "useImprove": "Élaborer des statistiques anonymes d'utilisation du site.",
             "dataProtection": "Mesures de sécurité",
             "dataProtectionDescription": "Les communications sont chiffrées via TLS. L'accès à la base de données est restreint grâce au Row Level Security de Supabase et aux rôles internes de l'application.",
-            "yourRights": "Vos droits (RGPD art. 15-22)",
-            "yourRightsDescription": "Vous pouvez exercer vos droits d'accès, de rectification, d'effacement, de portabilité et d'opposition en écrivant à {email}. En cas de litige, vous pouvez introduire une réclamation auprès de l'Agence espagnole de protection des données (aepd.es).",
-            "contact": "Délégué à la protection des données",
-            "contactDescription": "Pour toute question relative à la confidentialité, écrivez-nous à {email}."
+            "yourRightsDescription": "Vous pouvez exercer vos droits d'accès, de rectification, d'effacement, de portabilité et d'opposition en écrivant à {email}. En cas de litige, vous pouvez introduire une réclamation auprès de l'Agence espagnole de protection des données (aepd.es)."
         },
         "legal": {
             "title": "Mentions légales",
@@ -131,10 +135,14 @@
                 "subtitle": "Choisissez-en une et voyez exactement où va votre don."
             },
             "latestNews": {
-                "title": "Dernières actualités",
                 "tagline": "Les dernières nouvelles de nos projets sur le terrain.",
+                "readAll": "Voir toutes les actualités",
                 "empty": "Aucune actualité publiée pour le moment.",
-                "readAll": "Voir toutes les actualités"
+                "title": "Dernières actualités"
+            },
+            "tags": {
+                "subtitle": "Les domaines sur lesquels nous travaillons actuellement",
+                "title": "Explorez par thème"
             },
             "programs": {
                 "education": "Éducation",
@@ -147,9 +155,9 @@
                 "description": "Nous nous concentrons sur les domaines où l'aide est la plus nécessaire."
             },
             "hero": {
-                "tag": "ONG au Sénégal",
+                "subtitle": "Nous travaillons avec des communautés à Kédougou, Tambacounda et Louga pour construire des puits, soutenir des écoles et gérer des centres de santé.",
                 "title": "Eau, écoles et santé{br}pour le Sénégal rural",
-                "subtitle": "Nous travaillons avec des communautés à Kédougou, Tambacounda et Louga pour construire des puits, soutenir des écoles et gérer des centres de santé."
+                "tag": "ONG au Sénégal"
             }
         },
         "news": {
@@ -163,6 +171,12 @@
                 "back": "Retour aux actualités",
                 "notFound": "Article introuvable."
             }
+        },
+        "tags": {
+            "campaignsSection": "Campagnes",
+            "newsSection": "Actualités",
+            "seoDescription": "Contenu lié à {tag} chez Fundació Kassumay",
+            "empty": "Pas encore de contenu pour cette étiquette"
         },
         "campaigns": {
             "index": {
@@ -180,17 +194,17 @@
             }
         },
         "profile": {
-            "title": "Mon profil",
-            "email": "Adresse e-mail",
-            "fullName": "Nom complet",
-            "avatar": "Photo de profil",
+            "save": "Enregistrer",
+            "saving": "Enregistrement...",
+            "saved": "Profil enregistré avec succès",
             "errors": {
                 "nameRequired": "Le nom est obligatoire",
                 "fileTooLarge": "Fichier trop volumineux (max 2 Mo)"
             },
-            "saved": "Profil enregistré avec succès",
-            "saving": "Enregistrement...",
-            "save": "Enregistrer"
+            "avatar": "Photo de profil",
+            "title": "Mon profil",
+            "fullName": "Nom complet",
+            "email": "Adresse e-mail"
         },
         "login": {
             "brand": "Fundació Kassumay",
@@ -233,6 +247,7 @@
         "maxLength": "Maximum {max} caractères",
         "minNumber": "Doit être au moins {min}",
         "url": "Saisissez une URL valide",
+        "slug": "Uniquement minuscules, chiffres et tirets (ex: mon-tag)",
         "dateRange": "La date ne peut pas être antérieure à celle de début"
     },
     "composables": {
@@ -240,6 +255,7 @@
             "signOut": "Déconnexion",
             "adminCampaigns": "Campagnes",
             "admin": "Administration",
+            "adminTags": "Étiquettes",
             "adminNews": "Actualités",
             "campaigns": "Campagnes",
             "news": "Actualités",

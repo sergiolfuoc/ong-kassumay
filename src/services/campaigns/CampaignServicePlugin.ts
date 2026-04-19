@@ -83,7 +83,7 @@ export class CampaignServicePlugin extends PluginBase<ServicesPlugin> {
     //#endregion
 
     //#region [ CUD ]
-    async create(params: ICampaignCreateParams): Promise<IServiceResult> {
+    async create(params: ICampaignCreateParams): Promise<IServiceResult<number>> {
         return this.safeCatch("create", async () => {
             if (!this.parent!.roles.validate("actions.campaigns.create")) {
                 throw new Error("no tienes permisos para crear campañas")
@@ -120,10 +120,11 @@ export class CampaignServicePlugin extends PluginBase<ServicesPlugin> {
                 author_id: params.author_id || null,
             }
 
-            const { error } = await this.supabase.from("campaigns").insert(record)
+            const { data, error } = await this.supabase.from("campaigns").insert(record).select("id").single()
             if (error) throw new Error(error.message)
 
             this.log("created:", record.title)
+            return (data as { id: number }).id
         })
     }
     async update(id: number, params: ICampaignUpdateParams): Promise<IServiceResult> {

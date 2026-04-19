@@ -50,3 +50,10 @@ export const dateRange = (getStart: () => string | null | undefined): ValidatorF
     if (!start) return null
     return new Date(value) >= new Date(start) ? null : { key: 'validations.dateRange' }
 }
+
+// No empieza ni acaba en guion, sin guiones dobles
+export const slug: ValidatorFn = (value) => {
+    if (typeof value !== 'string' || !value) return null
+    const slugRegex = /^[a-z0-9]+(?:-[a-z0-9]+)*$/
+    return slugRegex.test(value) ? null : { key: 'validations.slug' }
+}

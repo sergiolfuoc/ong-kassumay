@@ -90,7 +90,7 @@
                 </NuxtLink>
             </div>
         </section>
-        
+
     </div>
 
 </template>
@@ -99,8 +99,11 @@ import { ArrowRightIcon } from "@heroicons/vue/24/outline"
 const { t } = useI18n()
 
 const { news: newsService, campaigns: campaignsService } = useServices()
-const { data: latestNews } = await useAsyncData("home-news", () => newsService.fetchPublished(3))
-const { data: featuredCampaigns } = await useAsyncData("home-campaigns", () => campaignsService.fetchActive(3))
+const { data: latestNewsData } = await useAsyncData("home-news", () => newsService.fetchPublished(3))
+const { data: featuredCampaignsData } = await useAsyncData("home-campaigns", () => campaignsService.fetchActive(3))
+
+const latestNews = computed(() => latestNewsData.value ?? [])
+const featuredCampaigns = computed(() => featuredCampaignsData.value ?? [])
 
 const programs = [
     { key: "water", borderColor: "border-l-primary-400", span: true },

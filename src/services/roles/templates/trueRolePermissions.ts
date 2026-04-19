@@ -13,5 +13,6 @@ export const trueRolePermissions: IRolePermissions<boolean> = {
         profile: { update: true },
         news: { create: true, update: true, delete: true, publish: true },
         campaigns: { create: true, update: true, delete: true, activate: true },
+        tags: { create: true, update: true, delete: true },
     },
 }

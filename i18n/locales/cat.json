@@ -4,6 +4,7 @@
             "adminCampaigns": "Campanyes",
             "adminNews": "Notícies",
             "admin": "Administració",
+            "adminTags": "Etiquetes",
             "campaigns": "Campanyes",
             "home": "Inici",
             "signIn": "Iniciar sessió",
@@ -17,10 +18,10 @@
     "pages": {
         "index": {
             "latestNews": {
-                "title": "Últimes notícies",
-                "tagline": "Les últimes novetats des dels nostres projectes al terreny.",
                 "empty": "Encara no hi ha notícies publicades.",
-                "readAll": "Veure totes les notícies"
+                "readAll": "Veure totes les notícies",
+                "tagline": "Les últimes novetats des dels nostres projectes al terreny.",
+                "title": "Últimes notícies"
             },
             "programs": {
                 "title": "Els nostres programes al Senegal",
@@ -31,6 +32,10 @@
                 "educationDescription": "Donant suport a escoles, mestres i materials didàctics per a infants en zones desfavorides.",
                 "water": "Aigua potable",
                 "waterDescription": "Construint pous i sistemes d'aigua a comunitats rurals sense accés a aigua segura."
+            },
+            "tags": {
+                "title": "Explora per temes",
+                "subtitle": "Les àrees en les que estem treballant ara mateix"
             },
             "hero": {
                 "tag": "ONG al Senegal",
@@ -57,11 +62,17 @@
                 "notFound": "Article no trobat."
             }
         },
+        "tags": {
+            "seoDescription": "Contingut relacionat amb {tag} a Fundació Kassumay",
+            "campaignsSection": "Campanyes",
+            "newsSection": "Notícies",
+            "empty": "Encara no hi ha contingut per a aquesta etiqueta"
+        },
         "campaigns": {
             "index": {
                 "tag": "Campanyes actives",
                 "title": "Campanyes",
-                "subtitle": "Tria una campanya i veuras exactament a on va el teu diner.",
+                "subtitle": "Tria una campanya i veuras exactament a on van els teus diners.",
                 "empty": "No hi ha campanyes actives ara mateix."
             },
             "slug": {
@@ -78,103 +89,133 @@
         },
         "admin": {
             "news": {
-                "title": "Gestionar notícies",
                 "create": "Nou article",
                 "createTitle": "Crear article",
+                "title": "Gestionar notícies",
+                "columns": {
+                    "status": "Estat",
+                    "title": "Títol",
+                    "date": "Data"
+                },
+                "published": "Publicat",
+                "publish": "Publicar",
+                "unpublish": "Despublicar",
+                "edit": "Editar",
                 "editTitle": "Editar article",
-                "summary": "{published} publicades · {draft} en esborrany",
                 "tabs": {
                     "published": "Publicades",
                     "all": "Totes",
                     "draft": "Esborrany"
                 },
-                "columns": {
-                    "title": "Títol",
-                    "status": "Estat",
-                    "date": "Data"
-                },
-                "published": "Publicat",
+                "summary": "{published} publicades · {draft} en esborrany",
                 "draft": "Esborrany",
-                "edit": "Editar",
-                "publish": "Publicar",
-                "unpublish": "Despublicar",
                 "delete": "Eliminar",
+                "confirmDelete": "Estàs segur que vols eliminar aquest article?",
                 "form": {
-                    "title": "Títol",
-                    "slug": "Slug",
-                    "publishDate": "Data de publicació",
-                    "excerpt": "Extracte",
+                    "required": "Títol, slug i contingut són obligatoris.",
+                    "save": "Desar",
+                    "cancel": "Cancel·lar",
                     "imageUpload": "Pujar imatge",
                     "imagePasteUrl": "Enganxar URL",
                     "removeImage": "Treure imatge",
-                    "content": "Contingut",
-                    "published": "Publicat",
-                    "save": "Desar",
-                    "cancel": "Cancel·lar",
-                    "required": "Títol, slug i contingut són obligatoris.",
                     "cardSection": "Vista previa de la targeta",
                     "cardPreview": "Aixi es veura al llistat:",
                     "previewTitle": "Titol de l'article",
                     "articleSection": "Vista previa de l'article",
-                    "articlePreview": "Aixi es veura el contingut:"
-                },
-                "toast": {
-                    "created": "Noticia creada correctament",
-                    "updated": "Noticia actualitzada correctament",
-                    "deleted": "Noticia eliminada correctament",
-                    "deletedUndo": "\"{title}\" eliminada — clica per desfer",
-                    "restored": "Noticia restaurada"
-                },
-                "confirmDelete": "Estàs segur que vols eliminar aquest article?"
-            },
-            "campaigns": {
-                "title": "Gestionar campanyes",
-                "create": "Nova campanya",
-                "createTitle": "Crear campanya",
-                "editTitle": "Editar campanya",
-                "summary": "{active} actives · {inactive} inactives · {reached} amb meta assolida",
-                "tabs": {
-                    "active": "Actives",
-                    "inactive": "Inactives",
-                    "reached": "Meta assolida",
-                    "all": "Totes"
-                },
-                "columns": {
-                    "title": "Títol",
-                    "progress": "Recaptat",
-                    "status": "Estat",
-                    "date": "Data"
-                },
-                "active": "Activa",
-                "inactive": "Inactiva",
-                "edit": "Editar",
-                "activate": "Activar",
-                "deactivate": "Desactivar",
-                "delete": "Eliminar",
-                "confirmDelete": "Segur que vols eliminar aquesta campanya?",
-                "form": {
+                    "articlePreview": "Aixi es veura el contingut:",
                     "title": "Títol",
                     "slug": "Slug",
-                    "goalAmount": "Meta (€)",
-                    "raisedAmount": "Recaptat (€)",
-                    "startDate": "Data d'inici",
-                    "endDate": "Data de fi",
                     "excerpt": "Extracte",
+                    "content": "Contingut",
+                    "tags": "Etiquetes",
+                    "publishDate": "Data de publicació",
+                    "published": "Publicat"
+                },
+                "toast": {
+                    "deleted": "Noticia eliminada correctament",
+                    "created": "Noticia creada correctament",
+                    "updated": "Noticia actualitzada correctament",
+                    "deletedUndo": "\"{title}\" eliminada — clica per desfer",
+                    "restored": "Noticia restaurada"
+                }
+            },
+            "campaigns": {
+                "form": {
                     "imageUpload": "Pujar imatge",
                     "imagePasteUrl": "Enganxar URL",
                     "removeImage": "Treure imatge",
-                    "descriptionSection": "Descripcio de la campanya",
-                    "active": "Activa",
-                    "save": "Desar",
-                    "cancel": "Cancel·lar",
                     "cardSection": "Vista previa de la targeta",
                     "cardPreview": "Aixi es veura al llistat:",
-                    "previewTitle": "Titol de la campanya"
+                    "previewTitle": "Titol de la campanya",
+                    "descriptionSection": "Descripcio de la campanya",
+                    "startDate": "Data d'inici",
+                    "endDate": "Data de fi",
+                    "goalAmount": "Meta (€)",
+                    "raisedAmount": "Recaptat (€)",
+                    "title": "Títol",
+                    "slug": "Slug",
+                    "excerpt": "Extracte",
+                    "tags": "Etiquetes",
+                    "active": "Activa",
+                    "save": "Desar",
+                    "cancel": "Cancel·lar"
                 },
                 "toast": {
+                    "deleted": "Campanya eliminada correctament",
                     "created": "Campanya creada correctament",
-                    "updated": "Campanya actualitzada correctament",
-                    "deleted": "Campanya eliminada correctament"
+                    "updated": "Campanya actualitzada correctament"
+                },
+                "delete": "Eliminar",
+                "deactivate": "Desactivar",
+                "activate": "Activar",
+                "edit": "Editar",
+                "inactive": "Inactiva",
+                "active": "Activa",
+                "confirmDelete": "Segur que vols eliminar aquesta campanya?",
+                "columns": {
+                    "progress": "Recaptat",
+                    "date": "Data",
+                    "status": "Estat",
+                    "title": "Títol"
+                },
+                "tabs": {
+                    "inactive": "Inactives",
+                    "all": "Totes",
+                    "reached": "Meta assolida",
+                    "active": "Actives"
+                },
+                "summary": "{active} actives · {inactive} inactives · {reached} amb meta assolida",
+                "title": "Gestionar campanyes",
+                "create": "Nova campanya",
+                "createTitle": "Crear campanya",
+                "editTitle": "Editar campanya"
+            },
+            "tags": {
+                "form": {
+                    "save": "Desar",
+                    "cancel": "Cancel·lar",
+                    "name": "Nom",
+                    "slug": "Slug"
+                },
+                "columns": {
+                    "name": "Nom",
+                    "campaignCount": "Campanyes",
+                    "newsCount": "Notícies",
+                    "slug": "Slug"
+                },
+                "confirmDeleteWithRelations": "Eliminar '{name}' desassociarà {news} notícia/es i {campaigns} campanya/es. Continuar?",
+                "confirmDelete": "Segur que vols eliminar l'etiqueta '{name}'?",
+                "delete": "Eliminar",
+                "edit": "Editar",
+                "editTitle": "Editar etiqueta",
+                "createTitle": "Crear etiqueta",
+                "create": "Nova etiqueta",
+                "title": "Gestionar etiquetes",
+                "summary": "{total} etiquetes",
+                "toast": {
+                    "deleted": "Etiqueta eliminada correctament",
+                    "created": "Etiqueta creada correctament",
+                    "updated": "Etiqueta actualitzada correctament"
                 }
             }
         },
@@ -211,17 +252,17 @@
             "hasAccount": "Ja tens compte?"
         },
         "profile": {
-            "title": "El meu perfil",
-            "email": "Correu electrònic",
-            "fullName": "Nom complet",
-            "avatar": "Foto de perfil",
             "errors": {
                 "nameRequired": "El nom és obligatori",
                 "fileTooLarge": "Fitxer massa gran (màx 2MB)"
             },
-            "saved": "Perfil desat correctament",
+            "avatar": "Foto de perfil",
+            "save": "Desar canvis",
             "saving": "Desant...",
-            "save": "Desar canvis"
+            "saved": "Perfil desat correctament",
+            "title": "El meu perfil",
+            "fullName": "Nom complet",
+            "email": "Correu electrònic"
         },
         "privacy": {
             "title": "Política de privacitat",
@@ -260,6 +301,8 @@
             "questionsDescription": "Responem a qualsevol pregunta sobre l'ús dels fons. Escriu-nos a"
         },
         "legal": {
+            "contact": "Contacte legal",
+            "contactDescription": "Per a assumptes legals, escriu-nos a {email}.",
             "title": "Avís legal",
             "organization": "Titular del lloc",
             "organizationDescription": "Associació Fundació Kassumay, inscrita al Registre Nacional d'Associacions del Ministeri de l'Interior d'Espanya (Secció 1a). Seu social a Barcelona. Operem projectes de cooperació a les regions de Kédougou, Tambacounda i Louga (Senegal).",
@@ -272,9 +315,7 @@
             "externalLinks": "Enllaços a tercers",
             "externalLinksDescription": "El lloc enllaça a Givebutter per a la gestió de donacions i a xarxes socials. No ens responsabilitzem del contingut ni de la política de privacitat d'aquests serveis.",
             "liability": "Limitació de responsabilitat",
-            "liabilityDescription": "Fem tot el possible per mantenir la informació actualitzada, però no garantim que estigui lliure d'errors. L'ús del lloc és responsabilitat de l'usuari.",
-            "contact": "Contacte legal",
-            "contactDescription": "Per a assumptes legals, escriu-nos a {email}."
+            "liabilityDescription": "Fem tot el possible per mantenir la informació actualitzada, però no garantim que estigui lliure d'errors. L'ús del lloc és responsabilitat de l'usuari."
         }
     },
     "components": {
@@ -297,11 +338,11 @@
         },
         "widgets": {},
         "cards": {
-            "NewsCardComp": {
-                "readMore": "Llegir més"
-            },
             "CampaignCardComp": {
                 "seeMore": "Veure campanya"
+            },
+            "NewsCardComp": {
+                "readMore": "Llegir més"
             }
         },
         "tables": {
@@ -344,16 +385,21 @@
                 "promptImageUrl": "URL de la imatge:"
             }
         },
-        "forms": {}
+        "forms": {
+            "TagsFieldComp": {
+                "empty": "No hi ha etiquetes disponibles"
+            }
+        }
     },
     "validations": {
         "required": "Aquest camp és obligatori",
         "email": "Introdueix un email vàlid",
+        "url": "Introdueix una URL vàlida",
         "numeric": "Ha de ser un número",
         "minLength": "Mínim {min} caràcters",
         "maxLength": "Màxim {max} caràcters",
         "minNumber": "Ha de ser almenys {min}",
-        "url": "Introdueix una URL vàlida",
+        "slug": "Només minúscules, números i guions (ex: la-meva-etiqueta)",
         "dateRange": "La data no pot ser anterior a la d'inici"
     }
 }

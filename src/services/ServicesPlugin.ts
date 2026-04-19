@@ -5,6 +5,7 @@ import { RoleServicePlugin } from "./roles"
 import { ProfileServicePlugin } from "./profiles"
 import { NewsServicePlugin } from "./news"
 import { CampaignServicePlugin } from "./campaigns"
+import { TagsServicePlugin } from "./tags"
 
 export class ServicesPlugin extends PluginBase {
     name = "services"
@@ -13,6 +14,7 @@ export class ServicesPlugin extends PluginBase {
     readonly profiles: ProfileServicePlugin
     readonly news: NewsServicePlugin
     readonly campaigns: CampaignServicePlugin
+    readonly tags: TagsServicePlugin
 
     constructor(private readonly _supabase: SupabaseClient<Database>) {
         super()
@@ -20,6 +22,7 @@ export class ServicesPlugin extends PluginBase {
         this.profiles = new ProfileServicePlugin(_supabase, this)
         this.news = new NewsServicePlugin(_supabase, this)
         this.campaigns = new CampaignServicePlugin(_supabase, this)
+        this.tags = new TagsServicePlugin(_supabase, this)
     }
 
     protected async _setup(): Promise<void> {
@@ -27,5 +30,6 @@ export class ServicesPlugin extends PluginBase {
         await this.profiles.setup()
         await this.news.setup()
         await this.campaigns.setup()
+        await this.tags.setup()
     }
 }

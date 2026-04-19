@@ -1,6 +1,7 @@
 import type { IProfileModelTable } from "./models/IProfileModel"
 import type { INewsModelTable } from "./models/INewsModel"
 import type { ICampaignModelTable } from "./models/ICampaignModel"
+import type { ITagModelTable } from "./models/ITagModel"
 
 // TODO: faltan las tablas de donations
 export interface Database {
@@ -9,6 +10,7 @@ export interface Database {
             profiles: IProfileModelTable
             news: INewsModelTable
             campaigns: ICampaignModelTable
+            tags: ITagModelTable
         }
         Views: Record<string, never>
         Functions: Record<string, never>

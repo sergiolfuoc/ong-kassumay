@@ -90,7 +90,7 @@
 <script setup lang="ts">
 import { required, minLength, minNumber, dateRange } from "~/src/validations"
 import { useToast } from "vue-toastification"
-import { convertToSlug, isGoalReached, computeCounters, resolveImageUrl } from "./_utils"
+import { isGoalReached, computeCounters, resolveImageUrl } from "./_utils"
 
 import type { IDataTableColumn } from "~/composables/useDataTable"
 import type { ICampaignModel } from "~/src/types"
@@ -157,10 +157,11 @@ const previewCampaign = computed<ICampaignModel>(() => ({
 }))
 
 // Data
-const { data: campaigns, refresh } = await useAsyncData(
+const { data: campaignsData, refresh } = await useAsyncData(
     "admin-campaigns",
     () => campaignsService.fetchAll(),
 )
+const campaigns = computed(() => campaignsData.value ?? [])
 
 const filtered = computed<ICampaignModel[]>(() => {
     const all = campaigns.value ?? []
@@ -222,7 +223,7 @@ function openForm() {
     previewUrl.value = ""
     showForm.value = true
 }
-function editCampaign(campaign: ICampaignModel) {
+async function editCampaign(campaign: ICampaignModel) {
     editingId.value = campaign.id
     form.title = campaign.title
     form.slug = campaign.slug

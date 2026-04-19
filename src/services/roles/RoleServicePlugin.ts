@@ -63,7 +63,6 @@ export class RoleServicePlugin extends PluginBase {
     }
 
     // resolve dot path (e.g. "actions.news.create")
-    // TODO: cuando haya noticias, añadir permisos de news aqui tambien
     validate(path: PermissionPath): boolean {
         const descriptor = this.myDescriptor
         return this._resolvePath(descriptor, path)

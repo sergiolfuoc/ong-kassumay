@@ -1,5 +1,10 @@
 <template>
-    <BaseCardComp :to="`/campaigns/${campaign.slug}`" :image-url="campaign.image_url" :image-alt="campaign.title">
+    <BaseCardComp
+        :to="`/campaigns/${campaign.slug}`"
+        :image-url="campaign.image_url"
+        :image-alt="campaign.title"
+        placeholder-class="bg-gradient-to-br from-primary-400/30 to-earth-300/40"
+    >
         <template #placeholder-icon>
             <BrandHeartIcon icon-class="w-12 h-12 text-warm-300" />
         </template>

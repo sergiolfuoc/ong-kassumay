@@ -12,4 +12,5 @@ export const navigationRoutes: INavigationRoute[] = [
     
     { to: "/admin/news", label: "composables.useNavigation.adminNews", section: "adminPanel", requiredRole: "USER", order: 1 },
     { to: "/admin/campaigns", label: "composables.useNavigation.adminCampaigns", section: "adminPanel", requiredRole: "USER", order: 2 },
+    { to: "/admin/tags", label: "composables.useNavigation.adminTags", section: "adminPanel", requiredRole: "USER", order: 3 },
 ]

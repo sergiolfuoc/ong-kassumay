@@ -2,11 +2,10 @@
     "extends": "./.nuxt/tsconfig.json",
     "compilerOptions": {
         "strict": true,
+        "types": ["@nuxtjs/i18n"],
         "noImplicitOverride": true,
         "forceConsistentCasingInFileNames": true,
         "skipLibCheck": true,
         "allowImportingTsExtensions": true,
-        "noUnusedLocals": false,
-        "noUnusedParameters": false
     }
 }

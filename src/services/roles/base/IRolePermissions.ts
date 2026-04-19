@@ -32,6 +32,11 @@ export interface IRolePermissions<TData> {
             delete: TData
             activate: TData
         }
+        tags: {
+            create: TData
+            update: TData
+            delete: TData
+        }
     }
 }
 

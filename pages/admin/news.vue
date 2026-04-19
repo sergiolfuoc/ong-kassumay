@@ -40,7 +40,7 @@
             :visible="showForm"
             :editing-id="editingId"
             :form="form"
-            :image-mode="imageMode"
+            :cover-mode="coverMode"
             :selected-file="selectedFile"
             :preview-article="previewArticle"
             :errors="formErrors"
@@ -49,7 +49,7 @@
             @close="closeForm"
             @save="saveArticle"
             @auto-slug="autoSlug"
-            @update:image-mode="imageMode = $event"
+            @update:cover-mode="coverMode = $event"
             @file-selected="onFileSelected"
             @clear-file="clearFile"
         />
@@ -59,7 +59,7 @@
 <script setup lang="ts">
 import { required, minLength } from "~/src/validations"
 import { useToast } from "vue-toastification"
-import { resolveImageUrl, convertToSlug } from "./_utils"
+import { resolveImageUrl } from "./_utils"
 
 import type { IDataTableColumn } from "~/composables/useDataTable"
 import type { INewsModel } from "~/src/types"
@@ -85,7 +85,7 @@ const showForm = ref(false)
 const editingId = ref<number | null>(null)
 const serverError = ref("")
 const imageError = ref("")
-const imageMode = ref<"UPLOAD" | "URL">("UPLOAD")
+const coverMode = ref<"UPLOAD" | "URL">("UPLOAD")
 const selectedFile = ref<File | null>(null)
 const previewUrl = ref("")
 const form = reactive({
@@ -108,7 +108,7 @@ const previewArticle = computed<INewsModel>(() => ({
     slug: form.slug || "ejemplo",
     content: "",
     excerpt: form.excerpt || null,
-    image_url: imageMode.value === "UPLOAD" ? previewUrl.value || null : form.image_url || null,
+    image_url: coverMode.value === "UPLOAD" ? previewUrl.value || null : form.image_url || null,
     published: form.published,
     author_id: null,
     created_at: form.created_at || new Date().toISOString(),
@@ -116,10 +116,11 @@ const previewArticle = computed<INewsModel>(() => ({
 }))
 
 // Data
-const { data: articles, refresh } = await useAsyncData(
+const { data: articlesData, refresh } = await useAsyncData(
     "admin-news",
     () => newsService.fetchAll(),
 )
+const articles = computed(() => articlesData.value ?? [])
 // al final no hara falta paginar, son 20-30 noticias como mucho. Si crece ya veremos.
 const filtered = computed<INewsModel[]>(() => {
     const all = articles.value ?? []
@@ -174,12 +175,12 @@ function openForm() {
     serverError.value = ""
     imageError.value = ""
     Object.keys(formErrors).forEach(k => formErrors[k] = "")
-    imageMode.value = "UPLOAD"
+    coverMode.value = "UPLOAD"
     selectedFile.value = null
     previewUrl.value = ""
     showForm.value = true
 }
-function editArticle(article: INewsModel) {
+async function editArticle(article: INewsModel) {
     editingId.value = article.id
     form.title = article.title
     form.slug = article.slug
@@ -191,7 +192,7 @@ function editArticle(article: INewsModel) {
     serverError.value = ""
     imageError.value = ""
     Object.keys(formErrors).forEach(k => formErrors[k] = "")
-    imageMode.value = article.image_url ? "URL" : "UPLOAD"
+    coverMode.value = article.image_url ? "URL" : "UPLOAD"
     selectedFile.value = null
     previewUrl.value = ""
     showForm.value = true
@@ -205,12 +206,12 @@ function closeForm() {
 
 async function saveArticle() {
     const fieldsOk = validate()
-    const hasImage = imageMode.value === "UPLOAD" ? !!selectedFile.value : !!form.image_url.trim()
+    const hasImage = coverMode.value === "UPLOAD" ? !!selectedFile.value : !!form.image_url.trim()
     imageError.value = hasImage ? "" : t("validations.required")
     if (!fieldsOk || !hasImage) return
 
     const { url: imageUrl, error: imgError } = await resolveImageUrl(
-        imageMode.value, selectedFile.value, form.image_url, newsService.uploadImage.bind(newsService), form.slug.trim(),
+        coverMode.value, selectedFile.value, form.image_url, newsService.uploadImage.bind(newsService), form.slug.trim(),
     )
     if (imgError) {
         serverError.value = imgError

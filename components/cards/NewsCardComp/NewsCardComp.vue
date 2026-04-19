@@ -1,7 +1,12 @@
 <template>
-    <BaseCardComp :to="`/news/${article.slug}`" :image-url="article.image_url" :image-alt="article.title">
+    <BaseCardComp
+        :to="`/news/${article.slug}`"
+        :image-url="article.image_url"
+        :image-alt="article.title"
+        placeholder-class="bg-gradient-to-br from-amber-300/40 to-rose-300/30"
+    >
         <template #placeholder-icon>
-            <NewspaperIcon icon-class="w-12 h-12 text-warm-300" />
+            <NewspaperIcon class="w-12 h-12 text-warm-300" />
         </template>
 
         <time class="text-xs text-primary-500 font-semibold">
@@ -22,7 +27,7 @@
     </BaseCardComp>
 </template>
 <script setup lang="ts">
-import { ArrowRightIcon } from "@heroicons/vue/24/outline"
+import { ArrowRightIcon, NewspaperIcon } from "@heroicons/vue/24/outline"
 import type { INewsModel } from "~/src/types"
 import { formatDate } from "~/utils/formatDate"
 

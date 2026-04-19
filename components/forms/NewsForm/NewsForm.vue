@@ -43,11 +43,11 @@
                                             type="button"
                                             class="px-3 py-1 text-xs rounded-lg border transition"
                                             :class="
-                                                props.imageMode === 'UPLOAD'
+                                                props.coverMode === 'UPLOAD'
                                                     ? 'bg-primary-600 text-white border-primary-600'
                                                     : 'bg-white text-earth-600 border-earth-300 hover:bg-earth-50'
                                             "
-                                            @click="$emit('update:imageMode', 'UPLOAD')"
+                                            @click="$emit('update:coverMode', 'UPLOAD')"
                                         >
                                             {{ t("pages.admin.news.form.imageUpload") }}
                                         </button>
@@ -55,16 +55,16 @@
                                             type="button"
                                             class="px-3 py-1 text-xs rounded-lg border transition"
                                             :class="
-                                                props.imageMode === 'URL'
+                                                props.coverMode === 'URL'
                                                     ? 'bg-primary-600 text-white border-primary-600'
                                                     : 'bg-white text-earth-600 border-earth-300 hover:bg-earth-50'
                                             "
-                                            @click="$emit('update:imageMode', 'URL')"
+                                            @click="$emit('update:coverMode', 'URL')"
                                         >
                                             {{ t("pages.admin.news.form.imagePasteUrl") }}
                                         </button>
                                     </div>
-                                    <FormInputComp v-if="props.imageMode === 'URL'" v-model="props.form.image_url" placeholder="https://..." :has-error="!!props.imageError" />
+                                    <FormInputComp v-if="props.coverMode === 'URL'" v-model="props.form.image_url" placeholder="https://..." :has-error="!!props.imageError" />
                                     <div v-else>
                                         <input
                                             ref="fileInput"
@@ -133,7 +133,7 @@ const props = defineProps<{
         image_url: string
         published: boolean
     }
-    imageMode: "UPLOAD" | "URL"
+    coverMode: "UPLOAD" | "URL"
     selectedFile: File | null
     previewArticle: INewsModel
     errors: Record<string, string>
@@ -141,7 +141,7 @@ const props = defineProps<{
     serverError: string
 }>()
 
-const emit = defineEmits(["close", "save", "auto-slug", "update:imageMode", "file-selected", "clear-file"])
+const emit = defineEmits(["close", "save", "auto-slug", "update:coverMode", "file-selected", "clear-file"])
 
 const fileInput = ref<HTMLInputElement | null>(null)
 

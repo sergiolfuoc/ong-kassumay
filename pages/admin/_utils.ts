@@ -1,14 +1,5 @@
 import type { ICampaignModel } from "~/src/types"
 
-export function convertToSlug(text: string): string {
-    return text
-        .toLowerCase()
-        .normalize("NFD")
-        .replace(/[\u0300-\u036f]/g, "")
-        .replace(/[^a-z0-9]+/g, "-")
-        .replace(/(^-|-$)/g, "")
-}
-
 export function isGoalReached(c: Pick<ICampaignModel, "goal_amount" | "raised_amount">): boolean {
     const goal = c.goal_amount ?? 0
     if (goal <= 0) return false

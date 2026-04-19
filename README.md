@@ -76,6 +76,7 @@ npx supabase db reset     # aplica migraciones desde supabase/migrations
 
 | Comando                | Descripción                   |
 | ---------------------- | ----------------------------- |
+| `npm run postinstall`  | Generar tipos autogenerados de nuxt |
 | `npm run dev`          | Dev server Nuxt               |
 | `npm run build`        | Build producción              |
 | `npm run preview`      | Preview build                 |

@@ -7,6 +7,7 @@
         "maxLength": "Maximum {max} characters",
         "minNumber": "Must be at least {min}",
         "url": "Enter a valid URL",
+        "slug": "Only lowercase letters, digits and dashes (e.g. my-tag)",
         "dateRange": "End date cannot be before the start date"
     },
     "pages": {
@@ -24,6 +25,8 @@
             "noAccount": "Don't have an account?"
         },
         "register": {
+            "submit": "Sign up",
+            "hasAccount": "Already have an account?",
             "brand": "Fundació Kassumay",
             "title": "Create account",
             "subtitle": "Create an account to track your donations and manage your profile",
@@ -34,9 +37,7 @@
             "password": "Password",
             "passwordPlaceholder": "Minimum 6 characters",
             "success": "Account created! Check your email to confirm.",
-            "loading": "Creating account...",
-            "submit": "Sign up",
-            "hasAccount": "Already have an account?"
+            "loading": "Creating account..."
         },
         "index": {
             "programs": {
@@ -48,6 +49,10 @@
                 "healthcare": "Healthcare",
                 "healthcareDescription": "Providing medical supplies, health screenings, and awareness campaigns.",
                 "description": "We focus on the areas where help is needed most."
+            },
+            "tags": {
+                "title": "Explore by topic",
+                "subtitle": "The areas we are working on right now"
             },
             "hero": {
                 "tag": "NGO in Senegal",
@@ -62,11 +67,17 @@
                 "subtitle": "Pick one and see exactly where your donation goes."
             },
             "latestNews": {
-                "title": "Latest news",
-                "tagline": "Stay up to date with our latest stories from the field.",
                 "empty": "No news published yet.",
-                "readAll": "See all news"
+                "title": "Latest news",
+                "readAll": "See all news",
+                "tagline": "Stay up to date with our latest stories from the field."
             }
+        },
+        "tags": {
+            "newsSection": "News",
+            "empty": "No content yet for this tag",
+            "campaignsSection": "Campaigns",
+            "seoDescription": "Content related to {tag} at Fundació Kassumay"
         },
         "news": {
             "index": {
@@ -107,19 +118,23 @@
             "subtitle": "You will be redirected in a few seconds."
         },
         "profile": {
-            "title": "My profile",
-            "email": "Email",
-            "fullName": "Full name",
             "avatar": "Profile photo",
+            "saved": "Profile saved successfully",
+            "saving": "Saving...",
+            "save": "Save changes",
             "errors": {
                 "nameRequired": "Name is required",
                 "fileTooLarge": "File is too large (max 2MB)"
             },
-            "saved": "Profile saved successfully",
-            "saving": "Saving...",
-            "save": "Save changes"
+            "title": "My profile",
+            "fullName": "Full name",
+            "email": "Email"
         },
         "transparency": {
+            "questions": "Have questions?",
+            "questionsDescription": "We are happy to answer any question about how funds are used. Write to us at",
+            "payments": "Donation gateway",
+            "paymentsDescription": "Payments are processed through Givebutter. Funds go directly to the association's bank account; Givebutter does not hold any money. You can check the status of each campaign on our",
             "title": "Transparency",
             "intro": "We publish our accounts for every fiscal year so you can see exactly how funds are split between field projects and operating costs.",
             "fundsBreakdown": "Fund allocation",
@@ -127,11 +142,7 @@
             "fundOperations": "Field logistics and travel",
             "fundAdmin": "Management and communications",
             "financialReports": "Annual accounts",
-            "financialReportsDescription": "Our annual accounts are filed with the national registry of associations in accordance with Spanish Organic Law 1/2002. You can request a copy by writing to",
-            "payments": "Donation gateway",
-            "paymentsDescription": "Payments are processed through Givebutter. Funds go directly to the association's bank account; Givebutter does not hold any money. You can check the status of each campaign on our",
-            "questions": "Have questions?",
-            "questionsDescription": "We are happy to answer any question about how funds are used. Write to us at"
+            "financialReportsDescription": "Our annual accounts are filed with the national registry of associations in accordance with Spanish Organic Law 1/2002. You can request a copy by writing to"
         },
         "legal": {
             "title": "Legal notice",
@@ -180,6 +191,7 @@
             "news": "News",
             "admin": "Admin",
             "adminCampaigns": "Campaigns",
+            "adminTags": "Tags",
             "adminNews": "News",
             "signIn": "Sign in",
             "signUp": "Sign up",
@@ -208,11 +220,11 @@
         },
         "widgets": {},
         "cards": {
-            "NewsCardComp": {
-                "readMore": "Read more"
-            },
             "CampaignCardComp": {
                 "seeMore": "See campaign"
+            },
+            "NewsCardComp": {
+                "readMore": "Read more"
             }
         },
         "tables": {
@@ -255,6 +267,10 @@
                 "promptImageUrl": "Image URL:"
             }
         },
-        "forms": {}
+        "forms": {
+            "TagsFieldComp": {
+                "empty": "No tags available"
+            }
+        }
     }
 }

@@ -52,7 +52,7 @@ export class NewsServicePlugin extends PluginBase<ServicesPlugin> {
     //#endregion
 
     //#region [ CRUDS ]
-    async create(params: INewsCreateParams): Promise<IServiceResult> {
+    async create(params: INewsCreateParams): Promise<IServiceResult<number>> {
         return this.safeCatch("create", async () => {
             if (!this.parent!.roles.validate("actions.news.create")) {
                 throw new Error("no tienes permisos para crear noticias")
@@ -72,10 +72,11 @@ export class NewsServicePlugin extends PluginBase<ServicesPlugin> {
                 author_id: params.author_id || null,
             }
 
-            const { error } = await this.supabase.from("news").insert(record)
+            const { data, error } = await this.supabase.from("news").insert(record).select("id").single()
             if (error) throw new Error(error.message)
 
             this.log("created:", record.title)
+            return (data as { id: number }).id
         })
     }
     async update(id: number, params: INewsUpdateParams): Promise<IServiceResult> {
