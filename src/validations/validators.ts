@@ -48,7 +48,10 @@ export const dateRange = (getStart: () => string | null | undefined): ValidatorF
     if (typeof value !== 'string' || !value) return null
     const start = getStart()
     if (!start) return null
-    return new Date(value) >= new Date(start) ? null : { key: 'validations.dateRange' }
+    if (new Date(value) < new Date(start)) {
+        return { key: 'validations.dateRange' }
+    }
+    return null
 }
 
 // No empieza ni acaba en guion, sin guiones dobles

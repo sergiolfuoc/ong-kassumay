@@ -1,322 +1,30 @@
 {
     "composables": {
         "useNavigation": {
-            "adminCampaigns": "Campanyes",
-            "adminNews": "Notícies",
-            "admin": "Administració",
-            "adminTags": "Etiquetes",
-            "campaigns": "Campanyes",
             "home": "Inici",
             "signIn": "Iniciar sessió",
             "signUp": "Registrar-se",
             "signOut": "Tancar sessió",
-            "news": "Notícies",
             "brand": "Fundació Kassumay",
-            "profile": "Perfil"
+            "profile": "Perfil",
+            "news": "Notícies",
+            "campaigns": "Campanyes",
+            "admin": "Administració",
+            "adminNews": "Notícies",
+            "adminCampaigns": "Campanyes",
+            "adminTags": "Etiquetes"
         }
     },
-    "pages": {
-        "index": {
-            "latestNews": {
-                "empty": "Encara no hi ha notícies publicades.",
-                "readAll": "Veure totes les notícies",
-                "tagline": "Les últimes novetats des dels nostres projectes al terreny.",
-                "title": "Últimes notícies"
-            },
-            "programs": {
-                "title": "Els nostres programes al Senegal",
-                "description": "Ens centrem en les àrees on l'ajuda és més necessària.",
-                "healthcare": "Salut",
-                "healthcareDescription": "Proporcionant subministraments mèdics, revisions sanitàries i campanyes de conscienciació.",
-                "education": "Educació",
-                "educationDescription": "Donant suport a escoles, mestres i materials didàctics per a infants en zones desfavorides.",
-                "water": "Aigua potable",
-                "waterDescription": "Construint pous i sistemes d'aigua a comunitats rurals sense accés a aigua segura."
-            },
-            "tags": {
-                "title": "Explora per temes",
-                "subtitle": "Les àrees en les que estem treballant ara mateix"
-            },
-            "hero": {
-                "tag": "ONG al Senegal",
-                "title": "Aigua, escoles i sanitat{br}per al Senegal rural",
-                "subtitle": "Treballem amb comunitats a Kédougou, Tambacounda i Louga per construir pous, donar suport a escoles i gestionar centres de salut."
-            },
-            "featuredCampaigns": {
-                "subtitle": "Tria'n una i mira exactament on va la teva donació.",
-                "empty": "No hi ha campanyes actives ara mateix.",
-                "tag": "Campanyes actives",
-                "seeAll": "Veure totes les campanyes",
-                "title": "Campanyes en marxa"
-            }
-        },
-        "news": {
-            "index": {
-                "tag": "Notícies i actualitzacions",
-                "title": "Notícies",
-                "subtitle": "Històries, avenços i novetats dels nostres projectes al Senegal.",
-                "empty": "Encara no hi ha notícies publicades."
-            },
-            "slug": {
-                "back": "Tornar a notícies",
-                "notFound": "Article no trobat."
-            }
-        },
-        "tags": {
-            "seoDescription": "Contingut relacionat amb {tag} a Fundació Kassumay",
-            "campaignsSection": "Campanyes",
-            "newsSection": "Notícies",
-            "empty": "Encara no hi ha contingut per a aquesta etiqueta"
-        },
-        "campaigns": {
-            "index": {
-                "tag": "Campanyes actives",
-                "title": "Campanyes",
-                "subtitle": "Tria una campanya i veuras exactament a on van els teus diners.",
-                "empty": "No hi ha campanyes actives ara mateix."
-            },
-            "slug": {
-                "back": "Tornar a campanyes",
-                "notFound": "Campanya no trobada."
-            },
-            "status": {
-                "goalReached": "Meta assolida!",
-                "active": "Activa",
-                "activeDays": "Queden {days}d",
-                "upcoming": "Properament",
-                "ended": "Finalitzada"
-            }
-        },
-        "admin": {
-            "news": {
-                "create": "Nou article",
-                "createTitle": "Crear article",
-                "title": "Gestionar notícies",
-                "columns": {
-                    "status": "Estat",
-                    "title": "Títol",
-                    "date": "Data"
-                },
-                "published": "Publicat",
-                "publish": "Publicar",
-                "unpublish": "Despublicar",
-                "edit": "Editar",
-                "editTitle": "Editar article",
-                "tabs": {
-                    "published": "Publicades",
-                    "all": "Totes",
-                    "draft": "Esborrany"
-                },
-                "summary": "{published} publicades · {draft} en esborrany",
-                "draft": "Esborrany",
-                "delete": "Eliminar",
-                "confirmDelete": "Estàs segur que vols eliminar aquest article?",
-                "form": {
-                    "required": "Títol, slug i contingut són obligatoris.",
-                    "save": "Desar",
-                    "cancel": "Cancel·lar",
-                    "imageUpload": "Pujar imatge",
-                    "imagePasteUrl": "Enganxar URL",
-                    "removeImage": "Treure imatge",
-                    "cardSection": "Vista previa de la targeta",
-                    "cardPreview": "Aixi es veura al llistat:",
-                    "previewTitle": "Titol de l'article",
-                    "articleSection": "Vista previa de l'article",
-                    "articlePreview": "Aixi es veura el contingut:",
-                    "title": "Títol",
-                    "slug": "Slug",
-                    "excerpt": "Extracte",
-                    "content": "Contingut",
-                    "tags": "Etiquetes",
-                    "publishDate": "Data de publicació",
-                    "published": "Publicat"
-                },
-                "toast": {
-                    "deleted": "Noticia eliminada correctament",
-                    "created": "Noticia creada correctament",
-                    "updated": "Noticia actualitzada correctament",
-                    "deletedUndo": "\"{title}\" eliminada — clica per desfer",
-                    "restored": "Noticia restaurada"
-                }
-            },
-            "campaigns": {
-                "form": {
-                    "imageUpload": "Pujar imatge",
-                    "imagePasteUrl": "Enganxar URL",
-                    "removeImage": "Treure imatge",
-                    "cardSection": "Vista previa de la targeta",
-                    "cardPreview": "Aixi es veura al llistat:",
-                    "previewTitle": "Titol de la campanya",
-                    "descriptionSection": "Descripcio de la campanya",
-                    "startDate": "Data d'inici",
-                    "endDate": "Data de fi",
-                    "goalAmount": "Meta (€)",
-                    "raisedAmount": "Recaptat (€)",
-                    "title": "Títol",
-                    "slug": "Slug",
-                    "excerpt": "Extracte",
-                    "tags": "Etiquetes",
-                    "active": "Activa",
-                    "save": "Desar",
-                    "cancel": "Cancel·lar"
-                },
-                "toast": {
-                    "deleted": "Campanya eliminada correctament",
-                    "created": "Campanya creada correctament",
-                    "updated": "Campanya actualitzada correctament"
-                },
-                "delete": "Eliminar",
-                "deactivate": "Desactivar",
-                "activate": "Activar",
-                "edit": "Editar",
-                "inactive": "Inactiva",
-                "active": "Activa",
-                "confirmDelete": "Segur que vols eliminar aquesta campanya?",
-                "columns": {
-                    "progress": "Recaptat",
-                    "date": "Data",
-                    "status": "Estat",
-                    "title": "Títol"
-                },
-                "tabs": {
-                    "inactive": "Inactives",
-                    "all": "Totes",
-                    "reached": "Meta assolida",
-                    "active": "Actives"
-                },
-                "summary": "{active} actives · {inactive} inactives · {reached} amb meta assolida",
-                "title": "Gestionar campanyes",
-                "create": "Nova campanya",
-                "createTitle": "Crear campanya",
-                "editTitle": "Editar campanya"
-            },
-            "tags": {
-                "form": {
-                    "save": "Desar",
-                    "cancel": "Cancel·lar",
-                    "name": "Nom",
-                    "slug": "Slug"
-                },
-                "columns": {
-                    "name": "Nom",
-                    "campaignCount": "Campanyes",
-                    "newsCount": "Notícies",
-                    "slug": "Slug"
-                },
-                "confirmDeleteWithRelations": "Eliminar '{name}' desassociarà {news} notícia/es i {campaigns} campanya/es. Continuar?",
-                "confirmDelete": "Segur que vols eliminar l'etiqueta '{name}'?",
-                "delete": "Eliminar",
-                "edit": "Editar",
-                "editTitle": "Editar etiqueta",
-                "createTitle": "Crear etiqueta",
-                "create": "Nova etiqueta",
-                "title": "Gestionar etiquetes",
-                "summary": "{total} etiquetes",
-                "toast": {
-                    "deleted": "Etiqueta eliminada correctament",
-                    "created": "Etiqueta creada correctament",
-                    "updated": "Etiqueta actualitzada correctament"
-                }
-            }
-        },
-        "confirm": {
-            "title": "Confirmant el teu compte...",
-            "subtitle": "Seràs redirigit en uns segons."
-        },
-        "login": {
-            "brand": "Fundació Kassumay",
-            "title": "Benvingut de nou",
-            "subtitle": "Inicia sessió al teu compte",
-            "email": "Correu electrònic",
-            "emailPlaceholder": "el_teu{'@'}email.com",
-            "password": "Contrasenya",
-            "passwordPlaceholder": "********",
-            "error": "Correu o contrasenya incorrectes",
-            "loading": "Iniciant sessió...",
-            "submit": "Iniciar sessió",
-            "noAccount": "No tens compte?"
-        },
-        "register": {
-            "brand": "Fundació Kassumay",
-            "title": "Crear compte",
-            "subtitle": "Crea un compte per fer seguiment de les teves donacions",
-            "fullName": "Nom complet",
-            "fullNamePlaceholder": "El teu nom",
-            "email": "Correu electrònic",
-            "emailPlaceholder": "el_teu{'@'}email.com",
-            "password": "Contrasenya",
-            "passwordPlaceholder": "Mínim 6 caràcters",
-            "success": "Compte creat! Revisa el teu correu per confirmar.",
-            "loading": "Creant compte...",
-            "submit": "Registrar-se",
-            "hasAccount": "Ja tens compte?"
-        },
-        "profile": {
-            "errors": {
-                "nameRequired": "El nom és obligatori",
-                "fileTooLarge": "Fitxer massa gran (màx 2MB)"
-            },
-            "avatar": "Foto de perfil",
-            "save": "Desar canvis",
-            "saving": "Desant...",
-            "saved": "Perfil desat correctament",
-            "title": "El meu perfil",
-            "fullName": "Nom complet",
-            "email": "Correu electrònic"
-        },
-        "privacy": {
-            "title": "Política de privacitat",
-            "intro": "Responsable del tractament: Associació Fundació Kassumay, inscrita al Registre Nacional d'Associacions d'Espanya. Aquest avís s'ajusta al Reglament (UE) 2016/679 (RGPD) i a la Llei Orgànica 3/2018 (LOPD-GDD).",
-            "infoCollect": "Dades que recollim",
-            "infoCollectDescription": "Recollim únicament les dades necessàries per gestionar el teu compte i les teves donacions:",
-            "personalData": "Dades identificatives",
-            "personalDataDescription": "nom i correu electrònic que facilites en registrar-te o fer una donació.",
-            "usageData": "Dades de navegació",
-            "usageDataDescription": "pàgines visitades, durada de sessió i tipus de dispositiu, recollides mitjançant galetes tècniques.",
-            "donationData": "Dades de pagament",
-            "donationDataDescription": "les dades de targeta o compte les gestiona Givebutter com a encarregat del tractament; no s'emmagatzemen als nostres servidors.",
-            "howWeUse": "Finalitats del tractament",
-            "useReceipts": "Emetre certificats de donació amb validesa fiscal.",
-            "useCommunicate": "Informar-te sobre l'avenç dels projectes que has finançat.",
-            "useImprove": "Elaborar estadístiques anònimes d'ús del lloc.",
-            "dataProtection": "Mesures de seguretat",
-            "dataProtectionDescription": "Les comunicacions viatgen xifrades amb TLS. L'accés a la base de dades està restringit mitjançant Row Level Security de Supabase i rols interns de l'aplicació.",
-            "yourRights": "Els teus drets (RGPD art. 15-22)",
-            "yourRightsDescription": "Pots exercir els teus drets d'accés, rectificació, supressió, portabilitat i oposició escrivint a {email}. Si no quedessis satisfet, pots reclamar davant l'Agència Espanyola de Protecció de Dades (aepd.es).",
-            "contact": "Delegat de protecció de dades",
-            "contactDescription": "Per a qualsevol consulta sobre privacitat, escriu-nos a {email}."
-        },
-        "transparency": {
-            "title": "Transparència",
-            "intro": "Publiquem els comptes de cada exercici perquè puguis veure exactament com es reparteixen els fons entre projectes sobre el terreny i despeses de funcionament.",
-            "fundsBreakdown": "Distribució de fons",
-            "fundDirect": "Execució directa de projectes (pous, material escolar, subministraments mèdics)",
-            "fundOperations": "Logística i desplaçaments al terreny",
-            "fundAdmin": "Despeses de gestió i comunicació",
-            "financialReports": "Comptes anuals",
-            "financialReportsDescription": "Els comptes anuals es dipositen al registre d'associacions conforme a la Llei Orgànica 1/2002. Pots sol·licitar-los escrivint a",
-            "payments": "Passarel·la de donacions",
-            "paymentsDescription": "Els pagaments es processen a través de Givebutter. Els diners van directament al compte de l'associació; Givebutter no reté fons. Consulta l'estat de cada campanya a la nostra",
-            "questions": "Tens dubtes?",
-            "questionsDescription": "Responem a qualsevol pregunta sobre l'ús dels fons. Escriu-nos a"
-        },
-        "legal": {
-            "contact": "Contacte legal",
-            "contactDescription": "Per a assumptes legals, escriu-nos a {email}.",
-            "title": "Avís legal",
-            "organization": "Titular del lloc",
-            "organizationDescription": "Associació Fundació Kassumay, inscrita al Registre Nacional d'Associacions del Ministeri de l'Interior d'Espanya (Secció 1a). Seu social a Barcelona. Operem projectes de cooperació a les regions de Kédougou, Tambacounda i Louga (Senegal).",
-            "website": "Objecte del lloc",
-            "websiteDescription": "Aquest lloc web té caràcter informatiu i de captació de fons. Els continguts poden actualitzar-se sense avís previ.",
-            "copyrightNotice": "Propietat intel·lectual",
-            "copyrightNoticeDescription": "Els textos, fotografies, logotips i codi font són propietat de l'associació o s'utilitzen sota llicència. Es permet la reproducció parcial amb finalitats informatives citant-ne la font.",
-            "copyrightImages": "Fotografies: arxiu propi de l'associació o cedides per organitzacions col·laboradores.",
-            "copyrightCode": "Codi font: distribuït sota llicència MIT quan aplica.",
-            "externalLinks": "Enllaços a tercers",
-            "externalLinksDescription": "El lloc enllaça a Givebutter per a la gestió de donacions i a xarxes socials. No ens responsabilitzem del contingut ni de la política de privacitat d'aquests serveis.",
-            "liability": "Limitació de responsabilitat",
-            "liabilityDescription": "Fem tot el possible per mantenir la informació actualitzada, però no garantim que estigui lliure d'errors. L'ús del lloc és responsabilitat de l'usuari."
-        }
+    "validations": {
+        "required": "Aquest camp és obligatori",
+        "email": "Introdueix un email vàlid",
+        "numeric": "Ha de ser un número",
+        "minLength": "Mínim {min} caràcters",
+        "maxLength": "Màxim {max} caràcters",
+        "minNumber": "Ha de ser almenys {min}",
+        "url": "Introdueix una URL vàlida",
+        "dateRange": "La data no pot ser anterior a la d'inici",
+        "slug": "Només minúscules, números i guions (ex: la-meva-etiqueta)"
     },
     "components": {
         "layouts": {
@@ -338,11 +46,11 @@
         },
         "widgets": {},
         "cards": {
-            "CampaignCardComp": {
-                "seeMore": "Veure campanya"
-            },
             "NewsCardComp": {
                 "readMore": "Llegir més"
+            },
+            "CampaignCardComp": {
+                "seeMore": "Veure campanya"
             }
         },
         "tables": {
@@ -387,19 +95,308 @@
         },
         "forms": {
             "TagsFieldComp": {
-                "empty": "No hi ha etiquetes disponibles"
+                "empty": "Encara no hi ha etiquetes disponibles."
             }
         }
     },
-    "validations": {
-        "required": "Aquest camp és obligatori",
-        "email": "Introdueix un email vàlid",
-        "url": "Introdueix una URL vàlida",
-        "numeric": "Ha de ser un número",
-        "minLength": "Mínim {min} caràcters",
-        "maxLength": "Màxim {max} caràcters",
-        "minNumber": "Ha de ser almenys {min}",
-        "slug": "Només minúscules, números i guions (ex: la-meva-etiqueta)",
-        "dateRange": "La data no pot ser anterior a la d'inici"
+    "pages": {
+        "index": {
+            "hero": {
+                "tag": "ONG al Senegal",
+                "title": "Aigua, escoles i sanitat{br}per al Senegal rural",
+                "subtitle": "Treballem amb comunitats a Kédougou, Tambacounda i Louga per construir pous, donar suport a escoles i gestionar centres de salut."
+            },
+            "programs": {
+                "title": "Els nostres programes al Senegal",
+                "description": "Ens centrem en les àrees on l'ajuda és més necessària.",
+                "water": "Aigua potable",
+                "waterDescription": "Construint pous i sistemes d'aigua a comunitats rurals sense accés a aigua segura.",
+                "education": "Educació",
+                "educationDescription": "Donant suport a escoles, mestres i materials didàctics per a infants en zones desfavorides.",
+                "healthcare": "Salut",
+                "healthcareDescription": "Proporcionant subministraments mèdics, revisions sanitàries i campanyes de conscienciació."
+            },
+            "latestNews": {
+                "title": "Últimes notícies",
+                "tagline": "Les últimes novetats des dels nostres projectes al terreny.",
+                "empty": "Encara no hi ha notícies publicades.",
+                "readAll": "Veure totes les notícies"
+            },
+            "featuredCampaigns": {
+                "tag": "Campanyes actives",
+                "title": "Campanyes en marxa",
+                "subtitle": "Tria'n una i mira exactament on va la teva donació.",
+                "empty": "No hi ha campanyes actives ara mateix.",
+                "seeAll": "Veure totes les campanyes"
+            },
+            "topics": {
+                "subtitle": "Filtra noticies i campanyes segons l'area que mes t'interessi.",
+                "title": "Explora per temes"
+            }
+        },
+        "profile": {
+            "title": "El meu perfil",
+            "email": "Correu electrònic",
+            "fullName": "Nom complet",
+            "avatar": "Foto de perfil",
+            "errors": {
+                "nameRequired": "El nom és obligatori",
+                "fileTooLarge": "Fitxer massa gran (màx 2MB)"
+            },
+            "saved": "Perfil desat correctament",
+            "saving": "Desant...",
+            "save": "Desar canvis"
+        },
+        "privacy": {
+            "title": "Política de privacitat",
+            "intro": "Responsable del tractament: Associació Fundació Kassumay, inscrita al Registre Nacional d'Associacions d'Espanya. Aquest avís s'ajusta al Reglament (UE) 2016/679 (RGPD) i a la Llei Orgànica 3/2018 (LOPD-GDD).",
+            "infoCollect": "Dades que recollim",
+            "infoCollectDescription": "Recollim únicament les dades necessàries per gestionar el teu compte i les teves donacions:",
+            "personalData": "Dades identificatives",
+            "personalDataDescription": "nom i correu electrònic que facilites en registrar-te o fer una donació.",
+            "usageData": "Dades de navegació",
+            "usageDataDescription": "pàgines visitades, durada de sessió i tipus de dispositiu, recollides mitjançant galetes tècniques.",
+            "donationData": "Dades de pagament",
+            "donationDataDescription": "les dades de targeta o compte les gestiona Givebutter com a encarregat del tractament; no s'emmagatzemen als nostres servidors.",
+            "howWeUse": "Finalitats del tractament",
+            "useReceipts": "Emetre certificats de donació amb validesa fiscal.",
+            "useCommunicate": "Informar-te sobre l'avenç dels projectes que has finançat.",
+            "useImprove": "Elaborar estadístiques anònimes d'ús del lloc.",
+            "dataProtection": "Mesures de seguretat",
+            "dataProtectionDescription": "Les comunicacions viatgen xifrades amb TLS. L'accés a la base de dades està restringit mitjançant Row Level Security de Supabase i rols interns de l'aplicació.",
+            "yourRights": "Els teus drets (RGPD art. 15-22)",
+            "yourRightsDescription": "Pots exercir els teus drets d'accés, rectificació, supressió, portabilitat i oposició escrivint a {email}. Si no quedessis satisfet, pots reclamar davant l'Agència Espanyola de Protecció de Dades (aepd.es).",
+            "contact": "Delegat de protecció de dades",
+            "contactDescription": "Per a qualsevol consulta sobre privacitat, escriu-nos a {email}."
+        },
+        "legal": {
+            "title": "Avís legal",
+            "organization": "Titular del lloc",
+            "organizationDescription": "Associació Fundació Kassumay, inscrita al Registre Nacional d'Associacions del Ministeri de l'Interior d'Espanya (Secció 1a). Seu social a Barcelona. Operem projectes de cooperació a les regions de Kédougou, Tambacounda i Louga (Senegal).",
+            "website": "Objecte del lloc",
+            "websiteDescription": "Aquest lloc web té caràcter informatiu i de captació de fons. Els continguts poden actualitzar-se sense avís previ.",
+            "copyrightNotice": "Propietat intel·lectual",
+            "copyrightNoticeDescription": "Els textos, fotografies, logotips i codi font són propietat de l'associació o s'utilitzen sota llicència. Es permet la reproducció parcial amb finalitats informatives citant-ne la font.",
+            "copyrightImages": "Fotografies: arxiu propi de l'associació o cedides per organitzacions col·laboradores.",
+            "copyrightCode": "Codi font: distribuït sota llicència MIT quan aplica.",
+            "externalLinks": "Enllaços a tercers",
+            "externalLinksDescription": "El lloc enllaça a Givebutter per a la gestió de donacions i a xarxes socials. No ens responsabilitzem del contingut ni de la política de privacitat d'aquests serveis.",
+            "liability": "Limitació de responsabilitat",
+            "liabilityDescription": "Fem tot el possible per mantenir la informació actualitzada, però no garantim que estigui lliure d'errors. L'ús del lloc és responsabilitat de l'usuari.",
+            "contact": "Contacte legal",
+            "contactDescription": "Per a assumptes legals, escriu-nos a {email}."
+        },
+        "transparency": {
+            "title": "Transparència",
+            "intro": "Publiquem els comptes de cada exercici perquè puguis veure exactament com es reparteixen els fons entre projectes sobre el terreny i despeses de funcionament.",
+            "fundsBreakdown": "Distribució de fons",
+            "fundDirect": "Execució directa de projectes (pous, material escolar, subministraments mèdics)",
+            "fundOperations": "Logística i desplaçaments al terreny",
+            "fundAdmin": "Despeses de gestió i comunicació",
+            "financialReports": "Comptes anuals",
+            "financialReportsDescription": "Els comptes anuals es dipositen al registre d'associacions conforme a la Llei Orgànica 1/2002. Pots sol·licitar-los escrivint a",
+            "payments": "Passarel·la de donacions",
+            "paymentsDescription": "Els pagaments es processen a través de Givebutter. Els diners van directament al compte de l'associació; Givebutter no reté fons. Consulta l'estat de cada campanya a la nostra",
+            "questions": "Tens dubtes?",
+            "questionsDescription": "Responem a qualsevol pregunta sobre l'ús dels fons. Escriu-nos a"
+        },
+        "login": {
+            "brand": "Fundació Kassumay",
+            "title": "Benvingut de nou",
+            "subtitle": "Inicia sessió al teu compte",
+            "email": "Correu electrònic",
+            "emailPlaceholder": "el_teu{'@'}email.com",
+            "password": "Contrasenya",
+            "passwordPlaceholder": "********",
+            "error": "Correu o contrasenya incorrectes",
+            "loading": "Iniciant sessió...",
+            "submit": "Iniciar sessió",
+            "noAccount": "No tens compte?"
+        },
+        "register": {
+            "brand": "Fundació Kassumay",
+            "title": "Crear compte",
+            "subtitle": "Crea un compte per fer seguiment de les teves donacions",
+            "fullName": "Nom complet",
+            "fullNamePlaceholder": "El teu nom",
+            "email": "Correu electrònic",
+            "emailPlaceholder": "el_teu{'@'}email.com",
+            "password": "Contrasenya",
+            "passwordPlaceholder": "Mínim 6 caràcters",
+            "success": "Compte creat! Revisa el teu correu per confirmar.",
+            "loading": "Creant compte...",
+            "submit": "Registrar-se",
+            "hasAccount": "Ja tens compte?"
+        },
+        "confirm": {
+            "title": "Confirmant el teu compte...",
+            "subtitle": "Seràs redirigit en uns segons."
+        },
+        "news": {
+            "index": {
+                "loadMore": "Carrega'n més",
+                "title": "Notícies",
+                "empty": "Encara no hi ha notícies publicades.",
+                "tag": "Notícies i actualitzacions",
+                "subtitle": "Històries, avenços i novetats dels nostres projectes al Senegal."
+            },
+            "slug": {
+                "back": "Tornar a notícies",
+                "notFound": "Article no trobat."
+            }
+        },
+        "campaigns": {
+            "index": {
+                "tag": "Campanyes actives",
+                "title": "Campanyes",
+                "subtitle": "Tria una campanya i veuras exactament a on van els teus diners.",
+                "empty": "No hi ha campanyes actives ara mateix."
+            },
+            "slug": {
+                "back": "Tornar a campanyes",
+                "notFound": "Campanya no trobada."
+            },
+            "status": {
+                "goalReached": "Meta assolida!",
+                "active": "Activa",
+                "activeDays": "Queden {days}d",
+                "upcoming": "Properament",
+                "ended": "Finalitzada"
+            }
+        },
+        "admin": {
+            "news": {
+                "title": "Gestionar notícies",
+                "create": "Nou article",
+                "createTitle": "Crear article",
+                "editTitle": "Editar article",
+                "summary": "{published} publicades · {draft} en esborrany",
+                "tabs": {
+                    "published": "Publicades",
+                    "draft": "Esborrany",
+                    "all": "Totes"
+                },
+                "columns": {
+                    "title": "Títol",
+                    "status": "Estat",
+                    "date": "Data"
+                },
+                "published": "Publicat",
+                "draft": "Esborrany",
+                "edit": "Editar",
+                "publish": "Publicar",
+                "unpublish": "Despublicar",
+                "delete": "Eliminar",
+                "confirmDelete": "Estàs segur que vols eliminar aquest article?",
+                "form": {
+                    "title": "Títol",
+                    "slug": "Slug",
+                    "publishDate": "Data de publicació",
+                    "excerpt": "Extracte",
+                    "imageUpload": "Pujar imatge",
+                    "imagePasteUrl": "Enganxar URL",
+                    "removeImage": "Treure imatge",
+                    "content": "Contingut",
+                    "tagsSection": "Etiquetes",
+                    "published": "Publicat",
+                    "save": "Desar",
+                    "cancel": "Cancel·lar",
+                    "required": "Títol, slug i contingut són obligatoris.",
+                    "cardSection": "Vista previa de la targeta",
+                    "cardPreview": "Aixi es veura al llistat:",
+                    "previewTitle": "Titol de l'article",
+                    "articleSection": "Vista previa de l'article",
+                    "articlePreview": "Aixi es veura el contingut:"
+                },
+                "toast": {
+                    "created": "Noticia creada correctament",
+                    "updated": "Noticia actualitzada correctament",
+                    "deleted": "Noticia eliminada correctament",
+                    "deletedUndo": "\"{title}\" eliminada — clica per desfer",
+                    "restored": "Noticia restaurada"
+                }
+            },
+            "campaigns": {
+                "title": "Gestionar campanyes",
+                "create": "Nova campanya",
+                "createTitle": "Crear campanya",
+                "editTitle": "Editar campanya",
+                "summary": "{active} actives · {inactive} inactives · {reached} amb meta assolida",
+                "tabs": {
+                    "active": "Actives",
+                    "inactive": "Inactives",
+                    "reached": "Meta assolida",
+                    "all": "Totes"
+                },
+                "columns": {
+                    "title": "Títol",
+                    "progress": "Recaptat",
+                    "status": "Estat",
+                    "date": "Data"
+                },
+                "active": "Activa",
+                "inactive": "Inactiva",
+                "edit": "Editar",
+                "activate": "Activar",
+                "deactivate": "Desactivar",
+                "delete": "Eliminar",
+                "confirmDelete": "Segur que vols eliminar aquesta campanya?",
+                "form": {
+                    "title": "Títol",
+                    "slug": "Slug",
+                    "goalAmount": "Meta (€)",
+                    "raisedAmount": "Recaptat (€)",
+                    "startDate": "Data d'inici",
+                    "endDate": "Data de fi",
+                    "excerpt": "Extracte",
+                    "imageUpload": "Pujar imatge",
+                    "imagePasteUrl": "Enganxar URL",
+                    "removeImage": "Treure imatge",
+                    "descriptionSection": "Descripcio de la campanya",
+                    "tagsSection": "Etiquetes",
+                    "active": "Activa",
+                    "save": "Desar",
+                    "cancel": "Cancel·lar",
+                    "cardSection": "Vista previa de la targeta",
+                    "cardPreview": "Aixi es veura al llistat:",
+                    "previewTitle": "Titol de la campanya"
+                },
+                "toast": {
+                    "created": "Campanya creada correctament",
+                    "updated": "Campanya actualitzada correctament",
+                    "deleted": "Campanya eliminada correctament"
+                }
+            },
+            "tags": {
+                "title": "Gestionar etiquetes",
+                "create": "Nova etiqueta",
+                "createTitle": "Crear etiqueta",
+                "editTitle": "Editar etiqueta",
+                "summary": "{total} etiquetes",
+                "columns": {
+                    "name": "Nom",
+                    "slug": "Slug"
+                },
+                "edit": "Editar",
+                "delete": "Eliminar",
+                "confirmDelete": "Segur que vols eliminar l'etiqueta '{name}'?",
+                "form": {
+                    "name": "Nom",
+                    "slug": "Slug",
+                    "save": "Desar",
+                    "cancel": "Cancel·lar"
+                },
+                "toast": {
+                    "created": "Etiqueta creada correctament",
+                    "updated": "Etiqueta actualitzada correctament",
+                    "deleted": "Etiqueta eliminada correctament"
+                }
+            }
+        },
+        "tags": {
+            "campaignsSection": "Campanyes relacionades",
+            "newsSection": "Noticies relacionades",
+            "empty": "Encara no hi ha contingut publicat sota aquesta etiqueta."
+        }
     }
 }

@@ -97,6 +97,16 @@
                         <p v-if="props.errors.content" class="text-red-500 text-xs mt-1">{{ t(props.errors.content, { min: 10 }) }}</p>
                     </fieldset>
 
+                    <!-- Tags -->
+                    <fieldset class="border border-earth-200 rounded-lg p-4">
+                        <legend class="text-sm font-semibold text-earth-600 px-2">{{ t("pages.admin.news.form.tagsSection") }}</legend>
+                        <TagsFieldComp
+                            :tags="props.availableTags"
+                            :model-value="props.tagIds"
+                            @update:model-value="$emit('update:tagIds', $event)"
+                        />
+                    </fieldset>
+
                     <!-- Actions -->
                     <div class="flex items-center gap-2">
                         <input id="published" v-model="props.form.published" type="checkbox" class="rounded" />
@@ -116,7 +126,7 @@
 
 </template>
 <script setup lang="ts">
-import type { INewsModel } from "~/src/types"
+import type { INewsModel, ITagModel } from "~/src/types"
 
 const today = new Date().toISOString().slice(0, 10)
 const { t } = useI18n()
@@ -136,12 +146,14 @@ const props = defineProps<{
     coverMode: "UPLOAD" | "URL"
     selectedFile: File | null
     previewArticle: INewsModel
+    availableTags: ITagModel[]
+    tagIds: number[]
     errors: Record<string, string>
     imageError: string
     serverError: string
 }>()
 
-const emit = defineEmits(["close", "save", "auto-slug", "update:coverMode", "file-selected", "clear-file"])
+const emit = defineEmits(["close", "save", "auto-slug", "update:coverMode", "update:tagIds", "file-selected", "clear-file"])
 
 const fileInput = ref<HTMLInputElement | null>(null)
 
@@ -154,4 +166,5 @@ const clearFile = () => {
     emit("clear-file")
     if (fileInput.value) fileInput.value.value = ""
 }
+
 </script>

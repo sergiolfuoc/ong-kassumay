@@ -75,17 +75,18 @@ describe("NewsServicePlugin", () => {
 
     describe("Call fetchPublished", () => {
         it("Success: returns published articles", async () => {
-            const articles = await service.fetchPublished()
+            const { rows, nextTimeStamp } = await service.fetchPublished()
 
-            expect(Array.isArray(articles)).toBe(true)
-            const found = articles.find(article => article.id === testArticleId)
+            expect(Array.isArray(rows)).toBe(true)
+            expect(nextTimeStamp === null || typeof nextTimeStamp === "string").toBe(true)
+            const found = rows.find(article => article.id === testArticleId)
             expect(found).toBeDefined()
         })
 
         it("Success: respects the limit", async () => {
-            const articles = await service.fetchPublished(1)
+            const { rows } = await service.fetchPublished({ limit: 1 })
 
-            expect(articles.length).toBeLessThanOrEqual(1)
+            expect(rows.length).toBeLessThanOrEqual(1)
         })
     })
 

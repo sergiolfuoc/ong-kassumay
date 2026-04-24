@@ -1,261 +1,151 @@
 {
-    "pages": {
-        "profile": {
-            "title": "Mi perfil",
-            "fullName": "Nombre completo",
-            "email": "Correo electrónico",
-            "errors": {
-                "nameRequired": "El nombre es obligatorio",
-                "fileTooLarge": "Archivo demasiado grande (máx 2MB)"
-            },
-            "saved": "Perfil guardado correctamente",
-            "saving": "Guardando...",
-            "save": "Guardar cambios",
-            "avatar": "Foto de perfil"
+    "composables": {
+        "useNavigation": {
+            "home": "Inicio",
+            "signIn": "Iniciar sesión",
+            "signUp": "Registrarse",
+            "signOut": "Cerrar sesión",
+            "brand": "Fundació Kassumay",
+            "profile": "Perfil",
+            "news": "Noticias",
+            "campaigns": "Campañas",
+            "admin": "Administración",
+            "adminNews": "Noticias",
+            "adminCampaigns": "Campañas",
+            "adminTags": "Etiquetas"
+        }
+    },
+    "validations": {
+        "required": "Este campo es obligatorio",
+        "email": "Introduce un email válido",
+        "numeric": "Debe ser un número",
+        "minLength": "Mínimo {min} caracteres",
+        "maxLength": "Máximo {max} caracteres",
+        "minNumber": "Debe ser al menos {min}",
+        "url": "Introduce una URL válida",
+        "dateRange": "La fecha no puede ser anterior a la de inicio",
+        "slug": "Solo minúsculas, números y guiones (ej: mi-etiqueta)"
+    },
+    "components": {
+        "layouts": {
+            "AppFooterLayout": {
+                "newsletterTitle": "Newsletter",
+                "newsletterSubtitle": "Novedades desde el terreno, un par de veces al mes. Sin spam.",
+                "emailPlaceholder": "Tu correo electrónico",
+                "subscribe": "Suscribirse",
+                "brand": "Fundació Kassumay",
+                "brandDescription": "ONG que trabaja en Senegal desde 2005. Agua potable, escuelas y programas de salud.",
+                "navigation": "Navegación",
+                "howToHelp": "Cómo ayudar",
+                "contact": "Contacto",
+                "copyright": "© {year} Fundació Kassumay. Todos los derechos reservados.",
+                "privacy": "Política de privacidad",
+                "legal": "Aviso legal",
+                "transparency": "Transparencia"
+            }
         },
+        "widgets": {},
+        "cards": {
+            "NewsCardComp": {
+                "readMore": "Leer más"
+            },
+            "CampaignCardComp": {
+                "seeMore": "Ver campaña"
+            }
+        },
+        "tables": {
+            "AppDataTable": {
+                "showing": "Mostrando",
+                "search": "Buscar...",
+                "of": "de",
+                "actions": "Acciones",
+                "noResults": "No se encontraron resultados."
+            }
+        },
+        "editor": {
+            "TipTapEditorComp": {
+                "placeholder": "Escribe algo...",
+                "heading": "Encabezado",
+                "bold": "Negrita",
+                "italic": "Cursiva",
+                "underline": "Subrayado",
+                "strike": "Tachado",
+                "inlineCode": "Codigo en linea",
+                "bulletList": "Lista con vinetas",
+                "orderedList": "Lista numerada",
+                "blockquote": "Cita",
+                "codeBlock": "Bloque de codigo",
+                "horizontalRule": "Linea horizontal",
+                "alignLeft": "Alinear izquierda",
+                "alignCenter": "Centrar",
+                "alignRight": "Alinear derecha",
+                "insertLink": "Insertar enlace",
+                "insertImage": "Insertar imagen",
+                "highlight": "Resaltar",
+                "color": "Color de texto",
+                "clearFormat": "Limpiar formato",
+                "undo": "Deshacer",
+                "redo": "Rehacer",
+                "viewSource": "Ver codigo fuente",
+                "preview": "Vista previa",
+                "characters": "caracteres",
+                "promptUrl": "URL:",
+                "promptImageUrl": "URL de la imagen:"
+            }
+        },
+        "forms": {
+            "TagsFieldComp": {
+                "empty": "Aún no hay etiquetas disponibles."
+            }
+        }
+    },
+    "pages": {
         "index": {
             "hero": {
                 "tag": "ONG en Senegal",
                 "title": "Agua, escuelas y sanidad{br}para el Senegal rural",
                 "subtitle": "Trabajamos sobre todo con comunidades en Kédougou, Tambacounda y Louga para construir pozos, apoyar escuelas y gestionar centros de salud."
             },
-            "featuredCampaigns": {
-                "seeAll": "Ver todas las campañas",
-                "empty": "No hay campañas activas ahora mismo.",
-                "subtitle": "Elige una y ve exactamente a donde va tu donación.",
-                "tag": "Campañas activas",
-                "title": "Campañas en marcha"
-            },
-            "tags": {
-                "subtitle": "Las áreas en las que estamos trabajando ahora mismo",
-                "title": "Explora por temas"
-            },
-            "latestNews": {
-                "readAll": "Ver todas las noticias",
-                "empty": "Aún no hay noticias publicadas.",
-                "title": "Últimas noticias",
-                "tagline": "Las últimas novedades desde nuestros proyectos en el terreno."
-            },
             "programs": {
-                "healthcare": "Salud",
-                "healthcareDescription": "Proporcionando suministros médicos, revisiones sanitarias y campañas de concienciación.",
+                "title": "Nuestros programas en Senegal",
+                "description": "Lo que más falta hace.",
                 "water": "Agua potable",
                 "waterDescription": "Construyendo pozos y sistemas de agua en comunidades rurales sin acceso a agua segura.",
                 "education": "Educación",
                 "educationDescription": "Apoyando escuelas, profesores y materiales didácticos para niños en zonas desfavorecidas.",
-                "description": "Lo que más falta hace.",
-                "title": "Nuestros programas en Senegal"
-            }
-        },
-        "tags": {
-            "empty": "Aún no hay contenido para esta etiqueta",
-            "newsSection": "Noticias",
-            "campaignsSection": "Campañas",
-            "seoDescription": "Contenido relacionado con {tag} en Fundació Kassumay"
-        },
-        "news": {
-            "index": {
-                "tag": "Noticias y actualizaciones",
-                "title": "Noticias",
-                "subtitle": "Historias, avances y novedades de nuestros proyectos en Senegal.",
-                "empty": "Aún no hay noticias publicadas."
+                "healthcare": "Salud",
+                "healthcareDescription": "Proporcionando suministros médicos, revisiones sanitarias y campañas de concienciación."
             },
-            "slug": {
-                "back": "Volver a noticias",
-                "notFound": "Artículo no encontrado."
-            }
-        },
-        "campaigns": {
-            "index": {
+            "latestNews": {
+                "title": "Últimas noticias",
+                "tagline": "Las últimas novedades desde nuestros proyectos en el terreno.",
+                "empty": "Aún no hay noticias publicadas.",
+                "readAll": "Ver todas las noticias"
+            },
+            "featuredCampaigns": {
                 "tag": "Campañas activas",
-                "title": "Campañas",
-                "subtitle": "Elige una campaña y ve exactamente a dónde va tu dinero.",
-                "empty": "No hay campañas activas ahora mismo."
+                "title": "Campañas en marcha",
+                "subtitle": "Elige una y ve exactamente a donde va tu donación.",
+                "empty": "No hay campañas activas ahora mismo.",
+                "seeAll": "Ver todas las campañas"
             },
-            "slug": {
-                "back": "Volver a campañas",
-                "notFound": "Campaña no encontrada."
-            },
-            "status": {
-                "goalReached": "¡Meta alcanzada!",
-                "active": "Activa",
-                "activeDays": "Quedan {days}d",
-                "upcoming": "Próximamente",
-                "ended": "Finalizada"
-            },
-            "progress": {
-                "raisedLabel": "Recaudado: {amount}€"
+            "topics": {
+                "subtitle": "Filtra noticias y campañas según el área que más te interese.",
+                "title": "Explora por temas"
             }
         },
-        "login": {
-            "brand": "Fundació Kassumay",
-            "title": "Bienvenido de nuevo",
-            "subtitle": "Inicia sesión en tu cuenta",
+        "profile": {
+            "title": "Mi perfil",
             "email": "Correo electrónico",
-            "emailPlaceholder": "tu{'@'}email.com",
-            "password": "Contraseña",
-            "passwordPlaceholder": "********",
-            "error": "Correo o contraseña incorrectos",
-            "loading": "Iniciando sesión...",
-            "submit": "Iniciar sesión",
-            "noAccount": "¿No tienes cuenta?"
-        },
-        "register": {
-            "brand": "Fundació Kassumay",
-            "title": "Crear cuenta",
-            "subtitle": "Crea una cuenta para seguir tus donaciones y gestionar tu perfil",
             "fullName": "Nombre completo",
-            "fullNamePlaceholder": "Tu nombre",
-            "email": "Correo electrónico",
-            "emailPlaceholder": "tu{'@'}email.com",
-            "password": "Contraseña",
-            "passwordPlaceholder": "Mínimo 6 caracteres",
-            "success": "¡Cuenta creada! Revisa tu correo para confirmar.",
-            "loading": "Creando cuenta...",
-            "submit": "Registrarse",
-            "hasAccount": "¿Ya tienes cuenta?"
-        },
-        "confirm": {
-            "title": "Confirmando tu cuenta...",
-            "subtitle": "Serás redirigido en unos segundos."
-        },
-        "admin": {
-            "news": {
-                "form": {
-                    "cardSection": "Vista previa de tarjeta",
-                    "cardPreview": "Asi se vera en el listado:",
-                    "previewTitle": "Titulo del articulo",
-                    "articleSection": "Vista previa del articulo",
-                    "articlePreview": "Asi se vera el contenido:",
-                    "title": "Título",
-                    "slug": "Slug",
-                    "excerpt": "Extracto",
-                    "content": "Contenido",
-                    "tags": "Etiquetas",
-                    "imageUpload": "Subir imagen",
-                    "imagePasteUrl": "Pegar URL",
-                    "removeImage": "Quitar imagen",
-                    "publishDate": "Fecha de publicación",
-                    "published": "Publicado",
-                    "required": "Título, slug y contenido son obligatorios.",
-                    "save": "Guardar",
-                    "cancel": "Cancelar"
-                },
-                "confirmDelete": "¿Estás seguro de que quieres eliminar este artículo?",
-                "delete": "Eliminar",
-                "unpublish": "Despublicar",
-                "publish": "Publicar",
-                "edit": "Editar",
-                "columns": {
-                    "title": "Título",
-                    "status": "Estado",
-                    "date": "Fecha"
-                },
-                "draft": "Borrador",
-                "published": "Publicado",
-                "tabs": {
-                    "all": "Todas",
-                    "draft": "Borrador",
-                    "published": "Publicadas"
-                },
-                "summary": "{published} publicadas · {draft} en borrador",
-                "editTitle": "Editar artículo",
-                "createTitle": "Crear artículo",
-                "create": "Nuevo artículo",
-                "title": "Gestionar noticias",
-                "toast": {
-                    "updated": "Noticia actualizada correctamente",
-                    "deleted": "Noticia eliminada correctamente",
-                    "created": "Noticia creada correctamente",
-                    "deletedUndo": "\"{title}\" eliminada — clic para deshacer",
-                    "restored": "Noticia restaurada"
-                }
+            "avatar": "Foto de perfil",
+            "errors": {
+                "nameRequired": "El nombre es obligatorio",
+                "fileTooLarge": "Archivo demasiado grande (máx 2MB)"
             },
-            "campaigns": {
-                "toast": {
-                    "updated": "Campaña actualizada correctamente",
-                    "deleted": "Campaña eliminada correctamente",
-                    "created": "Campaña creada correctamente"
-                },
-                "form": {
-                    "cardSection": "Vista previa de tarjeta",
-                    "cardPreview": "Asi se vera en el listado:",
-                    "previewTitle": "Titulo de la campaña",
-                    "descriptionSection": "Descripcion de la campaña",
-                    "goalAmount": "Meta (€)",
-                    "raisedAmount": "Recaudado (€)",
-                    "startDate": "Fecha de inicio",
-                    "endDate": "Fecha de fin",
-                    "imageUpload": "Subir imagen",
-                    "imagePasteUrl": "Pegar URL",
-                    "removeImage": "Quitar imagen",
-                    "title": "Título",
-                    "slug": "Slug",
-                    "excerpt": "Extracto",
-                    "tags": "Etiquetas",
-                    "active": "Activa",
-                    "save": "Guardar",
-                    "cancel": "Cancelar"
-                },
-                "deleteDialog": {
-                    "body": "Escribe el titulo exacto '{title}' para confirmar el borrado.",
-                    "confirm": "Eliminar definitivamente",
-                    "title": "Eliminar campaña"
-                },
-                "confirmDeactivateReached": "Esta campaña ya ha alcanzado su meta. ¿Seguro que quieres desactivarla?",
-                "confirmDelete": "¿Seguro que quieres eliminar esta campaña?",
-                "delete": "Eliminar",
-                "deactivate": "Desactivar",
-                "activate": "Activar",
-                "edit": "Editar",
-                "inactive": "Inactiva",
-                "active": "Activa",
-                "columns": {
-                    "date": "Fecha",
-                    "progress": "Recaudado",
-                    "status": "Estado",
-                    "title": "Título"
-                },
-                "tabs": {
-                    "reached": "Meta alcanzada",
-                    "all": "Todas",
-                    "inactive": "Inactivas",
-                    "active": "Activas"
-                },
-                "summary": "{active} activas · {inactive} inactivas · {reached} con meta alcanzada",
-                "editTitle": "Editar campaña",
-                "createTitle": "Crear campaña",
-                "create": "Nueva campaña",
-                "title": "Gestionar campañas"
-            },
-            "tags": {
-                "toast": {
-                    "updated": "Etiqueta actualizada correctamente",
-                    "deleted": "Etiqueta eliminada correctamente",
-                    "created": "Etiqueta creada correctamente"
-                },
-                "form": {
-                    "cancel": "Cancelar",
-                    "save": "Guardar",
-                    "slug": "Slug",
-                    "name": "Nombre"
-                },
-                "columns": {
-                    "campaignCount": "Campañas",
-                    "newsCount": "Noticias",
-                    "slug": "Slug",
-                    "name": "Nombre"
-                },
-                "confirmDeleteWithRelations": "Eliminar '{name}' desasociará {news} noticia(s) y {campaigns} campaña(s). ¿Continuar?",
-                "confirmDelete": "¿Seguro que quieres eliminar la etiqueta '{name}'?",
-                "delete": "Eliminar",
-                "edit": "Editar",
-                "summary": "{total} etiquetas",
-                "editTitle": "Editar etiqueta",
-                "createTitle": "Crear etiqueta",
-                "create": "Nueva etiqueta",
-                "title": "Gestionar etiquetas"
-            }
+            "saved": "Perfil guardado correctamente",
+            "saving": "Guardando...",
+            "save": "Guardar cambios"
         },
         "privacy": {
             "title": "Política de privacidad",
@@ -309,106 +199,213 @@
             "paymentsDescription": "Los pagos se procesan a través de Givebutter. El dinero va directamente a la cuenta de la asociación; Givebutter no retiene fondos. Consulta el estado de cada campaña en nuestra",
             "questions": "¿Tienes dudas?",
             "questionsDescription": "Respondemos a cualquier pregunta sobre el uso de fondos. Escríbenos a"
-        }
-    },
-    "validations": {
-        "email": "Introduce un email válido",
-        "required": "Este campo es obligatorio",
-        "url": "Introduce una URL válida",
-        "numeric": "Debe ser un número",
-        "minLength": "Mínimo {min} caracteres",
-        "maxLength": "Máximo {max} caracteres",
-        "minNumber": "Debe ser al menos {min}",
-        "slug": "Solo minúsculas, números y guiones (ej: mi-etiqueta)",
-        "dateRange": "La fecha no puede ser anterior a la de inicio"
-    },
-    "components": {
-        "layouts": {
-            "AppFooterLayout": {
-                "newsletterTitle": "Newsletter",
-                "newsletterSubtitle": "Novedades desde el terreno, un par de veces al mes. Sin spam.",
-                "emailPlaceholder": "Tu correo electrónico",
-                "subscribe": "Suscribirse",
-                "brand": "Fundació Kassumay",
-                "brandDescription": "ONG que trabaja en Senegal desde 2005. Agua potable, escuelas y programas de salud.",
-                "navigation": "Navegación",
-                "howToHelp": "Cómo ayudar",
-                "contact": "Contacto",
-                "copyright": "© {year} Fundació Kassumay. Todos los derechos reservados.",
-                "privacy": "Política de privacidad",
-                "legal": "Aviso legal",
-                "transparency": "Transparencia"
-            }
         },
-        "widgets": {},
-        "cards": {
-            "CampaignCardComp": {
-                "seeMore": "Ver campaña"
+        "login": {
+            "brand": "Fundació Kassumay",
+            "title": "Bienvenido de nuevo",
+            "subtitle": "Inicia sesión en tu cuenta",
+            "email": "Correo electrónico",
+            "emailPlaceholder": "tu{'@'}email.com",
+            "password": "Contraseña",
+            "passwordPlaceholder": "********",
+            "error": "Correo o contraseña incorrectos",
+            "loading": "Iniciando sesión...",
+            "submit": "Iniciar sesión",
+            "noAccount": "¿No tienes cuenta?"
+        },
+        "register": {
+            "brand": "Fundació Kassumay",
+            "title": "Crear cuenta",
+            "subtitle": "Crea una cuenta para seguir tus donaciones y gestionar tu perfil",
+            "fullName": "Nombre completo",
+            "fullNamePlaceholder": "Tu nombre",
+            "email": "Correo electrónico",
+            "emailPlaceholder": "tu{'@'}email.com",
+            "password": "Contraseña",
+            "passwordPlaceholder": "Mínimo 6 caracteres",
+            "success": "¡Cuenta creada! Revisa tu correo para confirmar.",
+            "loading": "Creando cuenta...",
+            "submit": "Registrarse",
+            "hasAccount": "¿Ya tienes cuenta?"
+        },
+        "confirm": {
+            "title": "Confirmando tu cuenta...",
+            "subtitle": "Serás redirigido en unos segundos."
+        },
+        "news": {
+            "index": {
+                "subtitle": "Historias, avances y novedades de nuestros proyectos en Senegal.",
+                "loadMore": "Cargar más noticias",
+                "empty": "Aún no hay noticias publicadas.",
+                "tag": "Noticias y actualizaciones",
+                "title": "Noticias"
             },
-            "NewsCardComp": {
-                "readMore": "Leer más"
+            "slug": {
+                "back": "Volver a noticias",
+                "notFound": "Artículo no encontrado."
             }
         },
-        "tables": {
-            "AppDataTable": {
-                "showing": "Mostrando",
-                "search": "Buscar...",
-                "of": "de",
-                "actions": "Acciones",
-                "noResults": "No se encontraron resultados."
+        "campaigns": {
+            "index": {
+                "tag": "Campañas activas",
+                "title": "Campañas",
+                "subtitle": "Elige una campaña y ve exactamente a dónde va tu dinero.",
+                "empty": "No hay campañas activas ahora mismo."
+            },
+            "slug": {
+                "back": "Volver a campañas",
+                "notFound": "Campaña no encontrada."
+            },
+            "status": {
+                "goalReached": "¡Meta alcanzada!",
+                "active": "Activa",
+                "activeDays": "Quedan {days}d",
+                "upcoming": "Próximamente",
+                "ended": "Finalizada"
+            },
+            "progress": {
+                "raisedLabel": "Recaudado: {amount}€"
             }
         },
-        "editor": {
-            "TipTapEditorComp": {
-                "placeholder": "Escribe algo...",
-                "heading": "Encabezado",
-                "bold": "Negrita",
-                "italic": "Cursiva",
-                "underline": "Subrayado",
-                "strike": "Tachado",
-                "inlineCode": "Codigo en linea",
-                "bulletList": "Lista con vinetas",
-                "orderedList": "Lista numerada",
-                "blockquote": "Cita",
-                "codeBlock": "Bloque de codigo",
-                "horizontalRule": "Linea horizontal",
-                "alignLeft": "Alinear izquierda",
-                "alignCenter": "Centrar",
-                "alignRight": "Alinear derecha",
-                "insertLink": "Insertar enlace",
-                "insertImage": "Insertar imagen",
-                "highlight": "Resaltar",
-                "color": "Color de texto",
-                "clearFormat": "Limpiar formato",
-                "undo": "Deshacer",
-                "redo": "Rehacer",
-                "viewSource": "Ver codigo fuente",
-                "preview": "Vista previa",
-                "characters": "caracteres",
-                "promptUrl": "URL:",
-                "promptImageUrl": "URL de la imagen:"
+        "admin": {
+            "news": {
+                "title": "Gestionar noticias",
+                "create": "Nuevo artículo",
+                "createTitle": "Crear artículo",
+                "editTitle": "Editar artículo",
+                "summary": "{published} publicadas · {draft} en borrador",
+                "tabs": {
+                    "published": "Publicadas",
+                    "draft": "Borrador",
+                    "all": "Todas"
+                },
+                "columns": {
+                    "title": "Título",
+                    "status": "Estado",
+                    "date": "Fecha"
+                },
+                "published": "Publicado",
+                "draft": "Borrador",
+                "edit": "Editar",
+                "publish": "Publicar",
+                "unpublish": "Despublicar",
+                "delete": "Eliminar",
+                "confirmDelete": "¿Estás seguro de que quieres eliminar este artículo?",
+                "form": {
+                    "title": "Título",
+                    "slug": "Slug",
+                    "publishDate": "Fecha de publicación",
+                    "excerpt": "Extracto",
+                    "imageUpload": "Subir imagen",
+                    "imagePasteUrl": "Pegar URL",
+                    "removeImage": "Quitar imagen",
+                    "content": "Contenido",
+                    "tagsSection": "Etiquetas",
+                    "published": "Publicado",
+                    "save": "Guardar",
+                    "cancel": "Cancelar",
+                    "required": "Título, slug y contenido son obligatorios.",
+                    "cardSection": "Vista previa de tarjeta",
+                    "cardPreview": "Asi se vera en el listado:",
+                    "previewTitle": "Titulo del articulo",
+                    "articleSection": "Vista previa del articulo",
+                    "articlePreview": "Asi se vera el contenido:"
+                },
+                "toast": {
+                    "created": "Noticia creada correctamente",
+                    "updated": "Noticia actualizada correctamente",
+                    "deleted": "Noticia eliminada correctamente",
+                    "deletedUndo": "\"{title}\" eliminada — clic para deshacer",
+                    "restored": "Noticia restaurada"
+                }
+            },
+            "campaigns": {
+                "title": "Gestionar campañas",
+                "create": "Nueva campaña",
+                "createTitle": "Crear campaña",
+                "editTitle": "Editar campaña",
+                "summary": "{active} activas · {inactive} inactivas · {reached} con meta alcanzada",
+                "tabs": {
+                    "active": "Activas",
+                    "inactive": "Inactivas",
+                    "reached": "Meta alcanzada",
+                    "all": "Todas"
+                },
+                "columns": {
+                    "title": "Título",
+                    "progress": "Recaudado",
+                    "status": "Estado",
+                    "date": "Fecha"
+                },
+                "active": "Activa",
+                "inactive": "Inactiva",
+                "edit": "Editar",
+                "activate": "Activar",
+                "deactivate": "Desactivar",
+                "delete": "Eliminar",
+                "confirmDelete": "¿Seguro que quieres eliminar esta campaña?",
+                "confirmDeactivateReached": "Esta campaña ya ha alcanzado su meta. ¿Seguro que quieres desactivarla?",
+                "deleteDialog": {
+                    "title": "Eliminar campaña",
+                    "body": "Escribe el titulo exacto '{title}' para confirmar el borrado.",
+                    "confirm": "Eliminar definitivamente"
+                },
+                "form": {
+                    "title": "Título",
+                    "slug": "Slug",
+                    "goalAmount": "Meta (€)",
+                    "raisedAmount": "Recaudado (€)",
+                    "startDate": "Fecha de inicio",
+                    "endDate": "Fecha de fin",
+                    "excerpt": "Extracto",
+                    "imageUpload": "Subir imagen",
+                    "imagePasteUrl": "Pegar URL",
+                    "removeImage": "Quitar imagen",
+                    "descriptionSection": "Descripcion de la campaña",
+                    "tagsSection": "Etiquetas",
+                    "active": "Activa",
+                    "save": "Guardar",
+                    "cancel": "Cancelar",
+                    "cardSection": "Vista previa de tarjeta",
+                    "cardPreview": "Asi se vera en el listado:",
+                    "previewTitle": "Titulo de la campaña"
+                },
+                "toast": {
+                    "created": "Campaña creada correctamente",
+                    "updated": "Campaña actualizada correctamente",
+                    "deleted": "Campaña eliminada correctamente"
+                }
+            },
+            "tags": {
+                "title": "Gestionar etiquetas",
+                "create": "Nueva etiqueta",
+                "createTitle": "Crear etiqueta",
+                "editTitle": "Editar etiqueta",
+                "summary": "{total} etiquetas",
+                "columns": {
+                    "name": "Nombre",
+                    "slug": "Slug"
+                },
+                "edit": "Editar",
+                "delete": "Eliminar",
+                "confirmDelete": "¿Seguro que quieres eliminar la etiqueta '{name}'?",
+                "form": {
+                    "name": "Nombre",
+                    "slug": "Slug",
+                    "save": "Guardar",
+                    "cancel": "Cancelar"
+                },
+                "toast": {
+                    "created": "Etiqueta creada correctamente",
+                    "updated": "Etiqueta actualizada correctamente",
+                    "deleted": "Etiqueta eliminada correctamente"
+                }
             }
         },
-        "forms": {
-            "TagsFieldComp": {
-                "empty": "No hay etiquetas disponibles"
-            }
-        }
-    },
-    "composables": {
-        "useNavigation": {
-            "profile": "Perfil",
-            "campaigns": "Campañas",
-            "adminNews": "Noticias",
-            "home": "Inicio",
-            "admin": "Administración",
-            "adminTags": "Etiquetas",
-            "adminCampaigns": "Campañas",
-            "news": "Noticias",
-            "signIn": "Iniciar sesión",
-            "signUp": "Registrarse",
-            "signOut": "Cerrar sesión",
-            "brand": "Fundació Kassumay"
+        "tags": {
+            "empty": "No hay contenido publicado bajo esta etiqueta todavía.",
+            "newsSection": "Noticias relacionadas",
+            "campaignsSection": "Campañas relacionadas"
         }
     }
 }

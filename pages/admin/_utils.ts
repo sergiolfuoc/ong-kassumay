@@ -1,31 +1,3 @@
-import type { ICampaignModel } from "~/src/types"
-
-export function isGoalReached(c: Pick<ICampaignModel, "goal_amount" | "raised_amount">): boolean {
-    const goal = c.goal_amount ?? 0
-    if (goal <= 0) return false
-    return (c.raised_amount ?? 0) >= goal
-}
-
-export interface ICampaignCounters {
-    active: number
-    inactive: number
-    reached: number
-    total: number
-}
-
-export function computeCounters(list: ICampaignModel[]): ICampaignCounters {
-    let active = 0
-    let inactive = 0
-    let reached = 0
-    for (const c of list) {
-        const r = isGoalReached(c)
-        if (r) reached++
-        if (c.active && !r) active++
-        if (!c.active) inactive++
-    }
-    return { active, inactive, reached, total: list.length }
-}
-
 // resuelve la URL de imagen: sube si hay file, si no devuelve la URL pegada
 type Uploader = (slug: string, file: File) => Promise<{ data?: string | null; error: string | null }>
 export async function resolveImageUrl(

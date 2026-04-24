@@ -143,6 +143,16 @@
                     </div>
                 </fieldset>
 
+                <!-- Tags -->
+                <fieldset class="border border-earth-200 rounded-lg p-4">
+                    <legend class="text-sm font-semibold text-earth-600 px-2">{{ t("pages.admin.campaigns.form.tagsSection") }}</legend>
+                    <TagsFieldComp
+                        :tags="props.availableTags"
+                        :model-value="props.tagIds"
+                        @update:model-value="$emit('update:tagIds', $event)"
+                    />
+                </fieldset>
+
                 <!-- Actions -->
                 <div class="flex items-center gap-2">
                     <input id="active" v-model="props.form.active" type="checkbox" class="rounded" />
@@ -161,7 +171,7 @@
 
 </template>
 <script setup lang="ts">
-import type { ICampaignModel } from "~/src/types"
+import type { ICampaignModel, ITagModel } from "~/src/types"
 const { t } = useI18n()
 
 const props = defineProps<{
@@ -182,12 +192,14 @@ const props = defineProps<{
     coverMode: "UPLOAD" | "URL"
     selectedFile: File | null
     previewCampaign: ICampaignModel
+    availableTags: ITagModel[]
+    tagIds: number[]
     errors: Record<string, string>
     imageError: string
     serverError: string
 }>()
 
-const emit = defineEmits(["close", "save", "slug-from-title", "update:coverMode", "picked-image", "clear-file"])
+const emit = defineEmits(["close", "save", "slug-from-title", "update:coverMode", "update:tagIds", "picked-image", "clear-file"])
 
 const fileInput = ref<HTMLInputElement | null>(null)
 const dialogRef = ref<HTMLDialogElement | null>(null)
@@ -210,4 +222,5 @@ const clearFile = () => {
     emit("clear-file")
     if (fileInput.value) fileInput.value.value = ""
 }
+
 </script>

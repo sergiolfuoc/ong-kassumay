@@ -136,33 +136,33 @@ export class CampaignServicePlugin extends PluginBase<ServicesPlugin> {
             const existing = await this.getById(id)
             if (!existing) throw new Error("Campaign not found")
 
-            // reglas basicas sobre fechas si se estan tocando
+            // validamos las fechas aunque no se esten modificando, porque pueden venir solo una de las dos y ser invalidas
             const nextStart = params.start_date !== undefined ? params.start_date : existing.start_date
             const nextEnd = params.end_date !== undefined ? params.end_date : existing.end_date
-            if (nextStart && nextEnd) {
-                if (new Date(nextEnd).getTime() <= new Date(nextStart).getTime()) {
-                    throw new Error("end_date debe ser posterior a start_date")
-                }
+            if (nextStart && nextEnd && new Date(nextEnd).getTime() <= new Date(nextStart).getTime()) {
+                throw new Error("end_date debe ser posterior a start_date")
             }
 
-            const record: ICampaignModelTable["Update"] = {
-                updated_at: new Date().toISOString(),
+            const buildModel = (): ICampaignModelTable["Update"] => {
+                const model: ICampaignModelTable["Update"] = { updated_at: new Date().toISOString() }
+                if (params.title !== undefined) model.title = params.title.trim()
+                if (params.slug !== undefined) model.slug = params.slug.trim().toLowerCase()
+                if (params.description !== undefined) model.description = params.description.trim()
+                if (params.excerpt !== undefined) model.excerpt = params.excerpt?.trim() || null
+                if (params.image_url !== undefined) model.image_url = params.image_url || null
+                if (params.goal_amount !== undefined) model.goal_amount = params.goal_amount
+                if (params.raised_amount !== undefined) model.raised_amount = params.raised_amount
+                if (params.start_date !== undefined) model.start_date = params.start_date || null
+                if (params.end_date !== undefined) model.end_date = params.end_date || null
+                if (params.active !== undefined) model.active = params.active
+                return model
             }
-            if (params.title !== undefined) record.title = params.title.trim()
-            if (params.slug !== undefined) record.slug = params.slug.trim().toLowerCase()
-            if (params.description !== undefined) record.description = params.description.trim()
-            if (params.excerpt !== undefined) record.excerpt = params.excerpt?.trim() || null
-            if (params.image_url !== undefined) record.image_url = params.image_url || null
-            if (params.goal_amount !== undefined) record.goal_amount = params.goal_amount
-            if (params.raised_amount !== undefined) record.raised_amount = params.raised_amount
-            if (params.start_date !== undefined) record.start_date = params.start_date || null
-            if (params.end_date !== undefined) record.end_date = params.end_date || null
-            if (params.active !== undefined) record.active = params.active
+            const modelToSave = buildModel()
 
-            const { error } = await this.supabase.from("campaigns").update(record).eq("id", id)
+            const { error } = await this.supabase.from("campaigns").update(modelToSave).eq("id", id)
             if (error) throw new Error(error.message)
 
-            this.log("updated:", id, record.title ?? existing.title)
+            this.log("updated:", id, modelToSave.title ?? existing.title)
         })
     }
     async remove(id: number): Promise<IServiceResult> {

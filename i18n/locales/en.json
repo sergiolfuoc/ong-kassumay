@@ -1,4 +1,20 @@
 {
+    "composables": {
+        "useNavigation": {
+            "home": "Home",
+            "signIn": "Sign in",
+            "signUp": "Sign up",
+            "signOut": "Sign out",
+            "brand": "Fundació Kassumay",
+            "profile": "Profile",
+            "news": "News",
+            "campaigns": "Campaigns",
+            "admin": "Admin",
+            "adminNews": "News",
+            "adminCampaigns": "Campaigns",
+            "adminTags": "Tags"
+        }
+    },
     "validations": {
         "required": "This field is required",
         "email": "Enter a valid email address",
@@ -7,198 +23,8 @@
         "maxLength": "Maximum {max} characters",
         "minNumber": "Must be at least {min}",
         "url": "Enter a valid URL",
-        "slug": "Only lowercase letters, digits and dashes (e.g. my-tag)",
-        "dateRange": "End date cannot be before the start date"
-    },
-    "pages": {
-        "login": {
-            "brand": "Fundació Kassumay",
-            "title": "Welcome back",
-            "subtitle": "Sign in to your account",
-            "email": "Email",
-            "emailPlaceholder": "your{'@'}email.com",
-            "password": "Password",
-            "passwordPlaceholder": "********",
-            "error": "Incorrect email or password",
-            "loading": "Signing in...",
-            "submit": "Sign in",
-            "noAccount": "Don't have an account?"
-        },
-        "register": {
-            "submit": "Sign up",
-            "hasAccount": "Already have an account?",
-            "brand": "Fundació Kassumay",
-            "title": "Create account",
-            "subtitle": "Create an account to track your donations and manage your profile",
-            "fullName": "Full name",
-            "fullNamePlaceholder": "Your name",
-            "email": "Email",
-            "emailPlaceholder": "your{'@'}email.com",
-            "password": "Password",
-            "passwordPlaceholder": "Minimum 6 characters",
-            "success": "Account created! Check your email to confirm.",
-            "loading": "Creating account..."
-        },
-        "index": {
-            "programs": {
-                "title": "Our programs in Senegal",
-                "water": "Clean water",
-                "waterDescription": "Building wells and water systems in rural communities without safe drinking water.",
-                "education": "Education",
-                "educationDescription": "Supporting schools, teachers, and learning materials for children in underserved areas.",
-                "healthcare": "Healthcare",
-                "healthcareDescription": "Providing medical supplies, health screenings, and awareness campaigns.",
-                "description": "We focus on the areas where help is needed most."
-            },
-            "tags": {
-                "title": "Explore by topic",
-                "subtitle": "The areas we are working on right now"
-            },
-            "hero": {
-                "tag": "NGO in Senegal",
-                "title": "Water, schools and healthcare{br}for rural Senegal",
-                "subtitle": "We work with communities in Kédougou, Tambacounda and Louga to build wells, support schools and run health clinics."
-            },
-            "featuredCampaigns": {
-                "empty": "No active campaigns right now.",
-                "seeAll": "See all campaigns",
-                "title": "Ongoing campaigns",
-                "tag": "Active campaigns",
-                "subtitle": "Pick one and see exactly where your donation goes."
-            },
-            "latestNews": {
-                "empty": "No news published yet.",
-                "title": "Latest news",
-                "readAll": "See all news",
-                "tagline": "Stay up to date with our latest stories from the field."
-            }
-        },
-        "tags": {
-            "newsSection": "News",
-            "empty": "No content yet for this tag",
-            "campaignsSection": "Campaigns",
-            "seoDescription": "Content related to {tag} at Fundació Kassumay"
-        },
-        "news": {
-            "index": {
-                "tag": "News & Updates",
-                "title": "News",
-                "subtitle": "Stories, updates and progress from our projects in Senegal.",
-                "empty": "No news published yet."
-            },
-            "slug": {
-                "back": "Back to news",
-                "notFound": "Article not found."
-            }
-        },
-        "campaigns": {
-            "index": {
-                "tag": "Active campaigns",
-                "title": "Campaigns",
-                "subtitle": "Pick a campaign and see exactly where your money goes.",
-                "empty": "No active campaigns at the moment."
-            },
-            "slug": {
-                "back": "Back to campaigns",
-                "notFound": "Campaign not found."
-            },
-            "status": {
-                "goalReached": "Goal reached!",
-                "active": "Active",
-                "activeDays": "{days}d left",
-                "upcoming": "Upcoming",
-                "ended": "Ended"
-            },
-            "progress": {
-                "raisedLabel": "Raised: {amount}€"
-            }
-        },
-        "confirm": {
-            "title": "Confirming your account...",
-            "subtitle": "You will be redirected in a few seconds."
-        },
-        "profile": {
-            "avatar": "Profile photo",
-            "saved": "Profile saved successfully",
-            "saving": "Saving...",
-            "save": "Save changes",
-            "errors": {
-                "nameRequired": "Name is required",
-                "fileTooLarge": "File is too large (max 2MB)"
-            },
-            "title": "My profile",
-            "fullName": "Full name",
-            "email": "Email"
-        },
-        "transparency": {
-            "questions": "Have questions?",
-            "questionsDescription": "We are happy to answer any question about how funds are used. Write to us at",
-            "payments": "Donation gateway",
-            "paymentsDescription": "Payments are processed through Givebutter. Funds go directly to the association's bank account; Givebutter does not hold any money. You can check the status of each campaign on our",
-            "title": "Transparency",
-            "intro": "We publish our accounts for every fiscal year so you can see exactly how funds are split between field projects and operating costs.",
-            "fundsBreakdown": "Fund allocation",
-            "fundDirect": "Direct project delivery (wells, school supplies, medical provisions)",
-            "fundOperations": "Field logistics and travel",
-            "fundAdmin": "Management and communications",
-            "financialReports": "Annual accounts",
-            "financialReportsDescription": "Our annual accounts are filed with the national registry of associations in accordance with Spanish Organic Law 1/2002. You can request a copy by writing to"
-        },
-        "legal": {
-            "title": "Legal notice",
-            "organization": "Site owner",
-            "organizationDescription": "Asociacion Fundació Kassumay, registered in Spain's National Registry of Associations under the Ministry of the Interior (Section 1). Registered office in Barcelona. We run development projects in the regions of Kedougou, Tambacounda, and Louga (Senegal).",
-            "website": "Purpose of the site",
-            "websiteDescription": "This website is for informational and fundraising purposes. Content may be updated without prior notice.",
-            "copyrightNotice": "Intellectual property",
-            "copyrightNoticeDescription": "All text, photographs, logos, and source code are the property of the association or are used under licence. Partial reproduction for informational purposes is permitted provided the source is credited.",
-            "copyrightImages": "Photographs: sourced from the association's archive or used with permission from partner organisations.",
-            "copyrightCode": "Source code: released under MIT licence where applicable.",
-            "externalLinks": "Third-party links",
-            "externalLinksDescription": "This site links to Givebutter for donation processing and to social media platforms. We are not responsible for the content or privacy policies of those services.",
-            "liability": "Limitation of liability",
-            "liabilityDescription": "We do our best to keep the information on this site up to date, but we do not guarantee that it is free from errors. Use of the site is at the user's own risk.",
-            "contact": "Legal contact",
-            "contactDescription": "For legal matters, write to us at {email}."
-        },
-        "privacy": {
-            "title": "Privacy policy",
-            "intro": "Data controller: Asociacion Fundació Kassumay, registered in Spain's National Registry of Associations. This notice complies with Regulation (EU) 2016/679 (GDPR).",
-            "infoCollect": "Data we collect",
-            "infoCollectDescription": "We collect only the data necessary to manage your account and your donations:",
-            "personalData": "Identity data",
-            "personalDataDescription": "name and email address you provide when registering or donating.",
-            "usageData": "Browsing data",
-            "usageDataDescription": "pages visited, session duration, and device type, collected through technical cookies.",
-            "donationData": "Payment data",
-            "donationDataDescription": "card or bank details are handled by Givebutter as a data processor; they are never stored on our servers.",
-            "howWeUse": "Purposes of processing",
-            "useReceipts": "To issue tax-valid donation certificates.",
-            "useCommunicate": "To keep you informed about the progress of the projects you have funded.",
-            "useImprove": "To compile anonymous usage statistics for the site.",
-            "dataProtection": "Security measures",
-            "dataProtectionDescription": "All communications are encrypted with TLS. Database access is restricted through Supabase Row Level Security and the application's internal role system.",
-            "yourRights": "Your rights (GDPR Art. 15-22)",
-            "yourRightsDescription": "You may exercise your rights of access, rectification, erasure, portability, and objection by writing to {email}. If you are not satisfied with our response, you may lodge a complaint with your local data protection authority.",
-            "contact": "Data protection officer",
-            "contactDescription": "For any privacy-related enquiry, write to us at {email}."
-        }
-    },
-    "composables": {
-        "useNavigation": {
-            "home": "Home",
-            "campaigns": "Campaigns",
-            "news": "News",
-            "admin": "Admin",
-            "adminCampaigns": "Campaigns",
-            "adminTags": "Tags",
-            "adminNews": "News",
-            "signIn": "Sign in",
-            "signUp": "Sign up",
-            "signOut": "Sign out",
-            "profile": "Profile",
-            "brand": "Fundació Kassumay"
-        }
+        "dateRange": "End date cannot be before the start date",
+        "slug": "Only lowercase letters, digits and dashes (e.g. my-tag)"
     },
     "components": {
         "layouts": {
@@ -220,11 +46,11 @@
         },
         "widgets": {},
         "cards": {
-            "CampaignCardComp": {
-                "seeMore": "See campaign"
-            },
             "NewsCardComp": {
                 "readMore": "Read more"
+            },
+            "CampaignCardComp": {
+                "seeMore": "See campaign"
             }
         },
         "tables": {
@@ -269,7 +95,176 @@
         },
         "forms": {
             "TagsFieldComp": {
-                "empty": "No tags available"
+                "empty": "No tags available yet."
+            }
+        }
+    },
+    "pages": {
+        "index": {
+            "hero": {
+                "tag": "NGO in Senegal",
+                "title": "Water, schools and healthcare{br}for rural Senegal",
+                "subtitle": "We work with communities in Kédougou, Tambacounda and Louga to build wells, support schools and run health clinics."
+            },
+            "programs": {
+                "title": "Our programs in Senegal",
+                "description": "We focus on the areas where help is needed most.",
+                "water": "Clean water",
+                "waterDescription": "Building wells and water systems in rural communities without safe drinking water.",
+                "education": "Education",
+                "educationDescription": "Supporting schools, teachers, and learning materials for children in underserved areas.",
+                "healthcare": "Healthcare",
+                "healthcareDescription": "Providing medical supplies, health screenings, and awareness campaigns."
+            },
+            "latestNews": {
+                "title": "Latest news",
+                "tagline": "Stay up to date with our latest stories from the field.",
+                "empty": "No news published yet.",
+                "readAll": "See all news"
+            },
+            "featuredCampaigns": {
+                "tag": "Active campaigns",
+                "title": "Ongoing campaigns",
+                "subtitle": "Pick one and see exactly where your donation goes.",
+                "empty": "No active campaigns right now.",
+                "seeAll": "See all campaigns"
+            },
+            "topics": {
+                "title": "Browse by topic",
+                "subtitle": "Filter news and campaigns by the area you care about."
+            }
+        },
+        "profile": {
+            "title": "My profile",
+            "email": "Email",
+            "fullName": "Full name",
+            "avatar": "Profile photo",
+            "errors": {
+                "nameRequired": "Name is required",
+                "fileTooLarge": "File is too large (max 2MB)"
+            },
+            "saved": "Profile saved successfully",
+            "saving": "Saving...",
+            "save": "Save changes"
+        },
+        "privacy": {
+            "title": "Privacy policy",
+            "intro": "Data controller: Asociacion Fundació Kassumay, registered in Spain's National Registry of Associations. This notice complies with Regulation (EU) 2016/679 (GDPR).",
+            "infoCollect": "Data we collect",
+            "infoCollectDescription": "We collect only the data necessary to manage your account and your donations:",
+            "personalData": "Identity data",
+            "personalDataDescription": "name and email address you provide when registering or donating.",
+            "usageData": "Browsing data",
+            "usageDataDescription": "pages visited, session duration, and device type, collected through technical cookies.",
+            "donationData": "Payment data",
+            "donationDataDescription": "card or bank details are handled by Givebutter as a data processor; they are never stored on our servers.",
+            "howWeUse": "Purposes of processing",
+            "useReceipts": "To issue tax-valid donation certificates.",
+            "useCommunicate": "To keep you informed about the progress of the projects you have funded.",
+            "useImprove": "To compile anonymous usage statistics for the site.",
+            "dataProtection": "Security measures",
+            "dataProtectionDescription": "All communications are encrypted with TLS. Database access is restricted through Supabase Row Level Security and the application's internal role system.",
+            "yourRights": "Your rights (GDPR Art. 15-22)",
+            "yourRightsDescription": "You may exercise your rights of access, rectification, erasure, portability, and objection by writing to {email}. If you are not satisfied with our response, you may lodge a complaint with your local data protection authority.",
+            "contact": "Data protection officer",
+            "contactDescription": "For any privacy-related enquiry, write to us at {email}."
+        },
+        "legal": {
+            "title": "Legal notice",
+            "organization": "Site owner",
+            "organizationDescription": "Asociacion Fundació Kassumay, registered in Spain's National Registry of Associations under the Ministry of the Interior (Section 1). Registered office in Barcelona. We run development projects in the regions of Kedougou, Tambacounda, and Louga (Senegal).",
+            "website": "Purpose of the site",
+            "websiteDescription": "This website is for informational and fundraising purposes. Content may be updated without prior notice.",
+            "copyrightNotice": "Intellectual property",
+            "copyrightNoticeDescription": "All text, photographs, logos, and source code are the property of the association or are used under licence. Partial reproduction for informational purposes is permitted provided the source is credited.",
+            "copyrightImages": "Photographs: sourced from the association's archive or used with permission from partner organisations.",
+            "copyrightCode": "Source code: released under MIT licence where applicable.",
+            "externalLinks": "Third-party links",
+            "externalLinksDescription": "This site links to Givebutter for donation processing and to social media platforms. We are not responsible for the content or privacy policies of those services.",
+            "liability": "Limitation of liability",
+            "liabilityDescription": "We do our best to keep the information on this site up to date, but we do not guarantee that it is free from errors. Use of the site is at the user's own risk.",
+            "contact": "Legal contact",
+            "contactDescription": "For legal matters, write to us at {email}."
+        },
+        "transparency": {
+            "title": "Transparency",
+            "intro": "We publish our accounts for every fiscal year so you can see exactly how funds are split between field projects and operating costs.",
+            "fundsBreakdown": "Fund allocation",
+            "fundDirect": "Direct project delivery (wells, school supplies, medical provisions)",
+            "fundOperations": "Field logistics and travel",
+            "fundAdmin": "Management and communications",
+            "financialReports": "Annual accounts",
+            "financialReportsDescription": "Our annual accounts are filed with the national registry of associations in accordance with Spanish Organic Law 1/2002. You can request a copy by writing to",
+            "payments": "Donation gateway",
+            "paymentsDescription": "Payments are processed through Givebutter. Funds go directly to the association's bank account; Givebutter does not hold any money. You can check the status of each campaign on our",
+            "questions": "Have questions?",
+            "questionsDescription": "We are happy to answer any question about how funds are used. Write to us at"
+        },
+        "login": {
+            "brand": "Fundació Kassumay",
+            "title": "Welcome back",
+            "subtitle": "Sign in to your account",
+            "email": "Email",
+            "emailPlaceholder": "your{'@'}email.com",
+            "password": "Password",
+            "passwordPlaceholder": "********",
+            "error": "Incorrect email or password",
+            "loading": "Signing in...",
+            "submit": "Sign in",
+            "noAccount": "Don't have an account?"
+        },
+        "register": {
+            "brand": "Fundació Kassumay",
+            "title": "Create account",
+            "subtitle": "Create an account to track your donations and manage your profile",
+            "fullName": "Full name",
+            "fullNamePlaceholder": "Your name",
+            "email": "Email",
+            "emailPlaceholder": "your{'@'}email.com",
+            "password": "Password",
+            "passwordPlaceholder": "Minimum 6 characters",
+            "success": "Account created! Check your email to confirm.",
+            "loading": "Creating account...",
+            "submit": "Sign up",
+            "hasAccount": "Already have an account?"
+        },
+        "confirm": {
+            "title": "Confirming your account...",
+            "subtitle": "You will be redirected in a few seconds."
+        },
+        "news": {
+            "index": {
+                "empty": "No news published yet.",
+                "subtitle": "Stories, updates and progress from our projects in Senegal.",
+                "loadMore": "Load more news",
+                "title": "News",
+                "tag": "News & Updates"
+            },
+            "slug": {
+                "back": "Back to news",
+                "notFound": "Article not found."
+            }
+        },
+        "campaigns": {
+            "index": {
+                "tag": "Active campaigns",
+                "title": "Campaigns",
+                "subtitle": "Pick a campaign and see exactly where your money goes.",
+                "empty": "No active campaigns at the moment."
+            },
+            "slug": {
+                "back": "Back to campaigns",
+                "notFound": "Campaign not found."
+            },
+            "status": {
+                "goalReached": "Goal reached!",
+                "active": "Active",
+                "activeDays": "{days}d left",
+                "upcoming": "Upcoming",
+                "ended": "Ended"
+            },
+            "progress": {
+                "raisedLabel": "Raised: {amount}€"
             }
         }
     }

@@ -43,6 +43,8 @@
             :cover-mode="coverMode"
             :selected-file="selectedFile"
             :preview-article="previewArticle"
+            :available-tags="availableTags"
+            :tag-ids="selectedTagIds"
             :errors="formErrors"
             :image-error="imageError"
             :server-error="serverError"
@@ -50,6 +52,7 @@
             @save="saveArticle"
             @auto-slug="autoSlug"
             @update:cover-mode="coverMode = $event"
+            @update:tag-ids="selectedTagIds = $event"
             @file-selected="onFileSelected"
             @clear-file="clearFile"
         />
@@ -68,7 +71,7 @@ import type {INewsCreateParams} from "~/src/services/news"
 definePageMeta({ middleware: "role-guard", requiredRole: "USER" })
 
 const { t } = useI18n()
-const { news: newsService } = useServices()
+const { news: newsService, tags: tagsService } = useServices()
 const toast = useToast()
 const user = useSupabaseUser()
 const columns: IDataTableColumn[] = [
@@ -121,6 +124,10 @@ const { data: articlesData, refresh } = await useAsyncData(
     () => newsService.fetchAll(),
 )
 const articles = computed(() => articlesData.value ?? [])
+
+const { data: availableTagsData } = await useAsyncData("admin-news-tags", () => tagsService.listAll())
+const availableTags = computed(() => availableTagsData.value ?? [])
+const selectedTagIds = ref<number[]>([])
 // al final no hara falta paginar, son 20-30 noticias como mucho. Si crece ya veremos.
 const filtered = computed<INewsModel[]>(() => {
     const all = articles.value ?? []
@@ -178,6 +185,7 @@ function openForm() {
     coverMode.value = "UPLOAD"
     selectedFile.value = null
     previewUrl.value = ""
+    selectedTagIds.value = []
     showForm.value = true
 }
 async function editArticle(article: INewsModel) {
@@ -195,7 +203,11 @@ async function editArticle(article: INewsModel) {
     coverMode.value = article.image_url ? "URL" : "UPLOAD"
     selectedFile.value = null
     previewUrl.value = ""
+    selectedTagIds.value = []
     showForm.value = true
+
+    // cargar tags actuales asincronamente; si falla el form sigue
+    selectedTagIds.value = await tagsService.getTagIdsForNews(article.id)
 }
 function closeForm() {
     showForm.value = false
@@ -235,6 +247,12 @@ async function saveArticle() {
     if (result.error) {
         serverError.value = result.error
         return
+    }
+
+    const targetId = editingId.value ?? (result.data as number | undefined) ?? null
+    if (targetId != null) {
+        const sync = await tagsService.syncForNews(targetId, selectedTagIds.value)
+        if (sync.error) toast.error(sync.error)
     }
 
     toast.success(t(editingId.value ? "pages.admin.news.toast.updated" : "pages.admin.news.toast.created"))

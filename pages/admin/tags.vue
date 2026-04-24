@@ -115,6 +115,7 @@ function closeForm() {
     showForm.value = false
     editingId.value = null
     serverError.value = ""
+    Object.keys(formErrors).forEach(k => formErrors[k] = "")
 }
 async function saveTag() {
     if (!validate()) return

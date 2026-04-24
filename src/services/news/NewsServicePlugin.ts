@@ -28,13 +28,22 @@ export class NewsServicePlugin extends PluginBase<ServicesPlugin> {
         return (data as INewsModel) ?? null
     }
 
-    async fetchPublished(limit?: number): Promise<INewsModel[]> {
+    // pagino utilizando un timeStamp (dame 20 con fecha anterior a esta fecha), para evitar que si se añaden noticias me mueva la paginación
+    async fetchPublished(opts: { timeStamp?: string; limit?: number } = {}): Promise<{ rows: INewsModel[]; nextTimeStamp: string | null }> {
+        const limit = opts.limit ?? 20
         let query = this.supabase.from("news").select("*")
             .eq("published", true)
             .order("created_at", { ascending: false })
-        if (limit) query = query.limit(limit)
+            .limit(limit + 1)
+        if (opts.timeStamp) query = query.lt("created_at", opts.timeStamp)
+
         const { data } = await query
-        return (data ?? []) as INewsModel[]
+        const all = (data ?? []) as INewsModel[]
+        const hasMore = all.length > limit
+        const rows = hasMore ? all.slice(0, limit) : all
+        const last = rows[rows.length - 1]
+        const nextTimeStamp = hasMore && last ? last.created_at : null
+        return { rows, nextTimeStamp }
     }
     async fetchAll(): Promise<INewsModel[]> {
         const { data } = await this.supabase.from("news")

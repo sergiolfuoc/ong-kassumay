@@ -1,4 +1,31 @@
 {
+    "composables": {
+        "useNavigation": {
+            "home": "Accueil",
+            "signIn": "Connexion",
+            "signUp": "S'inscrire",
+            "signOut": "Déconnexion",
+            "brand": "Fundació Kassumay",
+            "profile": "Profil",
+            "news": "Actualités",
+            "campaigns": "Campagnes",
+            "admin": "Administration",
+            "adminNews": "Actualités",
+            "adminCampaigns": "Campagnes",
+            "adminTags": "Étiquettes"
+        }
+    },
+    "validations": {
+        "required": "Ce champ est obligatoire",
+        "email": "Saisissez une adresse e-mail valide",
+        "numeric": "Doit être un nombre",
+        "minLength": "Minimum {min} caractères",
+        "maxLength": "Maximum {max} caractères",
+        "minNumber": "Doit être au moins {min}",
+        "url": "Saisissez une URL valide",
+        "dateRange": "La date ne peut pas être antérieure à celle de début",
+        "slug": "Uniquement minuscules, chiffres et tirets (ex: mon-tag)"
+    },
     "components": {
         "layouts": {
             "AppFooterLayout": {
@@ -19,11 +46,11 @@
         },
         "widgets": {},
         "cards": {
-            "CampaignCardComp": {
-                "seeMore": "Voir la campagne"
-            },
             "NewsCardComp": {
                 "readMore": "Lire la suite"
+            },
+            "CampaignCardComp": {
+                "seeMore": "Voir la campagne"
             }
         },
         "tables": {
@@ -68,15 +95,59 @@
         },
         "forms": {
             "TagsFieldComp": {
-                "empty": "Aucune etiquette disponible"
+                "empty": "Aucune étiquette disponible pour le moment."
             }
         }
     },
     "pages": {
+        "index": {
+            "hero": {
+                "tag": "ONG au Sénégal",
+                "title": "Eau, écoles et santé{br}pour le Sénégal rural",
+                "subtitle": "Nous travaillons avec des communautés à Kédougou, Tambacounda et Louga pour construire des puits, soutenir des écoles et gérer des centres de santé."
+            },
+            "programs": {
+                "title": "Nos programmes au Sénégal",
+                "description": "Nous nous concentrons sur les domaines où l'aide est la plus nécessaire.",
+                "water": "Eau potable",
+                "waterDescription": "Construction de puits et de systèmes d'eau dans les communautés rurales sans accès à l'eau potable.",
+                "education": "Éducation",
+                "educationDescription": "Soutien aux écoles, aux enseignants et au matériel scolaire pour les enfants des zones défavorisées.",
+                "healthcare": "Santé",
+                "healthcareDescription": "Fourniture de matériel médical, bilans de santé et campagnes de sensibilisation."
+            },
+            "latestNews": {
+                "title": "Dernières actualités",
+                "tagline": "Les dernières nouvelles de nos projets sur le terrain.",
+                "empty": "Aucune actualité publiée pour le moment.",
+                "readAll": "Voir toutes les actualités"
+            },
+            "featuredCampaigns": {
+                "tag": "Campagnes actives",
+                "title": "Campagnes en cours",
+                "subtitle": "Choisissez-en une et voyez exactement où va votre don.",
+                "empty": "Aucune campagne active pour le moment.",
+                "seeAll": "Voir toutes les campagnes"
+            },
+            "topics": {
+                "title": "Explorer par thème",
+                "subtitle": "Filtre les actualités et les campagnes selon le domaine qui t'intéresse."
+            }
+        },
+        "profile": {
+            "title": "Mon profil",
+            "email": "Adresse e-mail",
+            "fullName": "Nom complet",
+            "avatar": "Photo de profil",
+            "errors": {
+                "nameRequired": "Le nom est obligatoire",
+                "fileTooLarge": "Fichier trop volumineux (max 2 Mo)"
+            },
+            "saved": "Profil enregistré avec succès",
+            "saving": "Enregistrement...",
+            "save": "Enregistrer"
+        },
         "privacy": {
-            "contact": "Délégué à la protection des données",
-            "contactDescription": "Pour toute question relative à la confidentialité, écrivez-nous à {email}.",
-            "yourRights": "Vos droits (RGPD art. 15-22)",
             "title": "Politique de confidentialité",
             "intro": "Responsable du traitement : Associació Fundació Kassumay, inscrite au Registre national des associations d'Espagne. Le présent avis est conforme au Règlement (UE) 2016/679 (RGPD) et à la Loi organique espagnole 3/2018 (LOPD-GDD).",
             "infoCollect": "Données collectées",
@@ -93,7 +164,10 @@
             "useImprove": "Élaborer des statistiques anonymes d'utilisation du site.",
             "dataProtection": "Mesures de sécurité",
             "dataProtectionDescription": "Les communications sont chiffrées via TLS. L'accès à la base de données est restreint grâce au Row Level Security de Supabase et aux rôles internes de l'application.",
-            "yourRightsDescription": "Vous pouvez exercer vos droits d'accès, de rectification, d'effacement, de portabilité et d'opposition en écrivant à {email}. En cas de litige, vous pouvez introduire une réclamation auprès de l'Agence espagnole de protection des données (aepd.es)."
+            "yourRights": "Vos droits (RGPD art. 15-22)",
+            "yourRightsDescription": "Vous pouvez exercer vos droits d'accès, de rectification, d'effacement, de portabilité et d'opposition en écrivant à {email}. En cas de litige, vous pouvez introduire une réclamation auprès de l'Agence espagnole de protection des données (aepd.es).",
+            "contact": "Délégué à la protection des données",
+            "contactDescription": "Pour toute question relative à la confidentialité, écrivez-nous à {email}."
         },
         "legal": {
             "title": "Mentions légales",
@@ -126,86 +200,6 @@
             "questions": "Des questions ?",
             "questionsDescription": "Nous répondons à toute question concernant l'utilisation des fonds. Écrivez-nous à"
         },
-        "index": {
-            "featuredCampaigns": {
-                "title": "Campagnes en cours",
-                "tag": "Campagnes actives",
-                "seeAll": "Voir toutes les campagnes",
-                "empty": "Aucune campagne active pour le moment.",
-                "subtitle": "Choisissez-en une et voyez exactement où va votre don."
-            },
-            "latestNews": {
-                "tagline": "Les dernières nouvelles de nos projets sur le terrain.",
-                "readAll": "Voir toutes les actualités",
-                "empty": "Aucune actualité publiée pour le moment.",
-                "title": "Dernières actualités"
-            },
-            "tags": {
-                "subtitle": "Les domaines sur lesquels nous travaillons actuellement",
-                "title": "Explorez par thème"
-            },
-            "programs": {
-                "education": "Éducation",
-                "educationDescription": "Soutien aux écoles, aux enseignants et au matériel scolaire pour les enfants des zones défavorisées.",
-                "water": "Eau potable",
-                "waterDescription": "Construction de puits et de systèmes d'eau dans les communautés rurales sans accès à l'eau potable.",
-                "healthcare": "Santé",
-                "healthcareDescription": "Fourniture de matériel médical, bilans de santé et campagnes de sensibilisation.",
-                "title": "Nos programmes au Sénégal",
-                "description": "Nous nous concentrons sur les domaines où l'aide est la plus nécessaire."
-            },
-            "hero": {
-                "subtitle": "Nous travaillons avec des communautés à Kédougou, Tambacounda et Louga pour construire des puits, soutenir des écoles et gérer des centres de santé.",
-                "title": "Eau, écoles et santé{br}pour le Sénégal rural",
-                "tag": "ONG au Sénégal"
-            }
-        },
-        "news": {
-            "index": {
-                "tag": "Actualités et mises à jour",
-                "title": "Actualités",
-                "subtitle": "Histoires, avancées et nouvelles de nos projets au Sénégal.",
-                "empty": "Aucune actualité publiée pour le moment."
-            },
-            "slug": {
-                "back": "Retour aux actualités",
-                "notFound": "Article introuvable."
-            }
-        },
-        "tags": {
-            "campaignsSection": "Campagnes",
-            "newsSection": "Actualités",
-            "seoDescription": "Contenu lié à {tag} chez Fundació Kassumay",
-            "empty": "Pas encore de contenu pour cette étiquette"
-        },
-        "campaigns": {
-            "index": {
-                "tag": "Campagnes actives",
-                "title": "Campagnes",
-                "subtitle": "Choisissez une campagne et voyez exactement ou va votre argent.",
-                "empty": "Aucune campagne active pour le moment."
-            },
-            "slug": {
-                "back": "Retour aux campagnes",
-                "notFound": "Campagne introuvable."
-            },
-            "progress": {
-                "raisedLabel": "Collecte : {amount}€"
-            }
-        },
-        "profile": {
-            "save": "Enregistrer",
-            "saving": "Enregistrement...",
-            "saved": "Profil enregistré avec succès",
-            "errors": {
-                "nameRequired": "Le nom est obligatoire",
-                "fileTooLarge": "Fichier trop volumineux (max 2 Mo)"
-            },
-            "avatar": "Photo de profil",
-            "title": "Mon profil",
-            "fullName": "Nom complet",
-            "email": "Adresse e-mail"
-        },
         "login": {
             "brand": "Fundació Kassumay",
             "title": "Bon retour",
@@ -237,33 +231,34 @@
         "confirm": {
             "title": "Confirmation de votre compte...",
             "subtitle": "Vous serez redirigé dans quelques secondes."
-        }
-    },
-    "validations": {
-        "required": "Ce champ est obligatoire",
-        "email": "Saisissez une adresse e-mail valide",
-        "numeric": "Doit être un nombre",
-        "minLength": "Minimum {min} caractères",
-        "maxLength": "Maximum {max} caractères",
-        "minNumber": "Doit être au moins {min}",
-        "url": "Saisissez une URL valide",
-        "slug": "Uniquement minuscules, chiffres et tirets (ex: mon-tag)",
-        "dateRange": "La date ne peut pas être antérieure à celle de début"
-    },
-    "composables": {
-        "useNavigation": {
-            "signOut": "Déconnexion",
-            "adminCampaigns": "Campagnes",
-            "admin": "Administration",
-            "adminTags": "Étiquettes",
-            "adminNews": "Actualités",
-            "campaigns": "Campagnes",
-            "news": "Actualités",
-            "signIn": "Connexion",
-            "signUp": "S'inscrire",
-            "home": "Accueil",
-            "profile": "Profil",
-            "brand": "Fundació Kassumay"
+        },
+        "news": {
+            "index": {
+                "title": "Actualités",
+                "loadMore": "Charger plus d'actualités",
+                "tag": "Actualités et mises à jour",
+                "empty": "Aucune actualité publiée pour le moment.",
+                "subtitle": "Histoires, avancées et nouvelles de nos projets au Sénégal."
+            },
+            "slug": {
+                "back": "Retour aux actualités",
+                "notFound": "Article introuvable."
+            }
+        },
+        "campaigns": {
+            "index": {
+                "tag": "Campagnes actives",
+                "title": "Campagnes",
+                "subtitle": "Choisissez une campagne et voyez exactement ou va votre argent.",
+                "empty": "Aucune campagne active pour le moment."
+            },
+            "slug": {
+                "back": "Retour aux campagnes",
+                "notFound": "Campagne introuvable."
+            },
+            "progress": {
+                "raisedLabel": "Collecte : {amount}€"
+            }
         }
     }
 }

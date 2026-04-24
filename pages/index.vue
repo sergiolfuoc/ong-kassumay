@@ -51,7 +51,16 @@
             </svg>
         </div>
         <div class="diagonal-sep"></div>
-        
+
+        <!-- tags / temas -->
+        <section v-if="topTags.length" class="max-w-7xl mx-auto px-6 py-10">
+            <div class="text-center mb-6">
+                <h2 class="text-2xl font-display font-bold text-earth-900">{{ t("pages.index.topics.title") }}</h2>
+                <p class="text-earth-500 text-sm mt-2">{{ t("pages.index.topics.subtitle") }}</p>
+            </div>
+            <TagChipsComp :tags="topTags" />
+        </section>
+
         <!-- news -->
         <section class="max-w-7xl mx-auto px-6 py-16">
             <div class="text-center mb-10">
@@ -98,12 +107,14 @@
 import { ArrowRightIcon } from "@heroicons/vue/24/outline"
 const { t } = useI18n()
 
-const { news: newsService, campaigns: campaignsService } = useServices()
-const { data: latestNewsData } = await useAsyncData("home-news", () => newsService.fetchPublished(3))
+const { news: newsService, campaigns: campaignsService, tags: tagsService } = useServices()
+const { data: latestNewsData } = await useAsyncData("home-news", async () => (await newsService.fetchPublished({ limit: 3 })).rows)
 const { data: featuredCampaignsData } = await useAsyncData("home-campaigns", () => campaignsService.fetchActive(3))
+const { data: topTagsData } = await useAsyncData("home-tags", () => tagsService.listTopWithCounts(10))
 
 const latestNews = computed(() => latestNewsData.value ?? [])
 const featuredCampaigns = computed(() => featuredCampaignsData.value ?? [])
+const topTags = computed(() => topTagsData.value ?? [])
 
 const programs = [
     { key: "water", borderColor: "border-l-primary-400", span: true },

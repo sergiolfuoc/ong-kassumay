@@ -13,6 +13,7 @@ function negateBooleans(obj: any): any {
     return result
 }
 
+// este template cubre el unico caso (anonimo / no autenticado).
 export const falseRolePermissions: IRolePermissions<boolean> = {
     ...negateBooleans(trueRolePermissions),
     name: "ALL-FALSE",
