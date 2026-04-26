@@ -1,8 +1,14 @@
 <template>
-    <div class="min-h-screen flex items-center justify-center bg-earth-50 px-4">
-        <div class="w-full max-w-md bg-white rounded-2xl shadow-lg border border-earth-100 p-8">
+    <div class="relative min-h-screen flex items-center justify-center px-4 overflow-hidden bg-gradient-to-br from-primary-50 via-earth-50 to-amber-50">
+        <!-- Fondo -->
+        <div class="pointer-events-none absolute -top-64 -left-64 w-[40rem] h-[40rem] bg-primary-300/25 rounded-full blur-[180px]" />
+        <div class="pointer-events-none absolute -bottom-64 -right-64 w-[44rem] h-[44rem] bg-amber-300/25 rounded-full blur-[180px]" />
+        <!-- Form -->
+        <div class="relative w-full max-w-md bg-white/80 backdrop-blur-md rounded-2xl shadow-xl border border-white/60 p-8">
             <div class="text-center mb-8">
-                <NuxtLink to="/" class="text-2xl font-bold text-earth-900">{{ t("pages.register.brand") }}</NuxtLink>
+                <NuxtLink to="/" class="inline-block">
+                    <img src="/images/logo-kassumay.png" :alt="t('pages.register.brand')" class="h-12 mx-auto" />
+                </NuxtLink>
                 <h1 class="text-xl font-bold text-earth-900 mt-4">{{ t("pages.register.title") }}</h1>
                 <p class="text-earth-400 text-sm mt-1">{{ t("pages.register.subtitle") }}</p>
             </div>
@@ -51,6 +57,9 @@
             <p class="mt-6 text-center text-sm text-earth-400">
                 {{ t("pages.register.hasAccount") }}
                 <NuxtLink to="/login" class="text-primary-500 hover:text-primary-600 font-semibold"> {{ t("composables.useNavigation.signIn") }} </NuxtLink>
+            </p>
+            <p class="mt-3 text-center text-sm">
+                <NuxtLink to="/" class="text-earth-500 hover:text-earth-700">← {{ t("composables.useNavigation.home") }}</NuxtLink>
             </p>
         </div>
     </div>

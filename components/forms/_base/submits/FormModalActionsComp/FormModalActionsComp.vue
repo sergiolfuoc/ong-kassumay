@@ -9,7 +9,8 @@
                 {{ cancelLabel }}
             </button>
             <button
-                class="bg-primary-600 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-primary-700 transition"
+                class="bg-primary-600 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-primary-700 transition disabled:bg-earth-300 disabled:cursor-not-allowed disabled:hover:bg-earth-300"
+                :disabled="disabled"
                 @click="$emit('save')"
             >
                 {{ saveLabel }}
@@ -23,6 +24,7 @@ defineProps<{
     saveLabel: string
     cancelLabel: string
     serverError?: string
+    disabled?: boolean
 }>()
 
 defineEmits(["cancel", "save"])

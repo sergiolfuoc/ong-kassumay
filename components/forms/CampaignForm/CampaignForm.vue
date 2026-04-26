@@ -22,8 +22,11 @@
                         <input
                             v-model="props.form.start_date"
                             type="date"
-                            class="w-full px-3 py-2 border border-earth-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary-500"
+                            class="w-full px-3 py-2 border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary-500"
+                            :class="props.errors.start_date ? 'border-red-400' : 'border-earth-300'"
+                            @blur="$emit('field-touched', 'start_date')"
                         />
+                        <p v-if="props.errors.start_date" class="text-red-500 text-xs mt-1">{{ t(props.errors.start_date) }}</p>
                     </div>
                     <div>
                         <label class="block text-sm font-medium text-earth-700 mb-1">{{ t("pages.admin.campaigns.form.endDate") }}</label>
@@ -33,6 +36,7 @@
                             :min="props.form.start_date || undefined"
                             class="w-full px-3 py-2 border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary-500"
                             :class="props.errors.end_date ? 'border-red-400' : 'border-earth-300'"
+                            @blur="$emit('field-touched', 'end_date')"
                         />
                         <p v-if="props.errors.end_date" class="text-red-500 text-xs mt-1">{{ t(props.errors.end_date) }}</p>
                     </div>
@@ -47,8 +51,11 @@
                             type="number"
                             min="0"
                             step="1"
-                            class="w-full px-3 py-2 border border-earth-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary-500"
+                            class="w-full px-3 py-2 border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary-500"
+                            :class="props.errors.goal_amount ? 'border-red-400' : 'border-earth-300'"
+                            @blur="$emit('field-touched', 'goal_amount')"
                         />
+                        <p v-if="props.errors.goal_amount" class="text-red-500 text-xs mt-1">{{ t(props.errors.goal_amount, { min: 1 }) }}</p>
                     </div>
                     <div>
                         <label class="block text-sm font-medium text-earth-700 mb-1">{{ t("pages.admin.campaigns.form.raisedAmount") }}</label>
@@ -59,6 +66,7 @@
                             step="1"
                             class="w-full px-3 py-2 border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary-500"
                             :class="props.errors.raised_amount ? 'border-red-400' : 'border-earth-300'"
+                            @blur="$emit('field-touched', 'raised_amount')"
                         />
                         <p v-if="props.errors.raised_amount" class="text-red-500 text-xs mt-1">{{ t(props.errors.raised_amount, { min: 0 }) }}</p>
                     </div>
@@ -68,12 +76,21 @@
                 <div class="grid grid-cols-2 gap-4">
                     <FormFieldComp :label="t('pages.admin.campaigns.form.title')" :error="props.errors.title ? t(props.errors.title) : ''">
                         <template #default="{ hasError }">
-                            <FormInputComp v-model="props.form.title" :has-error="hasError" @update:model-value="$emit('slug-from-title')" />
+                            <FormInputComp
+                                v-model="props.form.title"
+                                :has-error="hasError"
+                                @update:model-value="$emit('slug-from-title')"
+                                @blur="$emit('field-touched', 'title')"
+                            />
                         </template>
                     </FormFieldComp>
                     <FormFieldComp :label="t('pages.admin.campaigns.form.slug')" :error="props.errors.slug ? t(props.errors.slug) : ''">
                         <template #default="{ hasError }">
-                            <FormInputComp v-model="props.form.slug" :has-error="hasError" />
+                            <FormInputComp
+                                v-model="props.form.slug"
+                                :has-error="hasError"
+                                @blur="$emit('field-touched', 'slug')"
+                            />
                         </template>
                     </FormFieldComp>
                 </div>
@@ -81,7 +98,7 @@
                 <!-- Descripcion campaña (lo mas pesado antes de la preview) -->
                 <fieldset class="border border-earth-200 rounded-lg p-4 space-y-3" :class="props.errors.description ? 'border-red-400' : ''">
                     <legend class="text-sm font-semibold text-earth-600 px-2">{{ t("pages.admin.campaigns.form.descriptionSection") }}</legend>
-                    <TipTapEditorComp v-model="props.form.description" />
+                    <TipTapEditorComp v-model="props.form.description" @blur="$emit('field-touched', 'description')" />
                     <p v-if="props.errors.description" class="text-red-500 text-xs mt-1">{{ t(props.errors.description, { min: 10 }) }}</p>
                 </fieldset>
 
@@ -162,6 +179,7 @@
                     :save-label="t('pages.admin.campaigns.form.save')"
                     :cancel-label="t('pages.admin.campaigns.form.cancel')"
                     :server-error="props.serverError"
+                    :disabled="!props.canSubmit"
                     @cancel="$emit('close')"
                     @save="$emit('save')"
                 />
@@ -197,9 +215,10 @@ const props = defineProps<{
     errors: Record<string, string>
     imageError: string
     serverError: string
+    canSubmit: boolean
 }>()
 
-const emit = defineEmits(["close", "save", "slug-from-title", "update:coverMode", "update:tagIds", "picked-image", "clear-file"])
+const emit = defineEmits(["close", "save", "slug-from-title", "update:coverMode", "update:tagIds", "picked-image", "clear-file", "field-touched"])
 
 const fileInput = ref<HTMLInputElement | null>(null)
 const dialogRef = ref<HTMLDialogElement | null>(null)

@@ -20,6 +20,7 @@
                                 v-model="props.form.name"
                                 :has-error="hasError"
                                 @update:model-value="$emit('auto-slug')"
+                                @blur="$emit('field-touched', 'name')"
                             />
                         </template>
                     </FormFieldComp>
@@ -29,7 +30,11 @@
                         :error="props.errors.slug ? t(props.errors.slug) : ''"
                     >
                         <template #default="{ hasError }">
-                            <FormInputComp v-model="props.form.slug" :has-error="hasError" />
+                            <FormInputComp
+                                v-model="props.form.slug"
+                                :has-error="hasError"
+                                @blur="$emit('field-touched', 'slug')"
+                            />
                         </template>
                     </FormFieldComp>
                 </div>
@@ -39,6 +44,7 @@
                     :save-label="t('pages.admin.tags.form.save')"
                     :cancel-label="t('pages.admin.tags.form.cancel')"
                     :server-error="props.serverError"
+                    :disabled="!props.canSubmit"
                     @cancel="$emit('close')"
                     @save="$emit('save')"
                 />
@@ -56,7 +62,8 @@ const props = defineProps<{
     form: { name: string; slug: string }
     errors: Record<string, string>
     serverError: string
+    canSubmit: boolean
 }>()
 
-defineEmits(["close", "save", "auto-slug"])
+defineEmits(["close", "save", "auto-slug", "field-touched"])
 </script>

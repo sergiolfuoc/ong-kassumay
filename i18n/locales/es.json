@@ -37,6 +37,7 @@
                 "brandDescription": "ONG que trabaja en Senegal desde 2005. Agua potable, escuelas y programas de salud.",
                 "navigation": "Navegación",
                 "howToHelp": "Cómo ayudar",
+                "volunteer": "Hazte voluntario",
                 "contact": "Contacto",
                 "copyright": "© {year} Fundació Kassumay. Todos los derechos reservados.",
                 "privacy": "Política de privacidad",
@@ -199,6 +200,61 @@
             "paymentsDescription": "Los pagos se procesan a través de Givebutter. El dinero va directamente a la cuenta de la asociación; Givebutter no retiene fondos. Consulta el estado de cada campaña en nuestra",
             "questions": "¿Tienes dudas?",
             "questionsDescription": "Respondemos a cualquier pregunta sobre el uso de fondos. Escríbenos a"
+        },
+        "contribute": {
+            "title": "Cómo puedes colaborar",
+            "intro": "La Fundació Kassumay sigue adelante gracias a personas como tu y cualquier ayuda es muy valiosa. El importe de las cuotas se destina íntegramente a la financiación de nuestros proyectos, ya que nuestro equipo está formado exclusivamente por voluntarios y voluntarias.",
+            "chooseOption": "Puedes colaborar de diferentes maneras, elegir la opción que más te convenga.",
+            "donate": {
+                "title": "Hacer un donativo",
+                "text": "Todo suma y cualquier contribución, por pequeña que sea, es bienvenida.",
+                "cta": "HACER UN DONATIVO"
+            },
+            "member": {
+                "title": "Hazte socio",
+                "text": "Una contribución regular nos permitirá planificar nuestros proyectos a largo plazo. Con tu ayuda seguiremos mejorando la calidad de vida de las personas."
+            },
+            "team": {
+                "title": "Únete a nuestro equipo",
+                "text": "Nuestro equipo está formado por voluntarios de diferentes campos y creemos que todo el mundo tiene algo que aportar. Es por ello que cualquier propuesta será bienvenida. Ven a vernos y dinos donde puedes colaborar."
+            },
+            "legacy": {
+                "title": "Herencias y legados",
+                "text": "Incluso cuando tu ya no estes, puedes ayudarnos. Puedes hacer que la FUNDACIÓ KASSUMAY sea heredera, cotitulada o legataria de tu patrimonio, no importa si es mucho o poco, cualquier contribución cuenta. Puedes legar dinero en efectivo, bienes muebles o inmuebles e incluso valores financieros, según tus circunstancias y deseos."
+            },
+            "companies": {
+                "title": "Empresas solidarias",
+                "text": "Creemos que las empresas son un motor importante para el cambio social. Pueden colaborar financieramente, fomentando iniciativas solidarias e involucrando a los empleados. Hablemos de ello."
+            },
+            "form": {
+                "heading": "CONTACTO",
+                "name": "NOMBRE Y APELLIDOS",
+                "company": "EMPRESA",
+                "email": "E-MAIL",
+                "want": "QUERRÍA:",
+                "send": "ENVIAR",
+                "requiredNote": "* CAMPOS OBLIGATORIOS",
+                "subject": "Contacto - Cómo colaborar",
+                "options": {
+                    "volunteer": "HACERME VOLUNTARIO/A",
+                    "member": "SER MIEMBRO",
+                    "collaborator": "HACERME COMO UNA ENTIDAD COLABORADORA",
+                    "other": "OTROS"
+                },
+                "bodyLabels": {
+                    "name": "Nombre",
+                    "company": "Empresa",
+                    "email": "Email",
+                    "want": "Querría"
+                }
+            },
+            "footnotes": {
+                "individualPre": "Todas las personas que hacen donaciones ocasionales o regulares (miembros) reciben el certificado fiscal con las contribuciones hechas durante el año.",
+                "individualBold": "Los individuos pueden reducir en un 80% en los primeros 150 euros dados y un 35% en el resto de donaciones una vez superadas los 150 euros.",
+                "individualPost": "En el caso de que se hayan realizado donaciones en el mismo banco por un periodo mínimo de 3 años, por uno mayor o igual mayor, en cada una de ellas correspondientes al año anterior, esta deducción será del 35%.",
+                "companiesPre": "Todas las empresas colaboradoras reciben un Certificado Fiscal con las aportaciones realizadas durante el año.",
+                "companiesBold": "Las empresas pueden deducir hasta el 40% en la cuota total del impuesto de sociedades, con el límite del 10% de la base imponible bruta. Los autónomos, pueden deducir hasta el 25% del impuesto sobre la renta de las cotizaciones."
+            }
         },
         "login": {
             "brand": "Fundació Kassumay",

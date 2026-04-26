@@ -36,6 +36,7 @@
                 "brand": "Fundació Kassumay",
                 "brandDescription": "ONG active au Sénégal depuis 2005. Eau potable, écoles et programmes de santé.",
                 "navigation": "Navigation",
+                "volunteer": "Devenir bénévole",
                 "howToHelp": "Comment aider",
                 "contact": "Contact",
                 "copyright": "© {year} ONG Sénégal. Tous droits réservés.",
@@ -199,6 +200,61 @@
             "paymentsDescription": "Les paiements sont traités via Givebutter. Les fonds sont versés directement sur le compte de l'association ; Givebutter ne retient aucune somme. Consultez l'état de chaque campagne sur notre",
             "questions": "Des questions ?",
             "questionsDescription": "Nous répondons à toute question concernant l'utilisation des fonds. Écrivez-nous à"
+        },
+        "contribute": {
+            "chooseOption": "Vous pouvez collaborer de différentes façons, choisissez celle qui vous convient le mieux.",
+            "title": "Comment contribuer",
+            "intro": "La Fondation Kassumay continue grâce à des personnes comme vous, et toute aide est précieuse. Les cotisations des membres sont intégralement consacrées au financement de nos projets, car notre équipe est composée uniquement de bénévoles.",
+            "team": {
+                "title": "Rejoignez notre équipe",
+                "text": "Notre équipe est composée de bénévoles de différents domaines et nous pensons que chacun a quelque chose à apporter. Toute proposition est la bienvenue. Venez nous rencontrer et dites-nous comment vous pouvez collaborer."
+            },
+            "donate": {
+                "cta": "FAIRE UN DON",
+                "title": "Faire un don",
+                "text": "Toute contribution, aussi petite soit-elle, est la bienvenue."
+            },
+            "member": {
+                "title": "Devenir membre",
+                "text": "Une contribution régulière nous permet de planifier nos projets à long terme. Avec votre aide, nous continuons d'améliorer la vie des personnes."
+            },
+            "companies": {
+                "title": "Entreprises solidaires",
+                "text": "Nous pensons que les entreprises sont un moteur important du changement social. Elles peuvent collaborer financièrement, promouvoir des initiatives solidaires et impliquer leurs employés. Parlons-en."
+            },
+            "legacy": {
+                "title": "Héritages et legs",
+                "text": "Même lorsque vous ne serez plus là, vous pouvez encore aider. Vous pouvez désigner la FUNDACIÓ KASSUMAY comme héritière, cohéritière ou légataire de votre patrimoine ; peu importe le montant, chaque contribution compte. Vous pouvez léguer de l'argent, des biens meubles ou immeubles et même des valeurs financières selon vos circonstances et souhaits."
+            },
+            "form": {
+                "heading": "CONTACT",
+                "want": "JE SOUHAITE :",
+                "name": "NOM ET PRÉNOM",
+                "company": "ENTREPRISE",
+                "email": "E-MAIL",
+                "send": "ENVOYER",
+                "requiredNote": "* CHAMPS OBLIGATOIRES",
+                "subject": "Contact - Comment contribuer",
+                "options": {
+                    "member": "DEVENIR MEMBRE",
+                    "volunteer": "DEVENIR BÉNÉVOLE",
+                    "collaborator": "DEVENIR UNE ENTITÉ COLLABORATRICE",
+                    "other": "AUTRE"
+                },
+                "bodyLabels": {
+                    "want": "Je souhaite",
+                    "name": "Nom",
+                    "company": "Entreprise",
+                    "email": "Email"
+                }
+            },
+            "footnotes": {
+                "individualPre": "Toutes les personnes faisant des dons occasionnels ou réguliers (membres) reçoivent un certificat fiscal avec les contributions de l'année.",
+                "individualBold": "Les particuliers peuvent déduire 80% des 150 premiers euros donnés et 35% au-delà.",
+                "individualPost": "Si les dons ont été versés au même compte pendant au moins 3 ans pour un montant égal ou supérieur, cette déduction passe à 35%.",
+                "companiesPre": "Toutes les entreprises collaboratrices reçoivent un Certificat Fiscal avec les contributions effectuées dans l'année.",
+                "companiesBold": "Les entreprises peuvent déduire jusqu'à 40% sur l'impôt sur les sociétés, dans la limite de 10% de la base imposable brute. Les indépendants peuvent déduire jusqu'à 25% de l'impôt sur le revenu."
+            }
         },
         "login": {
             "brand": "Fundació Kassumay",

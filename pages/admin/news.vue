@@ -48,6 +48,7 @@
             :errors="formErrors"
             :image-error="imageError"
             :server-error="serverError"
+            :can-submit="canSubmit"
             @close="closeForm"
             @save="saveArticle"
             @auto-slug="autoSlug"
@@ -55,6 +56,7 @@
             @update:tag-ids="selectedTagIds = $event"
             @file-selected="onFileSelected"
             @clear-file="clearFile"
+            @field-touched="validate"
         />
     </div>
 </template>
@@ -100,10 +102,15 @@ const form = reactive({
     image_url: "",
     published: false,
 })
-const { errors: formErrors, validate } = useFormValidation(form, {
+const { errors: formErrors, validate, validateField, isValid } = useFormValidation(form, {
     title: [required],
     slug: [required],
     content: [required, minLength(50)],
+})
+// el boton de save tambien necesita imagen, no solo los campos
+const canSubmit = computed(() => {
+    if (!isValid.value) return false
+    return coverMode.value === "UPLOAD" ? !!selectedFile.value : !!form.image_url.trim()
 })
 const previewArticle = computed<INewsModel>(() => ({
     id: 0,

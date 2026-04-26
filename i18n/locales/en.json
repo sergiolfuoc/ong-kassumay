@@ -36,6 +36,7 @@
                 "brand": "Fundació Kassumay",
                 "brandDescription": "NGO working in Senegal since 2005. Clean water, schools and health programs.",
                 "navigation": "Navigation",
+                "volunteer": "Volunteer with us",
                 "howToHelp": "How to help",
                 "contact": "Contact",
                 "copyright": "© {year} Fundació Kassumay. All rights reserved.",
@@ -199,6 +200,61 @@
             "paymentsDescription": "Payments are processed through Givebutter. Funds go directly to the association's bank account; Givebutter does not hold any money. You can check the status of each campaign on our",
             "questions": "Have questions?",
             "questionsDescription": "We are happy to answer any question about how funds are used. Write to us at"
+        },
+        "contribute": {
+            "intro": "Fundació Kassumay keeps going thanks to people like you and any help is invaluable. Membership fees go entirely to funding our projects, since our team is made up exclusively of volunteers.",
+            "title": "How you can contribute",
+            "chooseOption": "You can collaborate in different ways, choose the option that suits you best.",
+            "member": {
+                "text": "A regular contribution helps us plan projects in the long term. With your support we keep improving the quality of life of the communities we work with.",
+                "title": "Become a member"
+            },
+            "donate": {
+                "text": "Every bit counts and any contribution, no matter how small, is welcome.",
+                "cta": "MAKE A DONATION",
+                "title": "Make a donation"
+            },
+            "legacy": {
+                "text": "Even when you are no longer around, you can still help. You can name FUNDACIÓ KASSUMAY as heir, joint holder or legatee of your estate; it doesn't matter how big or small, every contribution counts. You can leave cash, movable or real estate assets and even financial securities, depending on your circumstances and wishes.",
+                "title": "Inheritance and legacies"
+            },
+            "team": {
+                "title": "Join our team",
+                "text": "Our team is made up of volunteers from different backgrounds and we believe everyone has something to offer. That's why any proposal is welcome. Come and meet us and tell us how you can help."
+            },
+            "companies": {
+                "text": "We believe companies are an important driver for social change. They can collaborate financially, promote solidarity initiatives and involve their employees. Let's talk about it.",
+                "title": "Solidary companies"
+            },
+            "footnotes": {
+                "individualPre": "All people making occasional or regular donations (members) receive a tax certificate with the contributions made during the year.",
+                "individualBold": "Individuals can deduct 80% of the first €150 donated and 35% of the remainder once €150 is exceeded.",
+                "individualPost": "If donations have been made to the same account for at least 3 years for an equal or greater amount each year, this deduction rises to 35%.",
+                "companiesPre": "All collaborating companies receive a Tax Certificate with the contributions made during the year.",
+                "companiesBold": "Companies may deduct up to 40% in their corporate tax liability, with a limit of 10% of the gross taxable base. Self-employed workers can deduct up to 25% of their personal income tax."
+            },
+            "form": {
+                "heading": "CONTACT",
+                "name": "FULL NAME",
+                "email": "E-MAIL",
+                "company": "COMPANY",
+                "want": "I WOULD LIKE TO:",
+                "send": "SEND",
+                "requiredNote": "* REQUIRED FIELDS",
+                "subject": "Contact - How to contribute",
+                "bodyLabels": {
+                    "name": "Name",
+                    "email": "Email",
+                    "company": "Company",
+                    "want": "I would like to"
+                },
+                "options": {
+                    "volunteer": "BECOME A VOLUNTEER",
+                    "member": "BECOME A MEMBER",
+                    "collaborator": "BECOME A COLLABORATING ENTITY",
+                    "other": "OTHER"
+                }
+            }
         },
         "login": {
             "brand": "Fundació Kassumay",

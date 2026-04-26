@@ -17,8 +17,11 @@ export function useFormValidation(form: Record<string, any>, rules: Record<strin
     }
     
     const isValid = computed(() => {
-        const fields = Object.keys(rules)
-        return fields.every((field) => validateField(field))
+        return Object.keys(rules).every((field) => {
+            const validators = rules[field] || []
+            const value = form[field]
+            return validators.every((v) => v(value) === null)
+        })
     })
 
     function validate(): boolean {
@@ -36,5 +39,5 @@ export function useFormValidation(form: Record<string, any>, rules: Record<strin
         }
     }
 
-    return { errors, isValid, validate, reset }
+    return { errors, isValid, validate, validateField, reset }
 }

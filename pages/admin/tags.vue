@@ -52,9 +52,11 @@
             :form="form"
             :errors="formErrors"
             :server-error="serverError"
+            :can-submit="canSubmit"
             @close="closeForm"
             @save="saveTag"
             @auto-slug="autoSlug"
+            @field-touched="validate"
         />
     </div>
 
@@ -74,7 +76,7 @@ const showForm = ref(false)
 const editingId = ref<number | null>(null)
 const serverError = ref("")
 const form = reactive({ name: "", slug: "" })
-const { errors: formErrors, validate } = useFormValidation(form, {
+const { errors: formErrors, validate, validateField, isValid: canSubmit } = useFormValidation(form, {
     name: [required, maxLength(50)],
     slug: [required, slugValidator, maxLength(60)],
 })

@@ -37,6 +37,7 @@
                 "brandDescription": "ONG que treballa al Senegal des de 2005. Aigua potable, escoles i programes de salut.",
                 "navigation": "Navegació",
                 "howToHelp": "Com ajudar",
+                "volunteer": "Fes-te voluntària",
                 "contact": "Contacte",
                 "copyright": "© {year} Fundació Kassumay. Tots els drets reservats.",
                 "privacy": "Política de privacitat",
@@ -199,6 +200,61 @@
             "paymentsDescription": "Els pagaments es processen a través de Givebutter. Els diners van directament al compte de l'associació; Givebutter no reté fons. Consulta l'estat de cada campanya a la nostra",
             "questions": "Tens dubtes?",
             "questionsDescription": "Responem a qualsevol pregunta sobre l'ús dels fons. Escriu-nos a"
+        },
+        "contribute": {
+            "title": "Com pots col·laborar",
+            "chooseOption": "Pots col·laborar de diferents maneres, tria l'opció que més et convingui.",
+            "intro": "La Fundació Kassumay tira endavant gràcies a persones com tu i qualsevol ajuda és molt valuosa. L'import de les quotes es destina íntegrament al finançament dels nostres projectes, ja que el nostre equip està format exclusivament per voluntaris i voluntàries.",
+            "companies": {
+                "text": "Creiem que les empreses són un motor important per al canvi social. Poden col·laborar financerament, fomentar iniciatives solidàries i implicar els empleats. Parlem-ne.",
+                "title": "Empreses solidàries"
+            },
+            "team": {
+                "text": "El nostre equip està format per voluntaris de diferents àmbits i creiem que tothom té alguna cosa a aportar. Per això qualsevol proposta serà benvinguda. Vine a veure'ns i digues-nos on pots col·laborar.",
+                "title": "Uneix-te al nostre equip"
+            },
+            "member": {
+                "text": "Una contribució regular ens permetrà planificar els nostres projectes a llarg termini. Amb la teva ajuda continuarem millorant la qualitat de vida de les persones.",
+                "title": "Fes-te soci"
+            },
+            "donate": {
+                "text": "Tot suma i qualsevol contribució, per petita que sigui, és benvinguda.",
+                "title": "Fer un donatiu",
+                "cta": "FER UN DONATIU"
+            },
+            "legacy": {
+                "title": "Herències i llegats",
+                "text": "Fins i tot quan ja no hi siguis, ens pots ajudar. Pots fer que la FUNDACIÓ KASSUMAY sigui hereva, cotitular o legatària del teu patrimoni; no importa si és molt o poc, qualsevol contribució compta. Pots llegar diners en efectiu, béns mobles o immobles i fins i tot valors financers, segons les teves circumstàncies i desitjos."
+            },
+            "footnotes": {
+                "individualPre": "Totes les persones que fan donacions ocasionals o regulars (membres) reben el certificat fiscal amb les aportacions fetes durant l'any.",
+                "individualBold": "Els particulars poden deduir el 80% dels primers 150 euros donats i el 35% de la resta de donacions un cop superats els 150 euros.",
+                "individualPost": "Si s'han fet donacions al mateix banc durant un període mínim de 3 anys per un import igual o superior, aquesta deducció serà del 35%.",
+                "companiesPre": "Totes les empreses col·laboradores reben un Certificat Fiscal amb les aportacions realitzades durant l'any.",
+                "companiesBold": "Les empreses poden deduir fins al 40% en la quota total de l'impost de societats, amb el límit del 10% de la base imposable bruta. Els autònoms poden deduir fins al 25% de l'impost sobre la renda."
+            },
+            "form": {
+                "heading": "CONTACTE",
+                "name": "NOM I COGNOMS",
+                "company": "EMPRESA",
+                "email": "E-MAIL",
+                "want": "VOLDRIA:",
+                "send": "ENVIAR",
+                "requiredNote": "* CAMPS OBLIGATORIS",
+                "subject": "Contacte - Com col·laborar",
+                "options": {
+                    "volunteer": "FER-ME VOLUNTARI/ÀRIA",
+                    "member": "SER MEMBRE",
+                    "collaborator": "SER UNA ENTITAT COL·LABORADORA",
+                    "other": "ALTRES"
+                },
+                "bodyLabels": {
+                    "name": "Nom",
+                    "company": "Empresa",
+                    "email": "Email",
+                    "want": "Voldria"
+                }
+            }
         },
         "login": {
             "brand": "Fundació Kassumay",

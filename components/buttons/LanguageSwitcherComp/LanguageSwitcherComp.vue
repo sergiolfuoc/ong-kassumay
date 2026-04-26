@@ -4,7 +4,7 @@
             :class="[design.toggleButton, dark ? design.toggleDark : design.toggleLight]"
             @click="(isOpen = !isOpen)"
         >
-            <GlobeAltIcon class="w-5 h-5" />
+            <GlobeAltIcon class="w-4 h-4" />
             {{ currentLabel }}
         </button>
         <Transition name="fade">
@@ -52,7 +52,7 @@ onUnmounted(() => document.removeEventListener("click", onClickOutside))
 
 const design = {
     wrapper: "relative",
-    toggleButton: "flex items-center gap-1.5 text-sm font-medium transition",
+    toggleButton: "flex items-center gap-1.5 text-xs font-medium transition",
     toggleDark: "text-earth-300 hover:text-white",
     toggleLight: "text-earth-600 hover:text-earth-900",
     menu: "absolute right-0 mt-2 w-36 bg-white rounded-xl shadow-lg border border-earth-100 py-1 z-50",

@@ -2,43 +2,49 @@
     <header :class="design.header">
         <div :class="design.headerContainer">
             <NuxtLink to="/" :class="design.brandLink">
-                <img src="/images/logo-kassumay.png" alt="Fundació Kassumay" class="h-10" />
+                <img src="/images/logo-kassumay.png" alt="Fundació Kassumay" class="h-9" />
             </NuxtLink>
 
             <nav :class="design.desktopNav">
                 <NuxtLink v-for="headerRoute in headerRoutes" :key="headerRoute.to" :to="headerRoute.to" :class="design.navLink">{{ t(headerRoute.label) }}</NuxtLink>
-
-                <template v-if="user">
-                    <NuxtLink v-for="headerAuthRoute in headerAuthRoutes" :key="headerAuthRoute.to"
-                        :to="headerAuthRoute.to"
-                        class="flex items-center gap-2 text-earth-700 hover:text-primary-500 transition text-sm font-medium">
-                        <img :src="profile?.avatar_url || '/images/default-avatar.svg'"
-                            alt="" class="w-7 h-7 rounded-full object-cover" />
-                        {{ t(headerAuthRoute.label) }}
-                    </NuxtLink>
-                    <button :class="design.logoutButton" @click="handleLogout">{{ t("composables.useNavigation.signOut") }}</button>
-                    <AdminMenuComp
-                        v-if="adminPanelRoutes.length"
-                        :routes="adminPanelRoutes"
-                        variant="desktop"
-                    />
-                </template>
-                <template v-else>
-                    <NuxtLink
-                        v-for="headerGuestRoute in headerGuestRoutes"
-                        :key="headerGuestRoute.to"
-                        :to="headerGuestRoute.to"
-                        :class="
-                            headerGuestRoute.variant === 'outline'
-                                ? design.guestOutlineLink
-                                : design.navLink
-                        "
-                        >{{ t(headerGuestRoute.label) }}</NuxtLink
-                    >
-                </template>
-
-                <LanguageSwitcherComp />
             </nav>
+
+            <div :class="design.desktopRight">
+                <div :class="design.pill">
+                    <LanguageSwitcherComp />
+
+                    <template v-if="user">
+                        <span :class="design.pillDivider" />
+                        <NuxtLink v-for="headerAuthRoute in headerAuthRoutes" :key="headerAuthRoute.to"
+                            :to="headerAuthRoute.to"
+                            :class="design.pillProfile">
+                            <img :src="profile?.avatar_url || '/images/default-avatar.svg'"
+                                alt="" class="w-6 h-6 rounded-full object-cover" />
+                            {{ t(headerAuthRoute.label) }}
+                        </NuxtLink>
+                        <button :class="design.pillLogout" @click="handleLogout">{{ t("composables.useNavigation.signOut") }}</button>
+                    </template>
+                    <template v-else>
+                        <span :class="design.pillDivider" />
+                        <NuxtLink
+                            v-for="headerGuestRoute in headerGuestRoutes"
+                            :key="headerGuestRoute.to"
+                            :to="headerGuestRoute.to"
+                            :class="
+                                headerGuestRoute.variant === 'outline'
+                                    ? design.pillCta
+                                    : design.pillLink
+                            "
+                            >{{ t(headerGuestRoute.label) }}</NuxtLink
+                        >
+                    </template>
+                </div>
+                <AdminMenuComp
+                    v-if="user && adminPanelRoutes.length"
+                    :routes="adminPanelRoutes"
+                    variant="desktop"
+                />
+            </div>
 
             <div :class="design.mobileActions">
                 <LanguageSwitcherComp />
@@ -95,15 +101,18 @@ const isMobileMenuOpen = ref(false)
 
 const design = {
     header: "bg-white sticky top-0 z-50 border-b border-earth-100",
-    headerContainer: "max-w-7xl mx-auto px-6 py-3 flex justify-between items-center",
-    brandLink: "flex items-center gap-2.5",
-    brandIconWrap: "w-10 h-10 bg-primary-400 rounded-full flex items-center justify-center",
-    brandText: "text-xl font-bold text-earth-900 tracking-tight",
+    headerContainer: "max-w-7xl mx-auto px-6 py-3 flex items-center gap-8",
+    brandLink: "flex items-center gap-2.5 shrink-0",
     desktopNav: "hidden lg:flex items-center gap-7",
     navLink: "text-earth-700 hover:text-primary-500 transition text-sm font-medium",
-    guestOutlineLink: "border border-primary-400 text-primary-500 hover:bg-primary-50 px-4 py-2 rounded-full text-sm font-semibold transition",
-    logoutButton: "text-sm text-earth-400 hover:text-red-500 transition",
-    mobileActions: "flex items-center gap-3 lg:hidden",
+    desktopRight: "hidden lg:flex items-center gap-3 shrink-0 ml-auto",
+    pill: "flex items-center gap-2 bg-earth-50 rounded-full pl-2 pr-1 py-1 border border-earth-100",
+    pillDivider: "w-px h-5 bg-earth-200",
+    pillLink: "text-earth-700 hover:text-primary-500 transition text-sm font-medium px-3 py-1",
+    pillCta: "bg-primary-500 text-white hover:bg-primary-600 px-4 py-1.5 rounded-full text-sm font-semibold transition",
+    pillProfile: "flex items-center gap-2 text-earth-700 hover:text-primary-500 transition text-sm font-medium px-2 py-0.5",
+    pillLogout: "text-sm text-earth-400 hover:text-red-500 transition px-3 py-1",
+    mobileActions: "flex items-center gap-3 lg:hidden ml-auto",
     menuToggle: "text-earth-700 p-1",
     mobileNav: "lg:hidden bg-white border-t border-earth-100 px-6 py-5 space-y-4",
     mobileNavLink: "block text-earth-800 hover:text-primary-500 font-medium",

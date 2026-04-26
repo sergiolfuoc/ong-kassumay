@@ -33,7 +33,7 @@ const props = defineProps<{
     modelValue: string
     placeholder?: string
 }>()
-const emit = defineEmits<{ "update:modelValue": [value: string] }>()
+const emit = defineEmits<{ "update:modelValue": [value: string]; blur: [] }>()
 
 const { t } = useI18n()
 
@@ -60,6 +60,15 @@ const editor = useEditor({
     // Añado debounce para evitar que emita un update por cada caracter
     onUpdate({ editor: e }) {
         emitDebounced(e.getHTML())
+    },
+    onBlur({ editor: e }) {
+        // forzar el ultimo emit pendiente antes de validar, si no el padre valida con valor viejo
+        if (emitTimer) {
+            clearTimeout(emitTimer)
+            emitTimer = null
+            emit("update:modelValue", e.getHTML())
+        }
+        emit("blur")
     },
 })
 

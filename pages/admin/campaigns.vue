@@ -48,6 +48,7 @@
             :errors="form.formErrors"
             :image-error="form.imageError.value"
             :server-error="form.serverError.value"
+            :can-submit="form.canSubmit.value"
             @close="form.closeForm"
             @save="form.saveCampaign"
             @slug-from-title="form.autoSlug"
@@ -55,6 +56,7 @@
             @update:tag-ids="form.selectedTagIds.value = $event"
             @picked-image="form.onFileSelected"
             @clear-file="form.clearFile"
+            @field-touched="form.validate"
         />
         <CampaignDeleteDialog :target="deleteTarget" @cancel="deleteTarget = null" @confirm="doDelete" />
     </div>

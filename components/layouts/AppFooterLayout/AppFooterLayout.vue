@@ -30,6 +30,15 @@
                     <li>
                         <NuxtLink to="/" :class="design.footerLink">{{ t("composables.useNavigation.home") }}</NuxtLink>
                     </li>
+                    <li>
+                        <NuxtLink to="/news" :class="design.footerLink">{{ t("composables.useNavigation.news") }}</NuxtLink>
+                    </li>
+                    <li>
+                        <NuxtLink to="/campaigns" :class="design.footerLink">{{ t("composables.useNavigation.campaigns") }}</NuxtLink>
+                    </li>
+                    <li>
+                        <NuxtLink to="/transparency" :class="design.footerLink">{{ t("components.layouts.AppFooterLayout.transparency") }}</NuxtLink>
+                    </li>
                 </ul>
             </div>
 
@@ -41,6 +50,11 @@
                     </li>
                     <li>
                         <NuxtLink to="/login" :class="design.footerLink">{{ t("composables.useNavigation.signIn") }}</NuxtLink>
+                    </li>
+                    <li>
+                        <NuxtLink to="/contribute" :class="design.footerLink">
+                            {{ t("components.layouts.AppFooterLayout.volunteer") }}
+                        </NuxtLink>
                     </li>
                 </ul>
             </div>

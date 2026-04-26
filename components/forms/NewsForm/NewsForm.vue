@@ -17,12 +17,21 @@
                     <div class="grid grid-cols-2 gap-4">
                         <FormFieldComp :label="t('pages.admin.news.form.title')" :error="props.errors.title ? t(props.errors.title) : ''">
                             <template #default="{ hasError }">
-                                <FormInputComp v-model="props.form.title" :has-error="hasError" @update:model-value="$emit('auto-slug')" />
+                                <FormInputComp
+                                    v-model="props.form.title"
+                                    :has-error="hasError"
+                                    @update:model-value="$emit('auto-slug')"
+                                    @blur="$emit('field-touched', 'title')"
+                                />
                             </template>
                         </FormFieldComp>
                         <FormFieldComp :label="t('pages.admin.news.form.slug')" :error="props.errors.slug ? t(props.errors.slug) : ''">
                             <template #default="{ hasError }">
-                                <FormInputComp v-model="props.form.slug" :has-error="hasError" />
+                                <FormInputComp
+                                    v-model="props.form.slug"
+                                    :has-error="hasError"
+                                    @blur="$emit('field-touched', 'slug')"
+                                />
                             </template>
                         </FormFieldComp>
                     </div>
@@ -93,7 +102,7 @@
                     <!-- Contenido noticia -->
                     <fieldset class="border border-earth-200 rounded-lg p-4 space-y-3" :class="props.errors.content ? 'border-red-400' : ''">
                         <legend class="text-sm font-semibold text-earth-600 px-2">{{ t("pages.admin.news.form.articleSection") }}</legend>
-                        <TipTapEditorComp v-model="props.form.content" />
+                        <TipTapEditorComp v-model="props.form.content" @blur="$emit('field-touched', 'content')" />
                         <p v-if="props.errors.content" class="text-red-500 text-xs mt-1">{{ t(props.errors.content, { min: 10 }) }}</p>
                     </fieldset>
 
@@ -116,6 +125,7 @@
                         :save-label="t('pages.admin.news.form.save')"
                         :cancel-label="t('pages.admin.news.form.cancel')"
                         :server-error="props.serverError"
+                        :disabled="!props.canSubmit"
                         @cancel="$emit('close')"
                         @save="$emit('save')"
                     />
@@ -151,9 +161,10 @@ const props = defineProps<{
     errors: Record<string, string>
     imageError: string
     serverError: string
+    canSubmit: boolean
 }>()
 
-const emit = defineEmits(["close", "save", "auto-slug", "update:coverMode", "update:tagIds", "file-selected", "clear-file"])
+const emit = defineEmits(["close", "save", "auto-slug", "update:coverMode", "update:tagIds", "file-selected", "clear-file", "field-touched"])
 
 const fileInput = ref<HTMLInputElement | null>(null)
 

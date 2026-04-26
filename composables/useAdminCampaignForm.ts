@@ -35,12 +35,30 @@ export function useAdminCampaignForm(args: {
         end_date: "",
         active: false,
     })
-    const { errors: formErrors, validate, reset: resetErrors } = useFormValidation(form, {
+    const { errors: formErrors, validate: validateFields, validateField, isValid, reset: resetErrors } = useFormValidation(form, {
         title: [required],
         slug: [required],
         description: [required, minLength(10)],
+        goal_amount: [required, minNumber(1)],
         raised_amount: [minNumber(0)],
+        start_date: [required],
         end_date: [dateRange(() => form.start_date)],
+    })
+
+    function checkImage(): boolean {
+        const hasImage = coverMode.value === "UPLOAD" ? !!selectedFile.value : !!form.image_url.trim()
+        imageError.value = hasImage ? "" : t("validations.required")
+        return hasImage
+    }
+    function validate(): boolean {
+        // valida todos los campos y la imagen para que el usuario vea de golpe todo lo que falta
+        const fieldsOk = validateFields()
+        const imageOk = checkImage()
+        return fieldsOk && imageOk
+    }
+    const canSubmit = computed(() => {
+        if (!isValid.value) return false
+        return coverMode.value === "UPLOAD" ? !!selectedFile.value : !!form.image_url.trim()
     })
 
     const previewCampaign = computed<ICampaignModel>(() => ({
@@ -126,10 +144,6 @@ export function useAdminCampaignForm(args: {
         if (isSubmitting.value) return
         isSubmitting.value = true
         try {
-            const hasImage = coverMode.value === "UPLOAD" ? !!selectedFile.value : !!form.image_url.trim()
-            if (!hasImage) { imageError.value = t("validations.required"); return }
-            imageError.value = ""
-
             if (!validate()) return
 
             const { url, error: imgError } = await resolveImageUrl(
@@ -178,8 +192,8 @@ export function useAdminCampaignForm(args: {
 
     return {
         showForm, editingId, serverError, imageError, coverMode, selectedFile, selectedTagIds,
-        form, formErrors, previewCampaign,
+        form, formErrors, previewCampaign, canSubmit,
         autoSlug, onFileSelected, clearFile,
-        openForm, editCampaign, closeForm, saveCampaign,
+        openForm, editCampaign, closeForm, saveCampaign, validate, validateField,
     }
 }

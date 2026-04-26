@@ -6,6 +6,7 @@
         class="w-full px-3 py-2 border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary-500"
         :class="hasError ? 'border-red-400 ring-1 ring-red-400' : ''"
         @input="$emit('update:modelValue', ($event.target as HTMLTextAreaElement).value)"
+        @blur="$emit('blur')"
     />
 
 </template>
@@ -17,5 +18,5 @@ defineProps<{
     hasError?: boolean
 }>()
 
-defineEmits(["update:modelValue"])
+defineEmits(["update:modelValue", "blur"])
 </script>
