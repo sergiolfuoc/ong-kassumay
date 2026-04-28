@@ -31,6 +31,9 @@
                         <NuxtLink to="/" :class="design.footerLink">{{ t("composables.useNavigation.home") }}</NuxtLink>
                     </li>
                     <li>
+                        <NuxtLink to="/foundation" :class="design.footerLink">{{ t("composables.useNavigation.foundation") }}</NuxtLink>
+                    </li>
+                    <li>
                         <NuxtLink to="/news" :class="design.footerLink">{{ t("composables.useNavigation.news") }}</NuxtLink>
                     </li>
                     <li>

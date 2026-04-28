@@ -2,6 +2,7 @@ import type { INavigationRoute } from "../types"
 
 export const navigationRoutes: INavigationRoute[] = [
     // Home no va en el nav: el logo de la marca ya navega a /
+    { to: "/foundation", label: "composables.useNavigation.foundation", section: "header", order: 1 },
     { to: "/news", label: "composables.useNavigation.news", section: "header", order: 2 },
     { to: "/campaigns", label: "composables.useNavigation.campaigns", section: "header", order: 3 },
 

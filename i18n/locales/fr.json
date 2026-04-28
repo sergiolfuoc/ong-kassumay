@@ -4,6 +4,7 @@
             "home": "Accueil",
             "signIn": "Connexion",
             "signUp": "S'inscrire",
+            "foundation": "La Fondation",
             "signOut": "Déconnexion",
             "brand": "Fundació Kassumay",
             "profile": "Profil",
@@ -130,6 +131,17 @@
                 "empty": "Aucune campagne active pour le moment.",
                 "seeAll": "Voir toutes les campagnes"
             },
+            "welcome": {
+                "tag": "Bienvenue",
+                "langLabel": "En diola, langue de Casamance",
+                "meaning": "Paix. Pour tous.",
+                "originTitle": "D'où vient ce mot",
+                "originText": "Nous avons appris ce mot en saluant les habitants de Casamance, au sud du Sénégal. Nous l'avons adopté pour nommer la fondation, pour le poids de son sens et la proximité dans la façon de le prononcer.",
+                "visionTitle": "Pourquoi il nous définit",
+                "visionText": "Une société qui vit en paix peut envisager un avenir. C'est à cet avenir que nous voulons apporter notre grain de sable : de l'eau, des écoles et de la santé, sur le terrain et avec celles et ceux qui y vivent.",
+                "anniversaryLabel": "ans à l'œuvre",
+                "anniversaryYears": "avec la Fundació Kassumay"
+            },
             "topics": {
                 "title": "Explorer par thème",
                 "subtitle": "Filtre les actualités et les campagnes selon le domaine qui t'intéresse."
@@ -254,6 +266,49 @@
                 "individualPost": "Si les dons ont été versés au même compte pendant au moins 3 ans pour un montant égal ou supérieur, cette déduction passe à 35%.",
                 "companiesPre": "Toutes les entreprises collaboratrices reçoivent un Certificat Fiscal avec les contributions effectuées dans l'année.",
                 "companiesBold": "Les entreprises peuvent déduire jusqu'à 40% sur l'impôt sur les sociétés, dans la limite de 10% de la base imposable brute. Les indépendants peuvent déduire jusqu'à 25% de l'impôt sur le revenu."
+            }
+        },
+        "foundation": {
+            "title": "La Fondation",
+            "intro": "La Fundació Kassumay est une ONG sans but lucratif qui œuvre pour le développement intégral des populations, principalement en Basse-Casamance (Sénégal), même si elle intervient sur l'ensemble du territoire. Cette année, nous fêtons nos 25 ans.",
+            "members": {
+                "team": "Équipe",
+                "title": "Membres",
+                "board": "Conseil d'administration"
+            },
+            "partners": {
+                "title": "Partenaires et collaborateurs",
+                "independence": "La Fundació Kassumay est une fondation gérée exclusivement par des personnes indépendantes issues de différents milieux professionnels et entrepreneuriaux, sans aucune servitude politique ni institutionnelle."
+            },
+            "volunteerCta": {
+                "title": "Envie de nous rejoindre ?",
+                "text": "Notre équipe est 100% bénévole. Si tu veux t'impliquer, nous écrire ou découvrir comment collaborer, on t'explique les options.",
+                "cta": "Devenir bénévole"
+            },
+            "roles": {
+                "vicePresident": "Vice-président",
+                "treasurer": "Trésorière",
+                "president": "Président",
+                "member": "Membre",
+                "secretary": "Secrétaire"
+            },
+            "transparency": {
+                "title": "Transparence",
+                "commitment": "Dans la mesure où nous demandons à la société de nous soutenir pour faire avancer notre mission, notre devoir est de fournir une réponse claire, détaillée et transparente sur la destination des contributions qui nous sont confiées, en travaillant à tout moment avec professionnalisme, rigueur et cohérence.",
+                "controls": "C'est pourquoi nous suivons une série de normes, contrôles et indicateurs qui garantissent cet engagement.",
+                "legalIntro": "Nous sommes soumis à la législation en vigueur sur les fondations de la Generalitat de Catalunya :",
+                "laws": {
+                    "law1": "Loi 4/2008, du livre troisième du Code civil de Catalogne, relative aux personnes morales.",
+                    "law2": "Loi 7/2012, du 15 juin, modifiant le livre troisième du Code civil de Catalogne concernant les personnes morales.",
+                    "law3": "ORDRE JUS/152/2018, du 12 septembre, fixant le niveau de soumission des fondations et associations d'utilité publique aux instruments de transparence prévus par la Loi 21/2014.",
+                    "law4": "Loi 21/2014, sur le protectorat des fondations et la vérification de l'activité des associations déclarées d'utilité publique.",
+                    "law5": "Loi 49/2002, sur le régime fiscal des entités sans but lucratif et les incitations fiscales au mécénat."
+                },
+                "amlPre": "À la Fundació Kassumay, nous appliquons la",
+                "amlLink": "Loi 10/2010 de Prévention du Blanchiment de Capitaux et du Financement du Terrorisme",
+                "amlPost": ", qui décrit les procédures et mesures de contrôle mises en place.",
+                "bylawsLink": "Vous pouvez consulter ici les statuts de la Fundació Kassumay",
+                "bylawsSubject": "Demande des statuts"
             }
         },
         "login": {

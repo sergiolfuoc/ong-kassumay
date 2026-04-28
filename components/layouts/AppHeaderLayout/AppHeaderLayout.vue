@@ -15,14 +15,45 @@
 
                     <template v-if="user">
                         <span :class="design.pillDivider" />
-                        <NuxtLink v-for="headerAuthRoute in headerAuthRoutes" :key="headerAuthRoute.to"
-                            :to="headerAuthRoute.to"
-                            :class="design.pillProfile">
-                            <img :src="profile?.avatar_url || '/images/default-avatar.svg'"
-                                alt="" class="w-6 h-6 rounded-full object-cover" />
-                            {{ t(headerAuthRoute.label) }}
-                        </NuxtLink>
-                        <button :class="design.pillLogout" @click="handleLogout">{{ t("composables.useNavigation.signOut") }}</button>
+                        <div class="relative" ref="profileMenuRef">
+                            <button
+                                type="button"
+                                :class="design.pillProfile"
+                                aria-haspopup="menu"
+                                :aria-expanded="isProfileMenuOpen"
+                                @click="isProfileMenuOpen = !isProfileMenuOpen"
+                            >
+                                <img :src="profile?.avatar_url || '/images/default-avatar.svg'"
+                                    alt="" class="w-7 h-7 rounded-full object-cover" />
+                                <ChevronDownIcon
+                                    class="w-4 h-4 text-earth-500 transition-transform duration-200"
+                                    :class="{ 'rotate-180': isProfileMenuOpen }"
+                                />
+                            </button>
+
+                            <Transition name="slide">
+                                <div v-if="isProfileMenuOpen" :class="design.profileMenu" role="menu">
+                                    <NuxtLink
+                                        v-for="headerAuthRoute in headerAuthRoutes"
+                                        :key="headerAuthRoute.to"
+                                        :to="headerAuthRoute.to"
+                                        :class="design.profileMenuItem"
+                                        role="menuitem"
+                                        @click="isProfileMenuOpen = false"
+                                    >
+                                        {{ t(headerAuthRoute.label) }}
+                                    </NuxtLink>
+                                    <button
+                                        type="button"
+                                        :class="design.profileMenuLogout"
+                                        role="menuitem"
+                                        @click="handleLogout"
+                                    >
+                                        {{ t("composables.useNavigation.signOut") }}
+                                    </button>
+                                </div>
+                            </Transition>
+                        </div>
                     </template>
                     <template v-else>
                         <span :class="design.pillDivider" />
@@ -92,12 +123,24 @@
 
 </template>
 <script setup lang="ts">
-import { Bars3Icon, XMarkIcon } from "@heroicons/vue/24/outline"
+import { Bars3Icon, XMarkIcon, ChevronDownIcon } from "@heroicons/vue/24/outline"
 
 const { user, profile, headerRoutes, headerGuestRoutes, headerAuthRoutes, adminPanelRoutes } = useNavigation()
 const { t } = useI18n()
 const supabase = useSupabaseClient()
 const isMobileMenuOpen = ref(false)
+const isProfileMenuOpen = ref(false)
+const profileMenuRef = ref<HTMLElement | null>(null)
+
+function onDocumentClick(event: MouseEvent) {
+    if (!isProfileMenuOpen.value) return
+    if (profileMenuRef.value && !profileMenuRef.value.contains(event.target as Node)) {
+        isProfileMenuOpen.value = false
+    }
+}
+
+onMounted(() => document.addEventListener("click", onDocumentClick))
+onBeforeUnmount(() => document.removeEventListener("click", onDocumentClick))
 
 const design = {
     header: "bg-white sticky top-0 z-50 border-b border-earth-100",
@@ -110,8 +153,11 @@ const design = {
     pillDivider: "w-px h-5 bg-earth-200",
     pillLink: "text-earth-700 hover:text-primary-500 transition text-sm font-medium px-3 py-1",
     pillCta: "bg-primary-500 text-white hover:bg-primary-600 px-4 py-1.5 rounded-full text-sm font-semibold transition",
-    pillProfile: "flex items-center gap-2 text-earth-700 hover:text-primary-500 transition text-sm font-medium px-2 py-0.5",
+    pillProfile: "flex items-center gap-2 text-earth-700 hover:text-primary-500 transition text-sm font-medium p-0.5 rounded-full",
     pillLogout: "text-sm text-earth-400 hover:text-red-500 transition px-3 py-1",
+    profileMenu: "absolute right-0 top-full mt-2 w-48 bg-white rounded-xl shadow-lg border border-earth-100 py-2 z-50",
+    profileMenuItem: "block px-4 py-2 text-sm text-earth-700 hover:bg-earth-50 hover:text-primary-500 transition",
+    profileMenuLogout: "block w-full text-left px-4 py-2 text-sm text-earth-500 hover:bg-earth-50 hover:text-red-500 transition border-t border-earth-100 mt-1 pt-2",
     mobileActions: "flex items-center gap-3 lg:hidden ml-auto",
     menuToggle: "text-earth-700 p-1",
     mobileNav: "lg:hidden bg-white border-t border-earth-100 px-6 py-5 space-y-4",
@@ -122,6 +168,7 @@ const design = {
 async function handleLogout() {
     await supabase.auth.signOut()
     isMobileMenuOpen.value = false
+    isProfileMenuOpen.value = false
     navigateTo("/")
 }
 </script>

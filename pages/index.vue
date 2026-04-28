@@ -1,5 +1,55 @@
 <template>
     <div>
+
+        <!-- Bienvenidos / Kassumay manifesto -->
+        <section class="relative bg-earth-900 text-warm-100 py-28 md:py-36 overflow-hidden">
+            <!-- textura: blobs + grano -->
+            <div class="absolute -top-32 -left-24 w-[28rem] h-[28rem] rounded-full bg-primary-500/15 blur-3xl pointer-events-none" />
+            <div class="absolute -bottom-32 -right-24 w-[32rem] h-[32rem] rounded-full bg-amber-400/10 blur-3xl pointer-events-none" />
+
+            <div class="relative max-w-6xl mx-auto px-6">
+                <div class="text-center">
+                    <span class="inline-block text-[11px] font-semibold tracking-[0.3em] text-primary-300 uppercase mb-6">
+                        {{ t("pages.index.welcome.tag") }}
+                    </span>
+
+                    <!-- Palabra-ancla -->
+                    <h2 class="-mt-6 md:-mt-10 font-display font-bold leading-none text-white text-[18vw] md:text-[10rem] tracking-tight select-none">
+                        <span class="bg-gradient-to-r from-primary-300 via-amber-200 to-primary-300 bg-clip-text text-transparent">Kassumay</span>
+                    </h2>
+
+                    <!-- Tarjeta traduccion -->
+                    <div class="mt-4 md:mt-6 inline-flex flex-col items-center gap-1 px-6 py-3 rounded-2xl bg-white/5 backdrop-blur border border-white/10">
+                        <span class="text-[10px] uppercase tracking-[0.25em] text-primary-300">{{ t("pages.index.welcome.langLabel") }}</span>
+                        <span class="text-xl md:text-2xl font-display text-white">{{ t("pages.index.welcome.meaning") }}</span>
+                    </div>
+                </div>
+
+                <!-- Dos columnas narrativa -->
+                <div class="mt-16 grid md:grid-cols-2 gap-10 md:gap-16 max-w-4xl mx-auto">
+                    <div class="relative pl-5 border-l-2 border-primary-400/60">
+                        <h3 class="text-lg font-semibold text-white mb-3">{{ t("pages.index.welcome.originTitle") }}</h3>
+                        <p class="text-warm-200/90 leading-relaxed text-sm md:text-[0.95rem]">{{ t("pages.index.welcome.originText") }}</p>
+                    </div>
+                    <div class="relative pl-5 border-l-2 border-amber-300/60">
+                        <h3 class="text-lg font-semibold text-white mb-3">{{ t("pages.index.welcome.visionTitle") }}</h3>
+                        <p class="text-warm-200/90 leading-relaxed text-sm md:text-[0.95rem]">{{ t("pages.index.welcome.visionText") }}</p>
+                    </div>
+                </div>
+
+                <!-- Sello aniversario -->
+                <div class="mt-16 flex justify-center">
+                    <div class="inline-flex items-center gap-4 px-6 py-3 rounded-full bg-gradient-to-r from-primary-500/20 to-amber-400/20 border border-primary-300/30">
+                        <span class="font-display font-bold text-3xl md:text-4xl text-white leading-none">25</span>
+                        <span class="text-sm text-warm-200 leading-tight text-left">
+                            {{ t("pages.index.welcome.anniversaryLabel") }}<br />
+                            <strong class="text-primary-200">{{ t("pages.index.welcome.anniversaryYears") }}</strong>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
         <!-- hero -->
         <section class="relative min-h-[90vh] flex items-center overflow-hidden">
             <div class="absolute inset-0 bg-[url('/images/heroes/home-hero.jpg')] bg-cover bg-center" />
@@ -19,6 +69,9 @@
                 </div>
             </div>
         </section>
+
+        
+
 
         <!-- programas -->
         <section id="programs" class="bg-warm-50 py-16 md:py-20">

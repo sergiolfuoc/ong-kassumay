@@ -2,6 +2,7 @@
     "composables": {
         "useNavigation": {
             "home": "Inici",
+            "foundation": "La Fundació",
             "signIn": "Iniciar sessió",
             "signUp": "Registrar-se",
             "signOut": "Tancar sessió",
@@ -130,6 +131,17 @@
                 "empty": "No hi ha campanyes actives ara mateix.",
                 "seeAll": "Veure totes les campanyes"
             },
+            "welcome": {
+                "tag": "Benvinguts",
+                "langLabel": "En diola, llengua de Casamance",
+                "meaning": "Pau. Per a tothom.",
+                "originTitle": "D'on ve",
+                "originText": "Vam apendre aquesta paraula saludant a la gent de Casamance, al sud del Senegal. La vam adoptar per donar nom a la fundacio pel pes del seu significat i per la proximitat amb que es pronuncia.",
+                "visionTitle": "Per que ens defineix",
+                "visionText": "Una societat que viu en pau pot plantejar-se un futur. A aquest futur volem aportar el nostre gra de sorra: aigua, escoles i salut, sobre el terreny i amb qui hi viu.",
+                "anniversaryLabel": "anys treballant",
+                "anniversaryYears": "amb la Fundacio Kassumay"
+            },
             "topics": {
                 "subtitle": "Filtra noticies i campanyes segons l'area que mes t'interessi.",
                 "title": "Explora per temes"
@@ -254,6 +266,49 @@
                     "email": "Email",
                     "want": "Voldria"
                 }
+            }
+        },
+        "foundation": {
+            "title": "La Fundació",
+            "intro": "La Fundació Kassumay és una ONG sense ànim de lucre que treballa pel desenvolupament integral del poble, principalment a la Baixa Casamance (Senegal), tot i que també actua arreu del territori. Aquest any en fa 25 que vam començar.",
+            "partners": {
+                "independence": "La Fundació Kassumay és una fundació regida exclusivament per persones independents de diferents àmbits professionals i empresarials, sense cap servitud política ni institucional.",
+                "title": "Entitats i col·laboradors"
+            },
+            "volunteerCta": {
+                "title": "Vols formar-ne part?",
+                "text": "El nostre equip es 100% voluntari. Si vols sumar-t'hi, escriu-nos o mira com pots col·laborar.",
+                "cta": "Fes-te voluntari"
+            },
+            "transparency": {
+                "title": "Transparència",
+                "legalIntro": "Estem subjectes a la legislació vigent sobre fundacions de la Generalitat de Catalunya:",
+                "commitment": "En la mesura que demanem ajuda a la societat per seguir avançant en la nostra missió, el nostre deure és proporcionar una resposta clara, detallada i transparent sobre la destinació de les contribucions que se'ns lliuren, treballant en tot moment amb professionalitat, rigor i coherència.",
+                "controls": "És per això que seguim un seguit de normes, controls i indicadors que asseguren aquest compromís.",
+                "laws": {
+                    "law5": "Llei 49/2002, sobre el règim fiscal de les entitats sense ànim de lucre i dels incentius fiscals al mecenatge.",
+                    "law1": "Llei 4/2008, del llibre tercer del Codi civil de Catalunya, relativa a les persones jurídiques.",
+                    "law3": "ORDRE JUS/152/2018, de 12 de setembre, per la qual s'estableix el nivell de subjecció de les fundacions i de les associacions declarades d'utilitat pública als instruments de transparència establerts per la Llei 21/2014.",
+                    "law2": "Llei 7/2012, del 15 de juny, de modificació del llibre tercer del Codi civil de Catalunya, relativa a les persones jurídiques.",
+                    "law4": "Llei 21/2014, del protectorat de les fundacions i de la verificació de l'activitat de les associacions declarades d'utilitat pública."
+                },
+                "amlPre": "A la Fundació Kassumay apliquem la",
+                "amlLink": "Llei 10/2010 de Prevenció del Blanqueig de Capitals i del Finançament del Terrorisme",
+                "amlPost": ", que descriu els procediments i mesures de control establerts.",
+                "bylawsLink": "Aquí pots consultar els estatuts de la Fundació Kassumay",
+                "bylawsSubject": "Sol·licitud d'estatuts"
+            },
+            "roles": {
+                "secretary": "Secretari",
+                "member": "Vocal",
+                "treasurer": "Tresorera",
+                "president": "President",
+                "vicePresident": "Vicepresident"
+            },
+            "members": {
+                "title": "Membres",
+                "team": "Equip",
+                "board": "Patronat"
             }
         },
         "login": {

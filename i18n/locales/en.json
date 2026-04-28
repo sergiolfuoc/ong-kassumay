@@ -3,6 +3,7 @@
         "useNavigation": {
             "home": "Home",
             "signIn": "Sign in",
+            "foundation": "The Foundation",
             "signUp": "Sign up",
             "signOut": "Sign out",
             "brand": "Fundació Kassumay",
@@ -130,6 +131,17 @@
                 "empty": "No active campaigns right now.",
                 "seeAll": "See all campaigns"
             },
+            "welcome": {
+                "tag": "Welcome",
+                "langLabel": "In Diola, language of Casamance",
+                "meaning": "Peace. For everyone.",
+                "originTitle": "Where it comes from",
+                "originText": "We learned this word greeting people in Casamance, southern Senegal. We adopted it to name the foundation for the weight of its meaning and the closeness in the way it is spoken.",
+                "visionTitle": "Why it defines us",
+                "visionText": "A society that lives in peace can imagine a future. We want to contribute our grain of sand to that future: water, schools and healthcare, on the ground and alongside those who live there.",
+                "anniversaryLabel": "years working",
+                "anniversaryYears": "with Fundació Kassumay"
+            },
             "topics": {
                 "title": "Browse by topic",
                 "subtitle": "Filter news and campaigns by the area you care about."
@@ -254,6 +266,49 @@
                     "collaborator": "BECOME A COLLABORATING ENTITY",
                     "other": "OTHER"
                 }
+            }
+        },
+        "foundation": {
+            "title": "The Foundation",
+            "intro": "Fundació Kassumay is a non-profit NGO working for the integral development of the people, mainly in Lower Casamance (Senegal), although we also operate elsewhere. This year marks our 25th anniversary.",
+            "transparency": {
+                "title": "Transparency",
+                "commitment": "Since we ask society for support to advance our mission, it is our duty to provide a clear, detailed and transparent account of how the contributions entrusted to us are used, working at all times with professionalism, rigour and consistency.",
+                "controls": "That is why we follow a set of rules, controls and indicators that uphold this commitment.",
+                "legalIntro": "We are subject to the current legislation on foundations of the Generalitat de Catalunya:",
+                "laws": {
+                    "law1": "Law 4/2008, on the third book of the Civil Code of Catalonia, relating to legal persons.",
+                    "law2": "Law 7/2012, of 15 June, amending the third book of the Civil Code of Catalonia regarding legal persons.",
+                    "law3": "ORDRE JUS/152/2018, of 12 September, setting the level of compliance for foundations and associations declared of public interest with the transparency instruments under Law 21/2014.",
+                    "law4": "Law 21/2014, on the protectorate of foundations and verification of activity of associations declared of public interest.",
+                    "law5": "Law 49/2002, on the tax regime for non-profit entities and the tax incentives for patronage."
+                },
+                "amlPre": "At Fundació Kassumay we apply",
+                "amlLink": "Law 10/2010 on Prevention of Money Laundering and Terrorism Financing",
+                "amlPost": ", which describes the procedures and control measures in place to prevent money laundering and terrorism financing.",
+                "bylawsLink": "You can request a copy of the bylaws of Fundació Kassumay here",
+                "bylawsSubject": "Bylaws request"
+            },
+            "partners": {
+                "title": "Partners and collaborators",
+                "independence": "Fundació Kassumay is a foundation governed exclusively by independent individuals from different professional and business backgrounds, with no political or institutional dependency."
+            },
+            "volunteerCta": {
+                "title": "Want to join us?",
+                "text": "Our team is 100% volunteer. If you want to get involved, reach out or learn how to collaborate, we'll show you the options.",
+                "cta": "Become a volunteer"
+            },
+            "members": {
+                "title": "Members",
+                "board": "Board of trustees",
+                "team": "Team"
+            },
+            "roles": {
+                "president": "President",
+                "vicePresident": "Vice-president",
+                "secretary": "Secretary",
+                "treasurer": "Treasurer",
+                "member": "Trustee"
             }
         },
         "login": {
