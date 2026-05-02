@@ -1,50 +1,34 @@
 <template>
     <div>
 
-        <!-- Bienvenidos / Kassumay manifesto -->
-        <section class="relative bg-earth-900 text-warm-100 py-28 md:py-36 overflow-hidden">
-            <!-- textura: blobs + grano -->
-            <div class="absolute -top-32 -left-24 w-[28rem] h-[28rem] rounded-full bg-primary-500/15 blur-3xl pointer-events-none" />
-            <div class="absolute -bottom-32 -right-24 w-[32rem] h-[32rem] rounded-full bg-amber-400/10 blur-3xl pointer-events-none" />
-
+        <!-- Bienvenidos / Kassumay -->
+        <section class="relative bg-earth-900 text-warm-100 py-42 md:py-52 overflow-hidden">
             <div class="relative max-w-6xl mx-auto px-6">
                 <div class="text-center">
-                    <span class="inline-block text-[11px] font-semibold tracking-[0.3em] text-primary-300 uppercase mb-6">
+                    <span class="inline-flex items-center gap-3 text-primary-300 text-xs font-semibold uppercase tracking-[0.4em] mb-8">
+                        <span class="h-px w-8 bg-primary-300/60"></span>
                         {{ t("pages.index.welcome.tag") }}
+                        <span class="h-px w-8 bg-primary-300/60"></span>
                     </span>
 
-                    <!-- Palabra-ancla -->
-                    <h2 class="-mt-6 md:-mt-10 font-display font-bold leading-none text-white text-[18vw] md:text-[10rem] tracking-tight select-none">
-                        <span class="bg-gradient-to-r from-primary-300 via-amber-200 to-primary-300 bg-clip-text text-transparent">Kassumay</span>
+                    <h2 class="font-display font-bold leading-none text-primary-300 text-7xl md:text-9xl tracking-tight">
+                        Kassumay
                     </h2>
 
-                    <!-- Tarjeta traduccion -->
-                    <div class="mt-4 md:mt-6 inline-flex flex-col items-center gap-1 px-6 py-3 rounded-2xl bg-white/5 backdrop-blur border border-white/10">
-                        <span class="text-[10px] uppercase tracking-[0.25em] text-primary-300">{{ t("pages.index.welcome.langLabel") }}</span>
-                        <span class="text-xl md:text-2xl font-display text-white">{{ t("pages.index.welcome.meaning") }}</span>
-                    </div>
+                    <span class="inline-flex items-center gap-2 bg-primary-500/20 text-primary-400 text-xs font-semibold px-4 py-1.5 rounded-full uppercase tracking-wider mt-6 backdrop-blur-sm border border-kassumay-500/20">
+                        {{ t("pages.index.welcome.langLabel") }} · {{ t("pages.index.welcome.meaning") }}
+                    </span>
                 </div>
 
-                <!-- Dos columnas narrativa -->
+                <!-- narrativa en 2 columnas -->
                 <div class="mt-16 grid md:grid-cols-2 gap-10 md:gap-16 max-w-4xl mx-auto">
                     <div class="relative pl-5 border-l-2 border-primary-400/60">
                         <h3 class="text-lg font-semibold text-white mb-3">{{ t("pages.index.welcome.originTitle") }}</h3>
-                        <p class="text-warm-200/90 leading-relaxed text-sm md:text-[0.95rem]">{{ t("pages.index.welcome.originText") }}</p>
+                        <p class="text-warm-200 leading-relaxed text-sm md:text-base">{{ t("pages.index.welcome.originText") }}</p>
                     </div>
-                    <div class="relative pl-5 border-l-2 border-amber-300/60">
+                    <div class="relative pl-5 border-l-2 border-primary-400/60">
                         <h3 class="text-lg font-semibold text-white mb-3">{{ t("pages.index.welcome.visionTitle") }}</h3>
-                        <p class="text-warm-200/90 leading-relaxed text-sm md:text-[0.95rem]">{{ t("pages.index.welcome.visionText") }}</p>
-                    </div>
-                </div>
-
-                <!-- Sello aniversario -->
-                <div class="mt-16 flex justify-center">
-                    <div class="inline-flex items-center gap-4 px-6 py-3 rounded-full bg-gradient-to-r from-primary-500/20 to-amber-400/20 border border-primary-300/30">
-                        <span class="font-display font-bold text-3xl md:text-4xl text-white leading-none">25</span>
-                        <span class="text-sm text-warm-200 leading-tight text-left">
-                            {{ t("pages.index.welcome.anniversaryLabel") }}<br />
-                            <strong class="text-primary-200">{{ t("pages.index.welcome.anniversaryYears") }}</strong>
-                        </span>
+                        <p class="text-warm-200 leading-relaxed text-sm md:text-base">{{ t("pages.index.welcome.visionText") }}</p>
                     </div>
                 </div>
             </div>
@@ -120,8 +104,8 @@
                 <h2 class="text-3xl font-display font-bold text-earth-900">{{ t("pages.index.latestNews.title") }}</h2>
                 <p class="text-earth-500 mt-2">{{ t("pages.index.latestNews.tagline") }}</p>
             </div>
-            <div v-if="latestNews?.length" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <NewsCardComp v-for="article in latestNews" :key="article.id" :article="article" />
+            <div v-if="latestNews?.length" class="flex flex-wrap justify-center gap-8">
+                <NewsCardComp v-for="article in latestNews" :key="article.id" :article="article" class="w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.334rem)]" />
             </div>
             <p v-else class="text-earth-400 text-center py-8">{{ t("pages.index.latestNews.empty") }}</p>
             <div v-if="latestNews?.length" class="text-center mt-8">
@@ -141,8 +125,8 @@
                 <h2 class="text-3xl font-display font-bold text-earth-900">{{ t("pages.index.featuredCampaigns.title") }}</h2>
                 <p class="text-earth-500 mt-2">{{ t("pages.index.featuredCampaigns.subtitle") }}</p>
             </div>
-            <div v-if="featuredCampaigns?.length" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <CampaignCardComp v-for="c in featuredCampaigns" :key="c.id" :campaign="c" />
+            <div v-if="featuredCampaigns?.length" class="flex flex-wrap justify-center gap-8">
+                <CampaignCardComp v-for="c in featuredCampaigns" :key="c.id" :campaign="c" class="w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.334rem)]" />
             </div>
             <p v-else class="text-earth-400 text-center py-8">{{ t("pages.index.featuredCampaigns.empty") }}</p>
             <div v-if="featuredCampaigns?.length" class="text-center mt-8">

@@ -47,11 +47,14 @@
 
 </template>
 <script setup lang="ts">
+import { useToast } from "vue-toastification"
+
 definePageMeta({ middleware: "role-guard", visibilityKey: "visibility.profile.view" })
 
 const user = useSupabaseUser()
 const { profiles: profileService } = useServices()
 const { t } = useI18n()
+const toast = useToast()
 const isLoading = ref(false)
 const isSaved = ref(false)
 const fullName = ref("")
@@ -99,10 +102,12 @@ async function saveProfile() {
 
     if (!fullName.value.trim()) {
         formError.value = t("pages.profile.errors.nameRequired")
+        toast.error(formError.value)
         return
     }
     if (selectedFile.value && selectedFile.value.size > 2 * 1024 * 1024) {
         formError.value = t("pages.profile.errors.fileTooLarge")
+        toast.error(formError.value)
         return
     }
 
@@ -112,7 +117,7 @@ async function saveProfile() {
         const { data: newUrl, error: uploadErr } = await profileService.uploadAvatar(
             user.value.sub, selectedFile.value
         )
-        if (uploadErr) { isLoading.value = false; formError.value = uploadErr; return }
+        if (uploadErr) { isLoading.value = false; formError.value = uploadErr; toast.error(uploadErr); return }
         avatarUrl.value = newUrl!
         selectedFile.value = null
         previewUrl.value = ""
@@ -124,11 +129,13 @@ async function saveProfile() {
     })
 
     isLoading.value = false
-    if (error) { 
-        formError.value = error 
+    if (error) {
+        formError.value = error
+        toast.error(error)
         return
     }
     isSaved.value = true
+    toast.success(t("pages.profile.saved"))
     refreshNuxtData("nav-profile")
 }
 </script>

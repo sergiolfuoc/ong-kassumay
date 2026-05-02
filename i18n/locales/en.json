@@ -295,8 +295,8 @@
             },
             "volunteerCta": {
                 "title": "Want to join us?",
-                "text": "Our team is 100% volunteer. If you want to get involved, reach out or learn how to collaborate, we'll show you the options.",
-                "cta": "Become a volunteer"
+                "text": "If you'd like to lend a hand or join as a volunteer, we explain how on the contribute page.",
+                "cta": "Become a volunteer →"
             },
             "members": {
                 "title": "Members",

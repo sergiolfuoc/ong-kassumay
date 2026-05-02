@@ -307,8 +307,8 @@
             },
             "volunteerCta": {
                 "title": "¿Quieres formar parte?",
-                "text": "Nuestro equipo es 100% voluntario. Si quieres sumarte, escribirnos o conocer cómo colaborar, te explicamos las opciones.",
-                "cta": "Hazte voluntario"
+                "text": "Si quieres echar una mano o sumarte como voluntario, te lo explicamos en la pagina de colaborar.",
+                "cta": "Hazte voluntario →"
             }
         },
         "login": {

@@ -9,16 +9,16 @@
         </section>
 
         <section v-if="campaigns?.length" class="max-w-7xl mx-auto px-6 py-12">
-            <h2 class="text-2xl font-display font-bold text-earth-900 mb-6">{{ t("pages.tags.campaignsSection") }}</h2>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <CampaignCardComp v-for="c in campaigns" :key="c.id" :campaign="c" />
+            <h2 class="text-2xl font-display font-bold text-earth-900 mb-6 text-center">{{ t("pages.tags.campaignsSection") }}</h2>
+            <div class="flex flex-wrap justify-center gap-8">
+                <CampaignCardComp v-for="c in campaigns" :key="c.id" :campaign="c" class="w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.334rem)]" />
             </div>
         </section>
 
         <section v-if="news?.length" class="max-w-7xl mx-auto px-6 py-12">
-            <h2 class="text-2xl font-display font-bold text-earth-900 mb-6">{{ t("pages.tags.newsSection") }}</h2>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <NewsCardComp v-for="article in news" :key="article.id" :article="article" />
+            <h2 class="text-2xl font-display font-bold text-earth-900 mb-6 text-center">{{ t("pages.tags.newsSection") }}</h2>
+            <div class="flex flex-wrap justify-center gap-8">
+                <NewsCardComp v-for="article in news" :key="article.id" :article="article" class="w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.334rem)]" />
             </div>
         </section>
 

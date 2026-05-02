@@ -2,19 +2,14 @@
     <StaticPageLayout :title="t('pages.contribute.title')" :subtitle="t('pages.contribute.intro')">
         <h2 style="font-size:1.5rem">{{ t("pages.contribute.chooseOption") }}</h2>
 
-        <div class="not-prose my-8 rounded-2xl bg-gradient-to-r from-primary-50 via-warm-50 to-primary-50 border border-primary-100 px-6 py-8 md:px-10 md:py-10 text-center">
-            <h3 class="text-2xl md:text-3xl font-display font-bold text-earth-900">
-                {{ t("pages.contribute.donate.title") }}<span class="text-primary-500">*</span>
-            </h3>
-            <p class="text-earth-600 mt-2 max-w-xl mx-auto">{{ t("pages.contribute.donate.text") }}</p>
-            <a
-                :href="`mailto:${siteConfig.contactEmail}?subject=${encodeURIComponent(t('pages.contribute.donate.title'))}`"
-                class="inline-flex items-center gap-2 mt-5 bg-primary-600 hover:bg-primary-700 text-white font-semibold px-6 py-3 rounded-xl transition shadow-sm no-underline"
-            >
-                {{ t("pages.contribute.donate.cta") }}
-                <ArrowRightIcon class="w-4 h-4" />
-            </a>
-        </div>
+        <h2 style="font-size:1.2rem">{{ t("pages.contribute.donate.title") }}<span class="text-primary-500">*</span></h2>
+        <p>{{ t("pages.contribute.donate.text") }}</p>
+        <a
+            :href="`mailto:${siteConfig.contactEmail}?subject=${encodeURIComponent(t('pages.contribute.donate.title'))}`"
+            class="inline-block bg-primary-500 hover:bg-primary-600 text-white px-6 py-2.5 rounded-lg text-sm font-semibold transition no-underline"
+        >
+            {{ t("pages.contribute.donate.cta") }}
+        </a>
 
         <h2 style="font-size:1.2rem">{{ t("pages.contribute.member.title") }}<span class="text-primary-500">*</span></h2>
         <p>{{ t("pages.contribute.member.text") }}</p>
@@ -105,7 +100,6 @@
 </template>
 
 <script setup lang="ts">
-import { ArrowRightIcon } from "@heroicons/vue/24/outline"
 import { siteConfig } from "~/src/config/config"
 
 const { t } = useI18n()

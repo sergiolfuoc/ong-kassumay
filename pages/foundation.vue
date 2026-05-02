@@ -60,23 +60,20 @@
 
         <p class="italic text-earth-600">{{ t("pages.foundation.partners.independence") }}</p>
 
-        <!-- CTA voluntariado: lleva al form de /contribute (opcion HACERME VOLUNTARIO/A ya esta ahi) -->
-        <div class="not-prose mt-12 mb-4 rounded-2xl bg-gradient-to-r from-primary-50 via-warm-50 to-primary-50 border border-primary-100 px-6 py-8 md:px-10 md:py-10 text-center">
-            <h3 class="text-2xl md:text-3xl font-display font-bold text-earth-900">{{ t("pages.foundation.volunteerCta.title") }}</h3>
-            <p class="text-earth-600 mt-2 max-w-xl mx-auto">{{ t("pages.foundation.volunteerCta.text") }}</p>
+        <!-- el form de voluntario ya esta en /contribute, evito duplicarlo -->
+        <div class="not-prose mt-10 mb-2 bg-primary-50 border border-primary-200 rounded-lg px-5 py-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+            <p class="text-sm text-earth-700">{{ t("pages.foundation.volunteerCta.text") }}</p>
             <NuxtLink
                 to="/contribute"
-                class="inline-flex items-center gap-2 mt-5 bg-primary-600 hover:bg-primary-700 text-white font-semibold px-6 py-3 rounded-xl transition shadow-sm"
+                class="shrink-0 text-sm font-semibold text-primary-700 hover:text-primary-800 underline underline-offset-2"
             >
                 {{ t("pages.foundation.volunteerCta.cta") }}
-                <ArrowRightIcon class="w-4 h-4" />
             </NuxtLink>
         </div>
     </StaticPageLayout>
 </template>
 
 <script setup lang="ts">
-import { ArrowRightIcon } from "@heroicons/vue/24/outline"
 const { t } = useI18n()
 
 useHead({ title: `${t("pages.foundation.title")} - Fundació Kassumay` })

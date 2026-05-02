@@ -277,8 +277,8 @@
             },
             "volunteerCta": {
                 "title": "Vols formar-ne part?",
-                "text": "El nostre equip es 100% voluntari. Si vols sumar-t'hi, escriu-nos o mira com pots col·laborar.",
-                "cta": "Fes-te voluntari"
+                "text": "Si vols donar un cop de ma o fer-te voluntari, t'ho expliquem a la pagina de col·laborar.",
+                "cta": "Fes-te voluntari →"
             },
             "transparency": {
                 "title": "Transparència",

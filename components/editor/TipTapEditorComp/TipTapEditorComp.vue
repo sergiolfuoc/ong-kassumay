@@ -73,7 +73,11 @@ const editor = useEditor({
 })
 
 // Como @tiptap/extension-character-count no esta instalada pongo contador manual, pero primera opcion el oficial por si se instala en el futuro
-const count = computed(() => editor.value?.storage.characterCount?.characters?.() ?? editor.value?.getText().length ?? 0)
+// Espacios/saltos no cuentan: si no, un editor vacio con un par de Enter ya marca 5+ chars y confunde al usuario
+const count = computed(() => {
+    const text = editor.value?.getText() ?? ""
+    return text.replace(/\s+/g, "").length
+})
 
 // emitUpdate:false evita el loop v-model -> editor.onUpdate -> v-model -> setContent...
 watch(() => props.modelValue, (val) => {

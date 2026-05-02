@@ -67,7 +67,7 @@ import { useToast } from "vue-toastification"
 import type { IDataTableColumn } from "~/composables/useDataTable"
 import type { ICampaignModel } from "~/src/types"
 
-definePageMeta({ middleware: "role-guard", requiredRole: "USER" })
+definePageMeta({ middleware: "role-guard", requiredRole: "ADMIN" })
 
 const { t } = useI18n()
 const { campaigns: campaignsService, tags: tagsService } = useServices()

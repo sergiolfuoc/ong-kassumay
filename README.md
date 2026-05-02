@@ -1,107 +1,165 @@
-# ong-platform
+# Fundació Kassumay — Plataforma web
 
-Plataforma web para una ONG (Fundació Kassumay): Incluye gestión de noticias,
-campañas de donación, perfiles de usuario y cierto contenido estático (pagina de legal, transparencia, etc).Toda la web tiene multiidioma.
+TFM. Web para una ONG (Fundació Kassumay): noticias, campañas, donaciones
+y un panel de admin pequeño y simplificado. Dispone de 4 idiomas (es, ca, en, fr) — `ca` y `fr` a
+medias, quedan pendientes de mejorar y aumentar.
 
-Stack: Nuxt 3 + Vue 3 + TypeScript + Supabase (Postgres + Auth + Storage + RLS) + TailwindCSS + Vitest.
+## Indice
 
----
+- [Motivación](#motivación)
+- [Que hace](#que-hace)
+  - [Roles](#roles)
+- [Stack](#stack)
+- [Capturas](#capturas)
+- [Como levantarlo](#como-levantarlo)
+- [Estructura](#estructura)
+- [Cosas pendientes](#cosas-pendientes)
+- [IA](#ia)
+- [Autoría](#autoría)
 
-## Contexto del autor Sergio Luz Fernandez
+## Motivación
 
-Proyecto TFM desarrollado sobre una base de 8 años de experiencia profesional
-como fullstack developer en startups, trabajando principalmente con Vue,
-Node y Mongo en entornos de producción.
+La fundación tenía una web en Wordpress que les servía de poco poruqe no podían
+montar donaciones ni crowdfunding sin meter una pasarela externa de pagos que no se
+quedase con los datos del donante, y para cualquier cambio de contenido
+me tenían que escribir a mí. La idea era darles algo donde pudieran
+publicar noticias y campañas solos, ver el progreso de lo recaudado y,
+en algun momento, integrar pagos.
 
-Algunas decisiones del proyecto reflejan patrones que he aplicado antes en el
-trabajo y que adapté aquí al dominio de la ONG:
+Para mí el TFM era excusa para hacerlo bien. Llevo años con Vue/Node en
+startups, así que el reto no era el stack: era aplicarlo a un dominio
+nuevo y, sobre todo, no dejar la seguridad solo en el front.
 
-- **Sistema de Roles con tipado recursivo de rutas de permisos** (`PermissionPath`): el
-  tipado `NestedPath` lo arrastré de un sistema anterior
-- **Capa de servicios como plugins inicializables** (`PluginBase<ServicesPlugin>`
-  + `safeCatch`): favorece testing aislado y desacople de la UI.
-- **Tests de integración contra Supabase local**: las
-  políticas RLS solo se prueban bien contra una base real.
+## Que hace
 
+**Pública**: home con tags, listado de noticias y de campañas (filtrables
+por tag), página de detalle, y el widget de progreso de la campaña.
 
-El proyecto no pretende ser un primer contacto con el stack, sino una
-aplicación de criterios profesionales a un dominio nuevo.
+**Admin** (`/admin`): crear/editar/publicar/borrar noticias, campañas y
+tags. Subir imagenes a Storage. Solo entran ADMINs.
 
----
+Login y registro los hace Supabase Auth. Cada user tiene su perfil con
+avatar y nombre, lo edita en `/profile`.
 
-## Uso de IA
+> Nota mental para el tribunal: lo que más tiempo me llevó no fue
+> montar el CRUD, fue que al subir imágenes desde admin reventaba con un
+> error de RLS poco descriptivo. Faltaba una policy de SELECT en
+> `storage.objects`, porque `upsert: true` hace SELECT por debajo. Una
+> tarde entera para una línea de SQL.
 
-Durante el desarrollo se ha utilizado ocasionalmente asistencia de IA de forma acelerativa, no
-sustitutiva:
+### Roles
 
-- **GitHub Copilot** para autocompletado.
-- **ChatGPT** puntual para dudas de API de librerías nuevas (Tiptap, políticas
-  RLS de Supabase) e instalaciones de paquetes npm.
-- **Traducciones i18n (4 locales: es, en, cat, fr)**: generadas con asistencia
-  IA y post-editadas parcialmente. Algunas locales (`cat`, `fr`) pueden
-  contener inconsistencias residuales o claves faltantes respecto a `es` /
-  `en`. No he podido dedicarle el tiempo necesario pero teniendo en cuenta que son textos he considerado que lo importante era el código.
+Tres. Definidos como árboles `visibility` + `actions` en
+`src/services/roles/`.
 
-Todas las decisiones arquitectónicas, de dominio (reglas de negocio de
-campañas, flujos admin, roles), de seguridad (RLS, policies, bucket auth) y de
-diseño son autoría propia.
+- **GUEST** — sin sesión. Ve la web pública.
+- **USER** — logueado. Ve lo mismo que GUEST + su perfil. Cuando haya
+  pasarela, será quien done.
+- **ADMIN** — el único que entra a `/admin`. Lo importante: las RLS de
+  Postgres comprueban el rol en cada INSERT/UPDATE/DELETE. Si un USER
+  intenta llamar al cliente Supabase a pelo saltándose el front, la base
+  de datos le responde que no. El guard de UI es solo cosmético.
 
----
+El rol vive en `profiles` y se sincroniza al cargar el perfil. El
+middleware `roleGuard` redirige a `/` si la ruta pide más rol del que
+tienes.
 
-## Setup
+## Stack
 
-Requisitos: Node 20+, npm, Docker (para Supabase local).
+Nuxt 3 + Vue 3 + TypeScript. Supabase (Postgres + Auth + Storage + RLS).
+Tailwind. TipTap para el editor enriquecido. Vitest para tests, sobre
+todo de integración contra Supabase local — los mocks no sirven para
+probar policies.
+
+Versiones en `package.json`. Node 20+.
+
+## Capturas
+
+Pendiente. TODO: subir capturas de home, detalle de campaña con el
+widget, y panel admin a `docs/screenshots/`.
+
+## Como levantarlo
+
+Necesitas Node 20+, npm y Docker corriendo (lo segundo es para Supabase
+local).
 
 ```bash
 npm install --legacy-peer-deps
-cp .env.example .env      # añadir SUPABASE_URL y SUPABASE_KEY
-npm run dev               # http://localhost:3000
+cp .env.example .env        # SUPABASE_URL y SUPABASE_KEY
+npm run dev
 ```
 
-### Supabase local
+Y para la base de datos en local:
 
 ```bash
-instalar docker https://www.docker.com/
-iniciar docker
+npx supabase start          # arranca Postgres + Auth + Storage en Docker
+npx supabase db reset       # aplica migraciones desde 0
 ```
 
-```bash
-npx supabase start        # Instala y arranca Postgres + Auth + Storage en Docker + aplica migraciones desde supabase/migrations
-npx supabase db reset     # aplica migraciones desde supabase/migrations
-```
+Migraciones en `supabase/migrations/`, se aplican por orden de fecha:
+profiles, roles, buckets, news, campaigns, tags.
 
----
+Comandos npm:
 
-## Scripts
+- `npm run dev` — servidor de desarrollo
+- `npm run build` / `npm run preview` — build y servirlo
+- `npm run test` — Vitest. **Necesita Supabase local arrancado**, si no
+  los tests de RLS petan
+- `npm run typecheck` — `nuxt typecheck`
 
-| Comando                | Descripción                   |
-| ---------------------- | ----------------------------- |
-| `npm run postinstall`  | Generar tipos autogenerados de nuxt |
-| `npm run dev`          | Dev server Nuxt               |
-| `npm run build`        | Build producción              |
-| `npm run preview`      | Preview build                 |
-| `npm run test`         | Vitest (tests de integración) |
-| `npm run typecheck`    | nuxt typecheck                |
-
----
+Despliegue: Vercel (`vercel.json` ya configurado). Backend en Supabase
+Cloud. CI/CD aún no, va en pendientes.
 
 ## Estructura
 
 ```
-components/      Componentes de front (forms, cards, tables, layouts, editor, icons)
-composables/     useDataTable, useFormValidation, useNavigation, useServices
-i18n/locales/    es, en, cat, fr 
-middleware/      roleGuard
-pages/           rutas Nuxt (públicas + admin)
-plugins/         services.ts (registra capa de servicios)
-src/
-  config/        siteConfig
-  navigation/    tabla de rutas + tipos
-  services/      _base (PluginBase, safeCatch), news, campaigns, profiles, roles
-  types/         modelos compartidos
-  validations/   validadores reutilizables
-supabase/migrations/  SQL incremental (profiles → roles → buckets → news → campaigns)
-utils/           helpers (formatDate)
+ong-platform/
+├─ components/        forms, cards, tables, layouts, editor, icons...
+├─ composables/       useDataTable, useFormValidation, useNavigation, useServices
+├─ i18n/locales/      es, ca, en, fr
+├─ middleware/        roleGuard
+├─ pages/             rutas públicas + /admin
+├─ plugins/           registro de la capa de servicios
+├─ src/
+│  ├─ config/
+│  ├─ navigation/     tabla central de rutas
+│  ├─ services/       _base + news, campaigns, tags, profiles, roles
+│  ├─ types/
+│  └─ validations/
+├─ supabase/migrations/   SQL incremental
+└─ utils/             formatDate, slug, etc.
 ```
 
+## Cosas pendientes
 
+Lo gordo:
+
+- Pagos reales con GiveButter. Es el siguiente paso, sin esto las campañas
+  no son campañas de verdad.
+
+Lo demás:
+
+- Rol superior "OWNER" además de ADMIN
+- Gestión de usuarios donde OWNER podrá modificar el resto de roles de usuarios registrados
+- CI/CD
+- Tests a nivel de componente (ahora solo hay de servicios)
+- Repasar `ca` y `fr` con alguien nativo. Ahora mismo `es` es el que
+  mejor está porque lo hablo, `fr` es el peor
+
+## IA
+
+Lo declaro porque la titulación lo exige. Copilot para autocompletar.
+ChatGPT y Gemini puntual para dudas de TipTap y, sobre todo, para depurar las
+primeras policies de RLS. Las traducciones i18n las saqué en borrador
+con IA y luego las pasé a mano por `es` y `en`; `ca` y `fr` se quedaron
+a medio revisar.
+
+## Autoría
+
+- Sergio Luz Fernández
+- TFM: _\<título oficial>_
+- _\<máster, universidad>_ — tutor/a: _\<nombre>_
+- 2025-2026
+
+Código MIT (ver `LICENSE`). Nombre y recursos gráficos de la Fundació
+Kassumay son de la fundación, no míos.

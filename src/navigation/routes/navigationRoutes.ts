@@ -11,7 +11,7 @@ export const navigationRoutes: INavigationRoute[] = [
 
     { to: "/profile", label: "composables.useNavigation.profile", section: "headerAuth", visibilityKey: "visibility.profile.view", requiredRole: "USER", order: 1 },
     
-    { to: "/admin/news", label: "composables.useNavigation.adminNews", section: "adminPanel", requiredRole: "USER", order: 1 },
-    { to: "/admin/campaigns", label: "composables.useNavigation.adminCampaigns", section: "adminPanel", requiredRole: "USER", order: 2 },
-    { to: "/admin/tags", label: "composables.useNavigation.adminTags", section: "adminPanel", requiredRole: "USER", order: 3 },
+    { to: "/admin/news", label: "composables.useNavigation.adminNews", section: "adminPanel", requiredRole: "ADMIN", order: 1 },
+    { to: "/admin/campaigns", label: "composables.useNavigation.adminCampaigns", section: "adminPanel", requiredRole: "ADMIN", order: 2 },
+    { to: "/admin/tags", label: "composables.useNavigation.adminTags", section: "adminPanel", requiredRole: "ADMIN", order: 3 },
 ]

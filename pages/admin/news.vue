@@ -52,7 +52,7 @@
             @close="closeForm"
             @save="saveArticle"
             @auto-slug="autoSlug"
-            @update:cover-mode="coverMode = $event"
+            @update:cover-mode="onCoverModeChange"
             @update:tag-ids="selectedTagIds = $event"
             @file-selected="onFileSelected"
             @clear-file="clearFile"
@@ -62,7 +62,8 @@
 </template>
 
 <script setup lang="ts">
-import { required, minLength } from "~/src/validations"
+import { required } from "~/src/validations"
+import type { ValidatorFn } from "~/src/validations"
 import { useToast } from "vue-toastification"
 import { resolveImageUrl } from "./_utils"
 
@@ -70,7 +71,7 @@ import type { IDataTableColumn } from "~/composables/useDataTable"
 import type { INewsModel } from "~/src/types"
 import type {INewsCreateParams} from "~/src/services/news"
 
-definePageMeta({ middleware: "role-guard", requiredRole: "USER" })
+definePageMeta({ middleware: "role-guard", requiredRole: "ADMIN" })
 
 const { t } = useI18n()
 const { news: newsService, tags: tagsService } = useServices()
@@ -102,16 +103,34 @@ const form = reactive({
     image_url: "",
     published: false,
 })
+// content viene del editor TipTap como HTML, asi que validamos longitud sobre texto plano
+// y sin espacios/saltos (consistente con el contador del editor)
+const stripHtml = (html: string) => html.replace(/<[^>]*>/g, "").replace(/&nbsp;/g, " ")
+const visibleLength = (html: string) => stripHtml(html).replace(/\s+/g, "").length
+const minTextLength = (min: number): ValidatorFn => (value) => {
+    if (typeof value !== "string") return null
+    if (visibleLength(value) < min) return { key: "validations.minLength", params: { min } }
+    return null
+}
+const contentRequired: ValidatorFn = (value) => {
+    if (typeof value !== "string" || visibleLength(value) === 0) return { key: "validations.required" }
+    return null
+}
 const { errors: formErrors, validate, validateField, isValid } = useFormValidation(form, {
     title: [required],
     slug: [required],
-    content: [required, minLength(50)],
+    content: [contentRequired, minTextLength(10)],
 })
 // el boton de save tambien necesita imagen, no solo los campos
 const canSubmit = computed(() => {
     if (!isValid.value) return false
     return coverMode.value === "UPLOAD" ? !!selectedFile.value : !!form.image_url.trim()
 })
+// validacion live de la imagen, igual que el resto de campos
+watch([coverMode, selectedFile, () => form.image_url], () => {
+    const hasImage = coverMode.value === "UPLOAD" ? !!selectedFile.value : !!form.image_url.trim()
+    imageError.value = hasImage ? "" : t("validations.required")
+}, { immediate: true })
 const previewArticle = computed<INewsModel>(() => ({
     id: 0,
     title: form.title || t("pages.admin.news.form.previewTitle"),
@@ -175,6 +194,9 @@ const clearFile = () => {
     selectedFile.value = null
     previewUrl.value = ""
 }
+const onCoverModeChange = (mode: "UPLOAD" | "URL") => {
+    coverMode.value = mode
+}
 
 // Form actions
 function openForm() {
@@ -193,6 +215,7 @@ function openForm() {
     selectedFile.value = null
     previewUrl.value = ""
     selectedTagIds.value = []
+    imageError.value = t("validations.required")
     showForm.value = true
 }
 async function editArticle(article: INewsModel) {
@@ -234,6 +257,7 @@ async function saveArticle() {
     )
     if (imgError) {
         serverError.value = imgError
+        toast.error(imgError)
         return
     }
 
@@ -253,6 +277,7 @@ async function saveArticle() {
 
     if (result.error) {
         serverError.value = result.error
+        toast.error(result.error)
         return
     }
 

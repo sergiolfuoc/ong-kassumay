@@ -1,6 +1,7 @@
 import type { ICampaignModel } from "~/src/types"
 import type { ICampaignCreateParams } from "~/src/services/campaigns"
-import { required, minLength, minNumber, dateRange } from "~/src/validations"
+import { required, minNumber, dateRange } from "~/src/validations"
+import type { ValidatorFn } from "~/src/validations"
 import { resolveImageUrl } from "~/pages/admin/_utils"
 import { useToast } from "vue-toastification"
 
@@ -35,10 +36,23 @@ export function useAdminCampaignForm(args: {
         end_date: "",
         active: false,
     })
+    // description viene del editor TipTap como HTML; validamos sobre texto plano sin
+    // espacios/saltos para que coincida con el contador del editor
+    const stripHtml = (html: string) => html.replace(/<[^>]*>/g, "").replace(/&nbsp;/g, " ")
+    const visibleLength = (html: string) => stripHtml(html).replace(/\s+/g, "").length
+    const minTextLength = (min: number): ValidatorFn => (value) => {
+        if (typeof value !== "string") return null
+        if (visibleLength(value) < min) return { key: "validations.minLength", params: { min } }
+        return null
+    }
+    const contentRequired: ValidatorFn = (value) => {
+        if (typeof value !== "string" || visibleLength(value) === 0) return { key: "validations.required" }
+        return null
+    }
     const { errors: formErrors, validate: validateFields, validateField, isValid, reset: resetErrors } = useFormValidation(form, {
         title: [required],
         slug: [required],
-        description: [required, minLength(10)],
+        description: [contentRequired, minTextLength(10)],
         goal_amount: [required, minNumber(1)],
         raised_amount: [minNumber(0)],
         start_date: [required],
@@ -184,7 +198,9 @@ export function useAdminCampaignForm(args: {
             closeForm()
             await args.onSaved()
         } catch (e) {
-            serverError.value = e instanceof Error ? e.message : String(e)
+            const msg = e instanceof Error ? e.message : String(e)
+            serverError.value = msg
+            toast.error(msg)
         } finally {
             isSubmitting.value = false
         }

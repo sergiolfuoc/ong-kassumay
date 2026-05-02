@@ -1,6 +1,6 @@
 <template>
     <div class="w-full">
-        <div class="h-2 rounded-full bg-earth-100 overflow-hidden">
+        <div class="h-2 rounded-full overflow-hidden" :class="dark ? 'bg-white/20' : 'bg-earth-100'">
             <div
                 class="h-full transition-all"
                 :class="barColor"
@@ -8,14 +8,14 @@
             />
         </div>
         <div class="flex items-center justify-between mt-1.5 gap-2">
-            <p class="text-xs text-earth-600">
+            <p class="text-xs" :class="dark ? 'text-white/90' : 'text-earth-600'">
                 <template v-if="progress.hasGoal">
-                    <span class="font-semibold text-earth-800">{{ formatNumbers(progress.raised) }}€</span>
-                    <span class="text-earth-400"> / {{ formatNumbers(progress.goal!) }}€</span>
-                    <span class="ml-2 text-earth-500">({{ progress.percent }}%)</span>
+                    <span class="font-semibold" :class="dark ? 'text-white' : 'text-earth-800'">{{ formatNumbers(progress.raised) }}€</span>
+                    <span :class="dark ? 'text-white/60' : 'text-earth-400'"> / {{ formatNumbers(progress.goal!) }}€</span>
+                    <span class="ml-2" :class="dark ? 'text-white/70' : 'text-earth-500'">({{ progress.percent }}%)</span>
                 </template>
                 <template v-else>
-                    <span class="font-semibold text-earth-800">{{ t("pages.campaigns.progress.raisedLabel", { amount: formatNumbers(progress.raised) }) }}</span>
+                    <span class="font-semibold" :class="dark ? 'text-white' : 'text-earth-800'">{{ t("pages.campaigns.progress.raisedLabel", { amount: formatNumbers(progress.raised) }) }}</span>
                 </template>
             </p>
             <span v-if="showStatus && statusLabel" class="text-[10px] uppercase tracking-wide font-semibold" :class="statusClass">
@@ -31,6 +31,7 @@ import type { ICampaignModel } from "~/src/types"
 const props = defineProps<{
     campaign: ICampaignModel
     showStatus?: boolean
+    dark?: boolean
 }>()
 
 const { t } = useI18n()
@@ -61,6 +62,15 @@ const statusLabel = computed(() => {
 })
 
 const statusClass = computed(() => {
+    if (props.dark) {
+        switch (progress.value.status) {
+            case "GOAL_REACHED": return "text-emerald-300"
+            case "ENDED":        return "text-white/60"
+            case "UPCOMING":     return "text-amber-300"
+            case "ACTIVE":       return "text-primary-300"
+            default:             return "text-white/60"
+        }
+    }
     switch (progress.value.status) {
         case "GOAL_REACHED": return "text-emerald-600"
         case "ENDED":        return "text-earth-500"

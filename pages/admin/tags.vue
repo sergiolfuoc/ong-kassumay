@@ -66,7 +66,7 @@ import { useToast } from "vue-toastification"
 import type { ITagModel } from "~/src/types"
 import { required, slug as slugValidator, maxLength } from "~/src/validations"
 
-definePageMeta({ middleware: "role-guard", requiredRole: "USER" })
+definePageMeta({ middleware: "role-guard", requiredRole: "ADMIN" })
 const { t } = useI18n()
 const { tags: tagsService } = useServices()
 const toast = useToast()
@@ -129,6 +129,7 @@ async function saveTag() {
 
     if (result.error) {
         serverError.value = result.error
+        toast.error(result.error)
         return
     }
 

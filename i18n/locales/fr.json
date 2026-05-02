@@ -282,8 +282,8 @@
             },
             "volunteerCta": {
                 "title": "Envie de nous rejoindre ?",
-                "text": "Notre équipe est 100% bénévole. Si tu veux t'impliquer, nous écrire ou découvrir comment collaborer, on t'explique les options.",
-                "cta": "Devenir bénévole"
+                "text": "Si tu veux donner un coup de main ou rejoindre l'équipe en tant que bénévole, on t'explique tout sur la page collaborer.",
+                "cta": "Devenir bénévole →"
             },
             "roles": {
                 "vicePresident": "Vice-président",
