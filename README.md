@@ -4,6 +4,10 @@ TFM. Web para una ONG (Fundació Kassumay): noticias, campañas, donaciones
 y un panel de admin pequeño y simplificado. Dispone de 4 idiomas (es, ca, en, fr) — `ca` y `fr` a
 medias, quedan pendientes de mejorar y aumentar.
 
+Demo desplegada en vercel: https://ong-kassumay-799w.vercel.app/ 
+
+Código en github: https://github.com/sergiolfuoc/ong-kassumay 
+
 ## Indice
 
 - [Motivación](#motivación)
@@ -30,6 +34,9 @@ Para mí el TFM era excusa para hacerlo bien. Llevo años con Vue/Node en
 startups, así que el reto no era el stack: era aplicarlo a un dominio
 nuevo y, sobre todo, no dejar la seguridad solo en el front.
 
+La web que sustituirá el resultado de este proyecto es el siguiente 
+wordpress https://fundaciokassumay.org/es/ 
+
 ## Que hace
 
 **Pública**: home con tags, listado de noticias y de campañas (filtrables
@@ -41,10 +48,10 @@ tags. Subir imagenes a Storage. Solo entran ADMINs.
 Login y registro los hace Supabase Auth. Cada user tiene su perfil con
 avatar y nombre, lo edita en `/profile`.
 
-> Nota mental para el tribunal: lo que más tiempo me llevó no fue
+> Nota: lo que más tiempo me llevó no fue
 > montar el CRUD, fue que al subir imágenes desde admin reventaba con un
 > error de RLS poco descriptivo. Faltaba una policy de SELECT en
-> `storage.objects`, porque `upsert: true` hace SELECT por debajo. Una
+> `storage.objects`, porque `upsert: true` hace SELECT por debajo. Estuve una
 > tarde entera para una línea de SQL.
 
 ### Roles
@@ -146,7 +153,7 @@ Lo demás:
 - Repasar `ca` y `fr` con alguien nativo. Ahora mismo `es` es el que
   mejor está porque lo hablo, `fr` es el peor
 
-## IA
+## Uso de IA
 
 Lo declaro porque la titulación lo exige. Copilot para autocompletar.
 ChatGPT y Gemini puntual para dudas de TipTap y, sobre todo, para depurar las
@@ -157,8 +164,8 @@ a medio revisar.
 ## Autoría
 
 - Sergio Luz Fernández
-- TFM: _\<título oficial>_
-- _\<máster, universidad>_ — tutor/a: _\<nombre>_
+- TFM: Desarrollo de una aplicación web para una ONG
+- Máster Universitario en Ingeniería Informática, UOC — Desarrollo de aplicaciones Web
 - 2025-2026
 
 Código MIT (ver `LICENSE`). Nombre y recursos gráficos de la Fundació
